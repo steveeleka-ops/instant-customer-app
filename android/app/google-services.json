@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:31592062119:android:59970f4e69186bddc0cf82",
         "android_client_info": {
-          "package_name": "com.steve.waprovider"
+          "package_name": "com.instantcustomerapp.customer"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "31592062119-4emt5lnl870t2dd5lhijf44vcvr23cap.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.steve.waprovider",
+            "package_name": "com.instantcustomerapp.customer",
             "certificate_hash": "ec9d277816422c57da1aec8c15f886ec3a41f726"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "31592062119-7en3176p917i48bqhc3pakhvvd4ged6e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.steve.waprovider",
+            "package_name": "com.instantcustomerapp.customer",
             "certificate_hash": "6781c6f84fec408bf493a96d6fde85b410046a7f"
           }
         },
@@ -34,7 +34,7 @@
           "client_id": "31592062119-b6td0d9q7bhgoqvejmequpr33v1t2gl7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.steve.waprovider",
+            "package_name": "com.instantcustomerapp.customer",
             "certificate_hash": "79889c3c3bb0ac04c5eed4f12ac1e89f662b6705"
           }
         },
