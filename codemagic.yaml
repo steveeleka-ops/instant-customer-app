@@ -10,7 +10,7 @@ workflows:
         script: |
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
           echo "flutter.versionName=1.0.2" >> android/local.properties
-          echo "flutter.versionCode=5" >> android/local.properties
+          echo "flutter.versionCode=6" >> android/local.properties
       - name: Get packages
         script: flutter pub get
       - name: Generate app icons
@@ -19,6 +19,6 @@ workflows:
         script: |
           flutter build appbundle --release \
             --build-name=1.0.2 \
-            --build-number=5
+            --build-number=6
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
