@@ -25,7 +25,11 @@ initServices() async {
   await Get.putAsync(() => TranslationService().init());
   await Get.putAsync(() => GlobalService().init());
   await Firebase.initializeApp();
-  await MobileAds.instance.initialize();
+  try {
+    await MobileAds.instance.initialize();
+  } catch (e) {
+    Get.log('MobileAds init failed: $e');
+  }
   await NotificationService().initNotification();
 
   await Get.putAsync(() => AuthService().init());

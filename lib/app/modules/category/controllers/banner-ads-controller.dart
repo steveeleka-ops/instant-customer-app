@@ -10,7 +10,11 @@ class BannerAdsViewModel extends ChangeNotifier {
   BannerAd bannerAd;
 
   BannerAdsViewModel() {
-    initBanner();
+    try {
+      initBanner();
+    } catch (e) {
+      print('Banner ad init failed: $e');
+    }
   }
 
   initBanner() {
