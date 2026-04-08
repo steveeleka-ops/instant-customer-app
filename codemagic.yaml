@@ -9,14 +9,16 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
-          echo "flutter.versionName=1.0.1" >> android/local.properties
-          echo "flutter.versionCode=1" >> android/local.properties
+          echo "flutter.versionName=1.0.2" >> android/local.properties
+          echo "flutter.versionCode=4" >> android/local.properties
       - name: Get packages
         script: flutter pub get
+      - name: Generate app icons
+        script: flutter pub run flutter_launcher_icons:main
       - name: Build Android App Bundle
         script: |
           flutter build appbundle --release \
-            --build-name=1.0.1 \
-            --build-number=1
+            --build-name=1.0.2 \
+            --build-number=4
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
