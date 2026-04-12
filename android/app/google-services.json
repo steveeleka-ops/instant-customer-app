@@ -15,6 +15,50 @@
       },
       "oauth_client": [
         {
+          "client_id": "31592062119-kv4a13qg3lgrm0t926l9e2rcpj7iv5mr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.instantcustomerapp.customer",
+            "certificate_hash": "2eb991395e306ff146a4b6384a3de494fd37b4df"
+          }
+        },
+        {
+          "client_id": "31592062119-1ru5411f1utau2dumrquf1ksrkj7h3j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnp14uF9QJ1eh5-7ITZPehkPeEN7IKuyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31592062119-1ru5411f1utau2dumrquf1ksrkj7h3j3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "31592062119-0g8ejvuek0r6g415447pgt77nfmjhluk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.steve.instant"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31592062119:android:6102863e5f406334c0cf82",
+        "android_client_info": {
+          "package_name": "com.instantproviderapp.provider"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "31592062119-1ru5411f1utau2dumrquf1ksrkj7h3j3.apps.googleusercontent.com",
           "client_type": 3
         }
