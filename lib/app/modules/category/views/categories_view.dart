@@ -9,7 +9,6 @@ import '../../global_widgets/home_search_bar_widget.dart';
 import '../controllers/categories_controller.dart';
 import '../widgets/category_grid_item_widget.dart';
 import '../widgets/category_list_item_widget.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesView extends GetView<CategoriesController> {
@@ -111,17 +110,6 @@ class CategoriesView extends GetView<CategoriesController> {
                                               // ),
                                               child:Image.asset('assets/icon/ad1.png')
                                           ),
-                                          // COMPLETE: Display a banner when ready
-                                          if (adModel.isBannerAdReady)
-                                            Container(
-                                              width: adModel.bannerAd.size.width
-                                                  .toDouble(),
-                                              height: adModel
-                                                  .bannerAd.size.height
-                                                  .toDouble(),
-                                              child: AdWidget(
-                                                  ad: adModel.bannerAd),
-                                            ),
                                         ])
                                   : CategoryListItemWidget(
                                       heroTag: 'category_list',

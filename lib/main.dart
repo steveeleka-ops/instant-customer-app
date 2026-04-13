@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'app/modules/category/controllers/banner-ads-controller.dart';
 import 'app/providers/firebase_provider.dart';
 import 'app/providers/laravel_provider.dart';
@@ -25,11 +24,6 @@ initServices() async {
   await Get.putAsync(() => TranslationService().init());
   await Get.putAsync(() => GlobalService().init());
   await Firebase.initializeApp();
-  try {
-    await MobileAds.instance.initialize();
-  } catch (e) {
-    Get.log('MobileAds init failed: $e');
-  }
   await NotificationService().initNotification();
 
   await Get.putAsync(() => AuthService().init());
