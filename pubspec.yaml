@@ -46,7 +46,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_staggered_grid_view: 0.4.0
-  flutter_svg: ^1.1.6
+  flutter_svg: 0.22.0
   get: ^4.3.8
   get_storage: 2.0.3
   # FONT
@@ -65,7 +65,7 @@ dependencies:
   # SHARED PREFERENCE
   shared_preferences: ^2.0.0
 
-  flutter_local_notifications: ^12.0.0
+  flutter_local_notifications: ^9.0.0
   google_mobile_ads: ^0.13.4
 
 dev_dependencies:
