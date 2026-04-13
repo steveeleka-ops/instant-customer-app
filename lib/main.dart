@@ -15,9 +15,6 @@ import 'app/services/translation_service.dart';
 import 'package:provider/provider.dart';
 import 'app/services/notification_service.dart';
 
-//base_url ====> http://34.93.175.233/  ==>
-// ""http://headhunt.my/""
-// "https://home-services.smartersvision.com/",
 initServices() async {
   Get.log('starting services ...');
   await GetStorage.init();
@@ -41,25 +38,32 @@ void main() async {
     Get.log('initServices top-level error: $e');
   }
 
+  final settingsService = Get.isRegistered<SettingsService>()
+      ? Get.find<SettingsService>()
+      : null;
+  final translationService = Get.isRegistered<TranslationService>()
+      ? Get.find<TranslationService>()
+      : null;
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => BannerAdsViewModel()),
       ],
       child: GetMaterialApp(
-        title: Get.find<SettingsService>().setting.value.appName,
+        title: settingsService?.setting?.value?.appName ?? 'Home Services',
         initialRoute: Theme1AppPages.INITIAL,
         getPages: Theme1AppPages.routes,
         localizationsDelegates: [GlobalMaterialLocalizations.delegate],
-        supportedLocales: Get.find<TranslationService>().supportedLocales(),
-        translationsKeys: Get.find<TranslationService>().translations,
-        locale: Get.find<SettingsService>().getLocale(),
-        fallbackLocale: Get.find<TranslationService>().fallbackLocale,
+        supportedLocales: translationService?.supportedLocales() ?? [const Locale('en', 'US')],
+        translationsKeys: translationService?.translations ?? {},
+        locale: settingsService?.getLocale() ?? const Locale('en', 'US'),
+        fallbackLocale: translationService?.fallbackLocale ?? const Locale('en', 'US'),
         debugShowCheckedModeBanner: false,
         defaultTransition: Transition.cupertino,
-        themeMode: Get.find<SettingsService>().getThemeMode(),
-        theme: Get.find<SettingsService>().getLightTheme(),
-        darkTheme: Get.find<SettingsService>().getDarkTheme(),
+        themeMode: settingsService?.getThemeMode() ?? ThemeMode.light,
+        theme: settingsService?.getLightTheme() ?? ThemeData.light(),
+        darkTheme: settingsService?.getDarkTheme() ?? ThemeData.dark(),
       ),
     ),
   );
