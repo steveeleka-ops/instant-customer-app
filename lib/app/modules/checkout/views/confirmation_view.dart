@@ -99,7 +99,8 @@ class ConfirmationView extends GetView<CheckoutController> {
   }
 
   Widget buildBlockButtonWidget() {
-    return Container(
+    return SafeArea(
+      child: Container(
       padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
@@ -129,6 +130,7 @@ class ConfirmationView extends GetView<CheckoutController> {
           onPressed: () {
             Get.find<RootController>().changePage(1);
           }).paddingOnly(bottom: 20, right: 20, left: 20),
+      ),
     );
   }
 }

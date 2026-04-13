@@ -119,16 +119,20 @@ class RegisterView extends GetView<AuthController> {
                       ),
                       TextFieldWidget(
                         labelText: "Phone Number".tr,
-                        hintText: "+1 223 665 7896".tr,
+                        hintText: "223 665 7896".tr,
                         initialValue: controller.currentUser?.value?.phoneNumber,
+                        keyboardType: TextInputType.phone,
                         onSaved: (input) {
                           if (input.startsWith("00")) {
                             input = "+" + input.substring(2);
+                          } else if (!input.startsWith("+")) {
+                            input = "+1" + input.replaceAll(RegExp(r'[\s\-\(\)]'), '');
                           }
                           return controller.currentUser.value.phoneNumber = input;
                         },
                         validator: (input) {
-                          return !input.startsWith('\+') && !input.startsWith('00') ? "Should be valid mobile number with country code" : null;
+                          final digits = input.replaceAll(RegExp(r'[\s\-\+\(\)]'), '');
+                          return digits.length < 10 ? "Should be a valid phone number".tr : null;
                         },
                         iconData: Icons.phone_android_outlined,
                         isLast: false,
