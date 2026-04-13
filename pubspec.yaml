@@ -61,12 +61,12 @@ dependencies:
   shimmer: 2.0.0
   url_launcher: ^6.0.11
   # WEB
-  webview_flutter: ^2.0.14
+  webview_flutter: ^3.0.0
   # SHARED PREFERENCE
   shared_preferences: ^2.0.0
 
   flutter_local_notifications: ^9.0.0
-  google_mobile_ads: ^3.0.0
+  google_mobile_ads: ^1.0.1
 
 dev_dependencies:
   change_app_package_name: ^1.0.0
