@@ -12,7 +12,9 @@ class RootView extends GetView<RootController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return Scaffold(
+      return DefaultTabController(
+        length: 5,
+        child: Scaffold(
           drawer: Drawer(
             child: MainDrawerWidget(),
             elevation: 0,
@@ -119,7 +121,8 @@ class RootView extends GetView<RootController> {
           // ),
           //     ],
           //   ),
-          );
+          ),
+        );
     });
   }
 }
