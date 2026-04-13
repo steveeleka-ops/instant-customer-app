@@ -45,30 +45,17 @@ class LaravelApiClient extends GetxService with ApiClient {
   }
 
   Future<LaravelApiClient> init() async {
-    if (foundation.kIsWeb || foundation.kDebugMode) {
-      _optionsNetwork = dio.Options();
-      _optionsCache = dio.Options();
-    } else {
-      _optionsNetwork =
-          buildCacheOptions(Duration(days: 3), forceRefresh: true);
-      _optionsCache =
-          buildCacheOptions(Duration(minutes: 10), forceRefresh: false);
-      _httpClient.interceptors.add(
-          DioCacheManager(CacheConfig(baseUrl: getApiBaseUrl(""))).interceptor);
-    }
+    _optionsNetwork = dio.Options();
+    _optionsCache = dio.Options();
     return this;
   }
 
   void forceRefresh({Duration duration = const Duration(minutes: 10)}) {
-    if (!foundation.kDebugMode) {
-      _optionsCache = dio.Options();
-    }
+    _optionsCache = dio.Options();
   }
 
   void unForceRefresh({Duration duration = const Duration(minutes: 10)}) {
-    if (!foundation.kDebugMode) {
-      _optionsCache = buildCacheOptions(duration, forceRefresh: false);
-    }
+    _optionsCache = dio.Options();
   }
 
   Future<List<Slide>> getHomeSlider() async {
