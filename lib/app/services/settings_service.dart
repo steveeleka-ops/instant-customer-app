@@ -27,7 +27,11 @@ class SettingsService extends GetxService {
     address.listen((Address _address) {
       _box.write('current_address', _address.toJson());
     });
-    setting.value = await _settingsRepo.get();
+    try {
+      setting.value = await _settingsRepo.get();
+    } catch (e) {
+      Get.log('SettingsService: failed to fetch settings: $e');
+    }
     await getAddress();
     return this;
   }
