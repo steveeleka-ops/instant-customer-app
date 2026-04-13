@@ -24,7 +24,11 @@ initServices() async {
   await Get.putAsync(() => TranslationService().init());
   await Get.putAsync(() => GlobalService().init());
   await Firebase.initializeApp();
-  await NotificationService().initNotification();
+  try {
+    await NotificationService().initNotification();
+  } catch (e) {
+    Get.log('NotificationService init failed: $e');
+  }
 
   await Get.putAsync(() => AuthService().init());
   await Get.putAsync(() => FireBaseMessagingService().init());
