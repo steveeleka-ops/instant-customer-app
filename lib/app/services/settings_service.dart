@@ -369,6 +369,9 @@ class SettingsService extends GetxService {
     if (_locale == null || _locale.isEmpty) {
       _locale = setting.value.mobileLanguage;
     }
+    if (_locale == null || _locale.isEmpty) {
+      return const Locale('en', 'US');
+    }
     return Get.find<TranslationService>().fromStringToLocale(_locale);
   }
 

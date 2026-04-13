@@ -21,26 +21,25 @@ import 'app/services/notification_service.dart';
 initServices() async {
   Get.log('starting services ...');
   await GetStorage.init();
-  await Get.putAsync(() => TranslationService().init());
-  await Get.putAsync(() => GlobalService().init());
-  await Firebase.initializeApp();
-  try {
-    await NotificationService().initNotification();
-  } catch (e) {
-    Get.log('NotificationService init failed: $e');
-  }
-
-  await Get.putAsync(() => AuthService().init());
-  await Get.putAsync(() => FireBaseMessagingService().init());
-  await Get.putAsync(() => LaravelApiClient().init());
-  await Get.putAsync(() => FirebaseProvider().init());
-  await Get.putAsync(() => SettingsService().init());
+  try { await Get.putAsync(() => TranslationService().init()); } catch (e) { Get.log('TranslationService init failed: $e'); }
+  try { await Get.putAsync(() => GlobalService().init()); } catch (e) { Get.log('GlobalService init failed: $e'); }
+  try { await Firebase.initializeApp(); } catch (e) { Get.log('Firebase init failed: $e'); }
+  try { await NotificationService().initNotification(); } catch (e) { Get.log('NotificationService init failed: $e'); }
+  try { await Get.putAsync(() => AuthService().init()); } catch (e) { Get.log('AuthService init failed: $e'); }
+  try { await Get.putAsync(() => FireBaseMessagingService().init()); } catch (e) { Get.log('FireBaseMessagingService init failed: $e'); }
+  try { await Get.putAsync(() => LaravelApiClient().init()); } catch (e) { Get.log('LaravelApiClient init failed: $e'); }
+  try { await Get.putAsync(() => FirebaseProvider().init()); } catch (e) { Get.log('FirebaseProvider init failed: $e'); }
+  try { await Get.putAsync(() => SettingsService().init()); } catch (e) { Get.log('SettingsService init failed: $e'); }
   Get.log('All services started...');
 }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initServices();
+  try {
+    await initServices();
+  } catch (e) {
+    Get.log('initServices top-level error: $e');
+  }
 
   runApp(
     MultiProvider(
