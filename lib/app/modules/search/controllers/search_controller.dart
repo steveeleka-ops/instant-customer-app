@@ -7,6 +7,7 @@ import '../../../models/category_model.dart';
 import '../../../models/e_service_model.dart';
 import '../../../repositories/category_repository.dart';
 import '../../../repositories/e_service_repository.dart';
+import '../../../../routes/app_routes.dart';
 
 class SearchController extends GetxController {
   final heroTag = "".obs;
@@ -97,8 +98,7 @@ class SearchController extends GetxController {
       match = null;
     }
     if (match != null) {
-      selectedCategories.assignAll([match.id]);
-      searchEServices(keywords: textEditingController.text);
+      Get.toNamed(Routes.CATEGORY, arguments: match);
     }
   }
 }

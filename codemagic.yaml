@@ -19,6 +19,6 @@ workflows:
         script: |
           flutter build appbundle --release \
             --build-name=1.0.2 \
-            --build-number=28
+            --build-number=29
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
