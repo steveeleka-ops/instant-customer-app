@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../common/smart_category_matcher.dart';
 import '../../../../common/ui.dart';
 import '../../../models/category_model.dart';
 import '../../../models/e_service_model.dart';
@@ -11,6 +12,7 @@ class SearchController extends GetxController {
   final heroTag = "".obs;
   final categories = <Category>[].obs;
   final selectedCategories = <String>[].obs;
+  final suggestedCategoryNames = <String>[].obs;
   TextEditingController textEditingController;
 
   final eServices = <EService>[].obs;
@@ -26,7 +28,19 @@ class SearchController extends GetxController {
   @override
   void onInit() async {
     await refreshSearch();
+    textEditingController.addListener(_onSearchTextChanged);
     super.onInit();
+  }
+
+  void _onSearchTextChanged() {
+    final text = textEditingController.text;
+    suggestedCategoryNames.assignAll(SmartCategoryMatcher.match(text));
+  }
+
+  @override
+  void onClose() {
+    textEditingController.removeListener(_onSearchTextChanged);
+    super.onClose();
   }
 
   @override
@@ -72,6 +86,17 @@ class SearchController extends GetxController {
       selectedCategories.add(category.id);
     } else {
       selectedCategories.removeWhere((element) => element == category.id);
+    }
+  }
+
+  void selectSuggestedCategory(String categoryName) {
+    // Find matching category by name (case-insensitive)
+    final match = categories.firstWhereOrNull(
+      (c) => c.name.toLowerCase() == categoryName.toLowerCase(),
+    );
+    if (match != null) {
+      selectedCategories.assignAll([match.id]);
+      searchEServices(keywords: textEditingController.text);
     }
   }
 }
