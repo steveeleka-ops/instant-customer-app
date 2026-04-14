@@ -26,20 +26,18 @@ class SearchController extends GetxController {
   }
 
   @override
-  void onInit() async {
-    await refreshSearch();
-    textEditingController.addListener(_onSearchTextChanged);
+  void onInit() {
     super.onInit();
+    refreshSearch();
   }
 
-  void _onSearchTextChanged() {
-    final text = textEditingController.text;
+  void onSearchTextChanged(String text) {
     suggestedCategoryNames.assignAll(SmartCategoryMatcher.match(text));
   }
 
   @override
   void onClose() {
-    textEditingController.removeListener(_onSearchTextChanged);
+    textEditingController.dispose();
     super.onClose();
   }
 
