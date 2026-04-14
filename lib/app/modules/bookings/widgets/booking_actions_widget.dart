@@ -20,8 +20,9 @@ class BookingActionsWidget extends GetView<BookingController> {
               Get.find<GlobalService>().global.value.onTheWay) {
         return SizedBox(height: 0);
       } else {
+        final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
         return Container(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.only(top: 10, bottom: 10 + bottomPadding),
           decoration: BoxDecoration(
             color: Get.theme.primaryColor,
             borderRadius: BorderRadius.only(

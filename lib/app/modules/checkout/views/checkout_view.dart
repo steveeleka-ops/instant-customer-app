@@ -74,13 +74,14 @@ class CheckoutView extends GetView<CheckoutController> {
           ),
         ),
       ),
-      bottomNavigationBar: buildBottomWidget(Get.arguments as Booking),
+      bottomNavigationBar: buildBottomWidget(context, Get.arguments as Booking),
     );
   }
 
-  Widget buildBottomWidget(Booking _booking) {
+  Widget buildBottomWidget(BuildContext context, Booking _booking) {
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.only(top: 20, bottom: 20 + bottomPadding),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),

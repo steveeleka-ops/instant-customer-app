@@ -26,7 +26,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
           ),
           elevation: 0,
         ),
-        bottomNavigationBar: buildBottomWidget(controller.booking.value),
+        bottomNavigationBar: buildBottomWidget(context, controller.booking.value),
         body: ListView(
           children: [
             Container(
@@ -115,9 +115,10 @@ class BookingSummaryView extends GetView<BookEServiceController> {
         ));
   }
 
-  Widget buildBottomWidget(Booking _booking) {
+  Widget buildBottomWidget(BuildContext context, Booking _booking) {
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.only(top: 20, bottom: 20 + bottomPadding),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),

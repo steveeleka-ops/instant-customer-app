@@ -148,13 +148,14 @@ class WalletViewWidget extends GetView<WalletController> {
           ],
         ),
       ),
-      bottomNavigationBar: buildBlockButtonWidget(),
+      bottomNavigationBar: buildBlockButtonWidget(context),
     );
   }
 
-  Widget buildBlockButtonWidget() {
+  Widget buildBlockButtonWidget(BuildContext context) {
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.only(top: 10, bottom: 10 + bottomPadding),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),

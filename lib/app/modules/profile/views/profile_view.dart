@@ -35,7 +35,7 @@ class ProfileView extends GetView<ProfileController> {
                 elevation: 0,
               ),
         bottomNavigationBar: Container(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.only(top: 10, bottom: 10 + MediaQuery.of(context).viewPadding.bottom),
           decoration: BoxDecoration(
             color: Get.theme.primaryColor,
             borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),

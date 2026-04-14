@@ -29,7 +29,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
           ),
           elevation: 0,
         ),
-        bottomNavigationBar: buildBlockButtonWidget(controller.booking.value),
+        bottomNavigationBar: buildBlockButtonWidget(context, controller.booking.value),
         body: ListView(
           children: [
             Container(
@@ -243,9 +243,10 @@ class BookEServiceView extends GetView<BookEServiceController> {
         ));
   }
 
-  Widget buildBlockButtonWidget(Booking _booking) {
+  Widget buildBlockButtonWidget(BuildContext context, Booking _booking) {
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.only(top: 20, bottom: 20 + bottomPadding),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),

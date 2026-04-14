@@ -29,7 +29,7 @@ class EServiceView extends GetView<EServiceController> {
         );
       } else {
         return Scaffold(
-          bottomNavigationBar: buildBottomWidget(_eService),
+          bottomNavigationBar: buildBottomWidget(context, _eService),
           body: RefreshIndicator(
               onRefresh: () async {
                 Get.find<LaravelApiClient>().forceRefresh();
@@ -489,9 +489,10 @@ class EServiceView extends GetView<EServiceController> {
     }
   }
 
-  Widget buildBottomWidget(EService _eService) {
+  Widget buildBottomWidget(BuildContext context, EService _eService) {
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.only(top: 20, bottom: 20 + bottomPadding),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),
