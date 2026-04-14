@@ -327,75 +327,100 @@ class EProviderView extends GetView<EProviderController> {
     });
   }
 
-  Container buildContactUs() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: Ui.getBoxDecoration(),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+  Widget buildContactUs() {
+    return Obx(() {
+      final locked = !controller.hasBooking.value;
+      return Container(
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: Ui.getBoxDecoration(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               children: [
-                Text("Contact us".tr, style: Get.textTheme.subtitle2),
-                Text("If your have any question!".tr, style: Get.textTheme.caption),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Contact us".tr, style: Get.textTheme.subtitle2),
+                      Text("If your have any question!".tr, style: Get.textTheme.caption),
+                    ],
+                  ),
+                ),
+                Wrap(
+                  spacing: 5,
+                  children: [
+                    Tooltip(
+                      message: locked ? "Available after placing a booking".tr : "",
+                      child: MaterialButton(
+                        onPressed: locked ? null : () {
+                          launch("tel:${controller.eProvider.value.mobileNumber}");
+                        },
+                        height: 44,
+                        minWidth: 44,
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        color: locked ? Colors.grey.withOpacity(0.15) : Get.theme.colorScheme.secondary.withOpacity(0.2),
+                        child: Icon(
+                          Icons.phone_android_outlined,
+                          color: locked ? Colors.grey : Get.theme.colorScheme.secondary,
+                        ),
+                        elevation: 0,
+                      ),
+                    ),
+                    Tooltip(
+                      message: locked ? "Available after placing a booking".tr : "",
+                      child: MaterialButton(
+                        onPressed: locked ? null : () {
+                          launch("tel:${controller.eProvider.value.phoneNumber}");
+                        },
+                        height: 44,
+                        minWidth: 44,
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        color: locked ? Colors.grey.withOpacity(0.15) : Get.theme.colorScheme.secondary.withOpacity(0.2),
+                        child: Icon(
+                          Icons.call_outlined,
+                          color: locked ? Colors.grey : Get.theme.colorScheme.secondary,
+                        ),
+                        elevation: 0,
+                      ),
+                    ),
+                    Tooltip(
+                      message: locked ? "Available after placing a booking".tr : "",
+                      child: MaterialButton(
+                        onPressed: locked ? null : () {
+                          controller.startChat();
+                        },
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        color: locked ? Colors.grey.withOpacity(0.15) : Get.theme.colorScheme.secondary.withOpacity(0.2),
+                        padding: EdgeInsets.zero,
+                        height: 44,
+                        minWidth: 44,
+                        child: Icon(
+                          Icons.chat_outlined,
+                          color: locked ? Colors.grey : Get.theme.colorScheme.secondary,
+                        ),
+                        elevation: 0,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ),
-          Wrap(
-            spacing: 5,
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  launch("tel:${controller.eProvider.value.mobileNumber}");
-                },
-                height: 44,
-                minWidth: 44,
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Get.theme.colorScheme.secondary.withOpacity(0.2),
-                child: Icon(
-                  Icons.phone_android_outlined,
-                  color: Get.theme.colorScheme.secondary,
+            if (locked)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  "Place a booking to access contact info".tr,
+                  style: Get.textTheme.caption.merge(TextStyle(color: Colors.grey)),
                 ),
-                elevation: 0,
               ),
-              MaterialButton(
-                onPressed: () {
-                  launch("tel:${controller.eProvider.value.phoneNumber}");
-                },
-                height: 44,
-                minWidth: 44,
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Get.theme.colorScheme.secondary.withOpacity(0.2),
-                child: Icon(
-                  Icons.call_outlined,
-                  color: Get.theme.colorScheme.secondary,
-                ),
-                elevation: 0,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  controller.startChat();
-                },
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Get.theme.colorScheme.secondary.withOpacity(0.2),
-                padding: EdgeInsets.zero,
-                height: 44,
-                minWidth: 44,
-                child: Icon(
-                  Icons.chat_outlined,
-                  color: Get.theme.colorScheme.secondary,
-                ),
-                elevation: 0,
-              ),
-            ],
-          )
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 
   CarouselSlider buildCarouselSlider(EProvider _eProvider) {

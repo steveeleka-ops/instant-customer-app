@@ -9,6 +9,7 @@ import '../../../models/media_model.dart';
 import '../../../models/message_model.dart';
 import '../../../models/review_model.dart';
 import '../../../models/user_model.dart';
+import '../../../repositories/booking_repository.dart';
 import '../../../repositories/e_provider_repository.dart';
 import '../../../routes/app_routes.dart';
 
@@ -20,11 +21,14 @@ class EProviderController extends GetxController {
   final experiences = <Experience>[].obs;
   final featuredEServices = <EService>[].obs;
   final currentSlide = 0.obs;
+  final hasBooking = false.obs;
   String heroTag = "";
   EProviderRepository _eProviderRepository;
+  BookingRepository _bookingRepository;
 
   EProviderController() {
     _eProviderRepository = new EProviderRepository();
+    _bookingRepository = new BookingRepository();
   }
 
   @override
@@ -38,7 +42,16 @@ class EProviderController extends GetxController {
   @override
   void onReady() async {
     await refreshEProvider();
+    await checkHasBooking();
     super.onReady();
+  }
+
+  Future checkHasBooking() async {
+    try {
+      hasBooking.value = await _bookingRepository.hasBookingWithProvider(eProvider.value.id);
+    } catch (e) {
+      hasBooking.value = false;
+    }
   }
 
   Future refreshEProvider({bool showMessage = false}) async {

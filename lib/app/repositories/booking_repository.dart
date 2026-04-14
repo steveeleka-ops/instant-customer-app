@@ -40,4 +40,8 @@ class BookingRepository {
   Future<Review> addReview(Review review) {
     return _laravelApiClient.addReview(review);
   }
+
+  Future<bool> hasBookingWithProvider(String providerId) {
+    return _laravelApiClient.hasBookingWithProvider(providerId);
+  }
 }
