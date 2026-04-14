@@ -94,14 +94,14 @@ class ConfirmationView extends GetView<CheckoutController> {
           ],
         ),
       ),
-      bottomNavigationBar: buildBlockButtonWidget(),
+      bottomNavigationBar: buildBlockButtonWidget(context),
     );
   }
 
-  Widget buildBlockButtonWidget() {
-    return SafeArea(
-      child: Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
+  Widget buildBlockButtonWidget(BuildContext context) {
+    final bottomPadding = MediaQuery.of(context).padding.bottom;
+    return Container(
+      padding: EdgeInsets.only(top: 10, bottom: 10 + bottomPadding),
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -130,7 +130,6 @@ class ConfirmationView extends GetView<CheckoutController> {
           onPressed: () {
             Get.find<RootController>().changePage(1);
           }).paddingOnly(bottom: 20, right: 20, left: 20),
-      ),
     );
   }
 }
