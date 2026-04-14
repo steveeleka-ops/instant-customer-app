@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/smart_category_matcher.dart';
+import '../../../common/smart_category_matcher.dart';
 import '../../../../common/ui.dart';
 import '../../../models/category_model.dart';
 import '../../../models/e_service_model.dart';
@@ -90,10 +90,14 @@ class SearchController extends GetxController {
   }
 
   void selectSuggestedCategory(String categoryName) {
-    // Find matching category by name (case-insensitive)
-    final match = categories.firstWhereOrNull(
-      (c) => c.name.toLowerCase() == categoryName.toLowerCase(),
-    );
+    Category match;
+    try {
+      match = categories.firstWhere(
+        (c) => c.name.toLowerCase() == categoryName.toLowerCase(),
+      );
+    } catch (_) {
+      match = null;
+    }
     if (match != null) {
       selectedCategories.assignAll([match.id]);
       searchEServices(keywords: textEditingController.text);
