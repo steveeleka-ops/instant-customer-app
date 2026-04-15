@@ -909,15 +909,20 @@ class LaravelApiClient extends GetxService with ApiClient {
   Future<bool> hasBookingWithProvider(String providerId) async {
     var _queryParameters = {
       'api_token': authService.apiToken,
-      'search': 'e_provider_id:${providerId}',
-      'limit': '1',
+      'with': 'eProvider',
+      'limit': '100',
       'offset': '0',
     };
     Uri _uri = getApiBaseUri("bookings").replace(queryParameters: _queryParameters);
     try {
       var response = await _httpClient.getUri(_uri, options: _optionsNetwork);
       if (response.data['success'] == true) {
-        return (response.data['data'] as List).isNotEmpty;
+        final bookings = response.data['data'] as List;
+        return bookings.any((b) {
+          final ep = b['e_provider'];
+          if (ep == null) return false;
+          return ep['id']?.toString() == providerId?.toString();
+        });
       }
     } catch (e) {
       Get.log(e.toString());
