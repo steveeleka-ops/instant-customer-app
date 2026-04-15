@@ -2,8 +2,6 @@
  * Copyright (c) 2020 .
  */
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +21,12 @@ class PaymentDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var serviceQTY;
-    if(_booking.eService.quantityUnit.isEmpty) serviceQTY = 1;
-    else serviceQTY = int.parse(_booking.eService.quantityUnit);
+    if(_booking.eService.quantityUnit == null || _booking.eService.quantityUnit.isEmpty) {
+      serviceQTY = 1;
+    } else {
+      final parsed = int.tryParse(_booking.eService.quantityUnit.replaceAll(RegExp(r'[^\d]'), ''));
+      serviceQTY = (parsed != null && parsed > 0) ? parsed : 1;
+    }
     var qty = _booking.quantity * serviceQTY;
 
     return Container(
