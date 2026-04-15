@@ -131,7 +131,8 @@ abstract class Model {
         if (json[attribute] is int) {
           return double.parse(json[attribute].toDouble().toStringAsFixed(decimal));
         }
-        return double.parse(double.tryParse(json[attribute]).toStringAsFixed(decimal));
+        final String raw = json[attribute].toString().replaceAll(RegExp(r'[^\d.]'), '');
+        return double.parse((double.tryParse(raw) ?? defaultValue).toStringAsFixed(decimal));
       }
       return defaultValue;
     } catch (e) {

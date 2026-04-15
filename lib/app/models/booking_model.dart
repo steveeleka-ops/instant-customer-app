@@ -170,16 +170,25 @@ class Booking extends Model {
   double getSubtotal() {
     double total = 0.0;
     try {
+      final int qty = quantity >= 1 ? quantity : 1;
+      final bool hasOptions = options != null && options.isNotEmpty;
       if (eService.priceUnit == 'fixed') {
-        total = eService.getPrice * (quantity >= 1 ? quantity : 1);
-        options?.forEach((element) {
-          total += element.price * (quantity >= 1 ? quantity : 1);
-        });
+        if (hasOptions) {
+          // Option price replaces the base price entirely
+          options.forEach((element) {
+            total += element.price * qty;
+          });
+        } else {
+          total = eService.getPrice * qty;
+        }
       } else if (duration != null) {
-        total = (eService.getPrice * duration);
-        options?.forEach((element) {
-          total += element.price;
-        });
+        if (hasOptions) {
+          options.forEach((element) {
+            total += element.price;
+          });
+        } else {
+          total = eService.getPrice * duration;
+        }
       }
     } catch (e) {
       debugPrint("Exception: $e");
