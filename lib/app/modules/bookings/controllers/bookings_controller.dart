@@ -15,6 +15,9 @@ class BookingsController extends GetxController {
   final page = 0.obs;
   final isLoading = true.obs;
   final isDone = false.obs;
+  // Kept for compatibility with checkout controllers that set this after payment.
+  // No longer used to filter the booking list.
+  final currentStatus = ''.obs;
 
   ScrollController scrollController;
 
