@@ -5,6 +5,7 @@ import '../../../models/booking_model.dart';
 import '../../../routes/app_routes.dart';
 import '../../../services/global_service.dart';
 import '../controllers/bookings_controller.dart';
+import 'booking_actions_widget.dart';
 
 class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
   const BookingOptionsPopupMenuWidget({
@@ -17,6 +18,15 @@ class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
 
   @override
   Widget build(BuildContext context) {
+    final int statusOrder = _booking.status?.order ?? 0;
+    final int done = Get.find<GlobalService>().global.value.done; // 50
+    final int onTheWay =
+        Get.find<GlobalService>().global.value.onTheWay; // 20
+
+    final bool canCancel =
+        !_booking.cancel && statusOrder > 0 && statusOrder < done;
+    final bool isLateCancel = statusOrder >= onTheWay;
+
     return PopupMenuButton(
       elevation: 8,
       shape: RoundedRectangleBorder(
@@ -26,7 +36,21 @@ class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
         switch (item) {
           case "cancel":
             {
-              controller.cancelBookingService(_booking);
+              if (isLateCancel) {
+                Get.dialog(LateCancelDialog(
+                  totalAmount: _booking.getTotal(),
+                  onConfirm: () {
+                    controller.cancelBookingService(_booking);
+                  },
+                ));
+              } else {
+                Get.dialog(FreeCancelDialog(
+                  onPressed: () {
+                    controller.cancelBookingService(_booking);
+                    Get.back();
+                  },
+                ));
+              }
             }
             break;
           case "view":
@@ -70,10 +94,8 @@ class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
             value: "view",
           ),
         );
-        if (!_booking.cancel && _booking.status.order < Get.find<GlobalService>().global.value.onTheWay) {
-          list.add(PopupMenuDivider(
-            height: 10,
-          ));
+        if (canCancel) {
+          list.add(PopupMenuDivider(height: 10));
           list.add(
             PopupMenuItem(
               child: Wrap(
@@ -82,7 +104,7 @@ class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
                 children: [
                   Icon(Icons.remove_circle_outline, color: Colors.redAccent),
                   Text(
-                    "Cancel".tr,
+                    isLateCancel ? "Cancel (10% fee)".tr : "Cancel".tr,
                     style: TextStyle(color: Colors.redAccent),
                   ),
                 ],

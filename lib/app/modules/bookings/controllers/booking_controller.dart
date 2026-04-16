@@ -100,17 +100,19 @@ class BookingController extends GetxController {
     }
   }
 
+  /// Cancels the booking. Works for any status — the fee warning dialog is
+  /// shown by BookingActionsWidget before this is called.
   Future<void> cancelBookingService() async {
     try {
-      if (booking.value.status.order < Get.find<GlobalService>().global.value.onTheWay) {
-        final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.failed);
-        final _booking = new Booking(id: booking.value.id, cancel: true, status: _status);
-        await _bookingRepository.update(_booking);
-        booking.update((val) {
-          val.cancel = true;
-          val.status = _status;
-        });
-      }
+      final _status = Get.find<BookingsController>()
+          .getStatusByOrder(Get.find<GlobalService>().global.value.failed);
+      final _booking =
+          new Booking(id: booking.value.id, cancel: true, status: _status);
+      await _bookingRepository.update(_booking);
+      booking.update((val) {
+        val.cancel = true;
+        val.status = _status;
+      });
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     }

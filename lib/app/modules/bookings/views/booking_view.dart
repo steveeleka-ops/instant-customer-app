@@ -9,6 +9,7 @@ import '../../../providers/laravel_provider.dart';
 import '../controllers/booking_controller.dart';
 import '../widgets/booking_actions_widget.dart';
 import '../widgets/booking_row_widget.dart';
+import '../widgets/booking_status_timeline_widget.dart';
 import '../widgets/booking_til_widget.dart';
 import '../widgets/booking_title_bar_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -75,6 +76,13 @@ class BookingView extends GetView<BookingController> {
                     Obx(() {
                       return buildContactCustomer(controller.booking.value);
                     }),
+                    // Status timeline
+                    Obx(() {
+                      if (controller.booking.value.status == null)
+                        return SizedBox();
+                      return BookingStatusTimelineWidget(
+                          booking: controller.booking.value);
+                    }),
                     Obx(() {
                       if (controller.booking.value.status == null)
                         return SizedBox();
@@ -88,38 +96,6 @@ class BookingView extends GetView<BookingController> {
                           ],
                           content: Column(
                             children: [
-                              BookingRowWidget(
-                                  descriptionFlex: 1,
-                                  valueFlex: 2,
-                                  description: "Status".tr,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                            right: 12,
-                                            left: 12,
-                                            top: 6,
-                                            bottom: 6),
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(5)),
-                                          color: Get.theme.focusColor
-                                              .withOpacity(0.1),
-                                        ),
-                                        child: Text(
-                                          controller
-                                              .booking.value.status.status,
-                                          overflow: TextOverflow.clip,
-                                          maxLines: 1,
-                                          softWrap: true,
-                                          style: TextStyle(
-                                              color: Get.theme.hintColor),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  hasDivider: true),
                               BookingRowWidget(
                                   description: "Payment Status".tr,
                                   child: Row(

@@ -885,13 +885,14 @@ class LaravelApiClient extends GetxService with ApiClient {
     var _queryParameters = {
       'with': 'bookingStatus;payment;payment.paymentStatus',
       'api_token': authService.apiToken,
-      // 'search': 'user_id:${authService.user.value.id}',
-      'search': 'booking_status_id:${statusId}',
       'orderBy': 'created_at',
       'sortedBy': 'desc',
-      'limit': '4',
-      'offset': ((page - 1) * 4).toString()
+      'limit': '10',
+      'offset': ((page - 1) * 10).toString()
     };
+    if (statusId != null && statusId.isNotEmpty) {
+      _queryParameters['search'] = 'booking_status_id:${statusId}';
+    }
     Get.log(_queryParameters.toString());
     Uri _uri =
         getApiBaseUri("bookings").replace(queryParameters: _queryParameters);
