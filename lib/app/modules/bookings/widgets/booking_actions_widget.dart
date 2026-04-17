@@ -15,27 +15,15 @@ class BookingActionsWidget extends GetView<BookingController> {
   Widget build(BuildContext context) {
     var _booking = controller.booking;
     return Obx(() {
-      if (_booking.value.status != null &&
-          _booking.value.status.order ==
-              Get.find<GlobalService>().global.value.onTheWay) {
-        return SizedBox(height: 0);
-      } else {
-        final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
-        final int statusOrder = _booking.value.status?.order ?? 0;
-        final int onTheWay =
-            Get.find<GlobalService>().global.value.onTheWay; // 20
-        final int done = Get.find<GlobalService>().global.value.done; // 50
-        const int pendingApproval = 55;
+      final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
+      final int statusOrder = _booking.value.status?.order ?? 0;
+      final int onTheWay =
+          Get.find<GlobalService>().global.value.onTheWay; // 20
+      final int done = Get.find<GlobalService>().global.value.done; // 50
+      const int pendingApproval = 55;
 
-        // Show cancel button if: not already cancelled AND not done/beyond
-        final bool canCancel =
-            !_booking.value.cancel && statusOrder > 0 && statusOrder < done;
-
-        // Late cancel = provider is already on the way or in progress
-        final bool isLateCancel = statusOrder >= onTheWay;
-
-        // ── Pending Approval: customer must Approve or Deny ──────────────────
-        if (statusOrder == pendingApproval) {
+      // ── Pending Approval: customer must Approve or Deny — check FIRST ───────
+      if (!_booking.value.cancel && statusOrder == pendingApproval) {
           return Container(
             padding: EdgeInsets.only(top: 16, bottom: 16 + bottomPadding, left: 20, right: 20),
             decoration: BoxDecoration(
@@ -130,9 +118,21 @@ class BookingActionsWidget extends GetView<BookingController> {
             ),
           );
         }
-        // ─────────────────────────────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
 
-        return Container(
+      // Hide action bar while provider is on the way (tracking view handles it)
+      if (_booking.value.status != null && statusOrder == onTheWay) {
+        return SizedBox(height: 0);
+      }
+
+      // Show cancel button if: not already cancelled AND not done/beyond
+      final bool canCancel =
+          !_booking.value.cancel && statusOrder > 0 && statusOrder < done;
+
+      // Late cancel = provider is already on the way or in progress
+      final bool isLateCancel = statusOrder >= onTheWay;
+
+      return Container(
           padding: EdgeInsets.only(top: 10, bottom: 10 + bottomPadding),
           decoration: BoxDecoration(
             color: Get.theme.primaryColor,
@@ -251,7 +251,6 @@ class BookingActionsWidget extends GetView<BookingController> {
             ],
           ).paddingSymmetric(vertical: 10, horizontal: 20),
         );
-      }
     });
   }
 }
