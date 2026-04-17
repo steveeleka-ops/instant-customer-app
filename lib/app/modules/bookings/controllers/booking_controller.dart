@@ -158,4 +158,30 @@ class BookingController extends GetxController {
     Message _message = new Message(_employees, name: booking.value.eProvider.name);
     Get.toNamed(Routes.CHAT, arguments: _message);
   }
+
+  Future<void> approveBooking() async {
+    try {
+      await _bookingRepository.approve(booking.value.id);
+      final _doneStatus = Get.find<BookingsController>().getStatusByOrder(50);
+      booking.update((val) {
+        val.status = _doneStatus;
+      });
+      Get.showSnackbar(Ui.SuccessSnackBar(message: "Job approved! Payment has been released.".tr));
+    } catch (e) {
+      Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
+    }
+  }
+
+  Future<void> denyBooking(String notes) async {
+    try {
+      await _bookingRepository.deny(booking.value.id, notes);
+      final _inProgressStatus = Get.find<BookingsController>().getStatusByOrder(40);
+      booking.update((val) {
+        val.status = _inProgressStatus;
+      });
+      Get.showSnackbar(Ui.SuccessSnackBar(message: "Job reopened. The provider has been notified.".tr));
+    } catch (e) {
+      Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
+    }
+  }
 }

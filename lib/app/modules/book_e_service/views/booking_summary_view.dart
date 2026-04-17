@@ -130,6 +130,41 @@ class BookingSummaryView extends GetView<BookEServiceController> {
         mainAxisSize: MainAxisSize.min,
         children: [
           PaymentDetailsWidget(booking: _booking),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.lock_outline, size: 13, color: Get.theme.hintColor),
+                    SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        "Your payment will be held securely until the job is completed and approved by you.".tr,
+                        style: Get.textTheme.caption.merge(TextStyle(fontSize: 11)),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 4),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.credit_card_outlined, size: 13, color: Get.theme.hintColor),
+                    SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        "Your card will be saved to maintain the hold if the job requires additional work.".tr,
+                        style: Get.textTheme.caption.merge(TextStyle(fontSize: 11)),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           BlockButtonWidget(
               text: Stack(
                 alignment: AlignmentDirectional.centerEnd,

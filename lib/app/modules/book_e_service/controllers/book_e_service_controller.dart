@@ -85,12 +85,11 @@ class BookEServiceController extends GetxController {
       this.booking.value.address = currentAddress;
       Get.log(booking.value.toString());
       print(booking.value);
-      await _bookingRepository.add(booking.value);
-      Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(1).id;
-      if (Get.isRegistered<TabBarController>(tag: 'bookings')) {
-        Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(1).id;
-      }
-      Get.toNamed(Routes.CONFIRMATION);
+      // Create booking to get an ID, then send customer to Stripe to authorize payment hold
+      final createdBooking = await _bookingRepository.add(booking.value);
+      booking.value = createdBooking;
+      // Navigate to Stripe checkout — funds held until job is approved by customer
+      Get.toNamed(Routes.STRIPE, arguments: {'booking': createdBooking});
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     }

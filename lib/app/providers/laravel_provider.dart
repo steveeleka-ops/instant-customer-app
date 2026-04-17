@@ -1010,6 +1010,32 @@ class LaravelApiClient extends GetxService with ApiClient {
     }
   }
 
+  Future<void> approveBooking(String bookingId) async {
+    if (!authService.isAuth) {
+      throw new Exception("You don't have the permission to access to this area!".tr + "[ approveBooking() ]");
+    }
+    var _queryParameters = {'api_token': authService.apiToken};
+    Uri _uri = getApiBaseUri("bookings/$bookingId/approve").replace(queryParameters: _queryParameters);
+    Get.log(_uri.toString());
+    var response = await _httpClient.postUri(_uri, data: {}, options: _optionsNetwork);
+    if (response.data['success'] != true) {
+      throw new Exception(response.data['message']);
+    }
+  }
+
+  Future<void> denyBooking(String bookingId, String notes) async {
+    if (!authService.isAuth) {
+      throw new Exception("You don't have the permission to access to this area!".tr + "[ denyBooking() ]");
+    }
+    var _queryParameters = {'api_token': authService.apiToken};
+    Uri _uri = getApiBaseUri("bookings/$bookingId/deny").replace(queryParameters: _queryParameters);
+    Get.log(_uri.toString());
+    var response = await _httpClient.postUri(_uri, data: {'notes': notes}, options: _optionsNetwork);
+    if (response.data['success'] != true) {
+      throw new Exception(response.data['message']);
+    }
+  }
+
   Future<Booking> addBooking(Booking booking) async {
     if (!authService.isAuth) {
       throw new Exception(

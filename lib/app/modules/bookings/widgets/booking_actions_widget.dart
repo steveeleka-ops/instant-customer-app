@@ -25,6 +25,7 @@ class BookingActionsWidget extends GetView<BookingController> {
         final int onTheWay =
             Get.find<GlobalService>().global.value.onTheWay; // 20
         final int done = Get.find<GlobalService>().global.value.done; // 50
+        const int pendingApproval = 55;
 
         // Show cancel button if: not already cancelled AND not done/beyond
         final bool canCancel =
@@ -32,6 +33,104 @@ class BookingActionsWidget extends GetView<BookingController> {
 
         // Late cancel = provider is already on the way or in progress
         final bool isLateCancel = statusOrder >= onTheWay;
+
+        // ── Pending Approval: customer must Approve or Deny ──────────────────
+        if (statusOrder == pendingApproval) {
+          return Container(
+            padding: EdgeInsets.only(top: 16, bottom: 16 + bottomPadding, left: 20, right: 20),
+            decoration: BoxDecoration(
+              color: Get.theme.primaryColor,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+              boxShadow: [
+                BoxShadow(
+                    color: Get.theme.focusColor.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: Offset(0, -5)),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  "Job completed — please review".tr,
+                  textAlign: TextAlign.center,
+                  style: Get.textTheme.bodyText1
+                      .merge(TextStyle(fontWeight: FontWeight.w600)),
+                ),
+                SizedBox(height: 12),
+                Row(
+                  children: [
+                    // Deny button
+                    Expanded(
+                      child: MaterialButton(
+                        onPressed: () {
+                          Get.dialog(DenyNotesDialog(
+                            onSubmit: (notes) {
+                              controller.denyBooking(notes);
+                            },
+                          ));
+                        },
+                        padding: EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: BorderSide(color: Colors.red.shade300)),
+                        color: Colors.red.withOpacity(0.07),
+                        elevation: 0,
+                        child: Text(
+                          "Deny".tr,
+                          style: Get.textTheme.bodyText2.merge(TextStyle(
+                              color: Colors.red.shade700,
+                              fontWeight: FontWeight.w600)),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 12),
+                    // Approve button
+                    Expanded(
+                      child: MaterialButton(
+                        onPressed: () {
+                          Get.dialog(AlertDialog(
+                            title: Text("Approve Job?".tr),
+                            content: Text(
+                                "Confirm the job is done. Your payment will be released to the provider."
+                                    .tr),
+                            actions: [
+                              TextButton(
+                                  onPressed: () => Get.back(),
+                                  child: Text("Cancel".tr)),
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Get.theme.colorScheme.secondary),
+                                  onPressed: () {
+                                    Get.back();
+                                    controller.approveBooking();
+                                  },
+                                  child: Text("Approve".tr)),
+                            ],
+                          ));
+                        },
+                        padding: EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        color: Get.theme.colorScheme.secondary,
+                        elevation: 0,
+                        child: Text(
+                          "Approve".tr,
+                          style: Get.textTheme.bodyText2.merge(TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        }
+        // ─────────────────────────────────────────────────────────────────────
 
         return Container(
           padding: EdgeInsets.only(top: 10, bottom: 10 + bottomPadding),
@@ -316,6 +415,104 @@ class LateCancelDialog extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)),
                     ),
                     child: Text("Cancel (\$$feeStr)"),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─── Deny Notes Dialog ────────────────────────────────────────────────────────
+
+class DenyNotesDialog extends StatefulWidget {
+  final Function(String notes) onSubmit;
+
+  const DenyNotesDialog({Key key, this.onSubmit}) : super(key: key);
+
+  @override
+  _DenyNotesDialogState createState() => _DenyNotesDialogState();
+}
+
+class _DenyNotesDialogState extends State<DenyNotesDialog> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.report_problem_outlined, color: Colors.orange, size: 22),
+                SizedBox(width: 8),
+                Text(
+                  "What needs more work?",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(height: 12),
+            Text(
+              "Please describe what still needs to be done. The provider will be notified and the job will be reopened.",
+              style: TextStyle(fontSize: 13, color: Colors.grey.shade700),
+            ),
+            SizedBox(height: 14),
+            TextField(
+              controller: _controller,
+              maxLines: 4,
+              decoration: InputDecoration(
+                hintText: "Describe what needs more work...".tr,
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              ),
+            ),
+            SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () => Get.back(),
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    child: Text("Cancel".tr),
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Get.back();
+                      widget.onSubmit(_controller.text.trim());
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                      padding: EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    child: Text("Submit & Reopen".tr),
                   ),
                 ),
               ],

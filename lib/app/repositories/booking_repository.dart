@@ -44,4 +44,12 @@ class BookingRepository {
   Future<bool> hasBookingWithProvider(String providerId) {
     return _laravelApiClient.hasBookingWithProvider(providerId);
   }
+
+  Future<void> approve(String bookingId) {
+    return _laravelApiClient.approveBooking(bookingId);
+  }
+
+  Future<void> deny(String bookingId, String notes) {
+    return _laravelApiClient.denyBooking(bookingId, notes);
+  }
 }
