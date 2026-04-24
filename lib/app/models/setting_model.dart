@@ -95,7 +95,7 @@ class Setting extends Model {
     boolFromJson(json, 'enable_stripe');
     enablePaypal = boolFromJson(json, 'enable_paypal');
     defaultCurrencyDecimalDigits =
-        int.tryParse(json['default_currency_decimal_digits'] ?? '2') ?? 2;
+        int.tryParse((json['default_currency_decimal_digits'] ?? '2').toString()) ?? 2;
   }
 
   Map<String, dynamic> toJson() {

@@ -19,21 +19,18 @@ class StripeViewWidget extends GetView<StripeController> {
       ),
       body: Stack(
         children: <Widget>[
-          Obx(() {
-            return WebView(
-                initialUrl: controller.url.value,
-                javascriptMode: JavascriptMode.unrestricted,
-                onWebViewCreated: (WebViewController _con) {
-                  controller.webView = _con;
-                },
-                onPageStarted: (String url) {
-                  controller.url.value = url;
-                  controller.showConfirmationIfSuccess();
-                },
-                onPageFinished: (String url) {
-                  controller.progress.value = 1;
-                });
-          }),
+          WebView(
+              initialUrl: controller.url.value,
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController _con) {
+                controller.webView = _con;
+              },
+              onPageStarted: (String url) {
+                controller.showConfirmationIfSuccess(url);
+              },
+              onPageFinished: (String url) {
+                controller.progress.value = 1;
+              }),
           Obx(() {
             if (controller.progress.value < 1) {
               return SizedBox(

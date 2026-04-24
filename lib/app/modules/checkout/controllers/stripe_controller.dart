@@ -31,11 +31,10 @@ class StripeController extends GetxController {
     url.value = _paymentRepository.getStripeUrl(booking.value);
   }
 
-  void showConfirmationIfSuccess() {
+  void showConfirmationIfSuccess(String currentUrl) {
     final _doneUrl = "${Helper.toUrl(Get.find<GlobalService>().baseUrl)}payments/stripe";
-    // url is Rx<String> — compare url.value (the String).
     // Must NOT match subpaths like /payments/stripe/checkout — only the bare success redirect.
-    if (url.value.startsWith(_doneUrl) && !url.value.startsWith("${_doneUrl}/")) {
+    if (currentUrl.startsWith(_doneUrl) && !currentUrl.startsWith("${_doneUrl}/")) {
       Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id;
       if (Get.isRegistered<TabBarController>(tag: 'bookings')) {
         Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id;
