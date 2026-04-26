@@ -39,6 +39,7 @@ class StripeController extends GetxController {
       if (Get.isRegistered<TabBarController>(tag: 'bookings')) {
         Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id;
       }
+      Get.find<BookingsController>().refreshBookings();
       Get.toNamed(Routes.CONFIRMATION, arguments: {
         'title': "Payment Successful".tr,
         'long_message': "Your Payment is Successful".tr,
