@@ -57,6 +57,44 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                 ],
               ),
             ),
+            Obx(() {
+              final rec = controller.recurrence.value;
+              if (rec.isEmpty) return SizedBox.shrink();
+              final label = rec[0].toUpperCase() + rec.substring(1);
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                decoration: Ui.getBoxDecoration(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Recurrent Booking".tr, style: Get.textTheme.bodyText1),
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Icon(Icons.repeat, color: Colors.blue),
+                        SizedBox(width: 15),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                          decoration: BoxDecoration(
+                            color: Colors.blue.withOpacity(0.12),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(label, style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600)),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            "Next booking auto-created after job completion.".tr,
+                            style: Get.textTheme.caption,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            }),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
