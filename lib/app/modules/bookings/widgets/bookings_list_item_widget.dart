@@ -171,6 +171,27 @@ class BookingsListItemWidget extends StatelessWidget {
                             ),
                           ],
                         ),
+                        if (_booking.recurrence != null && _booking.recurrence.isNotEmpty) ...[
+                          SizedBox(height: 4),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: Colors.blue.withOpacity(0.12),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.repeat, size: 11, color: Colors.blue),
+                                SizedBox(width: 3),
+                                Text(
+                                  'Recurring · ' + _booking.recurrence[0].toUpperCase() + _booking.recurrence.substring(1),
+                                  style: TextStyle(color: Colors.blue, fontSize: 10, fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                         SizedBox(height: 5),
                         Row(
                           children: [

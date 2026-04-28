@@ -155,6 +155,34 @@ class BookingView extends GetView<BookingController> {
                                       ],
                                     ),
                                     hasDivider: true),
+                              if (controller.booking.value.recurrence != null && controller.booking.value.recurrence.isNotEmpty)
+                                BookingRowWidget(
+                                  description: "Recurrence".tr,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                                          color: Colors.blue.withOpacity(0.15),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(Icons.repeat, size: 14, color: Colors.blue),
+                                            SizedBox(width: 4),
+                                            Text(
+                                              controller.booking.value.recurrence[0].toUpperCase() + controller.booking.value.recurrence.substring(1),
+                                              style: TextStyle(color: Colors.blue, fontSize: 12, fontWeight: FontWeight.w600),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  hasDivider: true,
+                                ),
                               BookingRowWidget(
                                 description: "Hint".tr,
                                 child: Ui.removeHtml(
