@@ -19,6 +19,7 @@ import '../../global_widgets/tab_bar_widget.dart';
 
 class BookEServiceController extends GetxController {
   final scheduled = false.obs;
+  final recurrence = ''.obs; // '', 'weekly', 'biweekly', 'monthly'
   final booking = Booking().obs;
   final addresses = <Address>[].obs;
   BookingRepository _bookingRepository;
@@ -64,6 +65,14 @@ class BookEServiceController extends GetxController {
 
   void toggleScheduled(value) {
     scheduled.value = value;
+    if (!value) recurrence.value = '';
+  }
+
+  void toggleRecurrence(value) {
+    recurrence.value = value ?? '';
+    if (recurrence.value.isNotEmpty) {
+      scheduled.value = true;
+    }
   }
 
   TextStyle getTextTheme(bool selected) {
@@ -83,6 +92,7 @@ class BookEServiceController extends GetxController {
   void createBooking() async {
     try {
       this.booking.value.address = currentAddress;
+      this.booking.value.recurrence = recurrence.value.isNotEmpty ? recurrence.value : null;
       Get.log(booking.value.toString());
       print(booking.value);
       // Create booking to get an ID, then send customer to Stripe to authorize payment hold

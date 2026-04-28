@@ -156,30 +156,78 @@ class BookEServiceView extends GetView<BookEServiceController> {
             Obx(() {
               return Container(
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                decoration: Ui.getBoxDecoration(color: controller.getColor(controller.scheduled.value)),
+                decoration: Ui.getBoxDecoration(color: controller.getColor(controller.scheduled.value && controller.recurrence.value.isEmpty)),
                 child: Theme(
                   data: ThemeData(
                     toggleableActiveColor: Get.theme.primaryColor,
                   ),
                   child: RadioListTile(
                     value: true,
-                    groupValue: controller.scheduled.value,
+                    groupValue: controller.scheduled.value && controller.recurrence.value.isEmpty ? true : false,
                     onChanged: (value) {
                       controller.toggleScheduled(value);
                     },
-                    title: Text("Schedule an Order".tr, style: controller.getTextTheme(controller.scheduled.value)).paddingSymmetric(vertical: 20),
+                    title: Text("Book Later".tr, style: controller.getTextTheme(controller.scheduled.value && controller.recurrence.value.isEmpty)).paddingSymmetric(vertical: 20),
                   ),
                 ),
               );
             }),
             Obx(() {
+              final isRecurrent = controller.recurrence.value.isNotEmpty;
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: Ui.getBoxDecoration(color: controller.getColor(isRecurrent)),
+                child: Theme(
+                  data: ThemeData(
+                    toggleableActiveColor: Get.theme.primaryColor,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RadioListTile(
+                        value: 'recurrent',
+                        groupValue: isRecurrent ? 'recurrent' : '',
+                        onChanged: (value) {
+                          if (controller.recurrence.value.isEmpty) {
+                            controller.toggleRecurrence('weekly');
+                          }
+                        },
+                        title: Text("Recurrent Booking".tr, style: controller.getTextTheme(isRecurrent)).paddingSymmetric(vertical: 20),
+                      ),
+                      if (isRecurrent)
+                        Padding(
+                          padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                          child: DropdownButtonFormField<String>(
+                            value: controller.recurrence.value,
+                            decoration: InputDecoration(
+                              labelText: "Frequency".tr,
+                              border: OutlineInputBorder(),
+                              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            ),
+                            items: [
+                              DropdownMenuItem(value: 'weekly', child: Text("Weekly".tr)),
+                              DropdownMenuItem(value: 'biweekly', child: Text("Bi-Weekly".tr)),
+                              DropdownMenuItem(value: 'monthly', child: Text("Monthly".tr)),
+                            ],
+                            onChanged: (val) {
+                              controller.toggleRecurrence(val);
+                            },
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              );
+            }),
+            Obx(() {
+              final showDatePicker = controller.scheduled.value;
               return AnimatedOpacity(
-                opacity: controller.scheduled.value ? 1 : 0,
+                opacity: showDatePicker ? 1 : 0,
                 duration: Duration(milliseconds: 300),
                 child: AnimatedContainer(
                   duration: Duration(milliseconds: 300),
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: controller.scheduled.value ? 20 : 0),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: controller.scheduled.value ? 20 : 0),
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: showDatePicker ? 20 : 0),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: showDatePicker ? 20 : 0),
                   decoration: Ui.getBoxDecoration(),
                   child: Column(
                     children: [

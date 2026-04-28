@@ -32,6 +32,7 @@ class Booking extends Model {
   DateTime endsAt;
   Payment payment;
   DateTime created_at;
+  String recurrence;
 
   Booking(
       {this.id,
@@ -50,7 +51,8 @@ class Booking extends Model {
       this.bookingAt,
       this.startAt,
       this.endsAt,
-      this.payment});
+      this.payment,
+      this.recurrence});
 
   Booking.fromJson(Map<String, dynamic> json) {
     super.fromJson(json);
@@ -73,6 +75,7 @@ class Booking extends Model {
     startAt = dateFromJson(json, 'start_at', defaultValue: null);
     endsAt = dateFromJson(json, 'ends_at', defaultValue: null);
     created_at = dateFromJson(json, 'created_at', defaultValue: null);
+    recurrence = stringFromJson(json, 'recurrence');
   }
 
   Map<String, dynamic> toJson() {
@@ -124,6 +127,9 @@ class Booking extends Model {
     }
     if (this.bookingAt != null) {
       data['booking_at'] = bookingAt.toUtc().toString();
+    }
+    if (this.recurrence != null && this.recurrence.isNotEmpty) {
+      data['recurrence'] = this.recurrence;
     }
     if (this.startAt != null) {
       data['start_at'] = startAt.toUtc().toString();
