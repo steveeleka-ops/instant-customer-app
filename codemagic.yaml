@@ -8,9 +8,9 @@ workflows:
       flutter: 3.7.12
       xcode: latest
       cocoapods: default
-    ios_signing:
-      distribution_type: app_store
-      bundle_identifier: com.app.steve.instant
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.app.steve.instant
     scripts:
       - name: Get packages
         script: flutter pub get
