@@ -16,10 +16,9 @@ workflows:
         script: keychain initialize
       - name: Fetch signing files
         script: |
-          echo $APP_STORE_CONNECT_PRIVATE_KEY | base64 --decode > /tmp/AuthKey.p8
           app-store-connect fetch-signing-files com.app.steve.instant \
             --type IOS_APP_STORE \
-            --private-key /tmp/AuthKey.p8 \
+            --private-key "$APP_STORE_CONNECT_PRIVATE_KEY" \
             --create
       - name: Add certificates to keychain
         script: keychain add-certificates
@@ -37,7 +36,7 @@ workflows:
       - build/ios/ipa/*.ipa
     publishing:
       app_store_connect:
-        api_key: /tmp/AuthKey.p8
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
         key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
         issuer_id: $APP_STORE_CONNECT_ISSUER_ID
         submit_to_testflight: true
