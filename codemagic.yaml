@@ -6,13 +6,14 @@ workflows:
       flutter: 3.7.12
       xcode: latest
       cocoapods: default
+      groups:
+        - ios_credentials
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.app.steve.instant
       vars:
         APP_STORE_CONNECT_ISSUER_ID: "35218003-cc53-4678-8d79-e9bb92376139"
         APP_STORE_CONNECT_KEY_IDENTIFIER: "QY2D8FBXM6"
-        APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...)
     scripts:
       - name: Get packages
         script: flutter pub get
@@ -26,7 +27,9 @@ workflows:
       - build/ios/ipa/*.ipa
     publishing:
       app_store_connect:
-        api_key: Codemagic
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
         submit_to_testflight: false
 
   android-release:
