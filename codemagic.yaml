@@ -1,4 +1,34 @@
 workflows:
+  ios-release:
+    name: iOS Release (IPA)
+    max_build_duration: 90
+    environment:
+      flutter: 3.7.12
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.app.steve.instant
+      vars:
+        APP_STORE_CONNECT_ISSUER_ID: "35218003-cc53-4678-8d79-e9bb92376139"
+        APP_STORE_CONNECT_KEY_IDENTIFIER: "QY2D8FBXM6"
+        APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...)
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Build iOS IPA
+        script: |
+          flutter build ipa --release \
+            --build-name=1.0.5 \
+            --build-number=44 \
+            --export-options-plist=/Users/builder/export_options.plist
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        api_key: Codemagic
+        submit_to_testflight: false
+
   android-release:
     name: Android Release (AAB)
     max_build_duration: 90
