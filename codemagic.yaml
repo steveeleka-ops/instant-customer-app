@@ -2,15 +2,15 @@ workflows:
   ios-release:
     name: iOS Release (IPA)
     max_build_duration: 90
+    integrations:
+      app_store_connect: Codemagic
     environment:
       flutter: 3.7.12
       xcode: latest
       cocoapods: default
-      integrations:
-        app_store_connect: Codemagic
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.app.steve.instant
+    ios_signing:
+      distribution_type: app_store
+      bundle_identifier: com.app.steve.instant
     scripts:
       - name: Get packages
         script: flutter pub get
