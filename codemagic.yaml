@@ -6,7 +6,7 @@ workflows:
       app_store_connect: Codemagic
     environment:
       flutter: 3.7.12
-      xcode: 15.4
+      xcode: 16.3
       cocoapods: default
       groups:
         - ios_credentials
