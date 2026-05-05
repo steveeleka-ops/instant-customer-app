@@ -49,13 +49,14 @@ post_install do |installer|
     flutter_additional_ios_build_settings(target)
   end
 
-  # Fix Flutter Firebase plugin wrappers only (snake_case pods like firebase_*, cloud_firestore):
-  # DEFINES_MODULE=NO prevents module map generation which causes non-modular header errors.
-  # Must NOT apply to native Firebase SDK pods (PascalCase: FirebaseCore, GoogleUtilities, etc.)
-  # as those need their module maps for Swift imports to work.
+  # Fix Firebase Flutter plugin wrappers (firebase_* and cloud_* pods only):
+  # These pods include Firebase.h (a non-modular header) inside their framework module,
+  # causing -Werror,-Wnon-modular-include-in-framework-module under Xcode 16.
+  # DEFINES_MODULE=NO stops module map generation, eliminating the error.
+  # Scoped to firebase_*/cloud_* only — other snake_case pods (path_provider_foundation,
+  # google_sign_in_ios etc.) are Swift pods that need their module maps.
   installer.pods_project.targets.each do |target|
-    is_flutter_plugin = target.name.include?('_') && target.name == target.name.downcase
-    if is_flutter_plugin
+    if target.name.start_with?('firebase_') || target.name.start_with?('cloud_')
       target.build_configurations.each do |config|
         config.build_settings['DEFINES_MODULE'] = 'NO'
       end
