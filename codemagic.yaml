@@ -25,6 +25,18 @@ workflows:
         script: xcode-project use-profiles
       - name: Get packages
         script: flutter pub get
+      - name: Remove alpha channel from app icon
+        script: |
+          # Apple rejects icons with transparency (error 90717).
+          # Use Python/Pillow (available on Codemagic) to flatten onto white background.
+          python3 -c "
+from PIL import Image
+img = Image.open('assets/icon/icon.png').convert('RGBA')
+bg = Image.new('RGBA', img.size, (255, 255, 255, 255))
+bg.paste(img, mask=img.split()[3])
+bg.convert('RGB').save('assets/icon/icon.png', 'PNG')
+print('Alpha channel removed successfully')
+"
       - name: Generate app icons
         script: flutter pub run flutter_launcher_icons:main
       - name: Build iOS IPA
