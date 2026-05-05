@@ -50,10 +50,11 @@ post_install do |installer|
     flutter_additional_ios_build_settings(target)
   end
 
-  # Fix firebase_messaging: DEFINES_MODULE=NO stops the module map being generated,
-  # eliminating the -Wnon-modular-include-in-framework-module error at its source
+  # Fix all firebase_* Flutter plugin wrappers: DEFINES_MODULE=NO stops the module
+  # map being generated, eliminating -Wnon-modular-include-in-framework-module errors
+  # (affects firebase_messaging, firebase_auth, firebase_storage, etc.)
   installer.pods_project.targets.each do |target|
-    if target.name == 'firebase_messaging'
+    if target.name.start_with?('firebase_')
       target.build_configurations.each do |config|
         config.build_settings['DEFINES_MODULE'] = 'NO'
       end
