@@ -42,23 +42,14 @@ post_install do |installer|
       config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
       # Fix gRPC-Core template error: clang 16 promotes this to error by default
       config.build_settings['OTHER_CPLUSPLUSFLAGS'] = '$(inherited) -Wno-missing-template-arg-list-after-template-kw'
-      # Fix firebase_messaging non-modular header error with use_frameworks!
+      # Fix all Firebase Flutter plugin pods (firebase_*, cloud_firestore, etc.):
+      # non-modular header includes cause -Werror under Xcode 16. DEFINES_MODULE=NO
+      # stops module map generation; the other flags suppress the warning as fallback.
+      config.build_settings['DEFINES_MODULE'] = 'NO'
       config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
-      # Belt-and-suspenders: also suppress via OTHER_CFLAGS
       config.build_settings['OTHER_CFLAGS'] = '$(inherited) -Wno-non-modular-include-in-framework-module'
     end
     flutter_additional_ios_build_settings(target)
-  end
-
-  # Fix all firebase_* Flutter plugin wrappers: DEFINES_MODULE=NO stops the module
-  # map being generated, eliminating -Wnon-modular-include-in-framework-module errors
-  # (affects firebase_messaging, firebase_auth, firebase_storage, etc.)
-  installer.pods_project.targets.each do |target|
-    if target.name.start_with?('firebase_')
-      target.build_configurations.each do |config|
-        config.build_settings['DEFINES_MODULE'] = 'NO'
-      end
-    end
   end
 
   # Fix for BoringSSL-GRPC "-G" flag incompatibility with Xcode 16 / clang 16
