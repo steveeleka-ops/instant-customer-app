@@ -44,8 +44,20 @@ post_install do |installer|
       config.build_settings['OTHER_CPLUSPLUSFLAGS'] = '$(inherited) -Wno-missing-template-arg-list-after-template-kw'
       # Fix firebase_messaging non-modular header error with use_frameworks!
       config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      # Belt-and-suspenders: also suppress via OTHER_CFLAGS
+      config.build_settings['OTHER_CFLAGS'] = '$(inherited) -Wno-non-modular-include-in-framework-module'
     end
     flutter_additional_ios_build_settings(target)
+  end
+
+  # Fix firebase_messaging: DEFINES_MODULE=NO stops the module map being generated,
+  # eliminating the -Wnon-modular-include-in-framework-module error at its source
+  installer.pods_project.targets.each do |target|
+    if target.name == 'firebase_messaging'
+      target.build_configurations.each do |config|
+        config.build_settings['DEFINES_MODULE'] = 'NO'
+      end
+    end
   end
 
   # Fix for BoringSSL-GRPC "-G" flag incompatibility with Xcode 16 / clang 16
