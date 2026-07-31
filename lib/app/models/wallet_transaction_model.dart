@@ -7,7 +7,7 @@ enum TransactionActions { CREDIT, DEBIT }
 
 class WalletTransaction extends Model {
   late String id;
-  double amount;
+  late double amount;
   late String description;
   late TransactionActions action;
   late DateTime dateTime;

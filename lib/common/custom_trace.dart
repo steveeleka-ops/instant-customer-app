@@ -5,8 +5,8 @@ class CustomTrace {
   late String functionName;
   late String callerFunctionName;
   late String message;
-  int lineNumber;
-  int columnNumber;
+  late int lineNumber;
+  late int columnNumber;
 
   CustomTrace(this._trace, {this.message}) {
     _parseTrace();

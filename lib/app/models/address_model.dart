@@ -6,9 +6,9 @@ class Address extends Model {
   late String id;
   late String description;
   late String address;
-  double latitude;
-  double longitude;
-  bool isDefault;
+  late double latitude;
+  late double longitude;
+  late bool isDefault;
   late String userId;
   late String zipCode;
 

@@ -5,7 +5,7 @@ import 'payment_status_model.dart';
 class Payment extends Model {
   late String id;
   late String description;
-  double amount;
+  late double amount;
   late PaymentMethod paymentMethod;
   late PaymentStatus paymentStatus;
 

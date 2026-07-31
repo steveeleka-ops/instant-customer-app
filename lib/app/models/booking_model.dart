@@ -16,9 +16,9 @@ import 'user_model.dart';
 class Booking extends Model {
   late String id;
   late String hint;
-  bool cancel;
-  double duration;
-  int quantity;
+  late bool cancel;
+  late double duration;
+  late int quantity;
   late BookingStatus status;
   late User user;
   late EService eService;

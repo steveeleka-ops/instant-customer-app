@@ -4,7 +4,7 @@ class Tax extends Model {
   late String id;
   late String name;
   late String type;
-  double value;
+  late double value;
 
   Tax(this.id, this.name, this.type, this.value);
 

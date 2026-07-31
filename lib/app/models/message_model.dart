@@ -12,7 +12,7 @@ class Message extends Model {
   // Chats messages
   late String lastMessage;
 
-  int lastMessageTime;
+  late int lastMessageTime;
 
   // Ids of users that read the chat message
   late List<String> readByUsers;

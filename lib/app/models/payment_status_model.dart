@@ -3,7 +3,7 @@ import 'parents/model.dart';
 class PaymentStatus extends Model {
   late String id;
   late String status;
-  int order;
+  late int order;
 
   PaymentStatus({this.id, this.status, this.order});
 

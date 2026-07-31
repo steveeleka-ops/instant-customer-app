@@ -11,7 +11,7 @@ class Chat extends Model {
   late String text;
 
   // time of the message
-  int time;
+  late int time;
 
   // user id who send the message
   late String userId;

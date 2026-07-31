@@ -6,7 +6,7 @@ import 'media_model.dart';
 import 'parents/model.dart';
 
 class Slide extends Model {
-  int order;
+  late int order;
   late String text;
   late String button;
   late String textPosition;
@@ -18,7 +18,7 @@ class Slide extends Model {
   late String imageFit;
   late EService eService;
   late EProvider eProvider;
-  bool enabled;
+  late bool enabled;
 
   Slide({
     this.order,

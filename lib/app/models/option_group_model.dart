@@ -4,7 +4,7 @@ import 'parents/model.dart';
 class OptionGroup extends Model {
   late String id;
   late String name;
-  bool allowMultiple;
+  late bool allowMultiple;
   late List<Option> options;
 
   OptionGroup({this.id, this.name, this.options});

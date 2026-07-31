@@ -12,8 +12,8 @@ class PaymentMethod extends Model {
   late String description;
   late Media logo;
   late String route;
-  int order;
-  bool isDefault;
+  late int order;
+  late bool isDefault;
   late Wallet wallet;
 
   PaymentMethod({this.id, this.name, this.description, this.route, this.logo, this.wallet, this.isDefault = false});

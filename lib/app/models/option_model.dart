@@ -8,7 +8,7 @@ class Option extends Model {
   late String optionGroupId;
   late String eServiceId;
   late String name;
-  double price;
+  late double price;
   late Media image;
   late String description;
   var checked = false.obs;

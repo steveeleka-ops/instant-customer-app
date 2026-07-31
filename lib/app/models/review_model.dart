@@ -7,7 +7,7 @@ import 'user_model.dart';
 
 class Review extends Model {
   late String id;
-  double rate;
+  late double rate;
   late String review;
   late DateTime createdAt;
   late User user;

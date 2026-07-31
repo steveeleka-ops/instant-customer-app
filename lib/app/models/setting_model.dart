@@ -2,11 +2,11 @@ import 'parents/model.dart';
 
 class Setting extends Model {
   late String appName;
-  bool enableStripe;
+  late bool enableStripe;
   late String defaultTax;
   late String defaultCurrency;
   late String fcmKey;
-  bool enablePaypal;
+  late bool enablePaypal;
   late String defaultTheme;
   late String mainColor;
   late String mainDarkColor;
@@ -19,10 +19,10 @@ class Setting extends Model {
   late String googleMapsKey;
   late String mobileLanguage;
   late String appVersion;
-  bool enableVersion;
-  bool currencyRight;
-  int defaultCurrencyDecimalDigits;
-  bool enableRazorpay;
+  late bool enableVersion;
+  late bool currencyRight;
+  late int defaultCurrencyDecimalDigits;
+  late bool enableRazorpay;
   late String homeSection1;
   late String homeSection2;
   late String homeSection3;

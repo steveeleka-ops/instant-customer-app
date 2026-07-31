@@ -22,17 +22,17 @@ class EProvider extends Model {
   late String mobileNumber;
   late EProviderType type;
   late List<AvailabilityHour> availabilityHours;
-  double availabilityRange;
-  bool available;
-  bool featured;
+  late double availabilityRange;
+  late bool available;
+  late bool featured;
   late List<Address> addresses;
   late List<Tax> taxes;
   late List<User> employees;
-  double rate;
+  late double rate;
   late List<Review> reviews;
-  int totalReviews;
-  bool verified;
-  int bookingsInProgress;
+  late int totalReviews;
+  late bool verified;
+  late int bookingsInProgress;
 
   EProvider(
       {this.id,

@@ -11,11 +11,11 @@ class User extends Model {
   late String apiToken;
   late String deviceToken;
   late String phoneNumber;
-  bool verifiedPhone;
+  late bool verifiedPhone;
   late String verificationId;
   late Address address;
   late String bio;
-  bool auth;
+  late bool auth;
 
   User(
       {this.name,

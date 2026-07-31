@@ -6,7 +6,7 @@ class Notification extends Model {
   late String id;
   late String type;
   late Map<String, dynamic> data;
-  bool read;
+  late bool read;
   late DateTime createdAt;
 
   Notification();

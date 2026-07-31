@@ -3,7 +3,7 @@ import 'parents/model.dart';
 class Coupon extends Model {
   late String id;
   late String code;
-  double discount;
+  late double discount;
   late String discountType;
 
   Coupon({this.id, this.code, this.discount, this.discountType});

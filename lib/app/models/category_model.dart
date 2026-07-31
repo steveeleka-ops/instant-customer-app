@@ -10,7 +10,7 @@ class Category extends Model {
   late String description;
   late Color color;
   late Media image;
-  bool featured;
+  late bool featured;
   late List<Category> subCategories;
   late List<EService> eServices;
 

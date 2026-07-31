@@ -4,13 +4,13 @@ class Global extends Model {
   late String mockBaseUrl;
   late String laravelBaseUrl;
   late String apiPath;
-  int received;
-  int accepted;
-  int onTheWay;
-  int ready;
-  int inProgress;
-  int done;
-  int failed;
+  late int received;
+  late int accepted;
+  late int onTheWay;
+  late int ready;
+  late int inProgress;
+  late int done;
+  late int failed;
 
   Global({this.mockBaseUrl, this.laravelBaseUrl, this.apiPath});
 

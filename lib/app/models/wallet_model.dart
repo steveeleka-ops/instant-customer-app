@@ -6,7 +6,7 @@ import 'parents/model.dart';
 class Wallet extends Model {
   late String id;
   late String name;
-  double balance;
+  late double balance;
 
   Wallet({this.id, this.name, this.balance});
 
