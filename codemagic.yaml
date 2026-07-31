@@ -40,8 +40,8 @@ workflows:
             plutil -replace method -string "app-store-connect" /Users/builder/export_options.plist || true
           fi
           flutter build ipa --release \
-            --build-name=1.0.5 \
-            --build-number=45 \
+            --build-name=1.0.6 \
+            --build-number=46 \
             --export-options-plist=/Users/builder/export_options.plist
     artifacts:
       - build/ios/ipa/*.ipa
@@ -62,8 +62,8 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
-          echo "flutter.versionName=1.0.5" >> android/local.properties
-          echo "flutter.versionCode=45" >> android/local.properties
+          echo "flutter.versionName=1.0.6" >> android/local.properties
+          echo "flutter.versionCode=46" >> android/local.properties
       - name: Get packages
         script: flutter pub get
       - name: Generate app icons
@@ -71,7 +71,7 @@ workflows:
       - name: Build Android App Bundle
         script: |
           flutter build appbundle --release \
-            --build-name=1.0.5 \
-            --build-number=45
+            --build-name=1.0.6 \
+            --build-number=46
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab

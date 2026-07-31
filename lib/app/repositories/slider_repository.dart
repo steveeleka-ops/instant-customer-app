@@ -4,7 +4,7 @@ import '../models/slide_model.dart';
 import '../providers/laravel_provider.dart';
 
 class SliderRepository {
-  LaravelApiClient _laravelApiClient;
+  late LaravelApiClient _laravelApiClient;
 
   SliderRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();
