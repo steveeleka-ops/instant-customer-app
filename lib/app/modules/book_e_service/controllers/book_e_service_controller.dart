@@ -22,8 +22,8 @@ class BookEServiceController extends GetxController {
   final recurrence = ''.obs; // '', 'weekly', 'biweekly', 'monthly'
   final booking = Booking().obs;
   final addresses = <Address>[].obs;
-  BookingRepository _bookingRepository;
-  SettingRepository _settingRepository;
+  late BookingRepository _bookingRepository;
+  late SettingRepository _settingRepository;
 
   Address get currentAddress => Get.find<SettingsService>().address.value;
 

@@ -1,10 +1,10 @@
 import 'parents/model.dart';
 
 class CustomPage extends Model {
-  String id;
-  String title;
-  String content;
-  DateTime updatedAt;
+  late String id;
+  late String title;
+  late String content;
+  late DateTime updatedAt;
 
   CustomPage({this.id, this.title, this.content, this.updatedAt});
 

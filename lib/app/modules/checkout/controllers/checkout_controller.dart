@@ -10,7 +10,7 @@ import '../../../repositories/payment_repository.dart';
 import '../../../routes/app_routes.dart';
 
 class CheckoutController extends GetxController {
-  PaymentRepository _paymentRepository;
+  late PaymentRepository _paymentRepository;
   final paymentsList = <PaymentMethod>[].obs;
   final walletList = <Wallet>[];
   final isLoading = true.obs;

@@ -16,12 +16,12 @@ import '../../../services/auth_service.dart';
 class MessagesController extends GetxController {
   final uploading = false.obs;
   var message = Message([]).obs;
-  ChatRepository _chatRepository;
-  NotificationRepository _notificationRepository;
-  AuthService _authService;
+  late ChatRepository _chatRepository;
+  late NotificationRepository _notificationRepository;
+  late AuthService _authService;
   var messages = <Message>[].obs;
   var chats = <Chat>[].obs;
-  File imageFile;
+  late File imageFile;
   Rx<DocumentSnapshot> lastDocument = new Rx<DocumentSnapshot>(null);
   final isLoading = true.obs;
   final isDone = false.obs;

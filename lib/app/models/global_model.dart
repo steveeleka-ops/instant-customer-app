@@ -1,9 +1,9 @@
 import 'parents/model.dart';
 
 class Global extends Model {
-  String mockBaseUrl;
-  String laravelBaseUrl;
-  String apiPath;
+  late String mockBaseUrl;
+  late String laravelBaseUrl;
+  late String apiPath;
   int received;
   int accepted;
   int onTheWay;

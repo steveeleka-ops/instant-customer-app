@@ -1,40 +1,40 @@
 import 'parents/model.dart';
 
 class Setting extends Model {
-  String appName;
+  late String appName;
   bool enableStripe;
-  String defaultTax;
-  String defaultCurrency;
-  String fcmKey;
+  late String defaultTax;
+  late String defaultCurrency;
+  late String fcmKey;
   bool enablePaypal;
-  String defaultTheme;
-  String mainColor;
-  String mainDarkColor;
-  String secondColor;
-  String secondDarkColor;
-  String accentColor;
-  String accentDarkColor;
-  String scaffoldDarkColor;
-  String scaffoldColor;
-  String googleMapsKey;
-  String mobileLanguage;
-  String appVersion;
+  late String defaultTheme;
+  late String mainColor;
+  late String mainDarkColor;
+  late String secondColor;
+  late String secondDarkColor;
+  late String accentColor;
+  late String accentDarkColor;
+  late String scaffoldDarkColor;
+  late String scaffoldColor;
+  late String googleMapsKey;
+  late String mobileLanguage;
+  late String appVersion;
   bool enableVersion;
   bool currencyRight;
   int defaultCurrencyDecimalDigits;
   bool enableRazorpay;
-  String homeSection1;
-  String homeSection2;
-  String homeSection3;
-  String homeSection4;
-  String homeSection5;
-  String homeSection6;
-  String homeSection7;
-  String homeSection8;
-  String homeSection9;
-  String homeSection10;
-  String homeSection11;
-  String homeSection12;
+  late String homeSection1;
+  late String homeSection2;
+  late String homeSection3;
+  late String homeSection4;
+  late String homeSection5;
+  late String homeSection6;
+  late String homeSection7;
+  late String homeSection8;
+  late String homeSection9;
+  late String homeSection10;
+  late String homeSection11;
+  late String homeSection12;
 
   Setting(
       {this.appName,

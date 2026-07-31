@@ -6,7 +6,7 @@ import '../../../services/settings_service.dart';
 import 'theme_mode_controller.dart';
 
 class LanguageController extends GetxController {
-  GetStorage _box;
+  late GetStorage _box;
 
   LanguageController() {
     _box = new GetStorage();

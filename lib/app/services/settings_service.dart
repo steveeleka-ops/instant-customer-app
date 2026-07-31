@@ -14,9 +14,9 @@ import 'translation_service.dart';
 class SettingsService extends GetxService {
   final setting = Setting().obs;
   final address = Address().obs;
-  GetStorage _box;
+  late GetStorage _box;
 
-  SettingRepository _settingsRepo;
+  late SettingRepository _settingsRepo;
 
   SettingsService() {
     _settingsRepo = new SettingRepository();

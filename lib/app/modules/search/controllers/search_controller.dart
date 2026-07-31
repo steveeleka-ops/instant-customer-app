@@ -14,11 +14,11 @@ class SearchController extends GetxController {
   final categories = <Category>[].obs;
   final selectedCategories = <String>[].obs;
   final suggestedCategoryNames = <String>[].obs;
-  TextEditingController textEditingController;
+  late TextEditingController textEditingController;
 
   final eServices = <EService>[].obs;
-  EServiceRepository _eServiceRepository;
-  CategoryRepository _categoryRepository;
+  late EServiceRepository _eServiceRepository;
+  late CategoryRepository _categoryRepository;
 
   SearchController() {
     _eServiceRepository = new EServiceRepository();

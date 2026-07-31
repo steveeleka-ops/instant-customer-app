@@ -14,7 +14,7 @@ class ImagesFieldController extends GetxController {
   final images = <File>[].obs;
   List<String> uuids = <String>[];
   final uploading = false.obs;
-  UploadRepository _uploadRepository;
+  late UploadRepository _uploadRepository;
 
   ImagesFieldController() {
     _uploadRepository = new UploadRepository();

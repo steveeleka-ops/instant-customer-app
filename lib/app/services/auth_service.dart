@@ -7,9 +7,9 @@ import 'settings_service.dart';
 
 class AuthService extends GetxService {
   final user = User().obs;
-  GetStorage _box;
+  late GetStorage _box;
 
-  UserRepository _usersRepo;
+  late UserRepository _usersRepo;
 
   AuthService() {
     _usersRepo = new UserRepository();

@@ -11,9 +11,9 @@ import '../../repositories/upload_repository.dart';
 
 class ImageFieldController extends GetxController {
   Rx<File> image = Rx<File>(null);
-  String uuid;
+  late String uuid;
   final uploading = false.obs;
-  UploadRepository _uploadRepository;
+  late UploadRepository _uploadRepository;
 
   ImageFieldController() {
     _uploadRepository = new UploadRepository();

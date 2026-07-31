@@ -7,11 +7,11 @@ import 'dart:core';
 import 'parents/model.dart';
 
 class AvailabilityHour extends Model {
-  String id;
-  String day;
-  String startAt;
-  String endAt;
-  String data;
+  late String id;
+  late String day;
+  late String startAt;
+  late String endAt;
+  late String data;
 
   AvailabilityHour(this.id, this.day, this.startAt, this.endAt, this.data);
 

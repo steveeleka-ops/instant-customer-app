@@ -4,24 +4,24 @@ import 'parents/model.dart';
 import 'user_model.dart';
 
 class Message extends Model {
-  String id;
+  late String id;
 
   // conversation name for example chat with market name
-  String name;
+  late String name;
 
   // Chats messages
-  String lastMessage;
+  late String lastMessage;
 
   int lastMessageTime;
 
   // Ids of users that read the chat message
-  List<String> readByUsers;
+  late List<String> readByUsers;
 
   // Ids of users in this conversation
-  List<String> visibleToUsers;
+  late List<String> visibleToUsers;
 
   // users in the conversation
-  List<User> users;
+  late List<User> users;
 
   Message(this.users, {this.id = null, this.name = ''}) {
     visibleToUsers = this.users.map((user) => user.id).toList();

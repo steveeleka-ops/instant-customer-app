@@ -8,15 +8,15 @@ class Chat extends Model {
   String id = UniqueKey().toString();
 
   // message text
-  String text;
+  late String text;
 
   // time of the message
   int time;
 
   // user id who send the message
-  String userId;
+  late String userId;
 
-  User user;
+  late User user;
 
   Chat(this.text, this.time, this.userId, this.user);
 

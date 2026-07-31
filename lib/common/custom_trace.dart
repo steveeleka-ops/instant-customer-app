@@ -1,10 +1,10 @@
 class CustomTrace {
   final StackTrace _trace;
 
-  String fileName;
-  String functionName;
-  String callerFunctionName;
-  String message;
+  late String fileName;
+  late String functionName;
+  late String callerFunctionName;
+  late String message;
   int lineNumber;
   int columnNumber;
 

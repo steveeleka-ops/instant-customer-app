@@ -23,8 +23,8 @@ class EProviderController extends GetxController {
   final currentSlide = 0.obs;
   final hasBooking = false.obs;
   String heroTag = "";
-  EProviderRepository _eProviderRepository;
-  BookingRepository _bookingRepository;
+  late EProviderRepository _eProviderRepository;
+  late BookingRepository _bookingRepository;
 
   EProviderController() {
     _eProviderRepository = new EProviderRepository();

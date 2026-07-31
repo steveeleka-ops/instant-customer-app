@@ -8,12 +8,12 @@ import '../services/global_service.dart';
 import 'parents/model.dart';
 
 class Media extends Model {
-  String id;
-  String name;
-  String url;
-  String thumb;
-  String icon;
-  String size;
+  late String id;
+  late String name;
+  late String url;
+  late String thumb;
+  late String icon;
+  late String size;
 
   Media({String id, String url, String thumb, String icon}) {
     this.id = id ?? "";

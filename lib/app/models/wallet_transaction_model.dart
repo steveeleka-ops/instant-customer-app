@@ -6,12 +6,12 @@ import 'user_model.dart';
 enum TransactionActions { CREDIT, DEBIT }
 
 class WalletTransaction extends Model {
-  String id;
+  late String id;
   double amount;
-  String description;
-  TransactionActions action;
-  DateTime dateTime;
-  User user;
+  late String description;
+  late TransactionActions action;
+  late DateTime dateTime;
+  late User user;
 
   WalletTransaction({this.id, this.amount, this.description, this.action, this.user});
 

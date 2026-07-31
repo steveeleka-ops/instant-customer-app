@@ -3,11 +3,11 @@ import 'payment_method_model.dart';
 import 'payment_status_model.dart';
 
 class Payment extends Model {
-  String id;
-  String description;
+  late String id;
+  late String description;
   double amount;
-  PaymentMethod paymentMethod;
-  PaymentStatus paymentStatus;
+  late PaymentMethod paymentMethod;
+  late PaymentStatus paymentStatus;
 
   Payment({this.id, this.description, this.amount, this.paymentMethod, this.paymentStatus});
 

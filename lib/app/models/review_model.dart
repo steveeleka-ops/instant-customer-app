@@ -6,12 +6,12 @@ import 'parents/model.dart';
 import 'user_model.dart';
 
 class Review extends Model {
-  String id;
+  late String id;
   double rate;
-  String review;
-  DateTime createdAt;
-  User user;
-  EService eService;
+  late String review;
+  late DateTime createdAt;
+  late User user;
+  late EService eService;
 
   Review({this.id, this.rate, this.review, this.createdAt, this.user, this.eService});
 

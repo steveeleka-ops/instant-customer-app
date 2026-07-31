@@ -18,12 +18,12 @@ class NotificationsController extends GetxController {
 
   final eProvider = EProvider().obs;
 
-  NotificationRepository _notificationRepository;
-  BookingRepository _bookingRepository;
-  EProviderRepository eProviderRepository;
-  AuthService authService;
+  late NotificationRepository _notificationRepository;
+  late BookingRepository _bookingRepository;
+  late EProviderRepository eProviderRepository;
+  late AuthService authService;
 
-  ChatRepository chatRepository;
+  late ChatRepository chatRepository;
 
 
   NotificationsController() {

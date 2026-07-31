@@ -1,9 +1,9 @@
 import 'parents/model.dart';
 
 class Tax extends Model {
-  String id;
-  String name;
-  String type;
+  late String id;
+  late String name;
+  late String type;
   double value;
 
   Tax(this.id, this.name, this.type, this.value);

@@ -12,7 +12,7 @@ import '../../root/controllers/root_controller.dart';
 class RatingController extends GetxController {
   final booking = Booking().obs;
   final review = new Review(rate: 1).obs;
-  BookingRepository _bookingRepository;
+  late BookingRepository _bookingRepository;
 
   RatingController() {
     _bookingRepository = new BookingRepository();
