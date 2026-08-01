@@ -120,7 +120,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                 labelText: "Coupon Code".tr,
                 errorText: controller.getValidationMessage(),
                 iconData: Icons.confirmation_number_outlined,
-                style: Get.textTheme.bodyText2.merge(TextStyle(color: controller.getValidationMessage() != null ? Colors.redAccent : Colors.green)),
+                style: Get.textTheme.bodyText2?.merge(TextStyle(color: controller.getValidationMessage() != null ? Colors.redAccent : Colors.green)),
                 suffixIcon: MaterialButton(
                   onPressed: () {
                     controller.validateCoupon();

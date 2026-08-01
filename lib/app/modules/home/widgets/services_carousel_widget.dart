@@ -71,7 +71,7 @@ class ServicesCarouselWidget extends StatelessWidget {
                           Text(
                             _service.name,
                             maxLines: 1,
-                            style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.hintColor)),
+                            style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.hintColor)),
                           ),
                           Wrap(
                             children: Ui.getStarsList(_service.rate),
@@ -88,7 +88,7 @@ class ServicesCarouselWidget extends StatelessWidget {
                               ),
                               Ui.getPrice(
                                 _service.price,
-                                style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                                style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                                 unit: _service.getUnit,
                               ),
                             ],

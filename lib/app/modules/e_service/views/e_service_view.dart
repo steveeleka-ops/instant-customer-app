@@ -161,7 +161,7 @@ class EServiceView extends GetView<EServiceController> {
                                               child: Text(
                                                 _media.name ?? '',
                                                 maxLines: 2,
-                                                style: Get.textTheme.bodyText2.merge(TextStyle(
+                                                style: Get.textTheme.bodyText2?.merge(TextStyle(
                                                   color: Get.theme.primaryColor,
                                                   shadows: <Shadow>[
                                                     Shadow(
@@ -342,7 +342,7 @@ class EServiceView extends GetView<EServiceController> {
               Expanded(
                 child: Text(
                   _eService.name ?? '',
-                  style: Get.textTheme.headline5.merge(TextStyle(height: 1.1)),
+                  style: Get.textTheme.headline5?.merge(TextStyle(height: 1.1)),
                   maxLines: 2,
                   softWrap: true,
                   overflow: TextOverflow.fade,
@@ -352,7 +352,7 @@ class EServiceView extends GetView<EServiceController> {
                 Container(
                   child: Text("  .  .  .  ".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2.merge(
+                      style: Get.textTheme.bodyText2?.merge(
                         TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -369,7 +369,7 @@ class EServiceView extends GetView<EServiceController> {
                 Container(
                   child: Text("Available".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2.merge(
+                      style: Get.textTheme.bodyText2?.merge(
                         TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -386,7 +386,7 @@ class EServiceView extends GetView<EServiceController> {
                 Container(
                   child: Text("Offline".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2.merge(
+                      style: Get.textTheme.bodyText2?.merge(
                         TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -418,7 +418,7 @@ class EServiceView extends GetView<EServiceController> {
               ),
               Ui.getPrice(
                 _eService.getPrice,
-                style: Get.textTheme.headline3.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                style: Get.textTheme.headline3?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                 unit: _eService.getUnit,
               ),
             ],
@@ -439,7 +439,7 @@ class EServiceView extends GetView<EServiceController> {
               var _category = _eService.categories.elementAt(index);
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: Text(_category.name, style: Get.textTheme.bodyText1.merge(TextStyle(color: _category.color))),
+                child: Text(_category.name, style: Get.textTheme.bodyText1?.merge(TextStyle(color: _category.color))),
                 decoration: BoxDecoration(
                     color: _category.color.withOpacity(0.2),
                     border: Border.all(
@@ -527,7 +527,7 @@ class EServiceView extends GetView<EServiceController> {
                       return Text(
                         controller.quantity.toString(),
                         textAlign: TextAlign.center,
-                        style: Get.textTheme.subtitle2.merge(
+                        style: Get.textTheme.subtitle2?.merge(
                           TextStyle(color: Get.theme.colorScheme.secondary),
                         ),
                       );

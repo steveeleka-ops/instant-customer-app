@@ -65,10 +65,10 @@ class RegisterView extends GetView<AuthController> {
                           SizedBox(height: 5),
                           Text(
                             "Welcome to the best service provider system!".tr,
-                            style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor)),
+                            style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor)),
                             textAlign: TextAlign.center,
                           ),
-                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
+                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
                         ],
                       ),
                     ),
@@ -183,7 +183,7 @@ class RegisterView extends GetView<AuthController> {
                                     Icon(Icons.location_on,color: Get.theme.focusColor),
                                     SizedBox(width: 16),
                                     if(_address.address.isEmpty || _address.address == "Please choose your address".tr)
-                                      Text("123 Street, City 136, State, Country".tr,style: Get.textTheme.bodyText1.merge(TextStyle(color: Theme.of(context).disabledColor)))
+                                      Text("123 Street, City 136, State, Country".tr,style: Get.textTheme.bodyText1?.merge(TextStyle(color: Theme.of(context).disabledColor)))
                                     else Expanded(child:
                                       Text(_address.address, style: Get.textTheme.bodyText2, maxLines: 1, overflow: TextOverflow.ellipsis)
                                       )]).paddingOnly(top: 12))

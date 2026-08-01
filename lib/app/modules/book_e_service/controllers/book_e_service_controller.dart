@@ -77,7 +77,7 @@ class BookEServiceController extends GetxController {
 
   TextStyle getTextTheme(bool selected) {
     if (selected) {
-      return Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor));
+      return Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor));
     }
     return Get.textTheme.bodyText2;
   }

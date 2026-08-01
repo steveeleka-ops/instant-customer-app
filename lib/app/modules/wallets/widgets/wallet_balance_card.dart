@@ -42,18 +42,18 @@ class WalletBalanceCard extends StatelessWidget {
                 children: [
                   Ui.getPrice(
                     wallet.balance,
-                    style: Get.textTheme.headline2.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 28)),
+                    style: Get.textTheme.headline2?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 28)),
                   ),
                   SizedBox(height: 20),
                   Text(
                     wallet.name ?? '',
-                    style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor)),
+                    style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor)),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
                   Text(
                     wallet.getId(),
-                    style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor)),
+                    style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor)),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   )

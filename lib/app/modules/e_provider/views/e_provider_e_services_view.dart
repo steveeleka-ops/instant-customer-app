@@ -74,7 +74,7 @@ class EProviderEServicesView extends GetView<EServicesController> {
                               child: RawChip(
                                 elevation: 0,
                                 label: Text(_filter.toString().tr),
-                                labelStyle: controller.isSelected(_filter) ? Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor)) : Get.textTheme.bodyText2,
+                                labelStyle: controller.isSelected(_filter) ? Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor)) : Get.textTheme.bodyText2,
                                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
                                 backgroundColor: Theme.of(context).focusColor.withOpacity(0.1),
                                 selectedColor: Get.theme.colorScheme.secondary,

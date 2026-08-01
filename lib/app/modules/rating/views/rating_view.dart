@@ -37,7 +37,7 @@ class RatingView extends GetView<RatingController> {
                 Text("Hi,".tr),
                 Text(
                   Get.find<AuthService>().user.value.name,
-                  style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                  style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                 )
               ]),
               SizedBox(height: 10),

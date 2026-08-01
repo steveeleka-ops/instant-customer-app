@@ -75,16 +75,16 @@ class CheckoutController extends GetxController {
 
   TextStyle getTitleTheme(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
-      return Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor));
+      return Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor));
     } else if (paymentMethod.wallet != null && paymentMethod.wallet.balance < booking.value.getTotal()) {
-      return Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.focusColor));
+      return Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.focusColor));
     }
     return Get.textTheme.bodyText2;
   }
 
   TextStyle getSubTitleTheme(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
-      return Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor));
+      return Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor));
     }
     return Get.textTheme.caption;
   }

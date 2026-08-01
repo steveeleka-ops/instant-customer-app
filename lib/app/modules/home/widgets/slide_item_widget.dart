@@ -47,7 +47,7 @@ class SlideItemWidget extends StatelessWidget {
                   if (slide.text != null && slide.text != '')
                     Text(
                       slide.text,
-                      style: Get.textTheme.bodyText2.merge(TextStyle(color: slide.textColor)),
+                      style: Get.textTheme.bodyText2?.merge(TextStyle(color: slide.textColor)),
                       overflow: TextOverflow.fade,
                       maxLines: 3,
                     ),

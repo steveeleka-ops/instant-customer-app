@@ -48,7 +48,7 @@ class ReviewItemWidget extends StatelessWidget {
                       overflow: TextOverflow.fade,
                       softWrap: false,
                       maxLines: 2,
-                      style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.hintColor)),
+                      style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.hintColor)),
                     ),
                     Text(
                       review.user.bio,
@@ -65,7 +65,7 @@ class ReviewItemWidget extends StatelessWidget {
                   label: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(review.rate.toString(), style: Get.textTheme.bodyText1.merge(TextStyle(color: Get.theme.primaryColor))),
+                      Text(review.rate.toString(), style: Get.textTheme.bodyText1?.merge(TextStyle(color: Get.theme.primaryColor))),
                       Icon(
                         Icons.star_border,
                         color: Get.theme.primaryColor,

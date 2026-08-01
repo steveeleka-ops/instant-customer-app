@@ -65,10 +65,10 @@ class LoginView extends GetView<AuthController> {
                           SizedBox(height: 5),
                           Text(
                             "Welcome to the best service provider system!".tr,
-                            style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor)),
+                            style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor)),
                             textAlign: TextAlign.center,
                           ),
-                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
+                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
                         ],
                       ),
                     ),

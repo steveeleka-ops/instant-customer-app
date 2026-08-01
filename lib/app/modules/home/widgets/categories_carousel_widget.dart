@@ -103,7 +103,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                           //   child: Text(
                           //     _category.name,
                           //     maxLines: 2,
-                          //     style: Get.textTheme.bodyText2
+                          //     style: Get.textTheme.bodyText2?
                           //         .merge(TextStyle(color: Get.theme.primaryColor)),
                           //   ),
                           // ),
@@ -122,7 +122,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                         child: Text(
                           controller.categories.elementAt(index).name,
                           maxLines: 2,
-                          style: Get.textTheme.bodyText2
+                          style: Get.textTheme.bodyText2?
                               .merge(TextStyle(color: Colors.black)),
                         ),
                       ),
@@ -184,7 +184,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                           child: Text(
                             'View All\nCategories',
                             maxLines: 2,
-                            style: Get.textTheme.bodyText2
+                            style: Get.textTheme.bodyText2?
                                 .merge(TextStyle(color: Colors.black)),
                           ),
                         ),

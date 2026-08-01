@@ -58,7 +58,7 @@ class SearchServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Available".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2.merge(
+                        style: Get.textTheme.bodyText2?.merge(
                           TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                         ),
                         softWrap: false,
@@ -75,7 +75,7 @@ class SearchServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Offline".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2.merge(
+                        style: Get.textTheme.bodyText2?.merge(
                           TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                         ),
                         softWrap: false,
@@ -125,7 +125,7 @@ class SearchServicesListItemWidget extends StatelessWidget {
                                     color: Get.theme.colorScheme.secondary,
                                     size: 18,
                                   ),
-                                  Text(_service.rate.toString(), style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                  Text(_service.rate.toString(), style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
                                 ],
                               ),
                               backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),
@@ -185,7 +185,7 @@ class SearchServicesListItemWidget extends StatelessWidget {
                     children: List.generate(_service.subCategories.length, (index) {
                       return Container(
                         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        child: Text(_service.subCategories.elementAt(index).name, style: Get.textTheme.caption.merge(TextStyle(fontSize: 10))),
+                        child: Text(_service.subCategories.elementAt(index).name, style: Get.textTheme.caption?.merge(TextStyle(fontSize: 10))),
                         decoration: BoxDecoration(
                             color: Get.theme.primaryColor,
                             border: Border.all(

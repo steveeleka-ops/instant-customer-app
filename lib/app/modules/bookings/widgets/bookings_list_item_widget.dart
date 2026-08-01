@@ -96,7 +96,7 @@ class BookingsListItemWidget extends StatelessWidget {
                               DateFormat('HH:mm', Get.locale.toString())
                                   .format(_booking.bookingAt),
                               maxLines: 1,
-                              style: Get.textTheme.bodyText2.merge(
+                              style: Get.textTheme.bodyText2?.merge(
                                 TextStyle(
                                     color: Colors.white, height: 1.3),
                               ),
@@ -108,7 +108,7 @@ class BookingsListItemWidget extends StatelessWidget {
                               DateFormat('dd', Get.locale.toString())
                                   .format(_booking.bookingAt),
                               maxLines: 1,
-                              style: Get.textTheme.headline3.merge(
+                              style: Get.textTheme.headline3?.merge(
                                 TextStyle(
                                     color: Colors.white, height: 1),
                               ),
@@ -120,7 +120,7 @@ class BookingsListItemWidget extends StatelessWidget {
                               DateFormat('MMM', Get.locale.toString())
                                   .format(_booking.bookingAt),
                               maxLines: 1,
-                              style: Get.textTheme.bodyText2.merge(
+                              style: Get.textTheme.bodyText2?.merge(
                                 TextStyle(
                                     color: Colors.white, height: 1),
                               ),
@@ -229,7 +229,7 @@ class BookingsListItemWidget extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: Ui.getPrice(
                             _booking.getTotal(),
-                            style: Get.textTheme.subtitle2
+                            style: Get.textTheme.subtitle2?
                                 .merge(TextStyle(color: _statusColor)),
                           ),
                         ),

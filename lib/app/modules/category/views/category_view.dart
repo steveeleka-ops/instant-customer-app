@@ -41,7 +41,7 @@ class CategoryView extends GetView<CategoryController> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                   controller.category.value.name,
-                  style: Get.textTheme.headline6
+                  style: Get.textTheme.headline6?
                       .merge(TextStyle(color: Get.theme.primaryColor)),
                   ),
                 ),
@@ -129,7 +129,7 @@ class CategoryView extends GetView<CategoryController> {
                                   elevation: 0,
                                   label: Text(_filter.toString().tr),
                                   labelStyle: controller.isSelected(_filter)
-                                      ? Get.textTheme.bodyText2.merge(TextStyle(
+                                      ? Get.textTheme.bodyText2?.merge(TextStyle(
                                           color: Get.theme.primaryColor))
                                       : Get.textTheme.bodyText2,
                                   padding: EdgeInsets.symmetric(

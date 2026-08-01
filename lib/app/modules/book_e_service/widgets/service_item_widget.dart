@@ -50,7 +50,7 @@ class ServiceItemWidget extends StatelessWidget {
                   width: 80,
                   child: Text("Available".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2.merge(
+                      style: Get.textTheme.bodyText2?.merge(
                         TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -67,7 +67,7 @@ class ServiceItemWidget extends StatelessWidget {
                   width: 80,
                   child: Text("Offline".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2.merge(
+                      style: Get.textTheme.bodyText2?.merge(
                         TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -117,7 +117,7 @@ class ServiceItemWidget extends StatelessWidget {
                                   color: Get.theme.colorScheme.secondary,
                                   size: 18,
                                 ),
-                                Text(_service.rate.toString(), style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                Text(_service.rate.toString(), style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
                               ],
                             ),
                             backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),

@@ -9,7 +9,7 @@ class Ui {
     Get.log("[$title] $message");
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor))),
-      messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
+      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.colorScheme.secondary,
@@ -24,7 +24,7 @@ class Ui {
     Get.log("[$title] $message", isError: true);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor))),
-      messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
+      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Colors.redAccent,
@@ -39,7 +39,7 @@ class Ui {
     Get.log("[$title] $message", isError: false);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.hintColor))),
-      messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.focusColor))),
+      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.primaryColor,
@@ -55,7 +55,7 @@ class Ui {
     Get.log("[$title] $message", isError: false);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.hintColor))),
-      messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.focusColor))),
+      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.TOP,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.primaryColor,
@@ -127,8 +127,8 @@ class Ui {
 
   static TextStyle getPriceStyle(TextStyle style) {
     if (style == null) {
-      return Get.textTheme.subtitle2.merge(
-        TextStyle(fontWeight: FontWeight.w300, fontSize: Get.textTheme.subtitle2.fontSize - 4),
+      return Get.textTheme.subtitle2?.merge(
+        TextStyle(fontWeight: FontWeight.w300, fontSize: Get.textTheme.subtitle2?.fontSize - 4),
       );
     } else {
       return style.merge(TextStyle(fontWeight: FontWeight.w300, fontSize: style.fontSize - 4));
@@ -172,7 +172,7 @@ class Ui {
           return Text(
             context.tree.element.text,
             textAlign: textAlign,
-            style: style == null ? Get.textTheme.bodyText1.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
+            style: style == null ? Get.textTheme.bodyText1?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
           );
         },
       },
@@ -238,7 +238,7 @@ class Ui {
           return Text(
             context.tree.element.text,
             textAlign: textAlign,
-            style: style == null ? Get.textTheme.bodyText1.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
+            style: style == null ? Get.textTheme.bodyText1?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
           );
         },
       },

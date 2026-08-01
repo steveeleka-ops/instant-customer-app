@@ -48,7 +48,7 @@ class EProviderItemWidget extends StatelessWidget {
                     overflow: TextOverflow.fade,
                     softWrap: false,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(color: Theme.of(context).hintColor)),
+                    style: Theme.of(context).textTheme.bodyText2?.merge(TextStyle(color: Theme.of(context).hintColor)),
                   ),
                   SizedBox(height: 5),
                   Ui.removeHtml(
@@ -65,7 +65,7 @@ class EProviderItemWidget extends StatelessWidget {
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(provider.rate.toString(), style: Theme.of(context).textTheme.bodyText1.merge(TextStyle(color: Theme.of(context).primaryColor))),
+                    Text(provider.rate.toString(), style: Theme.of(context).textTheme.bodyText1?.merge(TextStyle(color: Theme.of(context).primaryColor))),
                     Icon(
                       Icons.star_border,
                       color: Theme.of(context).primaryColor,

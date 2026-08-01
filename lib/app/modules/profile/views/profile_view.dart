@@ -53,7 +53,7 @@ class ProfileView extends GetView<ProfileController> {
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   color: Get.theme.colorScheme.secondary,
-                  child: Text("Save".tr, style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor))),
+                  child: Text("Save".tr, style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor))),
                   elevation: 0,
                   highlightElevation: 0,
                   hoverElevation: 0,
@@ -130,11 +130,11 @@ class ProfileView extends GetView<ProfileController> {
                 suffix: controller.user.value.verifiedPhone
                     ? Text(
                         "Verified".tr,
-                        style: Get.textTheme.caption.merge(TextStyle(color: Colors.green)),
+                        style: Get.textTheme.caption?.merge(TextStyle(color: Colors.green)),
                       )
                     : Text(
                         "Not Verified".tr,
-                        style: Get.textTheme.caption.merge(TextStyle(color: Colors.redAccent)),
+                        style: Get.textTheme.caption?.merge(TextStyle(color: Colors.redAccent)),
                       ),
               ),
               TextFieldWidget(

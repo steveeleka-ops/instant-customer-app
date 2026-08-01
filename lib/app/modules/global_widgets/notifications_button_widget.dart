@@ -40,7 +40,7 @@ class NotificationsButtonWidget extends GetView<RootController> {
               return Text(
                 controller.notificationsCount.value.toString(),
                 textAlign: TextAlign.center,
-                style: Get.textTheme.caption.merge(
+                style: Get.textTheme.caption?.merge(
                   TextStyle(color: Get.theme.primaryColor, fontSize: 9, height: 1.4),
                 ),
               );

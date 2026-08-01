@@ -44,7 +44,7 @@ class SearchView extends GetView<SearchController> {
           children: [
             Text(
               "Suggested categories".tr,
-              style: Get.textTheme.caption.merge(
+              style: Get.textTheme.caption?.merge(
                 TextStyle(color: Get.theme.hintColor, fontWeight: FontWeight.w600),
               ),
             ),

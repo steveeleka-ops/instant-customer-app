@@ -44,7 +44,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                 Text(
                   "Job completed — please review".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.bodyText1
+                  style: Get.textTheme.bodyText1?
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
                 SizedBox(height: 12),
@@ -68,7 +68,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                         elevation: 0,
                         child: Text(
                           "Deny".tr,
-                          style: Get.textTheme.bodyText2.merge(TextStyle(
+                          style: Get.textTheme.bodyText2?.merge(TextStyle(
                               color: Colors.red.shade700,
                               fontWeight: FontWeight.w600)),
                         ),
@@ -106,7 +106,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                         elevation: 0,
                         child: Text(
                           "Approve".tr,
-                          style: Get.textTheme.bodyText2.merge(TextStyle(
+                          style: Get.textTheme.bodyText2?.merge(TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600)),
                         ),
@@ -241,7 +241,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                       : Get.theme.hintColor.withOpacity(0.1),
                   child: Text(
                     "Cancel".tr,
-                    style: Get.textTheme.bodyText2.merge(
+                    style: Get.textTheme.bodyText2?.merge(
                       TextStyle(
                           color: isLateCancel ? Colors.red : null),
                     ),

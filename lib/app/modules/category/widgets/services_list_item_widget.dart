@@ -63,7 +63,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Available".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2.merge(
+                        style: Get.textTheme.bodyText2?.merge(
                           TextStyle(
                               color: Colors.green, height: 1.4, fontSize: 10),
                         ),
@@ -83,7 +83,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Offline".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2.merge(
+                        style: Get.textTheme.bodyText2?.merge(
                           TextStyle(
                               color: Colors.grey, height: 1.4, fontSize: 10),
                         ),

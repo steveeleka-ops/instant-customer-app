@@ -51,7 +51,7 @@ class ChatMessageItem extends StatelessWidget {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      new Text(this.chat.user.name, style: Get.textTheme.bodyText2.merge(TextStyle(fontWeight: FontWeight.w600))),
+                      new Text(this.chat.user.name, style: Get.textTheme.bodyText2?.merge(TextStyle(fontWeight: FontWeight.w600))),
                       new Container(
                         margin: const EdgeInsets.only(top: 5.0),
                         child: new Text(chat.text, style: Get.textTheme.bodyText1),
@@ -116,7 +116,7 @@ class ChatMessageItem extends StatelessWidget {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      new Text(this.chat.user.name, style: Get.textTheme.bodyText1.merge(TextStyle(fontWeight: FontWeight.w600))),
+                      new Text(this.chat.user.name, style: Get.textTheme.bodyText1?.merge(TextStyle(fontWeight: FontWeight.w600))),
                       new Container(
                         margin: const EdgeInsets.only(top: 5.0),
                         child: InkWell(
@@ -222,12 +222,12 @@ class ChatMessageItem extends StatelessWidget {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      new Text(this.chat.user.name, style: Get.textTheme.bodyText2.merge(TextStyle(fontWeight: FontWeight.w600, color: Get.theme.primaryColor))),
+                      new Text(this.chat.user.name, style: Get.textTheme.bodyText2?.merge(TextStyle(fontWeight: FontWeight.w600, color: Get.theme.primaryColor))),
                       new Container(
                         margin: const EdgeInsets.only(top: 5.0),
                         child: new Text(
                           chat.text,
-                          style: Get.textTheme.bodyText1.merge(TextStyle(color: Get.theme.primaryColor)),
+                          style: Get.textTheme.bodyText1?.merge(TextStyle(color: Get.theme.primaryColor)),
                         ),
                       ),
                     ],
@@ -289,7 +289,7 @@ class ChatMessageItem extends StatelessWidget {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      new Text(this.chat.user.name, style: Get.textTheme.bodyText2.merge(TextStyle(fontWeight: FontWeight.w600, color: Get.theme.primaryColor))),
+                      new Text(this.chat.user.name, style: Get.textTheme.bodyText2?.merge(TextStyle(fontWeight: FontWeight.w600, color: Get.theme.primaryColor))),
                       new Container(
                         margin: const EdgeInsets.only(top: 5.0),
                         child: InkWell(

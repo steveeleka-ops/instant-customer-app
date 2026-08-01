@@ -34,7 +34,7 @@ class MainDrawerWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Welcome".tr,
-                          style: Get.textTheme.headline5.merge(
+                          style: Get.textTheme.headline5?.merge(
                               TextStyle(color: Theme.of(context).colorScheme.secondary))),
                       SizedBox(height: 5),
                       Text("Login account or create new one for free".tr,
@@ -59,7 +59,7 @@ class MainDrawerWidget extends StatelessWidget {
                                     color: Get.theme.primaryColor, size: 24),
                                 Text(
                                   "Login".tr,
-                                  style: Get.textTheme.subtitle1.merge(
+                                  style: Get.textTheme.subtitle1?.merge(
                                       TextStyle(color: Get.theme.primaryColor)),
                                 ),
                               ],
@@ -82,7 +82,7 @@ class MainDrawerWidget extends StatelessWidget {
                                     color: Get.theme.hintColor, size: 24),
                                 Text(
                                   "Register".tr,
-                                  style: Get.textTheme.subtitle1.merge(
+                                  style: Get.textTheme.subtitle1?.merge(
                                       TextStyle(color: Get.theme.hintColor)),
                                 ),
                               ],

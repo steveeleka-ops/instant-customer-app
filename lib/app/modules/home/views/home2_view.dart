@@ -182,7 +182,7 @@ class Home2View extends GetView<HomeController> {
                               Text(
                                 "Hi, nice to meet you",
                                 textAlign: TextAlign.center,
-                                style: Get.textTheme.bodyLarge.merge(TextStyle(
+                                style: Get.textTheme.bodyLarge?.merge(TextStyle(
                                     color: Colors.grey, fontSize: 18)),
                               ),
                               Text(

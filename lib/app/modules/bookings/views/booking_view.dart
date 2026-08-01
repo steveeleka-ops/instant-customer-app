@@ -442,7 +442,7 @@ class BookingView extends GetView<BookingController> {
                   AutoSizeText(
                     _booking.value.eService?.name ?? '',
                     style:
-                    Get.textTheme.headline5.merge(TextStyle(height: 1.1)),
+                    Get.textTheme.headline5?.merge(TextStyle(height: 1.1)),
                     overflow: TextOverflow.fade,
                   ),
                   Row(
@@ -495,7 +495,7 @@ class BookingView extends GetView<BookingController> {
                         DateFormat('HH:mm', Get.locale.toString())
                             .format(_booking.value.bookingAt),
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2.merge(
+                        style: Get.textTheme.bodyText2?.merge(
                           TextStyle(
                               color: Get.theme.colorScheme.secondary,
                               height: 1.4),
@@ -507,7 +507,7 @@ class BookingView extends GetView<BookingController> {
                         DateFormat('dd', Get.locale.toString())
                             .format(_booking.value.bookingAt ?? ''),
                         maxLines: 1,
-                        style: Get.textTheme.headline3.merge(
+                        style: Get.textTheme.headline3?.merge(
                           TextStyle(
                               color: Get.theme.colorScheme.secondary,
                               height: 1),
@@ -519,7 +519,7 @@ class BookingView extends GetView<BookingController> {
                         DateFormat('MMM', Get.locale.toString())
                             .format(_booking.value.bookingAt ?? ''),
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2.merge(
+                        style: Get.textTheme.bodyText2?.merge(
                           TextStyle(
                               color: Get.theme.colorScheme.secondary,
                               height: 1),

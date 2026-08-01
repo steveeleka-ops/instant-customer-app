@@ -189,7 +189,7 @@ class EProviderView extends GetView<EProviderController> {
                           child: Text(
                             _media.name ?? '',
                             maxLines: 2,
-                            style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor)),
+                            style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor)),
                           ),
                         ),
                       ],
@@ -229,7 +229,7 @@ class EProviderView extends GetView<EProviderController> {
           Container(
             child: Text("Available".tr,
                 maxLines: 1,
-                style: Get.textTheme.bodyText2.merge(
+                style: Get.textTheme.bodyText2?.merge(
                   TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                 ),
                 softWrap: false,
@@ -245,7 +245,7 @@ class EProviderView extends GetView<EProviderController> {
           Container(
             child: Text("Offline".tr,
                 maxLines: 1,
-                style: Get.textTheme.bodyText2.merge(
+                style: Get.textTheme.bodyText2?.merge(
                   TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                 ),
                 softWrap: false,
@@ -414,7 +414,7 @@ class EProviderView extends GetView<EProviderController> {
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
                   "Place a booking to access contact info".tr,
-                  style: Get.textTheme.caption.merge(TextStyle(color: Colors.grey)),
+                  style: Get.textTheme.caption?.merge(TextStyle(color: Colors.grey)),
                 ),
               ),
           ],
@@ -490,7 +490,7 @@ class EProviderView extends GetView<EProviderController> {
               Expanded(
                 child: Text(
                   _eProvider.name ?? '',
-                  style: Get.textTheme.headline5.merge(TextStyle(height: 1.1)),
+                  style: Get.textTheme.headline5?.merge(TextStyle(height: 1.1)),
                   maxLines: 2,
                   softWrap: true,
                   overflow: TextOverflow.fade,
@@ -499,7 +499,7 @@ class EProviderView extends GetView<EProviderController> {
               Container(
                 child: Text(_eProvider.type?.name?.tr ?? ' . . . ',
                     maxLines: 1,
-                    style: Get.textTheme.bodyText2.merge(
+                    style: Get.textTheme.bodyText2?.merge(
                       TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4, fontSize: 10),
                     ),
                     softWrap: false,

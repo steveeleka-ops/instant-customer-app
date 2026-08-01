@@ -60,10 +60,10 @@ class PhoneVerificationView extends GetView<AuthController> {
                           SizedBox(height: 5),
                           Text(
                             "Welcome to the best service provider system!".tr,
-                            style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor)),
+                            style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor)),
                             textAlign: TextAlign.center,
                           ),
-                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
+                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
                         ],
                       ),
                     ),
@@ -100,7 +100,7 @@ class PhoneVerificationView extends GetView<AuthController> {
                       TextFieldWidget(
                         labelText: "OTP Code".tr,
                         hintText: "- - - - - -".tr,
-                        style: Get.textTheme.headline4.merge(TextStyle(letterSpacing: 8)),
+                        style: Get.textTheme.headline4?.merge(TextStyle(letterSpacing: 8)),
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         onChanged: (input) => controller.smsSent.value = input,

@@ -77,7 +77,7 @@ class GalleryView extends GetView<GalleryController> {
                   return Text(
                     controller.current.value.name ?? '',
                     maxLines: 2,
-                    style: Get.textTheme.bodyText2.merge(
+                    style: Get.textTheme.bodyText2?.merge(
                       TextStyle(
                         color: Get.theme.primaryColor,
                         shadows: <Shadow>[

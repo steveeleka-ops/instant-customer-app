@@ -181,7 +181,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                     Expanded(
                       child: Text(
                         "Your payment will be held securely until the job is completed and approved by you.".tr,
-                        style: Get.textTheme.caption.merge(TextStyle(fontSize: 11)),
+                        style: Get.textTheme.caption?.merge(TextStyle(fontSize: 11)),
                       ),
                     ),
                   ],
@@ -195,7 +195,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                     Expanded(
                       child: Text(
                         "Your card will be saved to maintain the hold if the job requires additional work.".tr,
-                        style: Get.textTheme.caption.merge(TextStyle(fontSize: 11)),
+                        style: Get.textTheme.caption?.merge(TextStyle(fontSize: 11)),
                       ),
                     ),
                   ],
