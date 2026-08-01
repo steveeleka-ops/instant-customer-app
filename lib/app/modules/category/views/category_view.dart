@@ -41,8 +41,8 @@ class CategoryView extends GetView<CategoryController> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                   controller.category.value.name,
-                  style: Get.textTheme.headline6?
-                      .merge(TextStyle(color: Get.theme.primaryColor)),
+                  style: Get.textTheme.headline6
+                      ?.merge(TextStyle(color: Get.theme.primaryColor)),
                   ),
                 ),
                 centerTitle: true,

@@ -229,8 +229,8 @@ class BookingsListItemWidget extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: Ui.getPrice(
                             _booking.getTotal(),
-                            style: Get.textTheme.subtitle2?
-                                .merge(TextStyle(color: _statusColor)),
+                            style: Get.textTheme.subtitle2
+                                ?.merge(TextStyle(color: _statusColor)),
                           ),
                         ),
                       ],

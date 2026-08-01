@@ -44,8 +44,8 @@ class BookingActionsWidget extends GetView<BookingController> {
                 Text(
                   "Job completed — please review".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.bodyText1?
-                      .merge(TextStyle(fontWeight: FontWeight.w600)),
+                  style: Get.textTheme.bodyText1
+                      ?.merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
                 SizedBox(height: 12),
                 Row(

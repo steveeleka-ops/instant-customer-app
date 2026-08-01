@@ -18,8 +18,8 @@ class AccountView extends GetView<AccountController> {
         appBar: AppBar(
           title: Text(
             "Account".tr,
-            style: Get.textTheme.headline6?
-                .merge(TextStyle(color: context.theme.primaryColor)),
+            style: Get.textTheme.headline6
+                ?.merge(TextStyle(color: context.theme.primaryColor)),
           ),
           centerTitle: true,
           backgroundColor: Get.theme.colorScheme.secondary,

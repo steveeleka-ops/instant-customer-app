@@ -158,8 +158,8 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
               child: Text(
               'View All',
               maxLines: 2,
-              style: Get.textTheme.bodyText2?
-                  .merge(TextStyle(color: Colors.black)),
+              style: Get.textTheme.bodyText2
+                  ?.merge(TextStyle(color: Colors.black)),
               ),
               ),
               ),
