@@ -1,9 +1,10 @@
+﻿// @dart=2.11
 import 'parents/model.dart';
 
 class PaymentStatus extends Model {
-  late String id;
-  late String status;
-  late int order;
+  String id;
+  String status;
+  int order;
 
   PaymentStatus({this.id, this.status, this.order});
 

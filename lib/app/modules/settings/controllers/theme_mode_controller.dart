@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -5,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 
 class ThemeModeController extends GetxController {
   final selectedThemeMode = ThemeMode.light.obs;
-  late GetStorage _box;
+  GetStorage _box;
 
   ThemeModeController() {
     _box = new GetStorage();

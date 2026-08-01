@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 
 import 'e_provider_model.dart';
@@ -6,19 +7,19 @@ import 'media_model.dart';
 import 'parents/model.dart';
 
 class Slide extends Model {
-  late int order;
-  late String text;
-  late String button;
-  late String textPosition;
-  late Color textColor;
-  late Color buttonColor;
-  late Color backgroundColor;
-  late Color indicatorColor;
-  late Media image;
-  late String imageFit;
-  late EService eService;
-  late EProvider eProvider;
-  late bool enabled;
+  int order;
+  String text;
+  String button;
+  String textPosition;
+  Color textColor;
+  Color buttonColor;
+  Color backgroundColor;
+  Color indicatorColor;
+  Media image;
+  String imageFit;
+  EService eService;
+  EProvider eProvider;
+  bool enabled;
 
   Slide({
     this.order,

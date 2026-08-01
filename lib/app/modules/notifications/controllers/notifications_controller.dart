@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 import 'package:home_services/app/models/e_provider_model.dart';
 
@@ -18,12 +19,12 @@ class NotificationsController extends GetxController {
 
   final eProvider = EProvider().obs;
 
-  late NotificationRepository _notificationRepository;
-  late BookingRepository _bookingRepository;
-  late EProviderRepository eProviderRepository;
-  late AuthService authService;
+  NotificationRepository _notificationRepository;
+  BookingRepository _bookingRepository;
+  EProviderRepository eProviderRepository;
+  AuthService authService;
 
-  late ChatRepository chatRepository;
+  ChatRepository chatRepository;
 
 
   NotificationsController() {

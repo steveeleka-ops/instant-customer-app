@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -23,8 +24,8 @@ class RootController extends GetxController {
   final currentIndex = 0.obs;
   final notificationsCount = 0.obs;
   final customPages = <CustomPage>[].obs;
-  late NotificationRepository _notificationRepository;
-  late CustomPageRepository _customPageRepository;
+  NotificationRepository _notificationRepository;
+  CustomPageRepository _customPageRepository;
   // SharedPrefUtils pref = SharedPrefUtils();
 
   RootController() {

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -9,7 +10,7 @@ import '../../bookings/controllers/bookings_controller.dart';
 import '../../global_widgets/tab_bar_widget.dart';
 
 class WalletController extends GetxController {
-  late PaymentRepository _paymentRepository;
+  PaymentRepository _paymentRepository;
   final payment = new Payment().obs;
   final booking = new Booking().obs;
   final wallet = new Wallet().obs;

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -6,7 +7,7 @@ import '../../../services/settings_service.dart';
 import 'theme_mode_controller.dart';
 
 class LanguageController extends GetxController {
-  late GetStorage _box;
+  GetStorage _box;
 
   LanguageController() {
     _box = new GetStorage();

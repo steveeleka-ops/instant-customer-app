@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,7 @@ class EServiceController extends GetxController {
   final currentSlide = 0.obs;
   final quantity = 1.obs;
   final heroTag = ''.obs;
-  late EServiceRepository _eServiceRepository;
+  EServiceRepository _eServiceRepository;
 
   EServiceController() {
     _eServiceRepository = new EServiceRepository();

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,8 +9,8 @@ import '../../../routes/app_routes.dart';
 
 class WalletFormController extends GetxController {
   final wallet = Wallet().obs;
-  late GlobalKey<FormState> walletForm;
-  late PaymentRepository _paymentRepository;
+  GlobalKey<FormState> walletForm;
+  PaymentRepository _paymentRepository;
 
   WalletFormController() {
     _paymentRepository = new PaymentRepository();

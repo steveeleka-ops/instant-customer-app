@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -22,8 +23,8 @@ class BookEServiceController extends GetxController {
   final recurrence = ''.obs; // '', 'weekly', 'biweekly', 'monthly'
   final booking = Booking().obs;
   final addresses = <Address>[].obs;
-  late BookingRepository _bookingRepository;
-  late SettingRepository _settingRepository;
+  BookingRepository _bookingRepository;
+  SettingRepository _settingRepository;
 
   Address get currentAddress => Get.find<SettingsService>().address.value;
 

@@ -1,12 +1,13 @@
+﻿// @dart=2.11
 import 'dart:math';
 
 import '../../common/uuid.dart';
 import 'parents/model.dart';
 
 class Wallet extends Model {
-  late String id;
-  late String name;
-  late double balance;
+  String id;
+  String name;
+  double balance;
 
   Wallet({this.id, this.name, this.balance});
 

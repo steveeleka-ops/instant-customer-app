@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart' show GetPage, Transition;
 
 import '../middlewares/auth_middleware.dart';

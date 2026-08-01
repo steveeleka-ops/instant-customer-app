@@ -1,27 +1,28 @@
+﻿// @dart=2.11
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'parents/model.dart';
 import 'user_model.dart';
 
 class Message extends Model {
-  late String id;
+  String id;
 
   // conversation name for example chat with market name
-  late String name;
+  String name;
 
   // Chats messages
-  late String lastMessage;
+  String lastMessage;
 
-  late int lastMessageTime;
+  int lastMessageTime;
 
   // Ids of users that read the chat message
-  late List<String> readByUsers;
+  List<String> readByUsers;
 
   // Ids of users in this conversation
-  late List<String> visibleToUsers;
+  List<String> visibleToUsers;
 
   // users in the conversation
-  late List<User> users;
+  List<User> users;
 
   Message(this.users, {this.id = null, this.name = ''}) {
     visibleToUsers = this.users.map((user) => user.id).toList();

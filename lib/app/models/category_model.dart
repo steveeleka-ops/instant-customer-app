@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 
 import 'e_service_model.dart';
@@ -5,14 +6,14 @@ import 'media_model.dart';
 import 'parents/model.dart';
 
 class Category extends Model {
-  late String id;
-  late String name;
-  late String description;
-  late Color color;
-  late Media image;
-  late bool featured;
-  late List<Category> subCategories;
-  late List<EService> eServices;
+  String id;
+  String name;
+  String description;
+  Color color;
+  Media image;
+  bool featured;
+  List<Category> subCategories;
+  List<EService> eServices;
 
   Category({this.id, this.name, this.description, this.color, this.image, this.featured, this.subCategories, this.eServices});
 

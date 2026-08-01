@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -8,9 +9,9 @@ import 'media_model.dart';
 import 'parents/model.dart';
 
 class Gallery extends Model {
-  late String id;
-  late Media image;
-  late String description;
+  String id;
+  Media image;
+  String description;
 
   Gallery({this.id, this.image, this.description});
 

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -23,8 +24,8 @@ class EProviderController extends GetxController {
   final currentSlide = 0.obs;
   final hasBooking = false.obs;
   String heroTag = "";
-  late EProviderRepository _eProviderRepository;
-  late BookingRepository _bookingRepository;
+  EProviderRepository _eProviderRepository;
+  BookingRepository _bookingRepository;
 
   EProviderController() {
     _eProviderRepository = new EProviderRepository();

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -15,14 +16,14 @@ import '../../root/controllers/root_controller.dart';
 
 class AuthController extends GetxController {
   final Rx<User> currentUser = Get.find<AuthService>().user;
-  late GlobalKey<FormState> loginFormKey;
-  late GlobalKey<FormState> registerFormKey;
-  late GlobalKey<FormState> forgotPasswordFormKey;
+  GlobalKey<FormState> loginFormKey;
+  GlobalKey<FormState> registerFormKey;
+  GlobalKey<FormState> forgotPasswordFormKey;
   final hidePassword = true.obs;
   final loading = false.obs;
   final smsSent = ''.obs;
   final address = Address().obs;
-  late UserRepository _userRepository;
+  UserRepository _userRepository;
 
   AuthController() {
     _userRepository = UserRepository();

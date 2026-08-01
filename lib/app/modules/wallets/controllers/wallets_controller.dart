@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -9,7 +10,7 @@ class WalletsController extends GetxController {
   final wallets = <Wallet>[].obs;
   final walletTransactions = <WalletTransaction>[].obs;
   final selectedWallet = new Wallet().obs;
-  late PaymentRepository _paymentRepository;
+  PaymentRepository _paymentRepository;
 
   WalletsController() {
     _paymentRepository = new PaymentRepository();

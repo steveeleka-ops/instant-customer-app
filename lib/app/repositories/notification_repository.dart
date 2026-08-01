@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../models/notification_model.dart';
@@ -5,7 +6,7 @@ import '../models/user_model.dart';
 import '../providers/laravel_provider.dart';
 
 class NotificationRepository {
-  late LaravelApiClient _laravelApiClient;
+  LaravelApiClient _laravelApiClient;
 
   NotificationRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

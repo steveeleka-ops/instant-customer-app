@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../models/e_service_model.dart';
@@ -7,7 +8,7 @@ import '../models/review_model.dart';
 import '../providers/laravel_provider.dart';
 
 class EServiceRepository {
-  late LaravelApiClient _laravelApiClient;
+  LaravelApiClient _laravelApiClient;
 
   EServiceRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

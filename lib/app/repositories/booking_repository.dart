@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../models/booking_model.dart';
@@ -7,7 +8,7 @@ import '../models/review_model.dart';
 import '../providers/laravel_provider.dart';
 
 class BookingRepository {
-  late LaravelApiClient _laravelApiClient;
+  LaravelApiClient _laravelApiClient;
 
   BookingRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

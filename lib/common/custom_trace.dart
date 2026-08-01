@@ -1,12 +1,13 @@
+﻿// @dart=2.11
 class CustomTrace {
   final StackTrace _trace;
 
-  late String fileName;
-  late String functionName;
-  late String callerFunctionName;
-  late String message;
-  late int lineNumber;
-  late int columnNumber;
+  String fileName;
+  String functionName;
+  String callerFunctionName;
+  String message;
+  int lineNumber;
+  int columnNumber;
 
   CustomTrace(this._trace, {this.message}) {
     _parseTrace();

@@ -1,13 +1,14 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import 'parents/model.dart';
 
 class Notification extends Model {
-  late String id;
-  late String type;
-  late Map<String, dynamic> data;
-  late bool read;
-  late DateTime createdAt;
+  String id;
+  String type;
+  Map<String, dynamic> data;
+  bool read;
+  DateTime createdAt;
 
   Notification();
 

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../common/custom_trace.dart';
@@ -7,7 +8,7 @@ import '../services/global_service.dart';
 mixin ApiClient {
   final globalService = Get.find<GlobalService>();
   final authService = Get.find<AuthService>();
-  late String baseUrl;
+  String baseUrl;
 
   String getBaseUrl(String path) {
     if (!path.endsWith('/')) {

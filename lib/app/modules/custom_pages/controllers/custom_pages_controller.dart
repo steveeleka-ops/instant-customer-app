@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -6,7 +7,7 @@ import '../../../repositories/custom_page_repository.dart';
 
 class CustomPagesController extends GetxController {
   final customPage = CustomPage().obs;
-  late CustomPageRepository _customPageRepository;
+  CustomPageRepository _customPageRepository;
 
   CustomPagesController() {
     _customPageRepository = CustomPageRepository();

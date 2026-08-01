@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:firebase_auth/firebase_auth.dart' as fba;
 import 'package:get/get.dart';
 

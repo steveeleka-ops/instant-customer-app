@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -14,9 +15,9 @@ import 'translation_service.dart';
 class SettingsService extends GetxService {
   final setting = Setting().obs;
   final address = Address().obs;
-  late GetStorage _box;
+  GetStorage _box;
 
-  late SettingRepository _settingsRepo;
+  SettingRepository _settingsRepo;
 
   SettingsService() {
     _settingsRepo = new SettingRepository();

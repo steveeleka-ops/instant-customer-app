@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:convert';
 
 import 'package:get/get.dart';
@@ -15,10 +16,10 @@ import '../../root/controllers/root_controller.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
-  late SliderRepository _sliderRepo;
-  late CategoryRepository _categoryRepository;
-  late EServiceRepository _eServiceRepository;
-  late LatLng currentLocation;
+  SliderRepository _sliderRepo;
+  CategoryRepository _categoryRepository;
+  EServiceRepository _eServiceRepository;
+  LatLng currentLocation;
 
   // var hasLocationService = false.obs;
   // var hasLocationPermission = false.obs;

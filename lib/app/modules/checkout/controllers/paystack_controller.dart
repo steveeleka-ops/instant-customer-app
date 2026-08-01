@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -10,8 +11,8 @@ import '../../bookings/controllers/bookings_controller.dart';
 import '../../global_widgets/tab_bar_widget.dart';
 
 class PayStackController extends GetxController {
-  late WebViewController webView;
-  late PaymentRepository _paymentRepository;
+  WebViewController webView;
+  PaymentRepository _paymentRepository;
   final url = "".obs;
   final progress = 0.0.obs;
   final booking = new Booking().obs;

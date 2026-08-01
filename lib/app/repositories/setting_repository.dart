@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../models/address_model.dart';
@@ -5,7 +6,7 @@ import '../models/setting_model.dart';
 import '../providers/laravel_provider.dart';
 
 class SettingRepository {
-  late LaravelApiClient _laravelApiClient;
+  LaravelApiClient _laravelApiClient;
 
   SettingRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

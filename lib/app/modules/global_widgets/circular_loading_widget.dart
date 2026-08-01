@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -15,8 +16,8 @@ class CircularLoadingWidget extends StatefulWidget {
 }
 
 class _CircularLoadingWidgetState extends State<CircularLoadingWidget> with SingleTickerProviderStateMixin {
-  late Animation<double> animation;
-  late AnimationController animationController;
+  Animation<double> animation;
+  AnimationController animationController;
 
   void initState() {
     super.initState();

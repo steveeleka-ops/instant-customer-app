@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:math';
 
 import 'parents/model.dart';
@@ -6,12 +7,12 @@ import 'user_model.dart';
 enum TransactionActions { CREDIT, DEBIT }
 
 class WalletTransaction extends Model {
-  late String id;
-  late double amount;
-  late String description;
-  late TransactionActions action;
-  late DateTime dateTime;
-  late User user;
+  String id;
+  double amount;
+  String description;
+  TransactionActions action;
+  DateTime dateTime;
+  User user;
 
   WalletTransaction({this.id, this.amount, this.description, this.action, this.user});
 

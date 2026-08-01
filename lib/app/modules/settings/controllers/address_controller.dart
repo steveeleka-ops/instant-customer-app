@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -7,9 +8,9 @@ import '../../../repositories/setting_repository.dart';
 import '../../../services/auth_service.dart';
 
 class AddressController extends GetxController {
-  late SettingRepository _settingRepository;
+  SettingRepository _settingRepository;
   final addresses = <Address>[].obs;
-  late EServiceRepository _eServiceRepository;
+  EServiceRepository _eServiceRepository;
   // SharedPrefUtils pref = SharedPrefUtils();
 
   AddressController() {

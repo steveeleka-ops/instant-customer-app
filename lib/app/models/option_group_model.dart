@@ -1,11 +1,12 @@
+﻿// @dart=2.11
 import 'option_model.dart';
 import 'parents/model.dart';
 
 class OptionGroup extends Model {
-  late String id;
-  late String name;
-  late bool allowMultiple;
-  late List<Option> options;
+  String id;
+  String name;
+  bool allowMultiple;
+  List<Option> options;
 
   OptionGroup({this.id, this.name, this.options});
 

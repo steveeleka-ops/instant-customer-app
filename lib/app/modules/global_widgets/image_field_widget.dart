@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -11,9 +12,9 @@ import '../../repositories/upload_repository.dart';
 
 class ImageFieldController extends GetxController {
   Rx<File> image = Rx<File>(null);
-  late String uuid;
+  String uuid;
   final uploading = false.obs;
-  late UploadRepository _uploadRepository;
+  UploadRepository _uploadRepository;
 
   ImageFieldController() {
     _uploadRepository = new UploadRepository();

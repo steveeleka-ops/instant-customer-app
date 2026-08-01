@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -12,7 +13,7 @@ import '../../root/controllers/root_controller.dart';
 class RatingController extends GetxController {
   final booking = Booking().obs;
   final review = new Review(rate: 1).obs;
-  late BookingRepository _bookingRepository;
+  BookingRepository _bookingRepository;
 
   RatingController() {
     _bookingRepository = new BookingRepository();

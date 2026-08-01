@@ -1,21 +1,22 @@
+﻿// @dart=2.11
 import '../../common/uuid.dart';
 import 'address_model.dart';
 import 'media_model.dart';
 import 'parents/model.dart';
 
 class User extends Model {
-  late String name;
-  late String email;
-  late String password;
-  late Media avatar;
-  late String apiToken;
-  late String deviceToken;
-  late String phoneNumber;
-  late bool verifiedPhone;
-  late String verificationId;
-  late Address address;
-  late String bio;
-  late bool auth;
+  String name;
+  String email;
+  String password;
+  Media avatar;
+  String apiToken;
+  String deviceToken;
+  String phoneNumber;
+  bool verifiedPhone;
+  String verificationId;
+  Address address;
+  String bio;
+  bool auth;
 
   User(
       {this.name,

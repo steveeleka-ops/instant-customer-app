@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 class Routes {
   static const LOGIN = '/login';
   static const REGISTER = '/register';

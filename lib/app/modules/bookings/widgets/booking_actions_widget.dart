@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -129,7 +130,7 @@ class BookingActionsWidget extends GetView<BookingController> {
       final bool canCancel =
           !_booking.value.cancel && statusOrder > 0 && statusOrder < done;
 
-      // Late cancel = provider is already on the way or in progress
+      // cancel = provider is already on the way or in progress
       final bool isLateCancel = statusOrder >= onTheWay;
 
       return Container(
@@ -311,7 +312,7 @@ class FreeCancelDialog extends StatelessWidget {
   }
 }
 
-// ─── Late Cancel Dialog (10% fee) ────────────────────────────────────────────
+// ─── Cancel Dialog (10% fee) ────────────────────────────────────────────
 
 class LateCancelDialog extends StatelessWidget {
   final double totalAmount;

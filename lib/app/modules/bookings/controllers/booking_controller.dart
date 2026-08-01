@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -17,12 +18,12 @@ import '../../../services/global_service.dart';
 import 'bookings_controller.dart';
 
 class BookingController extends GetxController {
-  late EProviderRepository _eProviderRepository;
-  late BookingRepository _bookingRepository;
+  EProviderRepository _eProviderRepository;
+  BookingRepository _bookingRepository;
   final allMarkers = <Marker>[].obs;
   final bookingStatuses = <BookingStatus>[].obs;
-  late Timer timer;
-  late GoogleMapController mapController;
+  Timer timer;
+  GoogleMapController mapController;
   final booking = Booking().obs;
 
   BookingController() {

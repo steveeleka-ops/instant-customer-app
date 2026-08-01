@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,11 +15,11 @@ class SearchController extends GetxController {
   final categories = <Category>[].obs;
   final selectedCategories = <String>[].obs;
   final suggestedCategoryNames = <String>[].obs;
-  late TextEditingController textEditingController;
+  TextEditingController textEditingController;
 
   final eServices = <EService>[].obs;
-  late EServiceRepository _eServiceRepository;
-  late CategoryRepository _categoryRepository;
+  EServiceRepository _eServiceRepository;
+  CategoryRepository _categoryRepository;
 
   SearchController() {
     _eServiceRepository = new EServiceRepository();

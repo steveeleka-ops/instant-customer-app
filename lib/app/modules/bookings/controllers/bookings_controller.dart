@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,7 +9,7 @@ import '../../../repositories/booking_repository.dart';
 import '../../../services/global_service.dart';
 
 class BookingsController extends GetxController {
-  late BookingRepository _bookingsRepository;
+  BookingRepository _bookingsRepository;
 
   final bookings = <Booking>[].obs;
   final bookingStatuses = <BookingStatus>[].obs;
@@ -19,7 +20,7 @@ class BookingsController extends GetxController {
   // No longer used to filter the booking list.
   final currentStatus = ''.obs;
 
-  late ScrollController scrollController;
+  ScrollController scrollController;
 
   BookingsController() {
     _bookingsRepository = new BookingRepository();

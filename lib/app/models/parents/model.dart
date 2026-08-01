@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -8,7 +9,7 @@ import '../../services/translation_service.dart';
 import '../media_model.dart';
 
 abstract class Model {
-  late String id;
+  String id;
 
   bool get hasData => id != null;
 

@@ -1,9 +1,10 @@
+﻿// @dart=2.11
 import 'parents/model.dart';
 
 class Faq extends Model {
-  late String id;
-  late String question;
-  late String answer;
+  String id;
+  String question;
+  String answer;
 
   Faq({this.id, this.question, this.answer});
 

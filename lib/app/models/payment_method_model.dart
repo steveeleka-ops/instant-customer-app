@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:math';
 
 import 'package:get/get.dart';
@@ -7,14 +8,14 @@ import 'parents/model.dart';
 import 'wallet_model.dart';
 
 class PaymentMethod extends Model {
-  late String id;
-  late String name;
-  late String description;
-  late Media logo;
-  late String route;
-  late int order;
-  late bool isDefault;
-  late Wallet wallet;
+  String id;
+  String name;
+  String description;
+  Media logo;
+  String route;
+  int order;
+  bool isDefault;
+  Wallet wallet;
 
   PaymentMethod({this.id, this.name, this.description, this.route, this.logo, this.wallet, this.isDefault = false});
 

@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TabBarController extends GetxController {
-  late RxString selectedId;
+  RxString selectedId;
 
   @override
   void onInit() {

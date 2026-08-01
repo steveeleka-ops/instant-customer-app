@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,12 +17,12 @@ import '../../../services/auth_service.dart';
 class MessagesController extends GetxController {
   final uploading = false.obs;
   var message = Message([]).obs;
-  late ChatRepository _chatRepository;
-  late NotificationRepository _notificationRepository;
-  late AuthService _authService;
+  ChatRepository _chatRepository;
+  NotificationRepository _notificationRepository;
+  AuthService _authService;
   var messages = <Message>[].obs;
   var chats = <Chat>[].obs;
-  late File imageFile;
+  File imageFile;
   Rx<DocumentSnapshot> lastDocument = new Rx<DocumentSnapshot>(null);
   final isLoading = true.obs;
   final isDone = false.obs;

@@ -1,10 +1,11 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../models/category_model.dart';
 import '../providers/laravel_provider.dart';
 
 class CategoryRepository {
-  late LaravelApiClient _laravelApiClient;
+  LaravelApiClient _laravelApiClient;
 
   CategoryRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

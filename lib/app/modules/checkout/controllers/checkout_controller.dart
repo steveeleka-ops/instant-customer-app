@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ import '../../../repositories/payment_repository.dart';
 import '../../../routes/app_routes.dart';
 
 class CheckoutController extends GetxController {
-  late PaymentRepository _paymentRepository;
+  PaymentRepository _paymentRepository;
   final paymentsList = <PaymentMethod>[].obs;
   final walletList = <Wallet>[];
   final isLoading = true.obs;

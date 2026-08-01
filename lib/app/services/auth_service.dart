@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -7,9 +8,9 @@ import 'settings_service.dart';
 
 class AuthService extends GetxService {
   final user = User().obs;
-  late GetStorage _box;
+  GetStorage _box;
 
-  late UserRepository _usersRepo;
+  UserRepository _usersRepo;
 
   AuthService() {
     _usersRepo = new UserRepository();

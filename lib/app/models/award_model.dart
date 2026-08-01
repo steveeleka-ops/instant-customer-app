@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -7,9 +8,9 @@ import 'dart:core';
 import 'parents/model.dart';
 
 class Award extends Model {
-  late String id;
-  late String title;
-  late String description;
+  String id;
+  String title;
+  String description;
 
   Award({this.id, this.title, this.description});
 

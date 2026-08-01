@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -7,9 +8,9 @@ import 'dart:core';
 import 'parents/model.dart';
 
 class EProviderType extends Model {
-  late String id;
-  late String name;
-  late double commission;
+  String id;
+  String name;
+  double commission;
 
   EProviderType({this.id, this.name, this.commission});
 

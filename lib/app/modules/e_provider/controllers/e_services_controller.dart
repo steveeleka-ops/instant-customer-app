@@ -1,3 +1,4 @@
+﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +16,7 @@ class EServicesController extends GetxController {
   final page = 0.obs;
   final isLoading = true.obs;
   final isDone = false.obs;
-  late EProviderRepository _eProviderRepository;
+  EProviderRepository _eProviderRepository;
   ScrollController scrollController = ScrollController();
 
   EServicesController() {
