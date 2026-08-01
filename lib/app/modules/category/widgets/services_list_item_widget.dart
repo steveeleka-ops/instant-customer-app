@@ -117,7 +117,7 @@ class ServicesListItemWidget extends StatelessWidget {
                            child: Text(
                                _service.categories.elementAt(index).name,
                                overflow: TextOverflow.ellipsis,
-                               style: Get.textTheme.headline6.merge(TextStyle(fontSize: 10, fontWeight: FontWeight.normal))),
+                               style: Get.textTheme.headline6?.merge(TextStyle(fontSize: 10, fontWeight: FontWeight.normal))),
                            decoration: BoxDecoration(
                                color: Get.theme.primaryColor,
                                border: Border.all(

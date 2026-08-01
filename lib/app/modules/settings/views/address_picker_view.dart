@@ -138,7 +138,7 @@ class _AddressPickerViewState extends State<AddressPickerView> {
                             color: Get.theme.colorScheme.secondary,
                             text: Text(
                               "Pick Here".tr,
-                              style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                              style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
                             ),
                           ))]
                       ).paddingSymmetric(horizontal: 20),

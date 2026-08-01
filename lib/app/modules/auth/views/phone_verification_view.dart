@@ -21,7 +21,7 @@ class PhoneVerificationView extends GetView<AuthController> {
           appBar: AppBar(
             title: Text(
               "Phone Verification".tr,
-              style: Get.textTheme.headline6.merge(TextStyle(color: context.theme.primaryColor)),
+              style: Get.textTheme.headline6?.merge(TextStyle(color: context.theme.primaryColor)),
             ),
             centerTitle: true,
             backgroundColor: Get.theme.colorScheme.secondary,
@@ -55,7 +55,7 @@ class PhoneVerificationView extends GetView<AuthController> {
                         children: [
                           Text(
                             _settings.appName,
-                            style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
+                            style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -113,7 +113,7 @@ class PhoneVerificationView extends GetView<AuthController> {
                         color: Get.theme.colorScheme.secondary,
                         text: Text(
                           "Verify".tr,
-                          style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                          style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
                         ),
                       ).paddingSymmetric(vertical: 30, horizontal: 20),
                       Row(

@@ -74,7 +74,7 @@ class ChatsView extends GetView<MessagesController> {
           controller.message.value.name,
           overflow: TextOverflow.fade,
           maxLines: 1,
-          style: Get.textTheme.headline6.merge(TextStyle(letterSpacing: 1.3)),
+          style: Get.textTheme.headline6?.merge(TextStyle(letterSpacing: 1.3)),
         ),
       ),
       body: Column(

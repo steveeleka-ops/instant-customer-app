@@ -31,7 +31,7 @@ class EProviderEServicesView extends GetView<EServicesController> {
               iconTheme: IconThemeData(color: Get.theme.primaryColor),
               title: Text(
                 controller.eProvider.value.name,
-                style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
               ),
               centerTitle: true,
               automaticallyImplyLeading: false,

@@ -24,7 +24,7 @@ class RegisterView extends GetView<AuthController> {
         appBar: AppBar(
           title: Text(
             "Register".tr,
-            style: Get.textTheme.headline6.merge(TextStyle(color: context.theme.primaryColor)),
+            style: Get.textTheme.headline6?.merge(TextStyle(color: context.theme.primaryColor)),
           ),
           centerTitle: true,
           backgroundColor: Get.theme.colorScheme.secondary,
@@ -60,7 +60,7 @@ class RegisterView extends GetView<AuthController> {
                         children: [
                           Text(
                             _settings.appName,
-                            style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
+                            style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -203,7 +203,7 @@ class RegisterView extends GetView<AuthController> {
                               color: Get.theme.colorScheme.secondary,
                               text: Text(
                                 "Register".tr,
-                                style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
                               ),
                             ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20),
                           ),
@@ -239,7 +239,7 @@ class RegisterView extends GetView<AuthController> {
                     color: Get.theme.colorScheme.secondary,
                     text: Text(
                       "Register".tr,
-                      style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                      style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
                     ),
                   ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20),
                 ),

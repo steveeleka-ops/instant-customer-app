@@ -61,7 +61,7 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
             color: Get.theme.colorScheme.secondary,
             text: Text(
               "Verify".tr,
-              style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+              style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
             ),
           ).paddingSymmetric(vertical: 30, horizontal: 20),
         ],

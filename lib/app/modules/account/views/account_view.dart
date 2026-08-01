@@ -64,7 +64,7 @@ class AccountView extends GetView<AccountController> {
                         children: [
                           Text(
                             "${_currentUser.value.name}",
-                            style: Get.textTheme.headline6.merge(
+                            style: Get.textTheme.headline6?.merge(
                                 TextStyle(color: Get.theme.primaryColor)),
                           ),
                           SizedBox(height: 5),

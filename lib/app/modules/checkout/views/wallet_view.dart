@@ -172,7 +172,7 @@ class WalletViewWidget extends GetView<WalletController> {
                 child: Text(
                   "My Bookings".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.headline6.merge(
+                  style: Get.textTheme.headline6?.merge(
                     TextStyle(color: Get.theme.primaryColor),
                   ),
                 ),

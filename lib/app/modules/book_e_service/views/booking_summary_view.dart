@@ -212,7 +212,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                     child: Text(
                       "Confirm & Booking Now".tr,
                       textAlign: TextAlign.center,
-                      style: Get.textTheme.headline6.merge(
+                      style: Get.textTheme.headline6?.merge(
                         TextStyle(color: Get.theme.primaryColor),
                       ),
                     ),

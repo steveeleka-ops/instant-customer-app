@@ -188,7 +188,7 @@ class Home2View extends GetView<HomeController> {
                               Text(
                                 "See Service Availability",
                                 textAlign: TextAlign.center,
-                                style: Get.textTheme.headline6.merge(TextStyle(
+                                style: Get.textTheme.headline6?.merge(TextStyle(
                                     color: Get.theme.colorScheme.primary,
                                     fontSize: 24)),
                               ).paddingSymmetric(vertical: 10, horizontal: 20),
@@ -224,7 +224,7 @@ class Home2View extends GetView<HomeController> {
                                       ),
                                       Text(
                                         "Your Current Location".tr,
-                                        style: Get.textTheme.headline6.merge(
+                                        style: Get.textTheme.headline6?.merge(
                                             TextStyle(
                                                 color: Get.theme.primaryColor)),
                                       )
@@ -259,7 +259,7 @@ class Home2View extends GetView<HomeController> {
                                       ),
                                       Text(
                                         "Choose from Address".tr,
-                                        style: Get.textTheme.headline6.merge(
+                                        style: Get.textTheme.headline6?.merge(
                                             TextStyle(
                                                 color: Get.theme.colorScheme
                                                     .secondary)),

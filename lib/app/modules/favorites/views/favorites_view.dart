@@ -30,7 +30,7 @@ class FavoritesView extends GetView<FavoritesController> {
               iconTheme: IconThemeData(color: Get.theme.primaryColor),
               title: Text(
                 "Favorites".tr,
-                style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
               ),
               centerTitle: true,
               automaticallyImplyLeading: false,

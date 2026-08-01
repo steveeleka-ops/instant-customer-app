@@ -86,7 +86,7 @@ class OptionItemWidget extends GetWidget<EServiceController> {
                     SizedBox(width: 8),
                     Ui.getPrice(
                       _option.price,
-                      style: Get.textTheme.headline6.merge(TextStyle(color: _option.checked.value ? Get.theme.colorScheme.secondary : Get.theme.hintColor)),
+                      style: Get.textTheme.headline6?.merge(TextStyle(color: _option.checked.value ? Get.theme.colorScheme.secondary : Get.theme.hintColor)),
                     ),
                   ],
                 ),

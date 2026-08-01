@@ -8,7 +8,7 @@ class Ui {
   static GetBar SuccessSnackBar({String title = 'Success', String message}) {
     Get.log("[$title] $message");
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor))),
+      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor))),
       messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
@@ -23,7 +23,7 @@ class Ui {
   static GetBar ErrorSnackBar({String title = 'Error', String message}) {
     Get.log("[$title] $message", isError: true);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor))),
+      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor))),
       messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
@@ -38,7 +38,7 @@ class Ui {
   static GetBar defaultSnackBar({String title = 'Alert', String message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.hintColor))),
+      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.hintColor))),
       messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
@@ -54,7 +54,7 @@ class Ui {
   static GetBar notificationSnackBar({String title = 'Notification', String message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.hintColor))),
+      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.hintColor))),
       messageText: Text(message, style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.TOP,
       margin: EdgeInsets.all(20),

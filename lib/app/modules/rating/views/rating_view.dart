@@ -119,7 +119,7 @@ class RatingView extends GetView<RatingController> {
           BlockButtonWidget(
               text: Text(
                 "Submit Review".tr,
-                style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
               ),
               color: Get.theme.colorScheme.secondary,
               onPressed: () {

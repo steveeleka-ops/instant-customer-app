@@ -162,7 +162,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                           child: Text(
                             "Go to Checkout".tr,
                             textAlign: TextAlign.center,
-                            style: Get.textTheme.headline6.merge(
+                            style: Get.textTheme.headline6?.merge(
                               TextStyle(color: Get.theme.primaryColor),
                             ),
                           ),
@@ -192,7 +192,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                           child: Text(
                             "Leave a Review".tr,
                             textAlign: TextAlign.center,
-                            style: Get.textTheme.headline6.merge(
+                            style: Get.textTheme.headline6?.merge(
                               TextStyle(color: Get.theme.primaryColor),
                             ),
                           ),

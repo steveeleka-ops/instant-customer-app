@@ -555,7 +555,7 @@ class EServiceView extends GetView<EServiceController> {
                   child: Text(
                     "Book This Service".tr,
                     textAlign: TextAlign.center,
-                    style: Get.textTheme.headline6.merge(
+                    style: Get.textTheme.headline6?.merge(
                       TextStyle(color: Get.theme.primaryColor),
                     ),
                   ),

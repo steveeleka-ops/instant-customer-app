@@ -35,7 +35,7 @@ class HelpView extends GetView<HelpController> {
                 ),
           title: Text(
             "Help & Faq".tr,
-            style: Get.textTheme.headline6.merge(TextStyle(letterSpacing: 1.3, color: Get.theme.hintColor)),
+            style: Get.textTheme.headline6?.merge(TextStyle(letterSpacing: 1.3, color: Get.theme.hintColor)),
           ),
           automaticallyImplyLeading: false,
           leading: new IconButton(
