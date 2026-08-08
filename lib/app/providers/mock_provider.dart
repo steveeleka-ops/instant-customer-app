@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:get/get.dart';

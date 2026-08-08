@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
@@ -168,31 +167,22 @@ class Ui {
   static Html applyHtml(String html, {TextStyle style, TextAlign textAlign, Alignment alignment = Alignment.centerLeft}) {
     return Html(
       data: html.replaceAll('\r\n', '') ?? '',
-      customRender: {
-        "p": (RenderContext context, Widget child) {
-          return Text(
-            context.tree.element.text,
-            textAlign: textAlign,
-            style: style == null ? Get.textTheme.bodyLarge?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
-          );
-        },
-      },
       style: {
         "*": Style(
           textAlign: textAlign,
           alignment: alignment,
           color: style == null ? Get.theme.hintColor : style.color,
           fontSize: style == null ? FontSize(16.0) : FontSize(style.fontSize),
-          display: Display.INLINE_BLOCK,
+          display: Display.inlineBlock,
           fontWeight: style == null ? FontWeight.w300 : style.fontWeight,
-          width: Get.width,
+          width: Width(Get.width),
         ),
         "li": Style(
           textAlign: textAlign,
           lineHeight: LineHeight.normal,
-          listStylePosition: ListStylePosition.OUTSIDE,
+          listStylePosition: ListStylePosition.outside,
           fontSize: style == null ? FontSize(14.0) : FontSize(style.fontSize),
-          display: Display.BLOCK,
+          display: Display.block,
         ),
         "h4,h5,h6": Style(
           textAlign: textAlign,
@@ -204,7 +194,7 @@ class Ui {
           fontSize: style == null ? FontSize(18.0) : FontSize(style.fontSize + 4),
         ),
         "br": Style(
-          height: 0,
+          height: Height(0),
         ),
       },
     );
@@ -234,27 +224,18 @@ class Ui {
   static Html removeHtml(String html, {TextStyle style, TextAlign textAlign, Alignment alignment = Alignment.centerLeft}) {
     return Html(
       data: html.replaceAll('\r\n', '') ?? '',
-      customRender: {
-        "p": (RenderContext context, Widget child) {
-          return Text(
-            context.tree.element.text,
-            textAlign: textAlign,
-            style: style == null ? Get.textTheme.bodyLarge?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
-          );
-        },
-      },
       style: {
         "*": Style(
           textAlign: textAlign,
           alignment: alignment,
           color: style == null ? Get.theme.hintColor : style.color,
           fontSize: style == null ? FontSize(11.0) : FontSize(style.fontSize),
-          display: Display.INLINE_BLOCK,
+          display: Display.inlineBlock,
           fontWeight: style == null ? FontWeight.w300 : style.fontWeight,
-          width: Get.width,
+          width: Width(Get.width),
         ),
         "br": Style(
-          height: 0,
+          height: Height(0),
         ),
       },
     );

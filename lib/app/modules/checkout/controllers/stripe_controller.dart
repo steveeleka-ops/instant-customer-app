@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -34,7 +33,7 @@ class StripeController extends GetxController {
 
   void showConfirmationIfSuccess(String currentUrl) {
     final _doneUrl = "${Helper.toUrl(Get.find<GlobalService>().baseUrl)}payments/stripe";
-    // Must NOT match subpaths like /payments/stripe/checkout — only the bare success redirect.
+    // Must NOT match subpaths like /payments/stripe/checkout � only the bare success redirect.
     if (currentUrl.startsWith(_doneUrl) && !currentUrl.startsWith("${_doneUrl}/")) {
       Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id;
       if (Get.isRegistered<TabBarController>(tag: 'bookings')) {

@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:get/get.dart';
 import '../controllers/notifications_controller.dart';
 

@@ -1,16 +1,15 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../common/ui.dart';
 import '../../routes/app_routes.dart';
 import '../root/controllers/root_controller.dart';
-import '../search/controllers/search_controller.dart';
+import '../search/controllers/search_controller.dart' as app_search;
 import 'filter_bottom_sheet_widget.dart';
 
 class HomeSearchBarWidget extends StatelessWidget implements PreferredSize {
-  final updateController = Get.lazyPut(() => SearchController());
-  final controller = Get.find<SearchController>();
+  final updateController = Get.lazyPut(() => app_search.SearchController());
+  final controller = Get.find<app_search.SearchController>();
 
   Widget buildSearchBar() {
     updateController;

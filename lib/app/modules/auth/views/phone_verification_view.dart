@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -101,7 +100,7 @@ class PhoneVerificationView extends GetView<AuthController> {
                       TextFieldWidget(
                         labelText: "OTP Code".tr,
                         hintText: "- - - - - -".tr,
-                        style: Get.textTheme.headline4?.merge(TextStyle(letterSpacing: 8)),
+                        style: Get.textTheme.headlineMedium?.merge(TextStyle(letterSpacing: 8)),
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         onChanged: (input) => controller.smsSent.value = input,

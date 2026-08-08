@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import '../../common/uuid.dart';
 import 'address_model.dart';
 import 'media_model.dart';

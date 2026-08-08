@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,7 +42,7 @@ class WalletBalanceCard extends StatelessWidget {
                 children: [
                   Ui.getPrice(
                     wallet.balance,
-                    style: Get.textTheme.headline2?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 28)),
+                    style: Get.textTheme.displayMedium?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 28)),
                   ),
                   SizedBox(height: 20),
                   Text(

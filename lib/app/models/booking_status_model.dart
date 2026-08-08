@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'parents/model.dart';
 
 class BookingStatus extends Model {

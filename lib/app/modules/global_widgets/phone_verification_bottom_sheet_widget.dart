@@ -1,4 +1,3 @@
-// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -50,7 +49,7 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
           TextFieldWidget(
             labelText: "OTP Code".tr,
             hintText: "- - - - - -".tr,
-            style: Get.textTheme.headline4?.merge(TextStyle(letterSpacing: 8)),
+            style: Get.textTheme.headlineMedium?.merge(TextStyle(letterSpacing: 8)),
             textAlign: TextAlign.center,
             keyboardType: TextInputType.number,
             onChanged: (input) => controller.smsSent.value = input,

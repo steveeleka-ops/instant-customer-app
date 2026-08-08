@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -188,7 +187,7 @@ class EServiceView extends GetView<EServiceController> {
                           title: Text("Reviews & Ratings".tr, style: Get.textTheme.titleSmall),
                           content: Column(
                             children: [
-                              Text(_eService.rate.toString(), style: Get.textTheme.headline1),
+                              Text(_eService.rate.toString(), style: Get.textTheme.displayLarge),
                               Wrap(
                                 children: Ui.getStarsList(_eService.rate, size: 32),
                               ),
@@ -419,7 +418,7 @@ class EServiceView extends GetView<EServiceController> {
               ),
               Ui.getPrice(
                 _eService.getPrice,
-                style: Get.textTheme.headline3?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                style: Get.textTheme.displaySmall?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                 unit: _eService.getUnit,
               ),
             ],

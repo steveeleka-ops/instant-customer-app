@@ -1,8 +1,7 @@
-﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../common/ui.dart';
-import '../../search/controllers/search_controller.dart';
+import '../../search/controllers/search_controller.dart' as app_search;
 import '../../../routes/app_routes.dart';
 
 import '../../global_widgets/main_drawer_widget.dart';
@@ -61,10 +60,10 @@ class RootView extends GetView<RootController> {
                 }
               } else {
                 if (await Get.find<RootController>().isServiceAvailable()) {
-                  final searchController = Get.find<SearchController>();
-                  searchController.heroTag.value = UniqueKey().toString();
+                  final app_search.SearchController = Get.find<app_search.SearchController>();
+                  app_search.SearchController.heroTag.value = UniqueKey().toString();
                   Get.toNamed(Routes.SEARCH,
-                      arguments: searchController.heroTag.value);
+                      arguments: app_search.SearchController.heroTag.value);
                 } else
                   Get.showSnackbar(Ui.ErrorSnackBar(message: "Unfortunately our service isn't available at your location yet. Therefore, you can not access this functionality."));
               }

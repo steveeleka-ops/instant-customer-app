@@ -1,4 +1,3 @@
-// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -6,10 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../search/controllers/search_controller.dart';
+import '../search/controllers/search_controller.dart' as app_search;
 import 'circular_loading_widget.dart';
 
-class FilterBottomSheetWidget extends GetView<SearchController> {
+class FilterBottomSheetWidget extends GetView<app_search.SearchController> {
   @override
   Widget build(BuildContext context) {
     return Container(

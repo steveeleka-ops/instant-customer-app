@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'parents/model.dart';
 import 'payment_method_model.dart';
 import 'payment_status_model.dart';

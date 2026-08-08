@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:get/get.dart';
 
 import '../../root/controllers/root_controller.dart';

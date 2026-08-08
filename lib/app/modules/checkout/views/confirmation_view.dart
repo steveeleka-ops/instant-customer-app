@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -81,7 +80,7 @@ class ConfirmationView extends GetView<CheckoutController> {
             Text(
               arguments['short_message'] ?? "Thank you!".tr,
               textAlign: TextAlign.center,
-              style: Get.textTheme.headline3,
+              style: Get.textTheme.displaySmall,
             ),
             SizedBox(height: 10),
             Opacity(
@@ -89,7 +88,7 @@ class ConfirmationView extends GetView<CheckoutController> {
               child: Text(
                 arguments['long_message'] ?? "Your booking has been successfully submitted, you will receive a confirmation soon".tr,
                 textAlign: TextAlign.center,
-                style: Get.textTheme.headline4,
+                style: Get.textTheme.headlineMedium,
               ),
             ),
           ],

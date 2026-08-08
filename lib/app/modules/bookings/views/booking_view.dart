@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -508,7 +507,7 @@ class BookingView extends GetView<BookingController> {
                         DateFormat('dd', Get.locale.toString())
                             .format(_booking.value.bookingAt ?? ''),
                         maxLines: 1,
-                        style: Get.textTheme.headline3?.merge(
+                        style: Get.textTheme.displaySmall?.merge(
                           TextStyle(
                               color: Get.theme.colorScheme.secondary,
                               height: 1),

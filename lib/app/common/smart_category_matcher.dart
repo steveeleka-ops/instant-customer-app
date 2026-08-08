@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 class SmartCategoryMatcher {
   /// Maps category names (as they appear in the API) to keyword lists.
   /// Keywords are all lowercase.

@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -130,13 +129,13 @@ class CashViewWidget extends GetView<CashController> {
                   return Text(
                     "Your payment is pending confirmation from the Service Provider".tr,
                     textAlign: TextAlign.center,
-                    style: Get.textTheme.headline4,
+                    style: Get.textTheme.headlineMedium,
                   );
                 } else if (controller.isFailed()) {
                   return Text(
                     "Error occurred".tr,
                     textAlign: TextAlign.center,
-                    style: Get.textTheme.headline4,
+                    style: Get.textTheme.headlineMedium,
                   );
                 } else {
                   return Text(

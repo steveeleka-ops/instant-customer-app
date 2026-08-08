@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:flutter/material.dart';
 
 import 'e_service_model.dart';

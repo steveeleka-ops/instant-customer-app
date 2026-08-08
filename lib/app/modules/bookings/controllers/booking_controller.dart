@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -101,7 +100,7 @@ class BookingController extends GetxController {
     }
   }
 
-  /// Cancels the booking. Works for any status — the fee warning dialog is
+  /// Cancels the booking. Works for any status � the fee warning dialog is
   /// shown by BookingActionsWidget before this is called.
   Future<void> cancelBookingService() async {
     try {

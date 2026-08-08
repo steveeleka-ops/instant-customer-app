@@ -1,12 +1,11 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
-import '../controllers/search_controller.dart';
+import '../controllers/search_controller.dart' as app_search;
 import '../widgets/search_services_list_widget.dart';
 
-class SearchView extends GetView<SearchController> {
+class SearchView extends GetView<app_search.SearchController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

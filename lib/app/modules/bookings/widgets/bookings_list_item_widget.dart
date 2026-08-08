@@ -1,4 +1,3 @@
-// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -109,7 +108,7 @@ class BookingsListItemWidget extends StatelessWidget {
                               DateFormat('dd', Get.locale.toString())
                                   .format(_booking.bookingAt),
                               maxLines: 1,
-                              style: Get.textTheme.headline3?.merge(
+                              style: Get.textTheme.displaySmall?.merge(
                                 TextStyle(
                                     color: Colors.white, height: 1),
                               ),

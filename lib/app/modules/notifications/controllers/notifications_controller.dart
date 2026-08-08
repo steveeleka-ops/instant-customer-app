@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:get/get.dart';
 import 'package:home_services/app/models/e_provider_model.dart';
 

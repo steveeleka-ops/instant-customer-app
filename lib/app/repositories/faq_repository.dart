@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 

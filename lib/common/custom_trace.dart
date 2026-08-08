@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 class CustomTrace {
   final StackTrace _trace;
 

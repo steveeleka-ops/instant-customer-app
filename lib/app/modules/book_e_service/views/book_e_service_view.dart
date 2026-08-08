@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -281,7 +280,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                     children: [
                       Text("Requested Service on".tr).paddingSymmetric(vertical: 20),
                       Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.headlineMedium),
-                      Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.headline3),
+                      Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.displaySmall),
                       SizedBox(height: 20)
                     ],
                   );

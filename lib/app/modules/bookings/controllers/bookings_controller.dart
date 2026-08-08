@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -90,7 +89,7 @@ class BookingsController extends GetxController {
     }
   }
 
-  /// Cancels a booking. Works for any status — the fee warning dialog is
+  /// Cancels a booking. Works for any status � the fee warning dialog is
   /// shown by the UI layer before this is called.
   Future<void> cancelBookingService(Booking booking) async {
     try {

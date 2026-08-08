@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:flutter/material.dart';
 
 const Color PRIMARY_COLOR = Colors.blueAccent;

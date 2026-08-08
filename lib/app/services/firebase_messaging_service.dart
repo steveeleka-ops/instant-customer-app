@@ -1,4 +1,3 @@
-﻿// @dart=2.11
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 

@@ -1,4 +1,3 @@
-// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +95,7 @@ class EProviderView extends GetView<EProviderController> {
                           title: Text("Reviews & Ratings".tr, style: Get.textTheme.titleSmall),
                           content: Column(
                             children: [
-                              Text(_eProvider.rate.toString(), style: Get.textTheme.headline1),
+                              Text(_eProvider.rate.toString(), style: Get.textTheme.displayLarge),
                               Wrap(
                                 children: Ui.getStarsList(_eProvider.rate, size: 32),
                               ),
