@@ -71,7 +71,7 @@ workflows:
       - name: Patch third-party packages for Flutter 3.22
         script: |
           PICKER="$HOME/.pub-cache/hosted/pub.dev/google_maps_place_picker_mb-3.0.2/lib/src/components/prediction_tile.dart"
-          [ -f "$PICKER" ] && sed -i 's/\.bodyText2/\.bodyMedium/g' "$PICKER" && echo "Patched prediction_tile.dart"
+          [ -f "$PICKER" ] && sed -i '' 's/\.bodyText2/\.bodyMedium/g' "$PICKER" && echo "Patched prediction_tile.dart"
       - name: Build Android App Bundle
         script: |
           flutter build appbundle --release \
