@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -9,10 +9,10 @@ import '../../../routes/app_routes.dart';
 
 class CategoryListItemWidget extends StatelessWidget {
   final Category category;
-  final String heroTag;
-  final bool expanded;
+  final String? heroTag;
+  final bool? expanded;
 
-  CategoryListItemWidget({Key key, this.category, this.heroTag, this.expanded}) : super(key: key);
+  CategoryListItemWidget({Key? key, this.category, this.heroTag, this.expanded}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

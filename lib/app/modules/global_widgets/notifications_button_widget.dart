@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../routes/app_routes.dart';
@@ -9,11 +9,11 @@ class NotificationsButtonWidget extends GetView<RootController> {
   const NotificationsButtonWidget({
     this.iconColor,
     this.labelColor,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final Color iconColor;
-  final Color labelColor;
+  final Color? iconColor;
+  final Color? labelColor;
 
   Widget build(BuildContext context) {
     return MaterialButton(

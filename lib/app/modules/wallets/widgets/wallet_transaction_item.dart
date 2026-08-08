@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -8,7 +8,7 @@ import '../../../models/wallet_transaction_model.dart';
 class WalletTransactionItem extends StatelessWidget {
   const WalletTransactionItem({
     Key key,
-    @required WalletTransaction transaction,
+    required WalletTransaction transaction,
   })  : _transaction = transaction,
         super(key: key);
 

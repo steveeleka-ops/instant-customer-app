@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../global_widgets/circular_loading_widget.dart';
@@ -6,7 +6,7 @@ import '../controllers/bookings_controller.dart';
 import 'bookings_list_item_widget.dart';
 
 class BookingsListWidget extends GetView<BookingsController> {
-  BookingsListWidget({Key key}) : super(key: key);
+  BookingsListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

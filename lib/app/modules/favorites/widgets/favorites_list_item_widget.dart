@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -13,7 +13,7 @@ import '../../../routes/app_routes.dart';
 class FavoritesListItemWidget extends StatelessWidget {
   const FavoritesListItemWidget({
     Key key,
-    @required Favorite favorite,
+    required Favorite favorite,
   })  : _favorite = favorite,
         super(key: key);
 

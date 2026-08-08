@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ï»¿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_routes.dart';
@@ -22,7 +22,7 @@ class BookingActionsWidget extends GetView<BookingController> {
       final int done = Get.find<GlobalService>().global.value.done; // 50
       const int pendingApproval = 55;
 
-      // -- Pending Approval: customer must Approve or Deny — check FIRST -------
+      // -- Pending Approval: customer must Approve or Deny ï¿½ check FIRST -------
       if (!_booking.value.cancel && statusOrder == pendingApproval) {
           return Container(
             padding: EdgeInsets.only(top: 16, bottom: 16 + bottomPadding, left: 20, right: 20),
@@ -42,7 +42,7 @@ class BookingActionsWidget extends GetView<BookingController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  "Job completed — please review".tr,
+                  "Job completed ï¿½ please review".tr,
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyLarge
                       ?.merge(TextStyle(fontWeight: FontWeight.w600)),
@@ -258,9 +258,9 @@ class BookingActionsWidget extends GetView<BookingController> {
 // --- Free Cancel Dialog -------------------------------------------------------
 
 class FreeCancelDialog extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
-  const FreeCancelDialog({Key key, this.onPressed}) : super(key: key);
+  const FreeCancelDialog({Key? key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -314,10 +314,10 @@ class FreeCancelDialog extends StatelessWidget {
 // --- Cancel Dialog (10% fee) --------------------------------------------
 
 class LateCancelDialog extends StatelessWidget {
-  final double totalAmount;
-  final VoidCallback onConfirm;
+  final double? totalAmount;
+  final VoidCallback? onConfirm;
 
-  const LateCancelDialog({Key key, this.totalAmount, this.onConfirm})
+  const LateCancelDialog({Key? key, this.totalAmount, this.onConfirm})
       : super(key: key);
 
   @override
@@ -430,7 +430,7 @@ class LateCancelDialog extends StatelessWidget {
 class DenyNotesDialog extends StatefulWidget {
   final Function(String notes) onSubmit;
 
-  const DenyNotesDialog({Key key, this.onSubmit}) : super(key: key);
+  const DenyNotesDialog({Key? key, this.onSubmit}) : super(key: key);
 
   @override
   _DenyNotesDialogState createState() => _DenyNotesDialogState();

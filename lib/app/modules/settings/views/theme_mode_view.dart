@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
 import '../controllers/theme_mode_controller.dart';
 
 class ThemeModeView extends GetView<ThemeModeController> {
-  final bool hideAppBar;
+  final bool? hideAppBar;
 
   ThemeModeView({this.hideAppBar = false});
 

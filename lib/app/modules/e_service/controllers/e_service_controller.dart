@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -144,7 +144,7 @@ class EServiceController extends GetxController {
     return Get.textTheme.bodySmall;
   }
 
-  Color getColor(Option option) {
+  Color? getColor(Option option) {
     if (option.checked.value) {
       return Get.theme.colorScheme.secondary.withOpacity(0.1);
     }

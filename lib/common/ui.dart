@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../app/services/settings_service.dart';
 
 class Ui {
-  static GetBar SuccessSnackBar({String title = 'Success', String message}) {
+  static GetBar SuccessSnackBar({String title = 'Success', String? message}) {
     Get.log("[$title] $message");
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
@@ -20,7 +20,7 @@ class Ui {
     );
   }
 
-  static GetBar ErrorSnackBar({String title = 'Error', String message}) {
+  static GetBar ErrorSnackBar({String title = 'Error', String? message}) {
     Get.log("[$title] $message", isError: true);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
@@ -35,7 +35,7 @@ class Ui {
     );
   }
 
-  static GetBar defaultSnackBar({String title = 'Alert', String message}) {
+  static GetBar defaultSnackBar({String title = 'Alert', String? message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.hintColor))),
@@ -51,7 +51,7 @@ class Ui {
     );
   }
 
-  static GetBar notificationSnackBar({String title = 'Notification', String message}) {
+  static GetBar notificationSnackBar({String title = 'Notification', String? message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.hintColor))),
@@ -67,7 +67,7 @@ class Ui {
     );
   }
 
-  static Color parseColor(String hexCode, {double opacity}) {
+  static Color parseColor(String hexCode, {double? opacity}) {
     try {
       return Color(int.parse(hexCode.replaceAll("#", "0xFF"))).withOpacity(opacity ?? 1);
     } catch (e) {
@@ -89,10 +89,10 @@ class Ui {
     return list;
   }
 
-  static Widget getPrice(double myPrice, {TextStyle style, String zeroPlaceholder = '-', String unit}) {
+  static Widget getPrice(double myPrice, {TextStyle? style, String zeroPlaceholder = '-', String? unit}) {
     var _setting = Get.find<SettingsService>();
     if (style != null) {
-      style = style.merge(TextStyle(fontSize: style.fontSize + 2));
+      style = style.merge(TextStyle(fontSize: (style.fontSize ?? 14) + 2));
     }
     try {
       if (myPrice == 0) {
@@ -125,17 +125,17 @@ class Ui {
     }
   }
 
-  static TextStyle getPriceStyle(TextStyle style) {
+  static TextStyle? getPriceStyle(TextStyle? style) {
     if (style == null) {
       return Get.textTheme.titleSmall?.merge(
-        TextStyle(fontWeight: FontWeight.w300, fontSize: Get.textTheme.titleSmall?.fontSize - 4),
+        TextStyle(fontWeight: FontWeight.w300, fontSize: (Get.textTheme.titleSmall?.fontSize ?? 14) - 4),
       );
     } else {
-      return style.merge(TextStyle(fontWeight: FontWeight.w300, fontSize: style.fontSize - 4));
+      return style.merge(TextStyle(fontWeight: FontWeight.w300, fontSize: (style.fontSize ?? 14) - 4));
     }
   }
 
-  static BoxDecoration getBoxDecoration({Color color, double radius, Border border, Gradient gradient}) {
+  static BoxDecoration getBoxDecoration({Color? color, double? radius, Border? border, Gradient? gradient}) {
     return BoxDecoration(
       color: color ?? Get.theme.primaryColor,
       borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
@@ -147,7 +147,7 @@ class Ui {
     );
   }
 
-  static InputDecoration getInputDecoration({String hintText = '', String errorText, IconData iconData, Widget suffixIcon, Widget suffix}) {
+  static InputDecoration getInputDecoration({String hintText = '', String? errorText, IconData? iconData, Widget? suffixIcon, Widget? suffix}) {
     return InputDecoration(
       hintText: hintText,
       hintStyle: Get.textTheme.bodySmall,
@@ -164,7 +164,7 @@ class Ui {
     );
   }
 
-  static Html applyHtml(String html, {TextStyle style, TextAlign textAlign, Alignment alignment = Alignment.centerLeft}) {
+  static Html applyHtml(String html, {TextStyle? style, TextAlign? textAlign, Alignment alignment = Alignment.centerLeft}) {
     return Html(
       data: html.replaceAll('\r\n', '') ?? '',
       style: {
@@ -172,7 +172,7 @@ class Ui {
           textAlign: textAlign,
           alignment: alignment,
           color: style == null ? Get.theme.hintColor : style.color,
-          fontSize: style == null ? FontSize(16.0) : FontSize(style.fontSize),
+          fontSize: style == null ? FontSize(16.0) : FontSize(style.fontSize ?? 16.0),
           display: Display.inlineBlock,
           fontWeight: style == null ? FontWeight.w300 : style.fontWeight,
           width: Width(Get.width),
@@ -181,17 +181,17 @@ class Ui {
           textAlign: textAlign,
           lineHeight: LineHeight.normal,
           listStylePosition: ListStylePosition.outside,
-          fontSize: style == null ? FontSize(14.0) : FontSize(style.fontSize),
+          fontSize: style == null ? FontSize(14.0) : FontSize(style.fontSize ?? 14.0),
           display: Display.block,
         ),
         "h4,h5,h6": Style(
           textAlign: textAlign,
-          fontSize: style == null ? FontSize(16.0) : FontSize(style.fontSize + 2),
+          fontSize: style == null ? FontSize(16.0) : FontSize((style.fontSize ?? 14.0) + 2),
         ),
         "h1,h2,h3": Style(
           textAlign: textAlign,
           lineHeight: LineHeight.number(2),
-          fontSize: style == null ? FontSize(18.0) : FontSize(style.fontSize + 4),
+          fontSize: style == null ? FontSize(18.0) : FontSize((style.fontSize ?? 14.0) + 4),
         ),
         "br": Style(
           height: Height(0),
@@ -221,7 +221,7 @@ class Ui {
     }
   }
 
-  static Html removeHtml(String html, {TextStyle style, TextAlign textAlign, Alignment alignment = Alignment.centerLeft}) {
+  static Html removeHtml(String html, {TextStyle? style, TextAlign? textAlign, Alignment alignment = Alignment.centerLeft}) {
     return Html(
       data: html.replaceAll('\r\n', '') ?? '',
       style: {
@@ -229,7 +229,7 @@ class Ui {
           textAlign: textAlign,
           alignment: alignment,
           color: style == null ? Get.theme.hintColor : style.color,
-          fontSize: style == null ? FontSize(11.0) : FontSize(style.fontSize),
+          fontSize: style == null ? FontSize(11.0) : FontSize(style.fontSize ?? 11.0),
           display: Display.inlineBlock,
           fontWeight: style == null ? FontWeight.w300 : style.fontWeight,
           width: Width(Get.width),

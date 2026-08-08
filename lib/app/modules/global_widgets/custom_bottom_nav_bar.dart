@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 const Color PRIMARY_COLOR = Colors.blueAccent;
 const Color BACKGROUND_COLOR = Color(0xffE2E7F2);
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  final Color backgroundColor;
-  final Color itemColor;
+  final Color? backgroundColor;
+  final Color? itemColor;
   final List<CustomBottomNavigationItem> children;
   final Function(int) onChange;
-  final int currentIndex;
+  final int? currentIndex;
 
-  CustomBottomNavigationBar({this.backgroundColor = BACKGROUND_COLOR, this.itemColor = PRIMARY_COLOR, this.currentIndex = 0, @required this.children, this.onChange});
+  CustomBottomNavigationBar({this.backgroundColor = BACKGROUND_COLOR, this.itemColor = PRIMARY_COLOR, this.currentIndex = 0, required this.children, this.onChange});
 
   @override
   _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
@@ -81,9 +81,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 }
 
 class CustomBottomNavigationItem {
-  final IconData icon;
-  final String label;
-  final Color color;
+  final IconData? icon;
+  final String? label;
+  final Color? color;
 
-  CustomBottomNavigationItem({@required this.icon, @required this.label, this.color});
+  CustomBottomNavigationItem({required this.icon, required this.label, this.color});
 }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BookingTitleBarWidget extends StatelessWidget implements PreferredSize {
-  final Widget title;
+  final Widget? title;
 
-  const BookingTitleBarWidget({Key key, @required this.title}) : super(key: key);
+  const BookingTitleBarWidget({Key? key, required this.title}) : super(key: key);
 
   Widget buildTitleBar() {
     return Container(

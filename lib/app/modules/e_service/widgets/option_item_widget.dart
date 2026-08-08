@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -13,8 +13,8 @@ import '../controllers/e_service_controller.dart';
 
 class OptionItemWidget extends GetWidget<EServiceController> {
   OptionItemWidget({
-    @required Option option,
-    @required OptionGroup optionGroup,
+    required Option option,
+    required OptionGroup optionGroup,
   })  : _option = option,
         _optionGroup = optionGroup;
 

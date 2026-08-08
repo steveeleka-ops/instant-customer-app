@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -9,7 +9,7 @@ import '../../root/controllers/root_controller.dart';
 import '../controllers/address_controller.dart';
 
 class AddressesView extends GetView<AddressController> {
-  final bool hideAppBar;
+  final bool? hideAppBar;
 
   AddressesView({this.hideAppBar = false});
 

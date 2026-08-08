@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -10,9 +10,9 @@ import '../../root/controllers/root_controller.dart';
 
 class CategoryGridItemWidget extends StatelessWidget {
   final Category category;
-  final String heroTag;
+  final String? heroTag;
 
-  CategoryGridItemWidget({Key key, this.category, this.heroTag}) : super(key: key);
+  CategoryGridItemWidget({Key? key, this.category, this.heroTag}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

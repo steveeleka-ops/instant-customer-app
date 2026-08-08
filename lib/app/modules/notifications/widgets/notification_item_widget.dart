@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -6,7 +6,7 @@ import '../../../../common/ui.dart';
 import '../../../models/notification_model.dart' as model;
 
 class NotificationItemWidget extends StatelessWidget {
-  NotificationItemWidget({Key key, this.notification, this.onDismissed, this.onTap}) : super(key: key);
+  NotificationItemWidget({Key? key, this.notification, this.onDismissed, this.onTap}) : super(key: key);
   final model.Notification notification;
   final ValueChanged<model.Notification> onDismissed;
   final ValueChanged<model.Notification> onTap;

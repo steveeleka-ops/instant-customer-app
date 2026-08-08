@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+﻿import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
@@ -24,7 +24,7 @@ class MockApiClient {
   final Dio httpClient;
   final Options _options = buildCacheOptions(Duration(days: 3), forceRefresh: true);
 
-  MockApiClient({@required this.httpClient}) {
+  MockApiClient({required this.httpClient}) {
     httpClient.interceptors.add(DioCacheManager(CacheConfig(baseUrl: baseUrl)).interceptor);
   }
 

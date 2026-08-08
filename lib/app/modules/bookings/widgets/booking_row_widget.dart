@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BookingRowWidget extends StatelessWidget {
   const BookingRowWidget({
     Key key,
-    @required this.description,
+    required this.description,
     this.value,
     this.valueStyle,
     this.hasDivider,
@@ -13,13 +13,13 @@ class BookingRowWidget extends StatelessWidget {
     this.valueFlex,
   }) : super(key: key);
 
-  final String description;
-  final int descriptionFlex;
-  final int valueFlex;
-  final String value;
-  final Widget child;
-  final TextStyle valueStyle;
-  final bool hasDivider;
+  final String? description;
+  final int? descriptionFlex;
+  final int? valueFlex;
+  final String? value;
+  final Widget? child;
+  final TextStyle? valueStyle;
+  final bool? hasDivider;
 
   @override
   Widget build(BuildContext context) {

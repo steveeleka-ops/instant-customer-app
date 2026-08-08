@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -67,23 +67,23 @@ class ImagesFieldController extends GetxController {
 class ImagesFieldWidget extends StatelessWidget {
   ImagesFieldWidget({
     Key key,
-    @required this.label,
-    @required this.tag,
-    @required this.field,
+    required this.label,
+    required this.tag,
+    required this.field,
     this.placeholder,
     this.buttonText,
-    @required this.uploadCompleted,
+    required this.uploadCompleted,
     this.initialImages,
-    @required this.reset,
+    required this.reset,
   }) : super(key: key);
 
-  final String label;
-  final String placeholder;
-  final String buttonText;
-  final String tag;
-  final String field;
+  final String? label;
+  final String? placeholder;
+  final String? buttonText;
+  final String? tag;
+  final String? field;
   final List<Media> initialImages;
-  final ValueChanged<String> uploadCompleted;
+  final ValueChanged<String>? uploadCompleted;
   final ValueChanged<List<String>> reset;
 
   @override

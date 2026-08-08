@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AvailabilityHourItemWidget extends StatelessWidget {
   const AvailabilityHourItemWidget({
     Key key,
-    @required MapEntry<String, List<String>> availabilityHour,
-    @required List<String> data,
+    required MapEntry<String, List<String>> availabilityHour,
+    required List<String> data,
   })  : _availabilityHour = availabilityHour,
         _data = data,
         super(key: key);

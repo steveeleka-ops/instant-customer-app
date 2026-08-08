@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -10,7 +10,7 @@ import '../../../routes/app_routes.dart';
 import '../../../services/auth_service.dart';
 
 class MessageItemWidget extends StatelessWidget {
-  MessageItemWidget({Key key, this.message, this.onDismissed}) : super(key: key);
+  MessageItemWidget({Key? key, this.message, this.onDismissed}) : super(key: key);
   final Message message;
   final ValueChanged<Message> onDismissed;
 

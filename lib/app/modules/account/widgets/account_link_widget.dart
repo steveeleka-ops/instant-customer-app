@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 class AccountLinkWidget extends StatelessWidget {
   final Icon icon;
-  final Widget text;
+  final Widget? text;
   final ValueChanged<void> onTap;
 
   const AccountLinkWidget({

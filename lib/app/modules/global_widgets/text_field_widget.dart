@@ -9,7 +9,7 @@ import '../../../common/ui.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
-    Key key,
+    Key? key,
     this.onSaved,
     this.onChanged,
     this.validator,
@@ -30,24 +30,24 @@ class TextFieldWidget extends StatelessWidget {
     this.enabled
   }) : super(key: key);
 
-  final FormFieldSetter<String> onSaved;
-  final ValueChanged<String> onChanged;
-  final FormFieldValidator<String> validator;
-  final TextInputType keyboardType;
-  final String initialValue;
-  final String hintText;
-  final String errorText;
-  final TextAlign textAlign;
-  final String labelText;
-  final TextStyle style;
-  final IconData iconData;
-  final bool obscureText;
-  final bool isFirst;
-  final bool isLast;
-  final bool enabled;
-  final Widget suffixIcon;
-  final Widget suffix;
-  final GestureTapCallback onTap;
+  final FormFieldSetter<String>? onSaved;
+  final ValueChanged<String>? onChanged;
+  final FormFieldValidator<String>? validator;
+  final TextInputType? keyboardType;
+  final String? initialValue;
+  final String? hintText;
+  final String? errorText;
+  final TextAlign? textAlign;
+  final String? labelText;
+  final TextStyle? style;
+  final IconData? iconData;
+  final bool? obscureText;
+  final bool? isFirst;
+  final bool? isLast;
+  final bool? enabled;
+  final Widget? suffixIcon;
+  final Widget? suffix;
+  final GestureTapCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -70,9 +70,9 @@ class TextFieldWidget extends StatelessWidget {
           ),
           TextFormField(
             keyboardType: keyboardType ?? TextInputType.text,
-            onSaved: onSaved,
+            onSaved: onSaved != null ? (value) => onSaved!(value ?? '') : null,
             onChanged: onChanged,
-            validator: validator,
+            validator: validator != null ? (value) => validator!(value ?? '') : null,
             initialValue: initialValue ?? '',
             style: style ?? Get.textTheme.bodyMedium,
             obscureText: obscureText ?? false,
@@ -94,20 +94,20 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   BorderRadius get buildBorderRadius {
-    if (isFirst != null && isFirst) {
+    if (isFirst != null && isFirst!) {
       return BorderRadius.vertical(top: Radius.circular(10));
     }
-    if (isLast != null && isLast) {
+    if (isLast != null && isLast!) {
       return BorderRadius.vertical(bottom: Radius.circular(10));
     }
-    if (isFirst != null && !isFirst && isLast != null && !isLast) {
+    if (isFirst != null && !isFirst! && isLast != null && !isLast!) {
       return BorderRadius.all(Radius.circular(0));
     }
     return BorderRadius.all(Radius.circular(10));
   }
 
   double get topMargin {
-    if ((isFirst != null && isFirst)) {
+    if ((isFirst != null && isFirst!)) {
       return 20;
     } else if (isFirst == null) {
       return 20;
@@ -117,7 +117,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   double get bottomMargin {
-    if ((isLast != null && isLast)) {
+    if ((isLast != null && isLast!)) {
       return 10;
     } else if (isLast == null) {
       return 10;

@@ -1,4 +1,4 @@
-import 'dart:core';
+﻿import 'dart:core';
 import 'dart:core';
 import 'dart:math' as math;
 
@@ -7,19 +7,19 @@ import 'package:flutter/material.dart';
 /// Defines widgets which are to used as rating bar items.
 class RatingWidget {
   RatingWidget({
-    @required this.full,
-    @required this.half,
-    @required this.empty,
+    required this.full,
+    required this.half,
+    required this.empty,
   });
 
   /// Defines widget to be used as rating bar item when the item is completely rated.
-  final Widget full;
+  final Widget? full;
 
   /// Defines widget to be used as rating bar item when only the half portion of item is rated.
-  final Widget half;
+  final Widget? half;
 
   /// Defines widget to be used as rating bar item when the item is unrated.
-  final Widget empty;
+  final Widget? empty;
 }
 
 /// A widget to receive rating input from users.
@@ -34,8 +34,8 @@ class RatingBar extends StatefulWidget {
     Key key,
 
     /// Customizes the Rating Bar item with [RatingWidget].
-    @required RatingWidget ratingWidget,
-    @required this.onRatingUpdate,
+    required RatingWidget ratingWidget,
+    required this.onRatingUpdate,
     this.glowColor,
     this.maxRating,
     this.textDirection,
@@ -63,8 +63,8 @@ class RatingBar extends StatefulWidget {
     /// Widget for each rating bar item.
     /// {@endtemplate}
     Key key,
-    @required IndexedWidgetBuilder itemBuilder,
-    @required this.onRatingUpdate,
+    required IndexedWidgetBuilder itemBuilder,
+    required this.onRatingUpdate,
     this.glowColor,
     this.maxRating,
     this.textDirection,
@@ -94,12 +94,12 @@ class RatingBar extends StatefulWidget {
   /// Defines color for glow.
   ///
   /// Default is [ColorScheme.secondary].
-  final Color glowColor;
+  final Color? glowColor;
 
   /// Sets maximum rating
   ///
   /// Default is [itemCount].
-  final double maxRating;
+  final double? maxRating;
 
   /// {@template flutterRatingBar.textDirection}
   /// The text flows from right to left if [textDirection] = TextDirection.rtl
@@ -111,10 +111,10 @@ class RatingBar extends StatefulWidget {
   ///
   /// Default is [ThemeData.disabledColor].
   /// {@endtemplate}
-  final Color unratedColor;
+  final Color? unratedColor;
 
   /// Default [allowHalfRating] = false. Setting true enables half rating support.
-  final bool allowHalfRating;
+  final bool? allowHalfRating;
 
   /// {@template flutterRatingBar.direction}
   /// Direction of rating bar.
@@ -126,54 +126,54 @@ class RatingBar extends StatefulWidget {
   /// if set to true, Rating Bar item will glow when being touched.
   ///
   /// Default is true.
-  final bool glow;
+  final bool? glow;
 
   /// Defines the radius of glow.
   ///
   /// Default is 2.
-  final double glowRadius;
+  final double? glowRadius;
 
   /// if set to true, will disable any gestures over the rating bar.
   ///
   /// Default is false.
-  final bool ignoreGestures;
+  final bool? ignoreGestures;
 
   /// Defines the initial rating to be set to the rating bar.
-  final double initialRating;
+  final double? initialRating;
 
   /// {@template flutterRatingBar.itemCount}
   /// Defines total number of rating bar items.
   ///
   /// Default is 5.
   /// {@endtemplate}
-  final int itemCount;
+  final int? itemCount;
 
   /// {@template flutterRatingBar.itemPadding}
   /// The amount of space by which to inset each rating item.
   /// {@endtemplate}
-  final EdgeInsetsGeometry itemPadding;
+  final EdgeInsetsGeometry? itemPadding;
 
   /// {@template flutterRatingBar.itemSize}
   /// Defines width and height of each rating item in the bar.
   ///
   /// Default is 40.0
   /// {@endtemplate}
-  final double itemSize;
+  final double? itemSize;
 
   /// Sets minimum rating
   ///
   /// Default is 0.
-  final double minRating;
+  final double? minRating;
 
   /// if set to true will disable drag to rate feature. Note: Enabling this mode will disable half rating capability.
   ///
   /// Default is false.
-  final bool tapOnlyMode;
+  final bool? tapOnlyMode;
 
   /// Defines whether or not the `onRatingUpdate` updates while dragging.
   ///
   /// Default is false.
-  final bool updateOnDrag;
+  final bool? updateOnDrag;
 
   /// How the item within the [RatingBar] should be placed in the main axis.
   ///
@@ -398,18 +398,18 @@ class _RatingBarState extends State<RatingBar> {
 
 class _HalfRatingWidget extends StatelessWidget {
   const _HalfRatingWidget({
-    @required this.size,
-    @required this.child,
-    @required this.enableMask,
-    @required this.rtlMode,
-    @required this.unratedColor,
+    required this.size,
+    required this.child,
+    required this.enableMask,
+    required this.rtlMode,
+    required this.unratedColor,
   });
 
-  final Widget child;
-  final double size;
-  final bool enableMask;
-  final bool rtlMode;
-  final Color unratedColor;
+  final Widget? child;
+  final double? size;
+  final bool? enableMask;
+  final bool? rtlMode;
+  final Color? unratedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -446,9 +446,9 @@ class _HalfRatingWidget extends StatelessWidget {
 }
 
 class _HalfClipper extends CustomClipper<Rect> {
-  _HalfClipper({@required this.rtlMode});
+  _HalfClipper({required this.rtlMode});
 
-  final bool rtlMode;
+  final bool? rtlMode;
 
   @override
   Rect getClip(Size size) => rtlMode
@@ -471,16 +471,16 @@ class _HalfClipper extends CustomClipper<Rect> {
 
 class _NoRatingWidget extends StatelessWidget {
   const _NoRatingWidget({
-    @required this.size,
-    @required this.child,
-    @required this.enableMask,
-    @required this.unratedColor,
+    required this.size,
+    required this.child,
+    required this.enableMask,
+    required this.unratedColor,
   });
 
-  final double size;
-  final Widget child;
-  final bool enableMask;
-  final Color unratedColor;
+  final double? size;
+  final Widget? child;
+  final bool? enableMask;
+  final Color? unratedColor;
 
   @override
   Widget build(BuildContext context) {

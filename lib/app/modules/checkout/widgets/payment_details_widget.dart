@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 import 'package:cached_network_image/cached_network_image.dart';
@@ -11,7 +11,7 @@ import '../../bookings/widgets/booking_row_widget.dart';
 class PaymentDetailsWidget extends StatelessWidget {
   const PaymentDetailsWidget({
     Key key,
-    @required Booking booking,
+    required Booking booking,
   })  : _booking = booking,
         super(key: key);
 

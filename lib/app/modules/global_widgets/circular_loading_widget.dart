@@ -1,14 +1,14 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CircularLoadingWidget extends StatefulWidget {
-  final double height;
+  final double? height;
   final ValueChanged<void> onComplete;
-  final String onCompleteText;
+  final String? onCompleteText;
 
-  CircularLoadingWidget({Key key, this.height, this.onComplete, this.onCompleteText}) : super(key: key);
+  CircularLoadingWidget({Key? key, this.height, this.onComplete, this.onCompleteText}) : super(key: key);
 
   @override
   _CircularLoadingWidgetState createState() => _CircularLoadingWidgetState();

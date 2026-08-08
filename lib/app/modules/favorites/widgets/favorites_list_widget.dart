@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +9,7 @@ import 'favorites_list_item_widget.dart';
 class FavoritesListWidget extends StatelessWidget {
   final List<Favorite> favorites;
 
-  FavoritesListWidget({Key key, List<Favorite> this.favorites}) : super(key: key);
+  FavoritesListWidget({Key? key, List<Favorite> this.favorites}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

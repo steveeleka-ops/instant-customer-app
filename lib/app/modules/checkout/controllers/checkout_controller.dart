@@ -89,9 +89,9 @@ class CheckoutController extends GetxController {
     return Get.textTheme.bodySmall;
   }
 
-  Color getColor(PaymentMethod paymentMethod) {
+  Color? getColor(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
-      return Get.theme.accentColor;
+      return Get.theme.colorScheme.secondary;
     }
     return null;
   }

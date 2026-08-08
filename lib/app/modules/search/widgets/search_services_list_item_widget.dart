@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -13,7 +13,7 @@ import '../../../routes/app_routes.dart';
 class SearchServicesListItemWidget extends StatelessWidget {
   const SearchServicesListItemWidget({
     Key key,
-    @required EService service,
+    required EService service,
   })  : _service = service,
         super(key: key);
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ï»¿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/media_model.dart';
@@ -8,7 +8,7 @@ import '../../global_widgets/text_field_widget.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  final bool hideAppBar;
+  final bool? hideAppBar;
 
   ProfileView({this.hideAppBar = false}) {
     // controller.profileForm = new GlobalKey<FormState>();
@@ -158,7 +158,7 @@ class ProfileView extends GetView<ProfileController> {
                 // TODO verify old password
                 return TextFieldWidget(
                   labelText: "Old Password".tr,
-                  hintText: "••••••••••••".tr,
+                  hintText: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".tr,
                   onSaved: (input) => controller.oldPassword.value = input,
                   onChanged: (input) => controller.oldPassword.value = input,
                   validator: (input) => input.length > 0 && input.length < 3 ? "Should be more than 3 letters".tr : null,
@@ -180,7 +180,7 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   labelText: "New Password".tr,
-                  hintText: "••••••••••••".tr,
+                  hintText: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".tr,
                   onSaved: (input) => controller.newPassword.value = input,
                   onChanged: (input) => controller.newPassword.value = input,
                   validator: (input) {
@@ -203,7 +203,7 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   labelText: "Confirm New Password".tr,
-                  hintText: "••••••••••••".tr,
+                  hintText: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".tr,
                   onSaved: (input) => controller.confirmPassword.value = input,
                   onChanged: (input) => controller.confirmPassword.value = input,
                   validator: (input) {

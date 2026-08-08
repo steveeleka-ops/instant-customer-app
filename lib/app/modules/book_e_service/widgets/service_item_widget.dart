@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -12,7 +12,7 @@ import '../../../models/e_service_model.dart';
 class ServiceItemWidget extends StatelessWidget {
   const ServiceItemWidget({
     Key key,
-    @required EService service,
+    required EService service,
   })  : _service = service,
         super(key: key);
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_routes.dart';
@@ -20,7 +20,7 @@ class SettingsController extends GetxController {
     Get.toNamed(pages[index], id: 1);
   }
 
-  Route onGenerateRoute(RouteSettings settings) {
+  Route? onGenerateRoute(RouteSettings settings) {
     if (settings.name == Routes.PROFILE) {
       if (!Get.find<AuthService>().isAuth) {
         currentIndex.value = 0;

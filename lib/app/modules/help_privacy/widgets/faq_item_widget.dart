@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -7,7 +7,7 @@ import '../../../models/faq_model.dart';
 class FaqItemWidget extends StatelessWidget {
   final Faq faq;
 
-  FaqItemWidget({Key key, this.faq}) : super(key: key);
+  FaqItemWidget({Key? key, this.faq}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

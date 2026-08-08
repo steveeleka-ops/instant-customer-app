@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ï»¿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -82,7 +82,7 @@ class BookEServiceController extends GetxController {
     return Get.textTheme.bodyMedium;
   }
 
-  Color getColor(bool selected) {
+  Color? getColor(bool selected) {
     if (selected) {
       return Get.theme.colorScheme.secondary;
     }
@@ -98,7 +98,7 @@ class BookEServiceController extends GetxController {
       // Create booking to get an ID, then send customer to Stripe to authorize payment hold
       final createdBooking = await _bookingRepository.add(booking.value);
       booking.value = createdBooking;
-      // Navigate to Stripe checkout — funds held until job is approved by customer
+      // Navigate to Stripe checkout ï¿½ funds held until job is approved by customer
       Get.toNamed(Routes.STRIPE, arguments: {'booking': createdBooking});
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
@@ -133,7 +133,7 @@ class BookEServiceController extends GetxController {
     }
   }
 
-  String getValidationMessage() {
+  String? getValidationMessage() {
     if (booking.value.coupon?.id == null) {
       return null;
     } else {

@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class BookingStatusStepperWidget extends StatelessWidget {
-  final int statusOrder;
-  final bool isCancelled;
+  final int? statusOrder;
+  final bool? isCancelled;
 
   const BookingStatusStepperWidget({
     Key key,
-    @required this.statusOrder,
+    required this.statusOrder,
     this.isCancelled = false,
   }) : super(key: key);
 

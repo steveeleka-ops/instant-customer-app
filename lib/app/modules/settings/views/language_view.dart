@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -6,7 +6,7 @@ import '../../../services/translation_service.dart';
 import '../controllers/language_controller.dart';
 
 class LanguageView extends GetView<LanguageController> {
-  final bool hideAppBar;
+  final bool? hideAppBar;
 
   LanguageView({this.hideAppBar = false});
 

@@ -363,7 +363,7 @@ class SettingsService extends GetxService {
   }
 
   Locale getLocale() {
-    String _locale = GetStorage().read<String>('language');
+    String? _locale = GetStorage().read<String>('language');
     if (_locale == null || _locale.isEmpty) {
       _locale = setting.value.mobileLanguage;
     }
@@ -374,7 +374,7 @@ class SettingsService extends GetxService {
   }
 
   ThemeMode getThemeMode() {
-    String _themeMode = GetStorage().read<String>('theme_mode');
+    String? _themeMode = GetStorage().read<String>('theme_mode');
     switch (_themeMode) {
       case 'ThemeMode.light':
         SystemChrome.setSystemUIOverlayStyle(

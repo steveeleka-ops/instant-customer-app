@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../global_widgets/circular_loading_widget.dart';
@@ -6,7 +6,7 @@ import '../controllers/e_services_controller.dart';
 import 'services_list_item_widget.dart';
 
 class ServicesListWidget extends GetView<EServicesController> {
-  ServicesListWidget({Key key}) : super(key: key);
+  ServicesListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -12,7 +12,7 @@ import '../controllers/checkout_controller.dart';
 
 class PaymentMethodItemWidget extends GetWidget<CheckoutController> {
   PaymentMethodItemWidget({
-    @required PaymentMethod paymentMethod,
+    required PaymentMethod paymentMethod,
   }) : _paymentMethod = paymentMethod;
 
   final PaymentMethod _paymentMethod;

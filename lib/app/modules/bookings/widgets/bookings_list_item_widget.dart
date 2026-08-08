@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (c) 2020 .
  */
 
@@ -15,7 +15,7 @@ import 'booking_status_stepper_widget.dart';
 class BookingsListItemWidget extends StatelessWidget {
   const BookingsListItemWidget({
     Key key,
-    @required Booking booking,
+    required Booking booking,
   })  : _booking = booking,
         super(key: key);
 
@@ -185,7 +185,7 @@ class BookingsListItemWidget extends StatelessWidget {
                                 Icon(Icons.repeat, size: 11, color: Colors.blue),
                                 SizedBox(width: 3),
                                 Text(
-                                  'Recurring · ' + _booking.recurrence[0].toUpperCase() + _booking.recurrence.substring(1),
+                                  'Recurring ï¿½ ' + _booking.recurrence[0].toUpperCase() + _booking.recurrence.substring(1),
                                   style: TextStyle(color: Colors.blue, fontSize: 10, fontWeight: FontWeight.w600),
                                 ),
                               ],

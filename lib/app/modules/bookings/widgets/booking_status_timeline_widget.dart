@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -9,7 +9,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
 
   const BookingStatusTimelineWidget({
     Key key,
-    @required this.booking,
+    required this.booking,
   }) : super(key: key);
 
   static const List<Map<String, dynamic>> _steps = [
@@ -66,7 +66,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
     return Colors.amber;
   }
 
-  String _getTimestamp(int stepOrder) {
+  String? _getTimestamp(int stepOrder) {
     try {
       if (stepOrder == 1 && booking.created_at != null) {
         return DateFormat("MMM d 'at' HH:mm").format(booking.created_at);

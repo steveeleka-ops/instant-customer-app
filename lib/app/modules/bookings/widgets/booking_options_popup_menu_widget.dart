@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/booking_model.dart';
@@ -10,7 +10,7 @@ import 'booking_actions_widget.dart';
 class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
   const BookingOptionsPopupMenuWidget({
     Key key,
-    @required Booking booking,
+    required Booking booking,
   })  : _booking = booking,
         super(key: key);
 
