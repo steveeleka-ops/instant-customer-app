@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +32,7 @@ class BookingsView extends GetView<BookingsController> {
               iconTheme: IconThemeData(color: Get.theme.primaryColor),
               title: Text(
                 Get.find<SettingsService>().setting.value.appName,
-                style: Get.textTheme.headline6,
+                style: Get.textTheme.titleLarge,
               ),
               centerTitle: true,
               automaticallyImplyLeading: false,

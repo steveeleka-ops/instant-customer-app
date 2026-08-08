@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -76,18 +76,18 @@ class CheckoutController extends GetxController {
 
   TextStyle getTitleTheme(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
-      return Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor));
+      return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor));
     } else if (paymentMethod.wallet != null && paymentMethod.wallet.balance < booking.value.getTotal()) {
-      return Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.focusColor));
+      return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.focusColor));
     }
-    return Get.textTheme.bodyText2;
+    return Get.textTheme.bodyMedium;
   }
 
   TextStyle getSubTitleTheme(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
-      return Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor));
+      return Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor));
     }
-    return Get.textTheme.caption;
+    return Get.textTheme.bodySmall;
   }
 
   Color getColor(PaymentMethod paymentMethod) {

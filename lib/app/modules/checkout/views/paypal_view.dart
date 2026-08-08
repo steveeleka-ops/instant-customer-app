@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -15,7 +15,7 @@ class PayPalViewWidget extends GetView<PayPalController> {
         centerTitle: true,
         title: Text(
           "PayPal Payment".tr,
-          style: Get.textTheme.headline6?.merge(TextStyle(letterSpacing: 1.3)),
+          style: Get.textTheme.titleLarge?.merge(TextStyle(letterSpacing: 1.3)),
         ),
       ),
       body: Stack(

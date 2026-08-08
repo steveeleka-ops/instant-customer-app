@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,14 +23,14 @@ class FeaturedCategoriesWidget extends GetWidget<HomeController> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: Row(
                   children: [
-                    Expanded(child: Text(_category.name, style: Get.textTheme.headline5)),
+                    Expanded(child: Text(_category.name, style: Get.textTheme.headlineMedium)),
                     MaterialButton(
                       onPressed: () {
   Get.toNamed(Routes.CATEGORY, arguments: _category);
                       },
                       shape: StadiumBorder(),
                       color: Get.theme.colorScheme.secondary.withOpacity(0.1),
-                      child: Text("View All".tr, style: Get.textTheme.subtitle1),
+                      child: Text("View All".tr, style: Get.textTheme.titleMedium),
                       elevation: 0,
                     ),
                   ],

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
@@ -9,8 +9,8 @@ class Ui {
   static GetBar SuccessSnackBar({String title = 'Success', String message}) {
     Get.log("[$title] $message");
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor))),
-      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
+      titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
+      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.colorScheme.secondary,
@@ -24,8 +24,8 @@ class Ui {
   static GetBar ErrorSnackBar({String title = 'Error', String message}) {
     Get.log("[$title] $message", isError: true);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor))),
-      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
+      titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
+      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Colors.redAccent,
@@ -39,8 +39,8 @@ class Ui {
   static GetBar defaultSnackBar({String title = 'Alert', String message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.hintColor))),
-      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.focusColor))),
+      titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.hintColor))),
+      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.primaryColor,
@@ -55,8 +55,8 @@ class Ui {
   static GetBar notificationSnackBar({String title = 'Notification', String message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.hintColor))),
-      messageText: Text(message, style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.focusColor))),
+      titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.hintColor))),
+      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.TOP,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.primaryColor,
@@ -97,7 +97,7 @@ class Ui {
     }
     try {
       if (myPrice == 0) {
-        return Text('-', style: style ?? Get.textTheme.subtitle2);
+        return Text('-', style: style ?? Get.textTheme.titleSmall);
       }
       return RichText(
         softWrap: false,
@@ -108,13 +108,13 @@ class Ui {
                 text: _setting.setting.value?.defaultCurrency,
                 style: getPriceStyle(style),
                 children: <TextSpan>[
-                  TextSpan(text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits) ?? '', style: style ?? Get.textTheme.subtitle2),
+                  TextSpan(text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits) ?? '', style: style ?? Get.textTheme.titleSmall),
                   if (unit != null) TextSpan(text: " " + unit + " ", style: getPriceStyle(style)),
                 ],
               )
             : TextSpan(
                 text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits) ?? '',
-                style: style ?? Get.textTheme.subtitle2,
+                style: style ?? Get.textTheme.titleSmall,
                 children: <TextSpan>[
                   TextSpan(text: _setting.setting.value?.defaultCurrency, style: getPriceStyle(style)),
                   if (unit != null) TextSpan(text: " " + unit + " ", style: getPriceStyle(style)),
@@ -128,8 +128,8 @@ class Ui {
 
   static TextStyle getPriceStyle(TextStyle style) {
     if (style == null) {
-      return Get.textTheme.subtitle2?.merge(
-        TextStyle(fontWeight: FontWeight.w300, fontSize: Get.textTheme.subtitle2?.fontSize - 4),
+      return Get.textTheme.titleSmall?.merge(
+        TextStyle(fontWeight: FontWeight.w300, fontSize: Get.textTheme.titleSmall?.fontSize - 4),
       );
     } else {
       return style.merge(TextStyle(fontWeight: FontWeight.w300, fontSize: style.fontSize - 4));
@@ -151,7 +151,7 @@ class Ui {
   static InputDecoration getInputDecoration({String hintText = '', String errorText, IconData iconData, Widget suffixIcon, Widget suffix}) {
     return InputDecoration(
       hintText: hintText,
-      hintStyle: Get.textTheme.caption,
+      hintStyle: Get.textTheme.bodySmall,
       prefixIcon: iconData != null ? Icon(iconData, color: Get.theme.focusColor).marginOnly(right: 14) : SizedBox(),
       prefixIconConstraints: iconData != null ? BoxConstraints.expand(width: 38, height: 38) : BoxConstraints.expand(width: 0, height: 0),
       floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -173,7 +173,7 @@ class Ui {
           return Text(
             context.tree.element.text,
             textAlign: textAlign,
-            style: style == null ? Get.textTheme.bodyText1?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
+            style: style == null ? Get.textTheme.bodyLarge?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
           );
         },
       },
@@ -239,7 +239,7 @@ class Ui {
           return Text(
             context.tree.element.text,
             textAlign: textAlign,
-            style: style == null ? Get.textTheme.bodyText1?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
+            style: style == null ? Get.textTheme.bodyLarge?.merge(TextStyle(fontSize: 11)) : style.merge(TextStyle(fontSize: 11)),
           );
         },
       },

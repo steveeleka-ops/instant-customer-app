@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -75,7 +75,7 @@ class ChatsView extends GetView<MessagesController> {
           controller.message.value.name,
           overflow: TextOverflow.fade,
           maxLines: 1,
-          style: Get.textTheme.headline6?.merge(TextStyle(letterSpacing: 1.3)),
+          style: Get.textTheme.titleLarge?.merge(TextStyle(letterSpacing: 1.3)),
         ),
       ),
       body: Column(
@@ -142,7 +142,7 @@ class ChatsView extends GetView<MessagesController> {
                 Expanded(
                   child: TextField(
                     controller: controller.chatTextController,
-                    style: Get.textTheme.bodyText1,
+                    style: Get.textTheme.bodyLarge,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(20),
                       hintText: "Type to start chat".tr,

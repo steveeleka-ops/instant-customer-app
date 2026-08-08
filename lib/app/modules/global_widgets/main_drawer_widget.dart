@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -35,11 +35,11 @@ class MainDrawerWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Welcome".tr,
-                          style: Get.textTheme.headline5?.merge(
+                          style: Get.textTheme.headlineMedium?.merge(
                               TextStyle(color: Theme.of(context).colorScheme.secondary))),
                       SizedBox(height: 5),
                       Text("Login account or create new one for free".tr,
-                          style: Get.textTheme.bodyText1),
+                          style: Get.textTheme.bodyLarge),
                       SizedBox(height: 15),
                       Wrap(
                         spacing: 10,
@@ -60,7 +60,7 @@ class MainDrawerWidget extends StatelessWidget {
                                     color: Get.theme.primaryColor, size: 24),
                                 Text(
                                   "Login".tr,
-                                  style: Get.textTheme.subtitle1?.merge(
+                                  style: Get.textTheme.titleMedium?.merge(
                                       TextStyle(color: Get.theme.primaryColor)),
                                 ),
                               ],
@@ -83,7 +83,7 @@ class MainDrawerWidget extends StatelessWidget {
                                     color: Get.theme.hintColor, size: 24),
                                 Text(
                                   "Register".tr,
-                                  style: Get.textTheme.subtitle1?.merge(
+                                  style: Get.textTheme.titleMedium?.merge(
                                       TextStyle(color: Get.theme.hintColor)),
                                 ),
                               ],
@@ -107,11 +107,11 @@ class MainDrawerWidget extends StatelessWidget {
                   ),
                   accountName: Text(
                     Get.find<AuthService>().user.value.name,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                   accountEmail: Text(
                     Get.find<AuthService>().user.value.email,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   currentAccountPicture: Stack(
                     children: [
@@ -206,7 +206,7 @@ class MainDrawerWidget extends StatelessWidget {
             dense: true,
             title: Text(
               "Application preferences".tr,
-              style: Get.textTheme.caption,
+              style: Get.textTheme.bodySmall,
             ),
             trailing: Icon(
               Icons.remove,
@@ -262,7 +262,7 @@ class MainDrawerWidget extends StatelessWidget {
             dense: true,
             title: Text(
               "Help & Privacy",
-              style: Get.textTheme.caption,
+              style: Get.textTheme.bodySmall,
             ),
             trailing: Icon(
               Icons.remove,
@@ -306,7 +306,7 @@ class MainDrawerWidget extends StatelessWidget {
                 "Version".tr +
                     " " +
                     Get.find<SettingsService>().setting.value.appVersion,
-                style: Get.textTheme.caption,
+                style: Get.textTheme.bodySmall,
               ),
               trailing: Icon(
                 Icons.remove,

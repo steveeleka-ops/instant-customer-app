@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ class RatingView extends GetView<RatingController> {
       appBar: AppBar(
         title: Text(
           "Leave a Review".tr,
-          style: Get.textTheme.headline6,
+          style: Get.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -38,13 +38,13 @@ class RatingView extends GetView<RatingController> {
                 Text("Hi,".tr),
                 Text(
                   Get.find<AuthService>().user.value.name,
-                  style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                  style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                 )
               ]),
               SizedBox(height: 10),
               Text(
                 "How do you feel this services?".tr,
-                style: Get.textTheme.bodyText2,
+                style: Get.textTheme.bodyMedium,
               ),
             ],
           ),
@@ -77,13 +77,13 @@ class RatingView extends GetView<RatingController> {
                     SizedBox(height: 20),
                     Text(
                       controller.booking.value.eService.name,
-                      style: Get.textTheme.headline6,
+                      style: Get.textTheme.titleLarge,
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 20),
                     Text(
                       "Click on the stars to rate this service".tr,
-                      style: Get.textTheme.caption,
+                      style: Get.textTheme.bodySmall,
                     ),
                     SizedBox(height: 6),
                     Obx(() {
@@ -120,7 +120,7 @@ class RatingView extends GetView<RatingController> {
           BlockButtonWidget(
               text: Text(
                 "Submit Review".tr,
-                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
+                style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor)),
               ),
               color: Get.theme.colorScheme.secondary,
               onPressed: () {

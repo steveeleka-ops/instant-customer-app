@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +15,7 @@ class SettingsView extends GetView<SettingsController> {
       appBar: AppBar(
           title: Text(
             "Settings".tr,
-            style: context.textTheme.headline6,
+            style: context.textTheme.titleLarge,
           ),
           centerTitle: true,
           backgroundColor: Colors.transparent,

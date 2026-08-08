@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -133,16 +133,16 @@ class EServiceController extends GetxController {
 
   TextStyle getTitleTheme(Option option) {
     if (option.checked.value) {
-      return Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary));
+      return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary));
     }
-    return Get.textTheme.bodyText2;
+    return Get.textTheme.bodyMedium;
   }
 
   TextStyle getSubTitleTheme(Option option) {
     if (option.checked.value) {
-      return Get.textTheme.caption?.merge(TextStyle(color: Get.theme.colorScheme.secondary));
+      return Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.colorScheme.secondary));
     }
-    return Get.textTheme.caption;
+    return Get.textTheme.bodySmall;
   }
 
   Color getColor(Option option) {

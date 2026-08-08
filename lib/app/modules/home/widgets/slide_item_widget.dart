@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'dart:math' as math;
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -48,7 +48,7 @@ class SlideItemWidget extends StatelessWidget {
                   if (slide.text != null && slide.text != '')
                     Text(
                       slide.text,
-                      style: Get.textTheme.bodyText2?.merge(TextStyle(color: slide.textColor)),
+                      style: Get.textTheme.bodyMedium?.merge(TextStyle(color: slide.textColor)),
                       overflow: TextOverflow.fade,
                       maxLines: 3,
                     ),

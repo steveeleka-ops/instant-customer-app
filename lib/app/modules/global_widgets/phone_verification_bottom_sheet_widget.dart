@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -44,7 +44,7 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
           ),
           Text(
             "We sent the OTP code to your phone, please check it and enter below".tr,
-            style: Get.textTheme.bodyText1,
+            style: Get.textTheme.bodyLarge,
             textAlign: TextAlign.center,
           ).paddingSymmetric(horizontal: 20, vertical: 10),
           TextFieldWidget(
@@ -62,7 +62,7 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
             color: Get.theme.colorScheme.secondary,
             text: Text(
               "Verify".tr,
-              style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
+              style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor)),
             ),
           ).paddingSymmetric(vertical: 30, horizontal: 20),
         ],

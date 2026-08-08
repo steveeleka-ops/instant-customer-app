@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -38,7 +38,7 @@ class FilterBottomSheetWidget extends GetView<SearchController> {
                   }
                   return ExpansionTile(
                     title:
-                        Text("Categories".tr, style: Get.textTheme.bodyText2),
+                        Text("Categories".tr, style: Get.textTheme.bodyMedium),
                     children:
                         List.generate(controller.categories.length, (index) {
                       var _category = controller.categories.elementAt(index);
@@ -53,7 +53,7 @@ class FilterBottomSheetWidget extends GetView<SearchController> {
                           },
                           title: Text(
                             _category.name,
-                            style: Get.textTheme.bodyText1,
+                            style: Get.textTheme.bodyLarge,
                             overflow: TextOverflow.fade,
                             softWrap: false,
                             maxLines: 1,
@@ -78,7 +78,7 @@ class FilterBottomSheetWidget extends GetView<SearchController> {
             child: Row(
               children: [
                 Expanded(
-                    child: Text("Filter".tr, style: Get.textTheme.headline5)),
+                    child: Text("Filter".tr, style: Get.textTheme.headlineMedium)),
                 MaterialButton(
                   onPressed: () {
                     controller.searchEServices(
@@ -88,7 +88,7 @@ class FilterBottomSheetWidget extends GetView<SearchController> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   color: Get.theme.colorScheme.secondary.withOpacity(0.15),
-                  child: Text("Apply".tr, style: Get.textTheme.subtitle1),
+                  child: Text("Apply".tr, style: Get.textTheme.titleMedium),
                   elevation: 0,
                 ),
               ],

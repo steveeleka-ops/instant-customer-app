@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,7 +42,7 @@ class CategoryView extends GetView<CategoryController> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                   controller.category.value.name,
-                  style: Get.textTheme.headline6
+                  style: Get.textTheme.titleLarge
                       ?.merge(TextStyle(color: Get.theme.primaryColor)),
                   ),
                 ),
@@ -130,9 +130,9 @@ class CategoryView extends GetView<CategoryController> {
                                   elevation: 0,
                                   label: Text(_filter.toString().tr),
                                   labelStyle: controller.isSelected(_filter)
-                                      ? Get.textTheme.bodyText2?.merge(TextStyle(
+                                      ? Get.textTheme.bodyMedium?.merge(TextStyle(
                                           color: Get.theme.primaryColor))
-                                      : Get.textTheme.bodyText2,
+                                      : Get.textTheme.bodyMedium,
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 12, vertical: 15),
                                   backgroundColor: Theme.of(context).focusColor.withOpacity(0.1),

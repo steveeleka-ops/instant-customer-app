@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -33,7 +33,7 @@ class OptionGroupItemWidget extends GetWidget<EServiceController> {
               _optionGroup.name ?? '',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: Get.textTheme.headline5,
+              style: Get.textTheme.headlineMedium,
             ),
           ],
         ).paddingSymmetric(horizontal: 20, vertical: 10),

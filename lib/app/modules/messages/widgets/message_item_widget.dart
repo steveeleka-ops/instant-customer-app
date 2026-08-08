@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -102,7 +102,7 @@ class MessageItemWidget extends StatelessWidget {
                             this.message.name,
                             overflow: TextOverflow.fade,
                             softWrap: false,
-                            style: Get.textTheme.bodyText1
+                            style: Get.textTheme.bodyLarge
                                 ?.merge(TextStyle(fontWeight: this.message.readByUsers.contains(_authService.user.value.id) ? FontWeight.w400 : FontWeight.w800)),
                           ),
                         ),
@@ -110,7 +110,7 @@ class MessageItemWidget extends StatelessWidget {
                           DateFormat('HH:mm', Get.locale.toString()).format(DateTime.fromMillisecondsSinceEpoch(this.message.lastMessageTime)),
                           overflow: TextOverflow.fade,
                           softWrap: false,
-                          style: Get.textTheme.caption,
+                          style: Get.textTheme.bodySmall,
                         ),
                       ],
                     ),
@@ -122,7 +122,7 @@ class MessageItemWidget extends StatelessWidget {
                             this.message.lastMessage,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
-                            style: Get.textTheme.caption
+                            style: Get.textTheme.bodySmall
                                 ?.merge(TextStyle(fontWeight: this.message.readByUsers.contains(_authService.user.value.id) ? FontWeight.w400 : FontWeight.w800)),
                           ),
                         ),
@@ -130,7 +130,7 @@ class MessageItemWidget extends StatelessWidget {
                           DateFormat('dd-MM-yyyy', Get.locale.toString()).format(DateTime.fromMillisecondsSinceEpoch(this.message.lastMessageTime)),
                           overflow: TextOverflow.fade,
                           softWrap: false,
-                          style: Get.textTheme.caption,
+                          style: Get.textTheme.bodySmall,
                         ),
                       ],
                     )

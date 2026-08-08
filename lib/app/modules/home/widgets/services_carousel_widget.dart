@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -72,7 +72,7 @@ class ServicesCarouselWidget extends StatelessWidget {
                           Text(
                             _service.name,
                             maxLines: 1,
-                            style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.hintColor)),
+                            style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.hintColor)),
                           ),
                           Wrap(
                             children: Ui.getStarsList(_service.rate),
@@ -85,11 +85,11 @@ class ServicesCarouselWidget extends StatelessWidget {
                             children: [
                               Text(
                                 "Start from".tr,
-                                style: Get.textTheme.caption,
+                                style: Get.textTheme.bodySmall,
                               ),
                               Ui.getPrice(
                                 _service.price,
-                                style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                                style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                                 unit: _service.getUnit,
                               ),
                             ],

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +27,7 @@ class AvailabilityHourItemWidget extends StatelessWidget {
                 List.generate(_data.length, (index) {
                   return Text(
                     _data.elementAt(index),
-                    style: Get.textTheme.caption,
+                    style: Get.textTheme.bodySmall,
                   );
                 }),
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,7 @@ class AvailabilityHourItemWidget extends StatelessWidget {
               width: 125,
               child: Text(
                 _availabilityHour.value.elementAt(index),
-                style: Get.textTheme.bodyText1,
+                style: Get.textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
               decoration: BoxDecoration(

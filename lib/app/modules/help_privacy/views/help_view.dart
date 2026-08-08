@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +36,7 @@ class HelpView extends GetView<HelpController> {
                 ),
           title: Text(
             "Help & Faq".tr,
-            style: Get.textTheme.headline6?.merge(TextStyle(letterSpacing: 1.3, color: Get.theme.hintColor)),
+            style: Get.textTheme.titleLarge?.merge(TextStyle(letterSpacing: 1.3, color: Get.theme.hintColor)),
           ),
           automaticallyImplyLeading: false,
           leading: new IconButton(
@@ -60,8 +60,8 @@ class HelpView extends GetView<HelpController> {
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Text("Help & Support".tr, style: Get.textTheme.headline5),
-                Text("Most frequently asked questions".tr, style: Get.textTheme.caption).paddingSymmetric(vertical: 5),
+                Text("Help & Support".tr, style: Get.textTheme.headlineMedium),
+                Text("Most frequently asked questions".tr, style: Get.textTheme.bodySmall).paddingSymmetric(vertical: 5),
                 ListView.separated(
                   padding: EdgeInsets.symmetric(vertical: 15),
                   scrollDirection: Axis.vertical,

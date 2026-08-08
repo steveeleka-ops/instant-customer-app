@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -57,7 +57,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Available".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2?.merge(
+                        style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                         ),
                         softWrap: false,
@@ -74,7 +74,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Offline".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2?.merge(
+                        style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                         ),
                         softWrap: false,
@@ -98,7 +98,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     children: [
                       Text(
                         _service.name ?? '',
-                        style: Get.textTheme.bodyText2,
+                        style: Get.textTheme.bodyMedium,
                         maxLines: 3,
                         // textAlign: TextAlign.end,
                       ),
@@ -124,7 +124,7 @@ class ServicesListItemWidget extends StatelessWidget {
                                     color: Get.theme.colorScheme.secondary,
                                     size: 18,
                                   ),
-                                  Text(_service.rate.toString(), style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                  Text(_service.rate.toString(), style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
                                 ],
                               ),
                               backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),
@@ -133,11 +133,11 @@ class ServicesListItemWidget extends StatelessWidget {
                           ),
                           Text(
                             "From (%s)".trArgs([_service.totalReviews.toString()]),
-                            style: Get.textTheme.bodyText1,
+                            style: Get.textTheme.bodyLarge,
                           ),
                         ],
                       ),
-                      Ui.getPrice(_service.price, style: Get.textTheme.headline6),
+                      Ui.getPrice(_service.price, style: Get.textTheme.titleLarge),
                     ],
                   ),
                   Row(
@@ -154,7 +154,7 @@ class ServicesListItemWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
-                          style: Get.textTheme.bodyText1,
+                          style: Get.textTheme.bodyLarge,
                         ),
                       ),
                     ],
@@ -174,7 +174,7 @@ class ServicesListItemWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
-                          style: Get.textTheme.bodyText1,
+                          style: Get.textTheme.bodyLarge,
                         ),
                       ),
                     ],
@@ -185,7 +185,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     children: List.generate(_service.categories.length, (index) {
                       return Container(
                         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        child: Text(_service.categories.elementAt(index).name, style: Get.textTheme.caption?.merge(TextStyle(fontSize: 10))),
+                        child: Text(_service.categories.elementAt(index).name, style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 10))),
                         decoration: BoxDecoration(
                             color: Get.theme.primaryColor,
                             border: Border.all(

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class GalleryView extends GetView<GalleryController> {
       appBar: AppBar(
         title: Text(
           "Galleries".tr,
-          style: context.textTheme.headline6,
+          style: context.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -78,7 +78,7 @@ class GalleryView extends GetView<GalleryController> {
                   return Text(
                     controller.current.value.name ?? '',
                     maxLines: 2,
-                    style: Get.textTheme.bodyText2?.merge(
+                    style: Get.textTheme.bodyMedium?.merge(
                       TextStyle(
                         color: Get.theme.primaryColor,
                         shadows: <Shadow>[

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -64,7 +64,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Available".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2?.merge(
+                        style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(
                               color: Colors.green, height: 1.4, fontSize: 10),
                         ),
@@ -84,7 +84,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     width: 80,
                     child: Text("Offline".tr,
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2?.merge(
+                        style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(
                               color: Colors.grey, height: 1.4, fontSize: 10),
                         ),
@@ -118,7 +118,7 @@ class ServicesListItemWidget extends StatelessWidget {
                            child: Text(
                                _service.categories.elementAt(index).name,
                                overflow: TextOverflow.ellipsis,
-                               style: Get.textTheme.headline6?.merge(TextStyle(fontSize: 10, fontWeight: FontWeight.normal))),
+                               style: Get.textTheme.titleLarge?.merge(TextStyle(fontSize: 10, fontWeight: FontWeight.normal))),
                            decoration: BoxDecoration(
                                color: Get.theme.primaryColor,
                                border: Border.all(
@@ -150,13 +150,13 @@ class ServicesListItemWidget extends StatelessWidget {
                     children: [
                       Text(
                         _service.name ?? '',
-                        style: Get.textTheme.bodyText2,
+                        style: Get.textTheme.bodyMedium,
                         maxLines: 3,
                         // textAlign: TextAlign.end,
                       ),
                     ],
                   ),
-                  Ui.getPrice(_service.price, style: Get.textTheme.headline6),
+                  Ui.getPrice(_service.price, style: Get.textTheme.titleLarge),
                   Divider(height: 8, thickness: 1),
                   Row(
                     children: [
@@ -172,7 +172,7 @@ class ServicesListItemWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
-                          style: Get.textTheme.bodyText1,
+                          style: Get.textTheme.bodyLarge,
                         ),
                       ),
                     ],
@@ -192,7 +192,7 @@ class ServicesListItemWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
-                          style: Get.textTheme.bodyText1,
+                          style: Get.textTheme.bodyLarge,
                         ),
                       ),
                     ],

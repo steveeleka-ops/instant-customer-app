@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -75,7 +75,7 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
                             Text(
                               controller.eServices.elementAt(index).name ?? '',
                               maxLines: 2,
-                              style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.hintColor)),
+                              style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.hintColor)),
                             ),
                             Wrap(
                               children: Ui.getStarsList(controller.eServices.elementAt(index).rate),
@@ -88,11 +88,11 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
                               children: [
                                 Text(
                                   "Start from".tr,
-                                  style: Get.textTheme.caption,
+                                  style: Get.textTheme.bodySmall,
                                 ),
                                 Ui.getPrice(
                                   controller.eServices.elementAt(index).price,
-                                  style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                                  style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                                   unit: controller.eServices.elementAt(index).getUnit,
                                 ),
                               ],
@@ -159,7 +159,7 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
               child: Text(
               'View All',
               maxLines: 2,
-              style: Get.textTheme.bodyText2
+              style: Get.textTheme.bodyMedium
                   ?.merge(TextStyle(color: Colors.black)),
               ),
               ),

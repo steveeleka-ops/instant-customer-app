@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +14,7 @@ class CustomPagesView extends GetView<CustomPagesController> {
           title: Obx(() {
             return Text(
               controller.customPage.value.title.tr,
-              style: Get.textTheme.headline6,
+              style: Get.textTheme.titleLarge,
             );
           }),
           centerTitle: true,

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -105,7 +105,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("Order Status".tr, style: Get.textTheme.subtitle2),
+              Text("Order Status".tr, style: Get.textTheme.titleSmall),
               Spacer(),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),

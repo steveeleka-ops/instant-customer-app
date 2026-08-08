@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -66,7 +66,7 @@ class TextFieldWidget extends StatelessWidget {
         children: [
           Text(
             labelText ?? "",
-            style: Get.textTheme.bodyText1,
+            style: Get.textTheme.bodyLarge,
             textAlign: textAlign ?? TextAlign.start,
           ),
           TextFormField(
@@ -75,7 +75,7 @@ class TextFieldWidget extends StatelessWidget {
             onChanged: onChanged,
             validator: validator,
             initialValue: initialValue ?? '',
-            style: style ?? Get.textTheme.bodyText2,
+            style: style ?? Get.textTheme.bodyMedium,
             obscureText: obscureText ?? false,
             textAlign: textAlign ?? TextAlign.start,
             decoration: Ui.getInputDecoration(

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -38,7 +38,7 @@ class DrawerLinkWidget extends StatelessWidget {
               color: Get.theme.focusColor.withOpacity(0.2),
             ),
             Expanded(
-              child: Text(text.tr, style: Get.textTheme.bodyText2?.merge(TextStyle(fontSize: 14))),
+              child: Text(text.tr, style: Get.textTheme.bodyMedium?.merge(TextStyle(fontSize: 14))),
             ),
           ],
         ),

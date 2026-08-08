@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -69,7 +69,7 @@ class CategoryListItemWidget extends StatelessWidget {
                       category.name,
                       overflow: TextOverflow.fade,
                       softWrap: false,
-                      style: Get.textTheme.bodyText2,
+                      style: Get.textTheme.bodyMedium,
                     ),
                   ),
                   // TODO get service for each category
@@ -77,7 +77,7 @@ class CategoryListItemWidget extends StatelessWidget {
                   //   "(" + category.services.length.toString() + ")",
                   //   overflow: TextOverflow.fade,
                   //   softWrap: false,
-                  //   style: Get.textTheme.caption,
+                  //   style: Get.textTheme.bodySmall,
                   // ),
                 ],
               )),
@@ -89,7 +89,7 @@ class CategoryListItemWidget extends StatelessWidget {
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 16),
-                child: Text(_category.name, style: Get.textTheme.bodyText1),
+                child: Text(_category.name, style: Get.textTheme.bodyLarge),
                 decoration: BoxDecoration(
                   color: Get.theme.scaffoldBackgroundColor.withOpacity(0.2),
                   border: Border(top: BorderSide(color: Get.theme.scaffoldBackgroundColor.withOpacity(0.3))

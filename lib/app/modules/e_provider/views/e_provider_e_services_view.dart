@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +32,7 @@ class EProviderEServicesView extends GetView<EServicesController> {
               iconTheme: IconThemeData(color: Get.theme.primaryColor),
               title: Text(
                 controller.eProvider.value.name,
-                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
+                style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor)),
               ),
               centerTitle: true,
               automaticallyImplyLeading: false,
@@ -75,7 +75,7 @@ class EProviderEServicesView extends GetView<EServicesController> {
                               child: RawChip(
                                 elevation: 0,
                                 label: Text(_filter.toString().tr),
-                                labelStyle: controller.isSelected(_filter) ? Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor)) : Get.textTheme.bodyText2,
+                                labelStyle: controller.isSelected(_filter) ? Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor)) : Get.textTheme.bodyMedium,
                                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
                                 backgroundColor: Theme.of(context).focusColor.withOpacity(0.1),
                                 selectedColor: Get.theme.colorScheme.secondary,

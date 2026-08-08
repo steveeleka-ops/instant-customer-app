@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: Text(
           Get.find<SettingsService>().setting.value.appName,
-          style: Get.textTheme.headline6,
+          style: Get.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -47,13 +47,13 @@ class HomeView extends GetView<HomeController> {
               //     children: [
               //       Expanded(
               //           child: Text("Categories".tr,
-              //               style: Get.textTheme.headline5)),
+              //               style: Get.textTheme.headlineMedium)),
               //       MaterialButton(
               //         onPressed: () {},
               //         shape: StadiumBorder(),
               //         color: Get.theme.accentColor.withOpacity(0.1),
               //         child:
-              //             Text("View All".tr, style: Get.textTheme.subtitle1),
+              //             Text("View All".tr, style: Get.textTheme.titleMedium),
               //         elevation: 0,
               //       ),
               //     ],
@@ -67,7 +67,7 @@ class HomeView extends GetView<HomeController> {
                   children: [
                     Expanded(
                         child: Text("Recommended for you".tr,
-                            style: Get.textTheme.headline5)),
+                            style: Get.textTheme.headlineMedium)),
                     MaterialButton(
                       onPressed: () {
 
@@ -75,7 +75,7 @@ class HomeView extends GetView<HomeController> {
                       shape: StadiumBorder(),
                       color: Get.theme.colorScheme.secondary.withOpacity(0.1),
                       child:
-                          Text("View All".tr, style: Get.textTheme.subtitle1),
+                          Text("View All".tr, style: Get.textTheme.titleMedium),
                       elevation: 0,
                     ),
                   ],

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -20,7 +20,7 @@ class CategoriesView extends GetView<CategoriesController> {
           appBar: AppBar(
             title: Text(
               "Categories".tr,
-              style: Get.textTheme.headline6,
+              style: Get.textTheme.titleLarge,
             ),
             centerTitle: true,
             backgroundColor: Colors.transparent,
@@ -49,7 +49,7 @@ class CategoriesView extends GetView<CategoriesController> {
                         "Categories of services".tr,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
                   ]),

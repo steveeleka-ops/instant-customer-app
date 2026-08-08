@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -90,10 +90,10 @@ class BookingView extends GetView<BookingController> {
                       else
                         return BookingTilWidget(
                           title: Text("Booking Details".tr,
-                              style: Get.textTheme.subtitle2),
+                              style: Get.textTheme.titleSmall),
                           actions: [
                             Text("#" + controller.booking.value.id,
-                                style: Get.textTheme.subtitle2)
+                                style: Get.textTheme.titleSmall)
                           ],
                           content: Column(
                             children: [
@@ -200,7 +200,7 @@ class BookingView extends GetView<BookingController> {
                       else
                         return BookingTilWidget(
                           title: Text("Booking Date & Time".tr,
-                              style: Get.textTheme.subtitle2),
+                              style: Get.textTheme.titleSmall),
                           actions: [
                             Container(
                               padding: const EdgeInsets.only(
@@ -213,7 +213,7 @@ class BookingView extends GetView<BookingController> {
                               child: Obx(() {
                                 return Text(
                                   controller.getTime(),
-                                  style: Get.textTheme.bodyText2,
+                                  style: Get.textTheme.bodyMedium,
                                 );
                               }),
                             )
@@ -231,7 +231,7 @@ class BookingView extends GetView<BookingController> {
                                                 Get.locale.toString())
                                                 .format(controller
                                                 .booking.value.bookingAt),
-                                            style: Get.textTheme.caption,
+                                            style: Get.textTheme.bodySmall,
                                             textAlign: TextAlign.end,
                                           )),
                                       hasDivider:
@@ -249,7 +249,7 @@ class BookingView extends GetView<BookingController> {
                                                 Get.locale.toString())
                                                 .format(controller
                                                 .booking.value.startAt),
-                                            style: Get.textTheme.caption,
+                                            style: Get.textTheme.bodySmall,
                                             textAlign: TextAlign.end,
                                           )),
                                       hasDivider: false),
@@ -263,7 +263,7 @@ class BookingView extends GetView<BookingController> {
                                               Get.locale.toString())
                                               .format(controller
                                               .booking.value.endsAt),
-                                          style: Get.textTheme.caption,
+                                          style: Get.textTheme.bodySmall,
                                           textAlign: TextAlign.end,
                                         )),
                                   ),
@@ -278,7 +278,7 @@ class BookingView extends GetView<BookingController> {
                       else
                         return BookingTilWidget(
                           title: Text("Pricing".tr,
-                              style: Get.textTheme.subtitle2),
+                              style: Get.textTheme.titleSmall),
                           content: Column(
                             children: [
                               BookingRowWidget(
@@ -291,7 +291,7 @@ class BookingView extends GetView<BookingController> {
                                     child: Ui.getPrice(
                                         controller
                                             .booking.value.eService.getPrice,
-                                        style: Get.textTheme.subtitle2),
+                                        style: Get.textTheme.titleSmall),
                                   ),
                                   hasDivider: true),
                               Column(
@@ -307,7 +307,7 @@ class BookingView extends GetView<BookingController> {
                                           child: Align(
                                             alignment: Alignment.centerRight,
                                             child: Ui.getPrice(_option.price,
-                                                style: Get.textTheme.bodyText1),
+                                                style: Get.textTheme.bodyLarge),
                                           ),
                                           hasDivider: (controller.booking.value
                                               .options.length -
@@ -326,7 +326,7 @@ class BookingView extends GetView<BookingController> {
                                             controller.booking.value.quantity.toString() +
                                             " " +
                                             controller.booking.value.eService.quantityUnit.tr,
-                                        style: Get.textTheme.bodyText2,
+                                        style: Get.textTheme.bodyMedium,
                                       ),
                                     ),
                                     hasDivider: true),
@@ -342,10 +342,10 @@ class BookingView extends GetView<BookingController> {
                                             alignment: Alignment.centerRight,
                                             child: _tax.type == 'percent'
                                                 ? Text(_tax.value.toString() + '%',
-                                                style: Get.textTheme.bodyText1)
+                                                style: Get.textTheme.bodyLarge)
                                                 : Ui.getPrice(
                                               _tax.value,
-                                              style: Get.textTheme.bodyText1,
+                                              style: Get.textTheme.bodyLarge,
                                             ),
                                           ),
                                           hasDivider: (controller
@@ -362,7 +362,7 @@ class BookingView extends GetView<BookingController> {
                                     child: Ui.getPrice(
                                         controller.booking.value
                                             .getTaxesValue(),
-                                        style: Get.textTheme.subtitle2),
+                                        style: Get.textTheme.titleSmall),
                                   ),
                                   hasDivider: false,
                                 );
@@ -375,7 +375,7 @@ class BookingView extends GetView<BookingController> {
                                       child: Ui.getPrice(
                                           controller.booking.value
                                               .getSubtotal(),
-                                          style: Get.textTheme.subtitle2),
+                                          style: Get.textTheme.titleSmall),
                                     ),
                                     hasDivider: true);
                               }),
@@ -389,11 +389,11 @@ class BookingView extends GetView<BookingController> {
                                       child: Wrap(
                                         children: [
                                           Text(' - ',
-                                              style: Get.textTheme.bodyText1),
+                                              style: Get.textTheme.bodyLarge),
                                           Ui.getPrice(
                                               controller.booking.value.coupon
                                                   .discount,
-                                              style: Get.textTheme.bodyText1,
+                                              style: Get.textTheme.bodyLarge,
                                               unit: controller
                                                   .booking
                                                   .value
@@ -413,7 +413,7 @@ class BookingView extends GetView<BookingController> {
                                     alignment: Alignment.centerRight,
                                     child: Ui.getPrice(
                                         controller.booking.value.getTotal(),
-                                        style: Get.textTheme.headline6),
+                                        style: Get.textTheme.titleLarge),
                                   ),
                                 );
                               }),
@@ -443,7 +443,7 @@ class BookingView extends GetView<BookingController> {
                   AutoSizeText(
                     _booking.value.eService?.name ?? '',
                     style:
-                    Get.textTheme.headline5?.merge(TextStyle(height: 1.1)),
+                    Get.textTheme.headlineMedium?.merge(TextStyle(height: 1.1)),
                     overflow: TextOverflow.fade,
                   ),
                   Row(
@@ -452,7 +452,7 @@ class BookingView extends GetView<BookingController> {
                       SizedBox(width: 8),
                       AutoSizeText(
                         _booking.value.eProvider?.name ?? '',
-                        style: Get.textTheme.bodyText1,
+                        style: Get.textTheme.bodyLarge,
                         maxLines: 1,
                         overflow: TextOverflow.fade,
                       ),
@@ -467,7 +467,7 @@ class BookingView extends GetView<BookingController> {
                             _booking.value.address?.address ?? '',
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: Get.textTheme.bodyText1),
+                            style: Get.textTheme.bodyLarge),
                       ),
                     ],
                     // spacing: 8,
@@ -496,7 +496,7 @@ class BookingView extends GetView<BookingController> {
                         DateFormat('HH:mm', Get.locale.toString())
                             .format(_booking.value.bookingAt),
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2?.merge(
+                        style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(
                               color: Get.theme.colorScheme.secondary,
                               height: 1.4),
@@ -520,7 +520,7 @@ class BookingView extends GetView<BookingController> {
                         DateFormat('MMM', Get.locale.toString())
                             .format(_booking.value.bookingAt ?? ''),
                         maxLines: 1,
-                        style: Get.textTheme.bodyText2?.merge(
+                        style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(
                               color: Get.theme.colorScheme.secondary,
                               height: 1),
@@ -553,9 +553,9 @@ class BookingView extends GetView<BookingController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Contact Customer".tr, style: Get.textTheme.subtitle2),
-                Text('********954', style: Get.textTheme.caption),
-                // Text(_booking.user?.phoneNumber ?? '', style: Get.textTheme.caption),
+                Text("Contact Customer".tr, style: Get.textTheme.titleSmall),
+                Text('********954', style: Get.textTheme.bodySmall),
+                // Text(_booking.user?.phoneNumber ?? '', style: Get.textTheme.bodySmall),
               ],
             ),
           ),

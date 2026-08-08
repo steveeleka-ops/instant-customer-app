@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -51,7 +51,7 @@ class ServiceItemWidget extends StatelessWidget {
                   width: 80,
                   child: Text("Available".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2?.merge(
+                      style: Get.textTheme.bodyMedium?.merge(
                         TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -68,7 +68,7 @@ class ServiceItemWidget extends StatelessWidget {
                   width: 80,
                   child: Text("Offline".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2?.merge(
+                      style: Get.textTheme.bodyMedium?.merge(
                         TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -92,7 +92,7 @@ class ServiceItemWidget extends StatelessWidget {
                   children: [
                     Text(
                       _service.name ?? '',
-                      style: Get.textTheme.bodyText2,
+                      style: Get.textTheme.bodyMedium,
                       maxLines: 3,
                       // textAlign: TextAlign.end,
                     ),
@@ -118,7 +118,7 @@ class ServiceItemWidget extends StatelessWidget {
                                   color: Get.theme.colorScheme.secondary,
                                   size: 18,
                                 ),
-                                Text(_service.rate.toString(), style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                Text(_service.rate.toString(), style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
                               ],
                             ),
                             backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),
@@ -127,11 +127,11 @@ class ServiceItemWidget extends StatelessWidget {
                         ),
                         Text(
                           "From (%s)".trArgs([_service.totalReviews.toString()]),
-                          style: Get.textTheme.bodyText1,
+                          style: Get.textTheme.bodyLarge,
                         ),
                       ],
                     ),
-                    Ui.getPrice(_service.price, style: Get.textTheme.headline6),
+                    Ui.getPrice(_service.price, style: Get.textTheme.titleLarge),
                   ],
                 ),
               ],

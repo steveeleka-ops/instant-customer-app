@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -22,7 +22,7 @@ class WalletTransactionItem extends StatelessWidget {
       children: [
         Text(
           DateFormat('  d, MMMM y - HH:mm', Get.locale.toString()).format(_transaction.dateTime),
-          style: Get.textTheme.caption,
+          style: Get.textTheme.bodySmall,
         ),
         SizedBox(height: 5),
         Container(
@@ -41,17 +41,17 @@ class WalletTransactionItem extends StatelessWidget {
                       _transaction.user.name,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: Get.textTheme.bodyText2,
+                      style: Get.textTheme.bodyMedium,
                     ),
                     Text(
                       _transaction.description,
-                      style: Get.textTheme.caption,
+                      style: Get.textTheme.bodySmall,
                     ),
                   ],
                 ),
               ),
-              if (_transaction.action == TransactionActions.CREDIT) Ui.getPrice(_transaction.amount, style: Get.textTheme.headline5?.merge(TextStyle(color: Colors.green))),
-              if (_transaction.action == TransactionActions.DEBIT) Ui.getPrice(-_transaction.amount, style: Get.textTheme.headline5?.merge(TextStyle(color: Colors.red))),
+              if (_transaction.action == TransactionActions.CREDIT) Ui.getPrice(_transaction.amount, style: Get.textTheme.headlineMedium?.merge(TextStyle(color: Colors.green))),
+              if (_transaction.action == TransactionActions.DEBIT) Ui.getPrice(-_transaction.amount, style: Get.textTheme.headlineMedium?.merge(TextStyle(color: Colors.red))),
             ],
           ),
         ),

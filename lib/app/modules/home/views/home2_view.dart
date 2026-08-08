@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -44,7 +44,7 @@ class Home2View extends GetView<HomeController> {
                 iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
                 title: Text(
                   Get.find<SettingsService>().setting.value.appName,
-                  style: Get.textTheme.headline6,
+                  style: Get.textTheme.titleLarge,
                 ),
                 centerTitle: true,
                 automaticallyImplyLeading: false,
@@ -116,7 +116,7 @@ class Home2View extends GetView<HomeController> {
                       children: [
                         Expanded(
                             child: Text("Categories".tr,
-                                style: Get.textTheme.headline5)),
+                                style: Get.textTheme.headlineMedium)),
                         MaterialButton(
                           onPressed: () {
                             Get.toNamed(Routes.CATEGORIES);
@@ -125,7 +125,7 @@ class Home2View extends GetView<HomeController> {
                           color:
                               Get.theme.colorScheme.secondary.withOpacity(0.1),
                           child: Text("View All".tr,
-                              style: Get.textTheme.subtitle1),
+                              style: Get.textTheme.titleMedium),
                           elevation: 0,
                         ),
                       ],
@@ -139,7 +139,7 @@ class Home2View extends GetView<HomeController> {
                       children: [
                         Expanded(
                             child: Text("Instant Booking".tr,
-                                style: Get.textTheme.headline5)),
+                                style: Get.textTheme.headlineMedium)),
                         MaterialButton(
                           onPressed: () {
                             Category category = Category(
@@ -157,7 +157,7 @@ class Home2View extends GetView<HomeController> {
                           color:
                               Get.theme.colorScheme.secondary.withOpacity(0.1),
                           child: Text("View All".tr,
-                              style: Get.textTheme.subtitle1),
+                              style: Get.textTheme.titleMedium),
                           elevation: 0,
                         ),
                       ],
@@ -189,7 +189,7 @@ class Home2View extends GetView<HomeController> {
                               Text(
                                 "See Service Availability",
                                 textAlign: TextAlign.center,
-                                style: Get.textTheme.headline6?.merge(TextStyle(
+                                style: Get.textTheme.titleLarge?.merge(TextStyle(
                                     color: Get.theme.colorScheme.primary,
                                     fontSize: 24)),
                               ).paddingSymmetric(vertical: 10, horizontal: 20),
@@ -225,7 +225,7 @@ class Home2View extends GetView<HomeController> {
                                       ),
                                       Text(
                                         "Your Current Location".tr,
-                                        style: Get.textTheme.headline6?.merge(
+                                        style: Get.textTheme.titleLarge?.merge(
                                             TextStyle(
                                                 color: Get.theme.primaryColor)),
                                       )
@@ -260,7 +260,7 @@ class Home2View extends GetView<HomeController> {
                                       ),
                                       Text(
                                         "Choose from Address".tr,
-                                        style: Get.textTheme.headline6?.merge(
+                                        style: Get.textTheme.titleLarge?.merge(
                                             TextStyle(
                                                 color: Get.theme.colorScheme
                                                     .secondary)),
@@ -316,7 +316,7 @@ class Home2View extends GetView<HomeController> {
                                           ? null
                                           : "Provide Location Permission"
                                       : "Enable Location Service",
-                                  style: Get.textTheme.subtitle1),
+                                  style: Get.textTheme.titleMedium),
                               elevation: 0,
                             )
                           ]),

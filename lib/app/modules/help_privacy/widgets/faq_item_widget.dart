@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,13 +22,13 @@ class FaqItemWidget extends StatelessWidget {
         children: [
           Text(
             this.faq.question,
-            style: Get.textTheme.bodyText2,
+            style: Get.textTheme.bodyMedium,
           ),
           Divider(
             height: 30,
             thickness: 1,
           ),
-          Ui.applyHtml(this.faq.answer, style: Get.textTheme.caption)
+          Ui.applyHtml(this.faq.answer, style: Get.textTheme.bodySmall)
         ],
       ),
     );

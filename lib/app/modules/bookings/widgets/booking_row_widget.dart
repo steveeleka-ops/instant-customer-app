@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +32,7 @@ class BookingRowWidget extends StatelessWidget {
               flex: descriptionFlex ?? 1,
               child: Text(
                 this.description,
-                style: Get.textTheme.bodyText1,
+                style: Get.textTheme.bodyLarge,
               ),
             ),
             Expanded(
@@ -40,7 +40,7 @@ class BookingRowWidget extends StatelessWidget {
                 child: child ??
                     Text(
                       value,
-                      style: valueStyle ?? Get.textTheme.bodyText2,
+                      style: valueStyle ?? Get.textTheme.bodyMedium,
                       maxLines: 3,
                       textAlign: TextAlign.end,
                     )),

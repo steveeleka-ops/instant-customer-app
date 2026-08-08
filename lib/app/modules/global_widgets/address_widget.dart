@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +20,7 @@ class AddressWidget extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(Routes.SETTINGS_ADDRESSES);
                 },
-                child: Text(Get.find<SettingsService>().address.value?.address ?? "Loading...".tr, style: Get.textTheme.bodyText1),
+                child: Text(Get.find<SettingsService>().address.value?.address ?? "Loading...".tr, style: Get.textTheme.bodyLarge),
               );
             }),
           ),

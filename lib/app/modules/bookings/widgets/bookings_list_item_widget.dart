@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -97,7 +97,7 @@ class BookingsListItemWidget extends StatelessWidget {
                               DateFormat('HH:mm', Get.locale.toString())
                                   .format(_booking.bookingAt),
                               maxLines: 1,
-                              style: Get.textTheme.bodyText2?.merge(
+                              style: Get.textTheme.bodyMedium?.merge(
                                 TextStyle(
                                     color: Colors.white, height: 1.3),
                               ),
@@ -121,7 +121,7 @@ class BookingsListItemWidget extends StatelessWidget {
                               DateFormat('MMM', Get.locale.toString())
                                   .format(_booking.bookingAt),
                               maxLines: 1,
-                              style: Get.textTheme.bodyText2?.merge(
+                              style: Get.textTheme.bodyMedium?.merge(
                                 TextStyle(
                                     color: Colors.white, height: 1),
                               ),
@@ -148,7 +148,7 @@ class BookingsListItemWidget extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 _booking.eService?.name ?? '',
-                                style: Get.textTheme.bodyText2,
+                                style: Get.textTheme.bodyMedium,
                                 maxLines: 2,
                               ),
                             ),
@@ -186,7 +186,7 @@ class BookingsListItemWidget extends StatelessWidget {
                                 Icon(Icons.repeat, size: 11, color: Colors.blue),
                                 SizedBox(width: 3),
                                 Text(
-                                  'Recurring · ' + _booking.recurrence[0].toUpperCase() + _booking.recurrence.substring(1),
+                                  'Recurring � ' + _booking.recurrence[0].toUpperCase() + _booking.recurrence.substring(1),
                                   style: TextStyle(color: Colors.blue, fontSize: 10, fontWeight: FontWeight.w600),
                                 ),
                               ],
@@ -204,7 +204,7 @@ class BookingsListItemWidget extends StatelessWidget {
                                 _booking.eProvider?.name ?? '',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: Get.textTheme.bodyText1,
+                                style: Get.textTheme.bodyLarge,
                               ),
                             ),
                           ],
@@ -220,7 +220,7 @@ class BookingsListItemWidget extends StatelessWidget {
                                 _booking.address?.address ?? '',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: Get.textTheme.bodyText1,
+                                style: Get.textTheme.bodyLarge,
                               ),
                             ),
                           ],
@@ -230,7 +230,7 @@ class BookingsListItemWidget extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: Ui.getPrice(
                             _booking.getTotal(),
-                            style: Get.textTheme.subtitle2
+                            style: Get.textTheme.titleSmall
                                 ?.merge(TextStyle(color: _statusColor)),
                           ),
                         ),

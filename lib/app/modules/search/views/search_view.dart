@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +13,7 @@ class SearchView extends GetView<SearchController> {
       appBar: AppBar(
         title: Text(
           "Search".tr,
-          style: context.textTheme.headline6,
+          style: context.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -45,7 +45,7 @@ class SearchView extends GetView<SearchController> {
           children: [
             Text(
               "Suggested categories".tr,
-              style: Get.textTheme.caption?.merge(
+              style: Get.textTheme.bodySmall?.merge(
                 TextStyle(color: Get.theme.hintColor, fontWeight: FontWeight.w600),
               ),
             ),
@@ -55,7 +55,7 @@ class SearchView extends GetView<SearchController> {
               runSpacing: 8,
               children: suggestions.map((name) {
                 return ActionChip(
-                  label: Text(name, style: Get.textTheme.bodyText2),
+                  label: Text(name, style: Get.textTheme.bodyMedium),
                   backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.12),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -103,7 +103,7 @@ class SearchView extends GetView<SearchController> {
                 color: Get.theme.primaryColor,
                 child: TextField(
                   controller: controller.textEditingController,
-                  style: Get.textTheme.bodyText2,
+                  style: Get.textTheme.bodyMedium,
                   onChanged: (value) {
                     controller.onSearchTextChanged(value);
                   },

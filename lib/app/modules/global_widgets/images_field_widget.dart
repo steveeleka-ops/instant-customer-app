@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -111,7 +111,7 @@ class ImagesFieldWidget extends StatelessWidget {
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
                     label,
-                    style: Get.textTheme.bodyText1,
+                    style: Get.textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                 ),
@@ -123,7 +123,7 @@ class ImagesFieldWidget extends StatelessWidget {
                 },
                 shape: StadiumBorder(),
                 color: Get.theme.focusColor.withOpacity(0.1),
-                child: Text(buttonText ?? "Reset".tr, style: Get.textTheme.bodyText1),
+                child: Text(buttonText ?? "Reset".tr, style: Get.textTheme.bodyLarge),
                 elevation: 0,
                 hoverElevation: 0,
                 focusElevation: 0,

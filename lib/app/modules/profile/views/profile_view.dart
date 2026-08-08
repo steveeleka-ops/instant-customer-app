@@ -1,4 +1,4 @@
-ï»¿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +24,7 @@ class ProfileView extends GetView<ProfileController> {
             : AppBar(
                 title: Text(
                   "Profile".tr,
-                  style: context.textTheme.headline6,
+                  style: context.textTheme.titleLarge,
                 ),
                 centerTitle: true,
                 backgroundColor: Colors.transparent,
@@ -54,7 +54,7 @@ class ProfileView extends GetView<ProfileController> {
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   color: Get.theme.colorScheme.secondary,
-                  child: Text("Save".tr, style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor))),
+                  child: Text("Save".tr, style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor))),
                   elevation: 0,
                   highlightElevation: 0,
                   hoverElevation: 0,
@@ -69,7 +69,7 @@ class ProfileView extends GetView<ProfileController> {
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 color: Get.theme.hintColor.withOpacity(0.1),
-                child: Text("Reset".tr, style: Get.textTheme.bodyText2),
+                child: Text("Reset".tr, style: Get.textTheme.bodyMedium),
                 elevation: 0,
                 highlightElevation: 0,
                 hoverElevation: 0,
@@ -83,8 +83,8 @@ class ProfileView extends GetView<ProfileController> {
           child: ListView(
             primary: true,
             children: [
-              Text("Profile details".tr, style: Get.textTheme.headline5).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
-              Text("Change the following details and save them".tr, style: Get.textTheme.caption).paddingSymmetric(horizontal: 22, vertical: 5),
+              Text("Profile details".tr, style: Get.textTheme.headlineMedium).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
+              Text("Change the following details and save them".tr, style: Get.textTheme.bodySmall).paddingSymmetric(horizontal: 22, vertical: 5),
               Obx(() {
                 return ImageFieldWidget(
                   label: "Image".tr,
@@ -131,11 +131,11 @@ class ProfileView extends GetView<ProfileController> {
                 suffix: controller.user.value.verifiedPhone
                     ? Text(
                         "Verified".tr,
-                        style: Get.textTheme.caption?.merge(TextStyle(color: Colors.green)),
+                        style: Get.textTheme.bodySmall?.merge(TextStyle(color: Colors.green)),
                       )
                     : Text(
                         "Not Verified".tr,
-                        style: Get.textTheme.caption?.merge(TextStyle(color: Colors.redAccent)),
+                        style: Get.textTheme.bodySmall?.merge(TextStyle(color: Colors.redAccent)),
                       ),
               ),
               TextFieldWidget(
@@ -153,13 +153,13 @@ class ProfileView extends GetView<ProfileController> {
                 labelText: "Short Biography".tr,
                 iconData: Icons.article_outlined,
               ),
-              Text("Change password".tr, style: Get.textTheme.headline5).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
-              Text("Fill your old password and type new password and confirm it".tr, style: Get.textTheme.caption).paddingSymmetric(horizontal: 22, vertical: 5),
+              Text("Change password".tr, style: Get.textTheme.headlineMedium).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
+              Text("Fill your old password and type new password and confirm it".tr, style: Get.textTheme.bodySmall).paddingSymmetric(horizontal: 22, vertical: 5),
               Obx(() {
                 // TODO verify old password
                 return TextFieldWidget(
                   labelText: "Old Password".tr,
-                  hintText: "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢".tr,
+                  hintText: "••••••••••••".tr,
                   onSaved: (input) => controller.oldPassword.value = input,
                   onChanged: (input) => controller.oldPassword.value = input,
                   validator: (input) => input.length > 0 && input.length < 3 ? "Should be more than 3 letters".tr : null,
@@ -181,7 +181,7 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   labelText: "New Password".tr,
-                  hintText: "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢".tr,
+                  hintText: "••••••••••••".tr,
                   onSaved: (input) => controller.newPassword.value = input,
                   onChanged: (input) => controller.newPassword.value = input,
                   validator: (input) {
@@ -204,7 +204,7 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   labelText: "Confirm New Password".tr,
-                  hintText: "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢".tr,
+                  hintText: "••••••••••••".tr,
                   onSaved: (input) => controller.confirmPassword.value = input,
                   onChanged: (input) => controller.confirmPassword.value = input,
                   validator: (input) {

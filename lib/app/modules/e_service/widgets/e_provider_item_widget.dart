@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -49,12 +49,12 @@ class EProviderItemWidget extends StatelessWidget {
                     overflow: TextOverflow.fade,
                     softWrap: false,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyText2?.merge(TextStyle(color: Theme.of(context).hintColor)),
+                    style: Theme.of(context).textTheme.bodyMedium?.merge(TextStyle(color: Theme.of(context).hintColor)),
                   ),
                   SizedBox(height: 5),
                   Ui.removeHtml(
                     (provider.description ?? '').substring(0, min((provider.description ?? '').length, 50)),
-                    style: Get.textTheme.caption,
+                    style: Get.textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -66,7 +66,7 @@ class EProviderItemWidget extends StatelessWidget {
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(provider.rate.toString(), style: Theme.of(context).textTheme.bodyText1?.merge(TextStyle(color: Theme.of(context).primaryColor))),
+                    Text(provider.rate.toString(), style: Theme.of(context).textTheme.bodyLarge?.merge(TextStyle(color: Theme.of(context).primaryColor))),
                     Icon(
                       Icons.star_border,
                       color: Theme.of(context).primaryColor,
@@ -82,7 +82,7 @@ class EProviderItemWidget extends StatelessWidget {
         ),
         // Text(
         //   review.review,
-        //   style: Theme.of(context).textTheme.caption,
+        //   style: Theme.of(context).textTheme.bodySmall,
         //   overflow: TextOverflow.ellipsis,
         //   softWrap: false,
         //   maxLines: 3,

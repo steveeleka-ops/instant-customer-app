@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +29,7 @@ class SearchBarWidget extends StatelessWidget {
               maxLines: 1,
               softWrap: false,
               overflow: TextOverflow.fade,
-              style: Get.textTheme.caption,
+              style: Get.textTheme.bodySmall,
             ),
           ),
           SizedBox(width: 8),

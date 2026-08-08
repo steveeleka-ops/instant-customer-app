@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -19,7 +19,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
         appBar: AppBar(
           title: Text(
             "Book the Service".tr,
-            style: context.textTheme.headline6,
+            style: context.textTheme.titleLarge,
           ),
           centerTitle: true,
           backgroundColor: Colors.transparent,
@@ -43,7 +43,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                   Row(
                     children: [
                       SizedBox(width: 20),
-                      Expanded(child: Text("Your Addresses".tr, style: Get.textTheme.bodyText1)),
+                      Expanded(child: Text("Your Addresses".tr, style: Get.textTheme.bodyLarge)),
                       SizedBox(width: 4),
                       MaterialButton(
                         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
@@ -56,7 +56,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                           crossAxisAlignment: WrapCrossAlignment.center,
                           spacing: 6,
                           children: [
-                            Text("New".tr, style: Get.textTheme.subtitle1),
+                            Text("New".tr, style: Get.textTheme.titleMedium),
                             Icon(
                               Icons.my_location,
                               color: Get.theme.colorScheme.secondary,
@@ -99,7 +99,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                       SizedBox(width: 15),
                       Expanded(
                         child: Obx(() {
-                          return Text(controller.currentAddress?.address ?? "Loading...".tr, style: Get.textTheme.bodyText2);
+                          return Text(controller.currentAddress?.address ?? "Loading...".tr, style: Get.textTheme.bodyMedium);
                         }),
                       ),
                       SizedBox(width: 20),
@@ -121,14 +121,14 @@ class BookEServiceView extends GetView<BookEServiceController> {
                 labelText: "Coupon Code".tr,
                 errorText: controller.getValidationMessage(),
                 iconData: Icons.confirmation_number_outlined,
-                style: Get.textTheme.bodyText2?.merge(TextStyle(color: controller.getValidationMessage() != null ? Colors.redAccent : Colors.green)),
+                style: Get.textTheme.bodyMedium?.merge(TextStyle(color: controller.getValidationMessage() != null ? Colors.redAccent : Colors.green)),
                 suffixIcon: MaterialButton(
                   onPressed: () {
                     controller.validateCoupon();
                   },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   color: Get.theme.focusColor.withOpacity(0.1),
-                  child: Text("Apply".tr, style: Get.textTheme.bodyText1),
+                  child: Text("Apply".tr, style: Get.textTheme.bodyLarge),
                   elevation: 0,
                 ).marginSymmetric(vertical: 4),
               );
@@ -235,7 +235,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text("When would you like us to come to your address?".tr, style: Get.textTheme.bodyText1),
+                            child: Text("When would you like us to come to your address?".tr, style: Get.textTheme.bodyLarge),
                           ),
                           SizedBox(width: 10),
                           MaterialButton(
@@ -245,7 +245,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                             },
                             shape: StadiumBorder(),
                             color: Get.theme.colorScheme.secondary.withOpacity(0.2),
-                            child: Text("Select a Date".tr, style: Get.textTheme.subtitle1),
+                            child: Text("Select a Date".tr, style: Get.textTheme.titleMedium),
                           ),
                         ],
                       ),
@@ -253,7 +253,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text("At What's time you are free in your address?".tr, style: Get.textTheme.bodyText1),
+                            child: Text("At What's time you are free in your address?".tr, style: Get.textTheme.bodyLarge),
                           ),
                           SizedBox(width: 10),
                           MaterialButton(
@@ -262,7 +262,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                             },
                             shape: StadiumBorder(),
                             color: Get.theme.colorScheme.secondary.withOpacity(0.2),
-                            child: Text("Select a time".tr, style: Get.textTheme.subtitle1),
+                            child: Text("Select a time".tr, style: Get.textTheme.titleMedium),
                             elevation: 0,
                           ),
                         ],
@@ -280,7 +280,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                   return Column(
                     children: [
                       Text("Requested Service on".tr).paddingSymmetric(vertical: 20),
-                      Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.headline5),
+                      Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.headlineMedium),
                       Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.headline3),
                       SizedBox(height: 20)
                     ],
@@ -313,7 +313,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                 child: Text(
                   "Continue".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.headline6?.merge(
+                  style: Get.textTheme.titleLarge?.merge(
                     TextStyle(color: Get.theme.primaryColor),
                   ),
                 ),

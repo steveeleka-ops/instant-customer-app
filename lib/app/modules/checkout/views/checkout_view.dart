@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../models/booking_model.dart';
@@ -14,7 +14,7 @@ class CheckoutView extends GetView<CheckoutController> {
       appBar: AppBar(
         title: Text(
           "Checkout".tr,
-          style: context.textTheme.headline6,
+          style: context.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -48,10 +48,10 @@ class CheckoutView extends GetView<CheckoutController> {
                     "Payment Option".tr,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: Get.textTheme.headline5,
+                    style: Get.textTheme.headlineMedium,
                   ),
                   subtitle: Text("Select your preferred payment mode".tr,
-                      style: Get.textTheme.caption),
+                      style: Get.textTheme.bodySmall),
                 ),
               ),
               Obx(
@@ -106,7 +106,7 @@ class CheckoutView extends GetView<CheckoutController> {
                     child: Text(
                       "Confirm & Pay Now".tr,
                       textAlign: TextAlign.center,
-                      style: Get.textTheme.headline6?.merge(
+                      style: Get.textTheme.titleLarge?.merge(
                         TextStyle(color: Get.theme.primaryColor),
                       ),
                     ),

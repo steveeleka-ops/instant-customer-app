@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,12 +49,12 @@ class ReviewItemWidget extends StatelessWidget {
                       overflow: TextOverflow.fade,
                       softWrap: false,
                       maxLines: 2,
-                      style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.hintColor)),
+                      style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.hintColor)),
                     ),
                     Text(
                       review.user.bio,
                       overflow: TextOverflow.ellipsis,
-                      style: Get.textTheme.caption,
+                      style: Get.textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -66,7 +66,7 @@ class ReviewItemWidget extends StatelessWidget {
                   label: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(review.rate.toString(), style: Get.textTheme.bodyText1?.merge(TextStyle(color: Get.theme.primaryColor))),
+                      Text(review.rate.toString(), style: Get.textTheme.bodyLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
                       Icon(
                         Icons.star_border,
                         color: Get.theme.primaryColor,
@@ -80,7 +80,7 @@ class ReviewItemWidget extends StatelessWidget {
               ),
             ],
           ),
-          Ui.removeHtml(review.review, style: Get.textTheme.bodyText1),
+          Ui.removeHtml(review.review, style: Get.textTheme.bodyLarge),
         ],
       ),
     );

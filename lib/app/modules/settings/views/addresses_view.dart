@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +22,7 @@ class AddressesView extends GetView<AddressController> {
             : AppBar(
                 title: Text(
                   "My Addresses".tr,
-                  style: context.textTheme.headline6,
+                  style: context.textTheme.titleLarge,
                 ),
                 centerTitle: true,
                 backgroundColor: Colors.transparent,
@@ -66,9 +66,9 @@ class AddressesView extends GetView<AddressController> {
                               }
                             },
                             title: Text(_address.description,
-                                style: Get.textTheme.bodyText2),
+                                style: Get.textTheme.bodyMedium),
                             subtitle: Text(_address.address,
-                                style: Get.textTheme.caption),
+                                style: Get.textTheme.bodySmall),
                           ).paddingSymmetric(vertical: 10);
                         });
                       }).toList(),

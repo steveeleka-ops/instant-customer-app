@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -122,7 +122,7 @@ class ChipWidget extends StatelessWidget {
       return RawChip(
         elevation: 0,
         label: Text(text),
-        labelStyle: controller.isSelected(this.id) ? Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor)) : Get.textTheme.bodyText2,
+        labelStyle: controller.isSelected(this.id) ? Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor)) : Get.textTheme.bodyMedium,
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         backgroundColor: Get.theme.focusColor.withOpacity(0.1),
         selectedColor: Get.theme.colorScheme.secondary,

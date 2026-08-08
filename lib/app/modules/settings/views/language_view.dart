@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +19,7 @@ class LanguageView extends GetView<LanguageController> {
             : AppBar(
                 title: Text(
                   "Languages".tr,
-                  style: context.textTheme.headline6,
+                  style: context.textTheme.titleLarge,
                 ),
                 centerTitle: true,
                 backgroundColor: Colors.transparent,
@@ -46,7 +46,7 @@ class LanguageView extends GetView<LanguageController> {
                     onChanged: (value) {
                       controller.updateLocale(value);
                     },
-                    title: Text(_lang.tr, style: Get.textTheme.bodyText2),
+                    title: Text(_lang.tr, style: Get.textTheme.bodyMedium),
                   );
                 }).toList(),
               ),

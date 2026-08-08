@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -13,7 +13,7 @@ class PrivacyView extends GetView<PrivacyController> {
         appBar: AppBar(
           title: Text(
             "Privacy Policy".tr,
-            style: Get.textTheme.headline6,
+            style: Get.textTheme.titleLarge,
           ),
           centerTitle: true,
           backgroundColor: Colors.transparent,

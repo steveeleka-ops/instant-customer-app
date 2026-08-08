@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -74,7 +74,7 @@ class CategoryGridItemWidget extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     category.name ?? '',
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                     softWrap: false,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,

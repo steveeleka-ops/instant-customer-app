@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,7 +41,7 @@ class NotificationsButtonWidget extends GetView<RootController> {
               return Text(
                 controller.notificationsCount.value.toString(),
                 textAlign: TextAlign.center,
-                style: Get.textTheme.caption?.merge(
+                style: Get.textTheme.bodySmall?.merge(
                   TextStyle(color: Get.theme.primaryColor, fontSize: 9, height: 1.4),
                 ),
               );

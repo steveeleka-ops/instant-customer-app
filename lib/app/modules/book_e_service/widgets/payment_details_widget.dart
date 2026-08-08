@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -38,7 +38,7 @@ class PaymentDetailsWidget extends StatelessWidget {
             description: _booking.eService.name,
             child: Align(
               alignment: Alignment.centerRight,
-              child: Ui.getPrice(_booking.eService.getPrice, style: Get.textTheme.subtitle2),
+              child: Ui.getPrice(_booking.eService.getPrice, style: Get.textTheme.titleSmall),
             ),
             hasDivider: true,
           ),
@@ -49,7 +49,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   description: _option.name,
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Ui.getPrice(_option.price, style: Get.textTheme.bodyText1),
+                    child: Ui.getPrice(_option.price, style: Get.textTheme.bodyLarge),
                   ),
                   hasDivider: (_booking.options.length - 1) == index);
             }),
@@ -61,7 +61,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Text(
                     "x" + qty.toString(),
-                    style: Get.textTheme.bodyText2,
+                    style: Get.textTheme.bodyMedium,
                   ),
                 ),
                 hasDivider: true),
@@ -73,10 +73,10 @@ class PaymentDetailsWidget extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: _tax.type == 'percent'
-                        ? Text(_tax.value.toString() + '%', style: Get.textTheme.bodyText1)
+                        ? Text(_tax.value.toString() + '%', style: Get.textTheme.bodyLarge)
                         : Ui.getPrice(
                             _tax.value,
-                            style: Get.textTheme.bodyText1,
+                            style: Get.textTheme.bodyLarge,
                           ),
                   ),
                   hasDivider: (_booking.taxes.length - 1) == index);
@@ -86,7 +86,7 @@ class PaymentDetailsWidget extends StatelessWidget {
             description: "Tax Amount".tr,
             child: Align(
               alignment: Alignment.centerRight,
-              child: Ui.getPrice(_booking.getTaxesValue(), style: Get.textTheme.subtitle2),
+              child: Ui.getPrice(_booking.getTaxesValue(), style: Get.textTheme.titleSmall),
             ),
             hasDivider: false,
           ),
@@ -94,7 +94,7 @@ class PaymentDetailsWidget extends StatelessWidget {
               description: "Subtotal".tr,
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Ui.getPrice(_booking.getSubtotal(), style: Get.textTheme.subtitle2),
+                child: Ui.getPrice(_booking.getSubtotal(), style: Get.textTheme.titleSmall),
               ),
               hasDivider: true),
           if ((_booking.coupon?.discount ?? 0) > 0)
@@ -104,8 +104,8 @@ class PaymentDetailsWidget extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Wrap(
                     children: [
-                      Text(' - ', style: Get.textTheme.bodyText1),
-                      Ui.getPrice(_booking.coupon.discount, style: Get.textTheme.bodyText1, unit: _booking.coupon.discountType == 'percent' ? "%" : null),
+                      Text(' - ', style: Get.textTheme.bodyLarge),
+                      Ui.getPrice(_booking.coupon.discount, style: Get.textTheme.bodyLarge, unit: _booking.coupon.discountType == 'percent' ? "%" : null),
                     ],
                   ),
                 ),
@@ -114,7 +114,7 @@ class PaymentDetailsWidget extends StatelessWidget {
             description: "Total Amount".tr,
             child: Align(
               alignment: Alignment.centerRight,
-              child: Ui.getPrice(_booking.getTotal(), style: Get.textTheme.headline6),
+              child: Ui.getPrice(_booking.getTotal(), style: Get.textTheme.titleLarge),
             ),
           ),
         ],

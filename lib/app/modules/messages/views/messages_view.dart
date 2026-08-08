@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,7 +60,7 @@ class MessagesView extends GetView<MessagesController> {
       appBar: AppBar(
         title: Text(
           "Chats".tr,
-          style: Get.textTheme.headline6,
+          style: Get.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class WalletFormView extends GetView<WalletFormController> {
           title: Obx(() {
             return Text(
               controller.isCreateForm() ? "Add New Wallet".tr : controller.wallet.value.name,
-              style: context.textTheme.headline6,
+              style: context.textTheme.titleLarge,
             );
           }),
           centerTitle: true,
@@ -69,7 +69,7 @@ class WalletFormView extends GetView<WalletFormController> {
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   color: Get.theme.colorScheme.secondary,
-                  child: Text("Save".tr, style: Get.textTheme.bodyText2?.merge(TextStyle(color: Get.theme.primaryColor))),
+                  child: Text("Save".tr, style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor))),
                   elevation: 0,
                   hoverElevation: 0,
                   focusElevation: 0,
@@ -85,8 +85,8 @@ class WalletFormView extends GetView<WalletFormController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Wallet".tr, style: Get.textTheme.headline5).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
-                Text("Fill the following details to add new wallet".tr, style: Get.textTheme.caption).paddingSymmetric(horizontal: 22, vertical: 5),
+                Text("Wallet".tr, style: Get.textTheme.headlineMedium).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
+                Text("Fill the following details to add new wallet".tr, style: Get.textTheme.bodySmall).paddingSymmetric(horizontal: 22, vertical: 5),
                 TextFieldWidget(
                   onSaved: (input) {
                     controller.wallet.update((val) {
@@ -119,13 +119,13 @@ class WalletFormView extends GetView<WalletFormController> {
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Text("This wallet will removed from your account".tr, style: Get.textTheme.bodyText1),
+                Text("This wallet will removed from your account".tr, style: Get.textTheme.bodyLarge),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text("Cancel".tr, style: Get.textTheme.bodyText1),
+              child: Text("Cancel".tr, style: Get.textTheme.bodyLarge),
               onPressed: () {
                 Get.back();
               },

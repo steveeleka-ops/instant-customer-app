@@ -1,4 +1,4 @@
-ï»¿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +25,7 @@ class RegisterView extends GetView<AuthController> {
         appBar: AppBar(
           title: Text(
             "Register".tr,
-            style: Get.textTheme.headline6?.merge(TextStyle(color: context.theme.primaryColor)),
+            style: Get.textTheme.titleLarge?.merge(TextStyle(color: context.theme.primaryColor)),
           ),
           centerTitle: true,
           backgroundColor: Get.theme.colorScheme.secondary,
@@ -61,15 +61,15 @@ class RegisterView extends GetView<AuthController> {
                         children: [
                           Text(
                             _settings.appName,
-                            style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
+                            style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
                           ),
                           SizedBox(height: 5),
                           Text(
                             "Welcome to the best service provider system!".tr,
-                            style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor)),
+                            style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor)),
                             textAlign: TextAlign.center,
                           ),
-                          // Text("Fill the following credentials to login your account", style: Get.textTheme.caption?.merge(TextStyle(color: Get.theme.primaryColor))),
+                          // Text("Fill the following credentials to login your account", style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
                         ],
                       ),
                     ),
@@ -142,7 +142,7 @@ class RegisterView extends GetView<AuthController> {
                       Obx(() {
                         return TextFieldWidget(
                           labelText: "Password".tr,
-                          hintText: "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢".tr,
+                          hintText: "••••••••••••".tr,
                           initialValue: controller.currentUser?.value?.password,
                           onSaved: (input) => controller.currentUser.value.password = input,
                           validator: (input) => input.length < 3 ? "Should be more than 3 characters".tr : null,
@@ -175,7 +175,7 @@ class RegisterView extends GetView<AuthController> {
                                 children: [
                                   Text(
                                     "Address".tr,
-                                    style: Get.textTheme.bodyText1,
+                                    style: Get.textTheme.bodyLarge,
                                     textAlign: TextAlign.start,
                                   ),
                                   InkWell(
@@ -184,9 +184,9 @@ class RegisterView extends GetView<AuthController> {
                                     Icon(Icons.location_on,color: Get.theme.focusColor),
                                     SizedBox(width: 16),
                                     if(_address.address.isEmpty || _address.address == "Please choose your address".tr)
-                                      Text("123 Street, City 136, State, Country".tr,style: Get.textTheme.bodyText1?.merge(TextStyle(color: Theme.of(context).disabledColor)))
+                                      Text("123 Street, City 136, State, Country".tr,style: Get.textTheme.bodyLarge?.merge(TextStyle(color: Theme.of(context).disabledColor)))
                                     else Expanded(child:
-                                      Text(_address.address, style: Get.textTheme.bodyText2, maxLines: 1, overflow: TextOverflow.ellipsis)
+                                      Text(_address.address, style: Get.textTheme.bodyMedium, maxLines: 1, overflow: TextOverflow.ellipsis)
                                       )]).paddingOnly(top: 12))
                                 ]));
                       }),
@@ -204,7 +204,7 @@ class RegisterView extends GetView<AuthController> {
                               color: Get.theme.colorScheme.secondary,
                               text: Text(
                                 "Register".tr,
-                                style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
+                                style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor)),
                               ),
                             ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20),
                           ),
@@ -240,7 +240,7 @@ class RegisterView extends GetView<AuthController> {
                     color: Get.theme.colorScheme.secondary,
                     text: Text(
                       "Register".tr,
-                      style: Get.textTheme.headline6?.merge(TextStyle(color: Get.theme.primaryColor)),
+                      style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor)),
                     ),
                   ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20),
                 ),

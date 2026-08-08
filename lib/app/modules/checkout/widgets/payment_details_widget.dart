@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 /*
  * Copyright (c) 2020 .
  */
@@ -58,7 +58,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   children: [
                     Text(
                       _booking.eService.name ?? '',
-                      style: Get.textTheme.bodyText2,
+                      style: Get.textTheme.bodyMedium,
                       maxLines: 3,
                       // textAlign: TextAlign.end,
                     ),
@@ -70,7 +70,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Ui.getPrice(_booking.getTaxesValue(),
-                        style: Get.textTheme.subtitle2),
+                        style: Get.textTheme.titleSmall),
                   ),
                 ),
                 BookingRowWidget(
@@ -78,7 +78,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Ui.getPrice(_booking.getSubtotal(),
-                        style: Get.textTheme.subtitle2),
+                        style: Get.textTheme.titleSmall),
                   ),
                 ),
                 if ((_booking.coupon?.discount ?? 0) > 0)
@@ -88,9 +88,9 @@ class PaymentDetailsWidget extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       child: Wrap(
                         children: [
-                          Text(' - ', style: Get.textTheme.bodyText1),
+                          Text(' - ', style: Get.textTheme.bodyLarge),
                           Ui.getPrice(_booking.coupon?.discount ?? 0,
-                              style: Get.textTheme.bodyText1,
+                              style: Get.textTheme.bodyLarge,
                               unit: _booking.coupon.discountType == 'percent'
                                   ? "%"
                                   : null),
@@ -104,7 +104,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Ui.getPrice(_booking.getTotal(),
-                        style: Get.textTheme.headline6),
+                        style: Get.textTheme.titleLarge),
                   ),
                 ),
               ],

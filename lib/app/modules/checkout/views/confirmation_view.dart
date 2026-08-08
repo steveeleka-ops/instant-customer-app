@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class ConfirmationView extends GetView<CheckoutController> {
       appBar: AppBar(
         title: Text(
           arguments['title'] ?? "Confirmation".tr,
-          style: context.textTheme.headline6,
+          style: context.textTheme.titleLarge,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -119,7 +119,7 @@ class ConfirmationView extends GetView<CheckoutController> {
                 child: Text(
                   "My Bookings".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.headline6?.merge(
+                  style: Get.textTheme.titleLarge?.merge(
                     TextStyle(color: Get.theme.primaryColor),
                   ),
                 ),

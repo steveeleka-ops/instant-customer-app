@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,17 +17,17 @@ class CashViewWidget extends GetView<CashController> {
           if (controller.isDone()) {
             return Text(
               "Payment Successful".tr,
-              style: context.textTheme.headline6,
+              style: context.textTheme.titleLarge,
             );
           } else if (controller.isFailed()) {
             return Text(
               "Payment Error".tr,
-              style: context.textTheme.headline6,
+              style: context.textTheme.titleLarge,
             );
           } else {
             return Text(
               " . . . ".tr,
-              style: context.textTheme.headline6,
+              style: context.textTheme.titleLarge,
             );
           }
         }),
@@ -111,12 +111,12 @@ class CashViewWidget extends GetView<CashController> {
               if (controller.isDone()) {
                 return Text(
                   "Thank you!".tr,
-                  style: context.textTheme.headline6,
+                  style: context.textTheme.titleLarge,
                 );
               } else if (controller.isFailed()) {
                 return Text(
                   "Payment Error".tr,
-                  style: context.textTheme.headline6,
+                  style: context.textTheme.titleLarge,
                 );
               } else {
                 return SizedBox();
@@ -141,7 +141,7 @@ class CashViewWidget extends GetView<CashController> {
                 } else {
                   return Text(
                     " . . . ".tr,
-                    style: context.textTheme.headline6,
+                    style: context.textTheme.titleLarge,
                   );
                 }
               }),
@@ -173,7 +173,7 @@ class CashViewWidget extends GetView<CashController> {
                 child: Text(
                   "My Bookings".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.headline6?.merge(
+                  style: Get.textTheme.titleLarge?.merge(
                     TextStyle(color: Get.theme.primaryColor),
                   ),
                 ),

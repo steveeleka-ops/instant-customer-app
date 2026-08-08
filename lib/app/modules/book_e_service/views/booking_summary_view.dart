@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -16,7 +16,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
         appBar: AppBar(
           title: Text(
             "Booking Summary".tr,
-            style: context.textTheme.headline6,
+            style: context.textTheme.titleLarge,
           ),
           centerTitle: true,
           backgroundColor: Colors.transparent,
@@ -37,7 +37,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Booking At".tr, style: Get.textTheme.bodyText1),
+                  Text("Booking At".tr, style: Get.textTheme.bodyLarge),
                   SizedBox(height: 8),
                   (!controller.booking.value.isBlank) ?
                   Row(
@@ -48,8 +48,8 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.bodyText2),
-                              Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.bodyText2),
+                              Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.bodyMedium),
+                              Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.bodyMedium),
                             ],
                           )),
                     ],
@@ -69,7 +69,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Recurrent Booking".tr, style: Get.textTheme.bodyText1),
+                    Text("Recurrent Booking".tr, style: Get.textTheme.bodyLarge),
                     SizedBox(height: 8),
                     Row(
                       children: [
@@ -87,7 +87,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                         Expanded(
                           child: Text(
                             "Next booking auto-created after job completion.".tr,
-                            style: Get.textTheme.caption,
+                            style: Get.textTheme.bodySmall,
                           ),
                         ),
                       ],
@@ -103,7 +103,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Your Address".tr, style: Get.textTheme.bodyText1),
+                  Text("Your Address".tr, style: Get.textTheme.bodyLarge),
                   SizedBox(height: 8),
                   Row(
                     children: [
@@ -114,9 +114,9 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              if (controller.currentAddress.hasDescription()) Text(controller.currentAddress?.getDescription ?? "Loading...".tr, style: Get.textTheme.subtitle2),
+                              if (controller.currentAddress.hasDescription()) Text(controller.currentAddress?.getDescription ?? "Loading...".tr, style: Get.textTheme.titleSmall),
                               if (controller.currentAddress.hasDescription()) SizedBox(height: 10),
-                              Text(controller.currentAddress?.address ?? "Loading...".tr, style: Get.textTheme.bodyText2),
+                              Text(controller.currentAddress?.address ?? "Loading...".tr, style: Get.textTheme.bodyMedium),
                             ],
                           );
                         }),
@@ -134,7 +134,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("A Hint for the Provider".tr, style: Get.textTheme.bodyText1),
+                  Text("A Hint for the Provider".tr, style: Get.textTheme.bodyLarge),
                   SizedBox(height: 8),
                   Row(
                     children: [
@@ -142,7 +142,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                       SizedBox(width: 15),
                       Expanded(
                         child: Obx(() {
-                          return Text(controller.booking.value.hint ?? "".tr, style: Get.textTheme.bodyText2);
+                          return Text(controller.booking.value.hint ?? "".tr, style: Get.textTheme.bodyMedium);
                         }),
                       ),
                     ],
@@ -182,7 +182,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                     Expanded(
                       child: Text(
                         "Your payment will be held securely until the job is completed and approved by you.".tr,
-                        style: Get.textTheme.caption?.merge(TextStyle(fontSize: 11)),
+                        style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 11)),
                       ),
                     ),
                   ],
@@ -196,7 +196,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                     Expanded(
                       child: Text(
                         "Your card will be saved to maintain the hold if the job requires additional work.".tr,
-                        style: Get.textTheme.caption?.merge(TextStyle(fontSize: 11)),
+                        style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 11)),
                       ),
                     ),
                   ],
@@ -213,7 +213,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                     child: Text(
                       "Confirm & Booking Now".tr,
                       textAlign: TextAlign.center,
-                      style: Get.textTheme.headline6?.merge(
+                      style: Get.textTheme.titleLarge?.merge(
                         TextStyle(color: Get.theme.primaryColor),
                       ),
                     ),

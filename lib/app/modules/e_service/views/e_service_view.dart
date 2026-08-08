@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -108,8 +108,8 @@ class EServiceView extends GetView<EServiceController> {
                         SizedBox(height: 10),
                         buildCategories(_eService),
                         EServiceTilWidget(
-                          title: Text("Description".tr, style: Get.textTheme.subtitle2),
-                          content: Ui.applyHtml(_eService.description, style: Get.textTheme.bodyText1),
+                          title: Text("Description".tr, style: Get.textTheme.titleSmall),
+                          content: Ui.applyHtml(_eService.description, style: Get.textTheme.bodyLarge),
                         ),
                         buildDuration(_eService),
                         buildOptions(),
@@ -117,7 +117,7 @@ class EServiceView extends GetView<EServiceController> {
                         if (_eService.images.isNotEmpty)
                           EServiceTilWidget(
                             horizontalPadding: 0,
-                            title: Text("Galleries".tr, style: Get.textTheme.subtitle2).paddingSymmetric(horizontal: 20),
+                            title: Text("Galleries".tr, style: Get.textTheme.titleSmall).paddingSymmetric(horizontal: 20),
                             content: Container(
                               height: 120,
                               child: ListView.builder(
@@ -162,7 +162,7 @@ class EServiceView extends GetView<EServiceController> {
                                               child: Text(
                                                 _media.name ?? '',
                                                 maxLines: 2,
-                                                style: Get.textTheme.bodyText2?.merge(TextStyle(
+                                                style: Get.textTheme.bodyMedium?.merge(TextStyle(
                                                   color: Get.theme.primaryColor,
                                                   shadows: <Shadow>[
                                                     Shadow(
@@ -185,7 +185,7 @@ class EServiceView extends GetView<EServiceController> {
                             ],
                           ),
                         EServiceTilWidget(
-                          title: Text("Reviews & Ratings".tr, style: Get.textTheme.subtitle2),
+                          title: Text("Reviews & Ratings".tr, style: Get.textTheme.titleSmall),
                           content: Column(
                             children: [
                               Text(_eService.rate.toString(), style: Get.textTheme.headline1),
@@ -194,7 +194,7 @@ class EServiceView extends GetView<EServiceController> {
                               ),
                               Text(
                                 "Reviews (%s)".trArgs([_eService.totalReviews.toString()]),
-                                style: Get.textTheme.caption,
+                                style: Get.textTheme.bodySmall,
                               ).paddingOnly(top: 10),
                               Divider(height: 35, thickness: 1.3),
                               Obx(() {
@@ -237,7 +237,7 @@ class EServiceView extends GetView<EServiceController> {
       }
       return EServiceTilWidget(
         horizontalPadding: 0,
-        title: Text("Options".tr, style: Get.textTheme.subtitle2).paddingSymmetric(horizontal: 20),
+        title: Text("Options".tr, style: Get.textTheme.titleSmall).paddingSymmetric(horizontal: 20),
         content: ListView.separated(
           padding: EdgeInsets.all(0),
           itemBuilder: (context, index) {
@@ -264,13 +264,13 @@ class EServiceView extends GetView<EServiceController> {
           Expanded(
             child: Column(
               children: [
-                Text("Duration".tr, style: Get.textTheme.subtitle2),
-                Text("This service can take up to ".tr, style: Get.textTheme.bodyText1),
+                Text("Duration".tr, style: Get.textTheme.titleSmall),
+                Text("This service can take up to ".tr, style: Get.textTheme.bodyLarge),
               ],
               crossAxisAlignment: CrossAxisAlignment.start,
             ),
           ),
-          Text(_eService.duration, style: Get.textTheme.headline6),
+          Text(_eService.duration, style: Get.textTheme.titleLarge),
         ],
       ),
     );
@@ -343,7 +343,7 @@ class EServiceView extends GetView<EServiceController> {
               Expanded(
                 child: Text(
                   _eService.name ?? '',
-                  style: Get.textTheme.headline5?.merge(TextStyle(height: 1.1)),
+                  style: Get.textTheme.headlineMedium?.merge(TextStyle(height: 1.1)),
                   maxLines: 2,
                   softWrap: true,
                   overflow: TextOverflow.fade,
@@ -353,7 +353,7 @@ class EServiceView extends GetView<EServiceController> {
                 Container(
                   child: Text("  .  .  .  ".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2?.merge(
+                      style: Get.textTheme.bodyMedium?.merge(
                         TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -370,7 +370,7 @@ class EServiceView extends GetView<EServiceController> {
                 Container(
                   child: Text("Available".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2?.merge(
+                      style: Get.textTheme.bodyMedium?.merge(
                         TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -387,7 +387,7 @@ class EServiceView extends GetView<EServiceController> {
                 Container(
                   child: Text("Offline".tr,
                       maxLines: 1,
-                      style: Get.textTheme.bodyText2?.merge(
+                      style: Get.textTheme.bodyMedium?.merge(
                         TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
                       ),
                       softWrap: false,
@@ -412,7 +412,7 @@ class EServiceView extends GetView<EServiceController> {
                       SizedBox(width: 5),
                       Text(
                         "Reviews (%s)".trArgs([_eService.totalReviews.toString()]),
-                        style: Get.textTheme.caption,
+                        style: Get.textTheme.bodySmall,
                       ),
                     ]),
                 ),
@@ -440,7 +440,7 @@ class EServiceView extends GetView<EServiceController> {
               var _category = _eService.categories.elementAt(index);
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: Text(_category.name, style: Get.textTheme.bodyText1?.merge(TextStyle(color: _category.color))),
+                child: Text(_category.name, style: Get.textTheme.bodyLarge?.merge(TextStyle(color: _category.color))),
                 decoration: BoxDecoration(
                     color: _category.color.withOpacity(0.2),
                     border: Border.all(
@@ -452,7 +452,7 @@ class EServiceView extends GetView<EServiceController> {
             List.generate(_eService.subCategories.length, (index) {
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: Text(_eService.subCategories.elementAt(index).name, style: Get.textTheme.caption),
+                child: Text(_eService.subCategories.elementAt(index).name, style: Get.textTheme.bodySmall),
                 decoration: BoxDecoration(
                     color: Get.theme.primaryColor,
                     border: Border.all(
@@ -472,16 +472,16 @@ class EServiceView extends GetView<EServiceController> {
           Get.toNamed(Routes.E_PROVIDER, arguments: {'eProvider': _eService.eProvider, 'heroTag': 'e_service_details'});
         },
         child: EServiceTilWidget(
-          title: Text("Service Provider".tr, style: Get.textTheme.subtitle2),
+          title: Text("Service Provider".tr, style: Get.textTheme.titleSmall),
           content: EProviderItemWidget(provider: _eService.eProvider),
           actions: [
-            Text("View More".tr, style: Get.textTheme.subtitle1),
+            Text("View More".tr, style: Get.textTheme.titleMedium),
           ],
         ),
       );
     } else {
       return EServiceTilWidget(
-        title: Text("Service Provider".tr, style: Get.textTheme.subtitle2),
+        title: Text("Service Provider".tr, style: Get.textTheme.titleSmall),
         content: SizedBox(
           height: 60,
         ),
@@ -528,7 +528,7 @@ class EServiceView extends GetView<EServiceController> {
                       return Text(
                         controller.quantity.toString(),
                         textAlign: TextAlign.center,
-                        style: Get.textTheme.subtitle2?.merge(
+                        style: Get.textTheme.titleSmall?.merge(
                           TextStyle(color: Get.theme.colorScheme.secondary),
                         ),
                       );
@@ -556,7 +556,7 @@ class EServiceView extends GetView<EServiceController> {
                   child: Text(
                     "Book This Service".tr,
                     textAlign: TextAlign.center,
-                    style: Get.textTheme.headline6?.merge(
+                    style: Get.textTheme.titleLarge?.merge(
                       TextStyle(color: Get.theme.primaryColor),
                     ),
                   ),

@@ -1,4 +1,4 @@
-﻿// @dart=2.11
+// @dart=2.11
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class BookingActionsWidget extends GetView<BookingController> {
       final int done = Get.find<GlobalService>().global.value.done; // 50
       const int pendingApproval = 55;
 
-      // ── Pending Approval: customer must Approve or Deny — check FIRST ───────
+      // -- Pending Approval: customer must Approve or Deny � check FIRST -------
       if (!_booking.value.cancel && statusOrder == pendingApproval) {
           return Container(
             padding: EdgeInsets.only(top: 16, bottom: 16 + bottomPadding, left: 20, right: 20),
@@ -43,9 +43,9 @@ class BookingActionsWidget extends GetView<BookingController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  "Job completed — please review".tr,
+                  "Job completed � please review".tr,
                   textAlign: TextAlign.center,
-                  style: Get.textTheme.bodyText1
+                  style: Get.textTheme.bodyLarge
                       ?.merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
                 SizedBox(height: 12),
@@ -69,7 +69,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                         elevation: 0,
                         child: Text(
                           "Deny".tr,
-                          style: Get.textTheme.bodyText2?.merge(TextStyle(
+                          style: Get.textTheme.bodyMedium?.merge(TextStyle(
                               color: Colors.red.shade700,
                               fontWeight: FontWeight.w600)),
                         ),
@@ -107,7 +107,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                         elevation: 0,
                         child: Text(
                           "Approve".tr,
-                          style: Get.textTheme.bodyText2?.merge(TextStyle(
+                          style: Get.textTheme.bodyMedium?.merge(TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600)),
                         ),
@@ -119,7 +119,7 @@ class BookingActionsWidget extends GetView<BookingController> {
             ),
           );
         }
-      // ─────────────────────────────────────────────────────────────────────
+      // ---------------------------------------------------------------------
 
       // Hide action bar while provider is on the way (tracking view handles it)
       if (_booking.value.status != null && statusOrder == onTheWay) {
@@ -163,7 +163,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                           child: Text(
                             "Go to Checkout".tr,
                             textAlign: TextAlign.center,
-                            style: Get.textTheme.headline6?.merge(
+                            style: Get.textTheme.titleLarge?.merge(
                               TextStyle(color: Get.theme.primaryColor),
                             ),
                           ),
@@ -193,7 +193,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                           child: Text(
                             "Leave a Review".tr,
                             textAlign: TextAlign.center,
-                            style: Get.textTheme.headline6?.merge(
+                            style: Get.textTheme.titleLarge?.merge(
                               TextStyle(color: Get.theme.primaryColor),
                             ),
                           ),
@@ -242,7 +242,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                       : Get.theme.hintColor.withOpacity(0.1),
                   child: Text(
                     "Cancel".tr,
-                    style: Get.textTheme.bodyText2?.merge(
+                    style: Get.textTheme.bodyMedium?.merge(
                       TextStyle(
                           color: isLateCancel ? Colors.red : null),
                     ),
@@ -256,7 +256,7 @@ class BookingActionsWidget extends GetView<BookingController> {
   }
 }
 
-// ─── Free Cancel Dialog ───────────────────────────────────────────────────────
+// --- Free Cancel Dialog -------------------------------------------------------
 
 class FreeCancelDialog extends StatelessWidget {
   final VoidCallback onPressed;
@@ -312,7 +312,7 @@ class FreeCancelDialog extends StatelessWidget {
   }
 }
 
-// ─── Cancel Dialog (10% fee) ────────────────────────────────────────────
+// --- Cancel Dialog (10% fee) --------------------------------------------
 
 class LateCancelDialog extends StatelessWidget {
   final double totalAmount;
@@ -426,7 +426,7 @@ class LateCancelDialog extends StatelessWidget {
   }
 }
 
-// ─── Deny Notes Dialog ────────────────────────────────────────────────────────
+// --- Deny Notes Dialog --------------------------------------------------------
 
 class DenyNotesDialog extends StatefulWidget {
   final Function(String notes) onSubmit;
