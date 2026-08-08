@@ -6,7 +6,7 @@ import '../../../models/faq_model.dart';
 import '../../../repositories/faq_repository.dart';
 
 class HelpController extends GetxController {
-  FaqRepository _faqRepository;
+  late FaqRepository _faqRepository;
   final faqCategories = <FaqCategory>[].obs;
   final faqs = <Faq>[].obs;
 

@@ -14,25 +14,25 @@ import 'tax_model.dart';
 import 'user_model.dart';
 
 class EProvider extends Model {
-  String id;
-  String name;
-  String description;
-  List<Media> images;
-  String phoneNumber;
-  String mobileNumber;
-  EProviderType type;
-  List<AvailabilityHour> availabilityHours;
-  double availabilityRange;
-  bool available;
-  bool featured;
-  List<Address> addresses;
-  List<Tax> taxes;
-  List<User> employees;
-  double rate;
-  List<Review> reviews;
-  int totalReviews;
-  bool verified;
-  int bookingsInProgress;
+  late String id;
+  late String name;
+  late String description;
+  late List<Media> images;
+  late String phoneNumber;
+  late String mobileNumber;
+  late EProviderType type;
+  late List<AvailabilityHour> availabilityHours;
+  late double availabilityRange;
+  late bool available;
+  late bool featured;
+  late List<Address> addresses;
+  late List<Tax> taxes;
+  late List<User> employees;
+  late double rate;
+  late List<Review> reviews;
+  late int totalReviews;
+  late bool verified;
+  late int bookingsInProgress;
 
   EProvider(
       {this.id,

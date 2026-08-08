@@ -8,7 +8,7 @@ import '../../bookings/controllers/bookings_controller.dart';
 import '../../global_widgets/tab_bar_widget.dart';
 
 class CashController extends GetxController {
-  PaymentRepository _paymentRepository;
+  late PaymentRepository _paymentRepository;
   final payment = new Payment().obs;
   final booking = new Booking().obs;
 

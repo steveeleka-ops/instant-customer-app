@@ -6,7 +6,7 @@ import '../../../repositories/e_service_repository.dart';
 
 class FavoritesController extends GetxController {
   final favorites = <Favorite>[].obs;
-  EServiceRepository _eServiceRepository;
+  late EServiceRepository _eServiceRepository;
 
   FavoritesController() {
     _eServiceRepository = new EServiceRepository();

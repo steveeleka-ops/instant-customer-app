@@ -1,9 +1,9 @@
 import 'parents/model.dart';
 
 class BookingStatus extends Model {
-  String id;
-  String status;
-  int order;
+  late String id;
+  late String status;
+  late int order;
 
   BookingStatus({this.id, this.status, this.order});
 

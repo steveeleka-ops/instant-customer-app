@@ -7,7 +7,7 @@ import '../models/review_model.dart';
 import '../providers/laravel_provider.dart';
 
 class BookingRepository {
-  LaravelApiClient _laravelApiClient;
+  late LaravelApiClient _laravelApiClient;
 
   BookingRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

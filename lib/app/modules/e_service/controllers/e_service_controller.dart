@@ -18,7 +18,7 @@ class EServiceController extends GetxController {
   final currentSlide = 0.obs;
   final quantity = 1.obs;
   final heroTag = ''.obs;
-  EServiceRepository _eServiceRepository;
+  late EServiceRepository _eServiceRepository;
 
   EServiceController() {
     _eServiceRepository = new EServiceRepository();

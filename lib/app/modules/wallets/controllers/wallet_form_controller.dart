@@ -8,8 +8,8 @@ import '../../../routes/app_routes.dart';
 
 class WalletFormController extends GetxController {
   final wallet = Wallet().obs;
-  GlobalKey<FormState> walletForm;
-  PaymentRepository _paymentRepository;
+  late GlobalKey<FormState> walletForm;
+  late PaymentRepository _paymentRepository;
 
   WalletFormController() {
     _paymentRepository = new PaymentRepository();

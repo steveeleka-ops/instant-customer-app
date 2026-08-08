@@ -10,7 +10,7 @@ import '../models/user_model.dart';
 import '../providers/laravel_provider.dart';
 
 class EProviderRepository {
-  LaravelApiClient _laravelApiClient;
+  late LaravelApiClient _laravelApiClient;
 
   EProviderRepository() {
     this._laravelApiClient = Get.find<LaravelApiClient>();

@@ -4,13 +4,13 @@ import 'media_model.dart';
 import 'parents/model.dart';
 
 class Option extends Model {
-  String id;
-  String optionGroupId;
-  String eServiceId;
-  String name;
-  double price;
-  Media image;
-  String description;
+  late String id;
+  late String optionGroupId;
+  late String eServiceId;
+  late String name;
+  late double price;
+  late Media image;
+  late String description;
   var checked = false.obs;
 
   Option({this.id, this.optionGroupId, this.eServiceId, this.name, this.price, this.image, this.description, this.checked});

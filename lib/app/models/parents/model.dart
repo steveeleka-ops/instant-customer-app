@@ -8,7 +8,7 @@ import '../../services/translation_service.dart';
 import '../media_model.dart';
 
 abstract class Model {
-  String id;
+  late String id;
 
   bool get hasData => id != null;
 

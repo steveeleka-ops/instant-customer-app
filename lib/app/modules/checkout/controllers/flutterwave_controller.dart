@@ -10,8 +10,8 @@ import '../../bookings/controllers/bookings_controller.dart';
 import '../../global_widgets/tab_bar_widget.dart';
 
 class FlutterWaveController extends GetxController {
-  WebViewController webView;
-  PaymentRepository _paymentRepository;
+  late WebViewController webView;
+  late PaymentRepository _paymentRepository;
   final url = "".obs;
   final progress = 0.0.obs;
   final booking = new Booking().obs;

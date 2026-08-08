@@ -15,8 +15,8 @@ class CircularLoadingWidget extends StatefulWidget {
 }
 
 class _CircularLoadingWidgetState extends State<CircularLoadingWidget> with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController animationController;
+  late Animation<double> animation;
+  late AnimationController animationController;
 
   void initState() {
     super.initState();

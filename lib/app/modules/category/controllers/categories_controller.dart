@@ -8,7 +8,7 @@ import '../../../repositories/category_repository.dart';
 enum CategoriesLayout { GRID, LIST }
 
 class CategoriesController extends GetxController {
-  CategoryRepository _categoryRepository;
+  late CategoryRepository _categoryRepository;
 
   final categories = <Category>[].obs;
   final layout = CategoriesLayout.GRID.obs;

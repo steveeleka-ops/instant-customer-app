@@ -3,14 +3,14 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'parents/model.dart';
 
 class Address extends Model {
-  String id;
-  String description;
-  String address;
-  double latitude;
-  double longitude;
-  bool isDefault;
-  String userId;
-  String zipCode;
+  late String id;
+  late String description;
+  late String address;
+  late double latitude;
+  late double longitude;
+  late bool isDefault;
+  late String userId;
+  late String zipCode;
 
   Address(
       {this.id,

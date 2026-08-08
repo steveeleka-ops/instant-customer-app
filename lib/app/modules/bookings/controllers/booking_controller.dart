@@ -17,12 +17,12 @@ import '../../../services/global_service.dart';
 import 'bookings_controller.dart';
 
 class BookingController extends GetxController {
-  EProviderRepository _eProviderRepository;
-  BookingRepository _bookingRepository;
+  late EProviderRepository _eProviderRepository;
+  late BookingRepository _bookingRepository;
   final allMarkers = <Marker>[].obs;
   final bookingStatuses = <BookingStatus>[].obs;
-  Timer timer;
-  GoogleMapController mapController;
+  late Timer timer;
+  late GoogleMapController mapController;
   final booking = Booking().obs;
 
   BookingController() {

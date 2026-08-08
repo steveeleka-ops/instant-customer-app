@@ -3,10 +3,10 @@ import 'option_model.dart';
 import 'parents/model.dart';
 
 class Favorite extends Model {
-  String id;
-  EService eService;
-  List<Option> options;
-  String userId;
+  late String id;
+  late EService eService;
+  late List<Option> options;
+  late String userId;
 
   Favorite({this.id, this.eService, this.options, this.userId});
 

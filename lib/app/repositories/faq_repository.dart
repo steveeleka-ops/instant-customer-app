@@ -7,8 +7,8 @@ import '../providers/laravel_provider.dart';
 import '../providers/mock_provider.dart';
 
 class FaqRepository {
-  MockApiClient _apiClient;
-  LaravelApiClient _laravelApiClient;
+  late MockApiClient _apiClient;
+  late LaravelApiClient _laravelApiClient;
 
   FaqRepository() {
     _laravelApiClient = Get.find<LaravelApiClient>();

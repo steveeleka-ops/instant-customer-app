@@ -16,8 +16,8 @@ class ProfileController extends GetxController {
   final newPassword = "".obs;
   final confirmPassword = "".obs;
   final smsSent = "".obs;
-  GlobalKey<FormState> profileForm;
-  UserRepository _userRepository;
+  late GlobalKey<FormState> profileForm;
+  late UserRepository _userRepository;
 
   ProfileController() {
     _userRepository = new UserRepository();

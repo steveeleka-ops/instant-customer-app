@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 
 class ThemeModeController extends GetxController {
   final selectedThemeMode = ThemeMode.light.obs;
-  GetStorage _box;
+  late GetStorage _box;
 
   ThemeModeController() {
     _box = new GetStorage();

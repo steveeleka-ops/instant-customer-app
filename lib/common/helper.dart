@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'ui.dart';
 
 class Helper {
-  DateTime currentBackPressTime;
+  late DateTime currentBackPressTime;
 
   static Future<dynamic> getJsonFile(String path) async {
     return rootBundle.loadString(path).then(convert.jsonDecode);

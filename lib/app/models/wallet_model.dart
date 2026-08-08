@@ -4,9 +4,9 @@ import '../../common/uuid.dart';
 import 'parents/model.dart';
 
 class Wallet extends Model {
-  String id;
-  String name;
-  double balance;
+  late String id;
+  late String name;
+  late double balance;
 
   Wallet({this.id, this.name, this.balance});
 

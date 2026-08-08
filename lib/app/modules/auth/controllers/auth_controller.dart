@@ -15,14 +15,14 @@ import '../../root/controllers/root_controller.dart';
 
 class AuthController extends GetxController {
   final Rx<User> currentUser = Get.find<AuthService>().user;
-  GlobalKey<FormState> loginFormKey;
-  GlobalKey<FormState> registerFormKey;
-  GlobalKey<FormState> forgotPasswordFormKey;
+  late GlobalKey<FormState> loginFormKey;
+  late GlobalKey<FormState> registerFormKey;
+  late GlobalKey<FormState> forgotPasswordFormKey;
   final hidePassword = true.obs;
   final loading = false.obs;
   final smsSent = ''.obs;
   final address = Address().obs;
-  UserRepository _userRepository;
+  late UserRepository _userRepository;
 
   AuthController() {
     _userRepository = UserRepository();

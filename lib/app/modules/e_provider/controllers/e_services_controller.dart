@@ -15,7 +15,7 @@ class EServicesController extends GetxController {
   final page = 0.obs;
   final isLoading = true.obs;
   final isDone = false.obs;
-  EProviderRepository _eProviderRepository;
+  late EProviderRepository _eProviderRepository;
   ScrollController scrollController = ScrollController();
 
   EServicesController() {

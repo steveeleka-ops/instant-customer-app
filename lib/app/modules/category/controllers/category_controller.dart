@@ -15,7 +15,7 @@ class CategoryController extends GetxController {
   final page = 0.obs;
   final isLoading = true.obs;
   final isDone = false.obs;
-  EServiceRepository _eServiceRepository;
+  late EServiceRepository _eServiceRepository;
   ScrollController scrollController = ScrollController();
 
   CategoryController() {

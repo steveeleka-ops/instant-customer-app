@@ -6,22 +6,22 @@ import 'media_model.dart';
 import 'parents/model.dart';
 
 class EService extends Model {
-  String id;
-  String name;
-  String description;
-  List<Media> images;
-  double price;
-  double discountPrice;
-  String priceUnit;
-  String quantityUnit;
-  double rate;
-  int totalReviews;
-  String duration;
-  bool featured;
-  bool isFavorite;
-  List<Category> categories;
-  List<Category> subCategories;
-  EProvider eProvider;
+  late String id;
+  late String name;
+  late String description;
+  late List<Media> images;
+  late double price;
+  late double discountPrice;
+  late String priceUnit;
+  late String quantityUnit;
+  late double rate;
+  late int totalReviews;
+  late String duration;
+  late bool featured;
+  late bool isFavorite;
+  late List<Category> categories;
+  late List<Category> subCategories;
+  late EProvider eProvider;
 
   EService(
       {this.id,

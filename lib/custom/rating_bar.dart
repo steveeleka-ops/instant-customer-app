@@ -195,8 +195,8 @@ class _RatingBarState extends State<RatingBar> {
   bool _isRTL = false;
   double iconRating = 0;
 
-   double _minRating, _maxRating;
-    ValueNotifier<bool> _glow;
+   late double _minRating, _maxRating;
+    late ValueNotifier<bool> _glow;
 
   @override
   void initState() {
