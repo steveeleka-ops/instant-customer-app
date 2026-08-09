@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -39,7 +39,7 @@ class CategoryController extends GetxController {
     scrollController.dispose();
   }
 
-  Future refreshEServices({bool showMessage}) async {
+  Future refreshEServices({bool showMessage = false}) async {
     await loadEServicesOfCategory(category.value.id, filter: selected.value);
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(message: "List of services refreshed successfully".tr));

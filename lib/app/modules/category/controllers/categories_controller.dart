@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
 import '../../../models/category_model.dart';
@@ -62,7 +62,7 @@ class CategoriesController extends GetxController {
   //   bannerAd.load();
   // }
 
-  Future refreshCategories({bool showMessage}) async {
+  Future refreshCategories({bool showMessage = false}) async {
     await getCategories();
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(

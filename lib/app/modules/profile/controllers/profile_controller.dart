@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -30,7 +30,7 @@ class ProfileController extends GetxController {
     super.onInit();
   }
 
-  Future refreshProfile({bool showMessage}) async {
+  Future refreshProfile({bool showMessage = false}) async {
     await getUser();
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(message: "List of faqs refreshed successfully".tr));

@@ -31,7 +31,7 @@ class RatingWidget {
 class RatingBar extends StatefulWidget {
   /// Creates [RatingBar] using the [ratingWidget].
   const RatingBar({
-    Key key,
+    Key? key,
 
     /// Customizes the Rating Bar item with [RatingWidget].
     required RatingWidget ratingWidget,
@@ -183,8 +183,8 @@ class RatingBar extends StatefulWidget {
   /// Defaults to [WrapAlignment.start].
   final WrapAlignment wrapAlignment;
 
-  final IndexedWidgetBuilder _itemBuilder;
-  final RatingWidget _ratingWidget;
+  final IndexedWidgetBuilder? _itemBuilder;
+  final RatingWidget? _ratingWidget;
 
   @override
   State<RatingBar> createState() => _RatingBarState();

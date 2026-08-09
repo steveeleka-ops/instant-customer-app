@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
 import '../../../models/favorite_model.dart';
@@ -18,7 +18,7 @@ class FavoritesController extends GetxController {
     super.onInit();
   }
 
-  Future refreshFavorites({bool showMessage}) async {
+  Future refreshFavorites({bool showMessage = false}) async {
     await getFavorites();
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(message: "List of Services refreshed successfully".tr));

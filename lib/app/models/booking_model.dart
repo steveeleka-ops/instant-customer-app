@@ -1,4 +1,4 @@
-import 'dart:math';
+﻿import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 
@@ -14,25 +14,25 @@ import 'tax_model.dart';
 import 'user_model.dart';
 
 class Booking extends Model {
-  late String id;
-  late String hint;
-  late bool cancel;
-  late double duration;
-  late int quantity;
-  late BookingStatus status;
-  late User user;
-  late EService eService;
-  late EProvider eProvider;
-  late List<Option> options;
-  late List<Tax> taxes;
-  late Address address;
-  late Coupon coupon;
-  late DateTime bookingAt;
-  late DateTime startAt;
-  late DateTime endsAt;
-  late Payment payment;
-  late DateTime created_at;
-  late String recurrence;
+  String? id;
+  String? hint;
+  bool? cancel;
+  double? duration;
+  int? quantity;
+  BookingStatus? status;
+  User? user;
+  EService? eService;
+  EProvider? eProvider;
+  List<Option>? options;
+  List<Tax>? taxes;
+  Address? address;
+  Coupon? coupon;
+  DateTime? bookingAt;
+  DateTime? startAt;
+  DateTime? endsAt;
+  Payment? payment;
+  DateTime? created_at;
+  String? recurrence;
 
   Booking(
       {this.id,

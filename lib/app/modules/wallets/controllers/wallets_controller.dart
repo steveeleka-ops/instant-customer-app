@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
 import '../../../models/wallet_model.dart';
@@ -21,7 +21,7 @@ class WalletsController extends GetxController {
     super.onInit();
   }
 
-  Future refreshWallets({bool showMessage}) async {
+  Future refreshWallets({bool showMessage = false}) async {
     await getWallets();
     initSelectedWallet();
     await getWalletTransactions();

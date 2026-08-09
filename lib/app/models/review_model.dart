@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 import 'e_service_model.dart';
@@ -6,12 +6,12 @@ import 'parents/model.dart';
 import 'user_model.dart';
 
 class Review extends Model {
-  late String id;
-  late double rate;
-  late String review;
-  late DateTime createdAt;
-  late User user;
-  late EService eService;
+  String? id;
+  double? rate;
+  String? review;
+  DateTime? createdAt;
+  User? user;
+  EService? eService;
 
   Review({this.id, this.rate, this.review, this.createdAt, this.user, this.eService});
 

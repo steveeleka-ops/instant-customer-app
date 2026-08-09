@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
 import '../../../models/address_model.dart';
@@ -23,7 +23,7 @@ class AddressController extends GetxController {
     super.onInit();
   }
 
-  Future refreshAddresses({bool showMessage}) async {
+  Future refreshAddresses({bool showMessage = false}) async {
     await getAddresses();
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(message: "List of addresses refreshed successfully".tr));

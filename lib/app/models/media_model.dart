@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 .
  */
 
@@ -8,14 +8,14 @@ import '../services/global_service.dart';
 import 'parents/model.dart';
 
 class Media extends Model {
-  late String id;
-  late String name;
-  late String url;
-  late String thumb;
-  late String icon;
-  late String size;
+  String? id;
+  String? name;
+  String? url;
+  String? thumb;
+  String? icon;
+  String? size;
 
-  Media({String id, String url, String thumb, String icon}) {
+  Media({String? id, String? url, String? thumb, String? icon}) {
     this.id = id ?? "";
     this.url = url ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
     this.thumb = thumb ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";

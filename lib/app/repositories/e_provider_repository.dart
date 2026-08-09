@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../models/award_model.dart';
 import '../models/e_provider_model.dart';
@@ -36,7 +36,7 @@ class EProviderRepository {
     return _laravelApiClient.getEProviderExperiences(eProviderId);
   }
 
-  Future<List<EService>> getEServices(String eProviderId, {int page}) {
+  Future<List<EService>> getEServices(String eProviderId, {int page = 1}) {
     return _laravelApiClient.getEProviderEServices(eProviderId, page);
   }
 
@@ -44,19 +44,19 @@ class EProviderRepository {
     return _laravelApiClient.getEProviderEmployees(eProviderId);
   }
 
-  Future<List<EService>> getPopularEServices(String eProviderId, {int page}) {
+  Future<List<EService>> getPopularEServices(String eProviderId, {int page = 1}) {
     return _laravelApiClient.getEProviderPopularEServices(eProviderId, page);
   }
 
-  Future<List<EService>> getMostRatedEServices(String eProviderId, {int page}) {
+  Future<List<EService>> getMostRatedEServices(String eProviderId, {int page = 1}) {
     return _laravelApiClient.getEProviderMostRatedEServices(eProviderId, page);
   }
 
-  Future<List<EService>> getAvailableEServices(String eProviderId, {int page}) {
+  Future<List<EService>> getAvailableEServices(String eProviderId, {int page = 1}) {
     return _laravelApiClient.getEProviderAvailableEServices(eProviderId, page);
   }
 
-  Future<List<EService>> getFeaturedEServices(String eProviderId, {int page}) {
+  Future<List<EService>> getFeaturedEServices(String eProviderId, {int page = 1}) {
     return _laravelApiClient.getEProviderFeaturedEServices(eProviderId, page);
   }
 }

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+﻿import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import "parents/model.dart";
@@ -8,15 +8,15 @@ class Chat extends Model {
   String id = UniqueKey().toString();
 
   // message text
-  late String text;
+  String? text;
 
   // time of the message
-  late int time;
+  int? time;
 
   // user id who send the message
-  late String userId;
+  String? userId;
 
-  late User user;
+  User? user;
 
   Chat(this.text, this.time, this.userId, this.user);
 

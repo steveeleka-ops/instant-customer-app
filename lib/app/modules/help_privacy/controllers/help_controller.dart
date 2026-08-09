@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
 import '../../../models/faq_category_model.dart';
@@ -20,7 +20,7 @@ class HelpController extends GetxController {
     super.onInit();
   }
 
-  Future refreshFaqs({bool showMessage, String categoryId}) async {
+  Future refreshFaqs({bool showMessage = false, String? categoryId}) async {
     getFaqCategories().then((value) async {
       await getFaqs(categoryId: categoryId);
     });
@@ -29,7 +29,7 @@ class HelpController extends GetxController {
     }
   }
 
-  Future getFaqs({String categoryId}) async {
+  Future getFaqs({String? categoryId}) async {
     try {
       if (categoryId == null) {
         faqs.assignAll(await _faqRepository.getFaqs(faqCategories.elementAt(0).id));

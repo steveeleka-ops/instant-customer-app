@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -8,7 +8,7 @@ import '../../services/translation_service.dart';
 import '../media_model.dart';
 
 abstract class Model {
-  late String id;
+  String? id;
 
   bool get hasData => id != null;
 
@@ -57,7 +57,7 @@ abstract class Model {
 
   String transStringFromJson(Map<String, dynamic> json, String attribute, {String defaultValue = '', String defaultLocale}) {
     try {
-      if (json != null && json[attribute] != null) {
+      if (json[attribute] != null) {
         if (json[attribute] is Map<String, dynamic>) {
           var json2 = json[attribute][defaultLocale ?? Get.locale.languageCode];
           if (json2 == null) {
@@ -110,7 +110,7 @@ abstract class Model {
 
   int intFromJson(Map<String, dynamic> json, String attribute, {int defaultValue = 0}) {
     try {
-      if (json != null && json[attribute] != null) {
+      if (json[attribute] != null) {
         if (json[attribute] is int) {
           return json[attribute];
         }
@@ -124,7 +124,7 @@ abstract class Model {
 
   double doubleFromJson(Map<String, dynamic> json, String attribute, {int decimal = 2, double defaultValue = 0.0}) {
     try {
-      if (json != null && json[attribute] != null) {
+      if (json[attribute] != null) {
         if (json[attribute] is double) {
           return double.parse(json[attribute].toStringAsFixed(decimal));
         }
@@ -142,7 +142,7 @@ abstract class Model {
 
   bool boolFromJson(Map<String, dynamic> json, String attribute, {bool defaultValue = false}) {
     try {
-      if (json != null && json[attribute] != null) {
+      if (json[attribute] != null) {
         if (json[attribute] is bool) {
           return json[attribute];
         } else if ((json[attribute] is String) && !['0', '', 'false'].contains(json[attribute])) {
@@ -190,7 +190,7 @@ abstract class Model {
   List<T> listFromJson<T>(Map<String, dynamic> json, String attribute, T Function(Map<String, dynamic>) callback) {
     try {
       List<T> _list = <T>[];
-      if (json != null && json[attribute] != null && json[attribute] is List && json[attribute].length > 0) {
+      if (json[attribute] != null && json[attribute] is List && json[attribute].length > 0) {
         json[attribute].forEach((v) {
           if (v is Map<String, dynamic>) {
             _list.add(callback(v));
@@ -205,7 +205,7 @@ abstract class Model {
 
   T objectFromJson<T>(Map<String, dynamic> json, String attribute, T Function(Map<String, dynamic>) callback, {T defaultValue = null}) {
     try {
-      if (json != null && json[attribute] != null && json[attribute] is Map<String, dynamic>) {
+      if (json[attribute] != null && json[attribute] is Map<String, dynamic>) {
         return callback(json[attribute]);
       }
       return defaultValue;

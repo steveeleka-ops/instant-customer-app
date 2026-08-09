@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 import 'package:home_services/app/models/e_provider_model.dart';
 
 import '../../../../common/ui.dart';
@@ -41,7 +41,7 @@ class NotificationsController extends GetxController {
     super.onInit();
   }
 
-  Future refreshNotifications({bool showMessage}) async {
+  Future refreshNotifications({bool showMessage = false}) async {
     await getNotifications();
     Get.find<RootController>().getNotificationsCount();
     if (showMessage == true) {

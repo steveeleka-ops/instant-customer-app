@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../common/smart_category_matcher.dart';
@@ -48,7 +48,7 @@ class SearchController extends GetxController {
     super.onReady();
   }
 
-  Future refreshSearch({bool showMessage}) async {
+  Future refreshSearch({bool showMessage = false}) async {
     await getCategories();
     await searchEServices();
     if (showMessage == true) {
@@ -56,7 +56,7 @@ class SearchController extends GetxController {
     }
   }
 
-  Future searchEServices({String keywords}) async {
+  Future searchEServices({String? keywords}) async {
     try {
       if (selectedCategories.isEmpty) {
         eServices.assignAll(await _eServiceRepository.search(keywords, categories.map((element) => element.id).toList()));

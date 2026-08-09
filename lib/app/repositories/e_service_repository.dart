@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../models/e_service_model.dart';
 import '../models/favorite_model.dart';
@@ -13,7 +13,7 @@ class EServiceRepository {
     this._laravelApiClient = Get.find<LaravelApiClient>();
   }
 
-  Future<List<EService>> getAllWithPagination(String categoryId, {int page}) {
+  Future<List<EService>> getAllWithPagination(String categoryId, {int page = 1}) {
     return _laravelApiClient.getAllEServicesWithPagination(categoryId, page);
   }
 
@@ -38,19 +38,19 @@ class EServiceRepository {
     return _laravelApiClient.getRecommendedEServices();
   }
 
-  Future<List<EService>> getFeatured(String categoryId, {int page}) {
+  Future<List<EService>> getFeatured(String categoryId, {int page = 1}) {
     return _laravelApiClient.getFeaturedEServices(categoryId, page);
   }
 
-  Future<List<EService>> getPopular(String categoryId, {int page}) {
+  Future<List<EService>> getPopular(String categoryId, {int page = 1}) {
     return _laravelApiClient.getPopularEServices(categoryId, page);
   }
 
-  Future<List<EService>> getMostRated(String categoryId, {int page}) {
+  Future<List<EService>> getMostRated(String categoryId, {int page = 1}) {
     return _laravelApiClient.getMostRatedEServices(categoryId, page);
   }
 
-  Future<List<EService>> getAvailable(String categoryId, {int page}) {
+  Future<List<EService>> getAvailable(String categoryId, {int page = 1}) {
     return _laravelApiClient.getAvailableEServices(categoryId, page);
   }
 
