@@ -19,16 +19,16 @@ class BookingStatusStepperWidget extends StatelessWidget {
   ];
 
   Color get _activeColor {
-    if (isCancelled) return Colors.red;
-    if (statusOrder >= 50) return Colors.green;
-    if (statusOrder >= 40) return Colors.orange;
-    if (statusOrder >= 20) return Colors.purple;
-    if (statusOrder >= 10) return Colors.blue;
+    if (isCancelled ?? false) return Colors.red;
+    if ((statusOrder ?? 0) >= 50) return Colors.green;
+    if ((statusOrder ?? 0) >= 40) return Colors.orange;
+    if ((statusOrder ?? 0) >= 20) return Colors.purple;
+    if ((statusOrder ?? 0) >= 10) return Colors.blue;
     return Colors.amber;
   }
 
   bool _isStepActive(int stepOrder) {
-    return !isCancelled && statusOrder >= stepOrder;
+    return !(isCancelled ?? false) && (statusOrder ?? 0) >= stepOrder;
   }
 
   @override
@@ -51,7 +51,7 @@ class BookingStatusStepperWidget extends StatelessWidget {
               final step = _steps[i ~/ 2];
               final stepOrder = step['order'] as int;
               final bool isActive = _isStepActive(stepOrder);
-              final bool isCurrent = !isCancelled && statusOrder == stepOrder;
+              final bool isCurrent = !(isCancelled ?? false) && statusOrder == stepOrder;
               return Container(
                 width: 10,
                 height: 10,

@@ -35,9 +35,9 @@ import '../services/settings_service.dart';
 import 'api_provider.dart';
 
 class LaravelApiClient extends GetxService with ApiClient {
-  dio.Dio _httpClient;
-  dio.Options _optionsNetwork;
-  dio.Options _optionsCache;
+  late dio.Dio _httpClient;
+  late dio.Options _optionsNetwork;
+  late dio.Options _optionsCache;
 
   LaravelApiClient() {
     this.baseUrl = this.globalService.global.value.laravelBaseUrl ?? '';

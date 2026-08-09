@@ -21,7 +21,7 @@ class BookingController extends GetxController {
   late BookingRepository _bookingRepository;
   final allMarkers = <Marker>[].obs;
   final bookingStatuses = <BookingStatus>[].obs;
-  late Timer timer;
+  Timer? timer;
   late GoogleMapController mapController;
   final booking = Booking().obs;
 
