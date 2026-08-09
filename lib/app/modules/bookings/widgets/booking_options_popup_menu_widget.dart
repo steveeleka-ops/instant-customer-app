@@ -9,7 +9,7 @@ import 'booking_actions_widget.dart';
 
 class BookingOptionsPopupMenuWidget extends GetView<BookingsController> {
   const BookingOptionsPopupMenuWidget({
-    Key key,
+    Key? key,
     required Booking booking,
   })  : _booking = booking,
         super(key: key);

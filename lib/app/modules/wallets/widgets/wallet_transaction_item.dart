@@ -7,7 +7,7 @@ import '../../../models/wallet_transaction_model.dart';
 
 class WalletTransactionItem extends StatelessWidget {
   const WalletTransactionItem({
-    Key key,
+    Key? key,
     required WalletTransaction transaction,
   })  : _transaction = transaction,
         super(key: key);

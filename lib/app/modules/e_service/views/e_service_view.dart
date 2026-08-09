@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -365,7 +365,7 @@ class EServiceView extends GetView<EServiceController> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   margin: EdgeInsets.symmetric(vertical: 3),
                 ),
-              if (_eService.eProvider != null && _eService.eProvider.available)
+              if (_eService.eProvider?.available == true)
                 Container(
                   child: Text("Available".tr,
                       maxLines: 1,
@@ -382,7 +382,7 @@ class EServiceView extends GetView<EServiceController> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   margin: EdgeInsets.symmetric(vertical: 3),
                 ),
-              if (_eService.eProvider != null && !_eService.eProvider.available)
+              if (_eService.eProvider?.available != true)
                 Container(
                   child: Text("Offline".tr,
                       maxLines: 1,

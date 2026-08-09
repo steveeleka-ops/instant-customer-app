@@ -8,7 +8,7 @@ import '../controllers/booking_controller.dart';
 
 class BookingActionsWidget extends GetView<BookingController> {
   const BookingActionsWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class BookingRowWidget extends StatelessWidget {
   const BookingRowWidget({
-    Key key,
+    Key? key,
     required this.description,
     this.value,
     this.valueStyle,

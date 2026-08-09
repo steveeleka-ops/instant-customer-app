@@ -5,7 +5,7 @@ class BookingStatusStepperWidget extends StatelessWidget {
   final bool? isCancelled;
 
   const BookingStatusStepperWidget({
-    Key key,
+    Key? key,
     required this.statusOrder,
     this.isCancelled = false,
   }) : super(key: key);

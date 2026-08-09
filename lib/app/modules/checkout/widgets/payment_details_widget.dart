@@ -10,7 +10,7 @@ import '../../bookings/widgets/booking_row_widget.dart';
 
 class PaymentDetailsWidget extends StatelessWidget {
   const PaymentDetailsWidget({
-    Key key,
+    Key? key,
     required Booking booking,
   })  : _booking = booking,
         super(key: key);

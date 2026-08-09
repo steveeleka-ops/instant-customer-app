@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -6,7 +6,7 @@ import '../../../models/wallet_model.dart';
 
 class WalletBalanceCard extends StatelessWidget {
   const WalletBalanceCard({
-    Key key,
+    Key? key,
     this.wallet,
     this.onEdit,
     this.onTap,

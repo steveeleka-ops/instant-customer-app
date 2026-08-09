@@ -1,4 +1,4 @@
-import 'dart:async';
+ï»¿import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -100,7 +100,7 @@ class BookingController extends GetxController {
     }
   }
 
-  /// Cancels the booking. Works for any status — the fee warning dialog is
+  /// Cancels the booking. Works for any status ï¿½ the fee warning dialog is
   /// shown by BookingActionsWidget before this is called.
   Future<void> cancelBookingService() async {
     try {
@@ -155,7 +155,7 @@ class BookingController extends GetxController {
         })
         .toSet()
         .toList();
-    Message _message = new Message(_employees, name: booking.value.eProvider.name);
+    Message _message = new Message(_employees, name: booking.value.eProvider?.name ?? "");
     Get.toNamed(Routes.CHAT, arguments: _message);
   }
 

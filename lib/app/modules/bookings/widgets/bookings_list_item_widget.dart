@@ -14,7 +14,7 @@ import 'booking_status_stepper_widget.dart';
 
 class BookingsListItemWidget extends StatelessWidget {
   const BookingsListItemWidget({
-    Key key,
+    Key? key,
     required Booking booking,
   })  : _booking = booking,
         super(key: key);
@@ -94,7 +94,7 @@ class BookingsListItemWidget extends StatelessWidget {
                           children: [
                             Text(
                               DateFormat('HH:mm', Get.locale.toString())
-                                  .format(_booking.bookingAt),
+                                  .format(_booking.bookingAt ?? DateTime.now()),
                               maxLines: 1,
                               style: Get.textTheme.bodyMedium?.merge(
                                 TextStyle(
@@ -106,7 +106,7 @@ class BookingsListItemWidget extends StatelessWidget {
                             ),
                             Text(
                               DateFormat('dd', Get.locale.toString())
-                                  .format(_booking.bookingAt),
+                                  .format(_booking.bookingAt ?? DateTime.now()),
                               maxLines: 1,
                               style: Get.textTheme.displaySmall?.merge(
                                 TextStyle(
@@ -118,7 +118,7 @@ class BookingsListItemWidget extends StatelessWidget {
                             ),
                             Text(
                               DateFormat('MMM', Get.locale.toString())
-                                  .format(_booking.bookingAt),
+                                  .format(_booking.bookingAt ?? DateTime.now()),
                               maxLines: 1,
                               style: Get.textTheme.bodyMedium?.merge(
                                 TextStyle(

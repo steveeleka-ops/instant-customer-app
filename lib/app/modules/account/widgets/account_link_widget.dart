@@ -11,7 +11,7 @@ class AccountLinkWidget extends StatelessWidget {
   final ValueChanged<void> onTap;
 
   const AccountLinkWidget({
-    Key key,
+    Key? key,
     this.icon,
     this.text,
     this.onTap,

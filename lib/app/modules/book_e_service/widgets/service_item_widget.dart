@@ -11,7 +11,7 @@ import '../../../models/e_service_model.dart';
 
 class ServiceItemWidget extends StatelessWidget {
   const ServiceItemWidget({
-    Key key,
+    Key? key,
     required EService service,
   })  : _service = service,
         super(key: key);
@@ -45,7 +45,7 @@ class ServiceItemWidget extends StatelessWidget {
                   errorWidget: (context, url, error) => Icon(Icons.error_outline),
                 ),
               ),
-              if (_service.eProvider.available)
+              if (_service.eProvider?.available == true)
                 Container(
                   width: 80,
                   child: Text("Available".tr,
@@ -62,7 +62,7 @@ class ServiceItemWidget extends StatelessWidget {
                   ),
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                 ),
-              if (!_service.eProvider.available)
+              if (_service.eProvider?.available != true)
                 Container(
                   width: 80,
                   child: Text("Offline".tr,

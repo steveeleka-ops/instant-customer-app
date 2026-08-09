@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/custom_page_model.dart';
@@ -8,7 +8,7 @@ import '../../root/controllers/root_controller.dart';
 
 class CustomPageDrawerLinkWidget extends GetView<RootController> {
   const CustomPageDrawerLinkWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

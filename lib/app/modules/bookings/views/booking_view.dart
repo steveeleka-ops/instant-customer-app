@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -493,7 +493,7 @@ class BookingView extends GetView<BookingController> {
                   children: [
                     Text(
                         DateFormat('HH:mm', Get.locale.toString())
-                            .format(_booking.value.bookingAt),
+                            .format(_booking.value.bookingAt ?? DateTime.now()),
                         maxLines: 1,
                         style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(

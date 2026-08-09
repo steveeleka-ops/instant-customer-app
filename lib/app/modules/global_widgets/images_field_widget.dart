@@ -66,7 +66,7 @@ class ImagesFieldController extends GetxController {
 
 class ImagesFieldWidget extends StatelessWidget {
   ImagesFieldWidget({
-    Key key,
+    Key? key,
     required this.label,
     required this.tag,
     required this.field,

@@ -10,7 +10,7 @@ import '../../../models/e_service_model.dart';
 import '../../../routes/app_routes.dart';
 class ServicesListItemWidget extends StatelessWidget {
   const ServicesListItemWidget({
-    Key key,
+    Key? key,
     required EService service,
   })  : _service = service,
         super(key: key);
@@ -51,7 +51,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (_service.eProvider.available)
+                if (_service.eProvider?.available == true)
                   Container(
                     width: 80,
                     child: Text("Available".tr,
@@ -68,7 +68,7 @@ class ServicesListItemWidget extends StatelessWidget {
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                   ),
-                if (!_service.eProvider.available)
+                if (_service.eProvider?.available != true)
                   Container(
                     width: 80,
                     child: Text("Offline".tr,
@@ -149,7 +149,7 @@ class ServicesListItemWidget extends StatelessWidget {
                       SizedBox(width: 5),
                       Flexible(
                         child: Text(
-                          _service.eProvider.name,
+                          _service.eProvider?.name ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
@@ -169,7 +169,7 @@ class ServicesListItemWidget extends StatelessWidget {
                       Flexible(
                         child: Text(
                           // TODO eProvider address
-                          _service.eProvider.firstAddress,
+                          _service.eProvider?.firstAddress ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,

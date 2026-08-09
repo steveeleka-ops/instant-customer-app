@@ -8,7 +8,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
   final Booking booking;
 
   const BookingStatusTimelineWidget({
-    Key key,
+    Key? key,
     required this.booking,
   }) : super(key: key);
 

@@ -102,7 +102,7 @@ class TabBarLoadingWidget extends StatelessWidget implements PreferredSize {
 
 class ChipWidget extends StatelessWidget {
   ChipWidget({
-    Key key,
+    Key? key,
     required this.text,
     this.onSelected,
     required this.tag,

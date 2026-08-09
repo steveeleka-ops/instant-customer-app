@@ -62,7 +62,7 @@ class RatingBar extends StatefulWidget {
     /// {@template flutterRatingBar.itemBuilder}
     /// Widget for each rating bar item.
     /// {@endtemplate}
-    Key key,
+    Key? key,
     required IndexedWidgetBuilder itemBuilder,
     required this.onRatingUpdate,
     this.glowColor,
@@ -170,7 +170,7 @@ class RatingBar extends StatefulWidget {
   /// Default is false.
   final bool? tapOnlyMode;
 
-  /// Defines whether or not the `onRatingUpdate` updates while dragging.
+  /// Defines whether or not the onRatingUpdate updates while dragging.
   ///
   /// Default is false.
   final bool? updateOnDrag;

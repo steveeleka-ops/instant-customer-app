@@ -96,7 +96,7 @@ class Booking extends Model {
       data['cancel'] = this.cancel;
     }
     if (this.status != null) {
-      data['booking_status_id'] = this.status.id;
+      data['booking_status_id'] = this.status?.id;
     }
     if (this.coupon != null && this.coupon.code != null) {
       data['coupon'] = this.coupon.toJson();

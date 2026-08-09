@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -145,7 +145,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                     value: false,
                     groupValue: controller.scheduled.value,
                     onChanged: (value) {
-                      if(controller.booking.value.eService.eProvider.available) controller.toggleScheduled(value);
+                      if(controller.booking.value.eService.eProvider?.available) controller.toggleScheduled(value);
                       else Get.showSnackbar(Ui.ErrorSnackBar(title: 'Oh No!',message: "The provider is not available right now. Therefore, you can schedule an order for later"));
                     },
                     title: Text("Book Now".tr, style: controller.getTextTheme(!controller.scheduled.value)).paddingSymmetric(vertical: 20),
@@ -279,8 +279,8 @@ class BookEServiceView extends GetView<BookEServiceController> {
                   return Column(
                     children: [
                       Text("Requested Service on".tr).paddingSymmetric(vertical: 20),
-                      Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.headlineMedium),
-                      Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.displaySmall),
+                      Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt ?? DateTime.now())}', style: Get.textTheme.headlineMedium),
+                      Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt ?? DateTime.now())}', style: Get.textTheme.displaySmall),
                       SizedBox(height: 20)
                     ],
                   );

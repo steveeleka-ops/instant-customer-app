@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -47,8 +47,8 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.bodyMedium),
-                              Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt)}', style: Get.textTheme.bodyMedium),
+                              Text('${DateFormat.yMMMMEEEEd(Get.locale.toString()).format(controller.booking.value.bookingAt ?? DateTime.now())}', style: Get.textTheme.bodyMedium),
+                              Text('${DateFormat('HH:mm', Get.locale.toString()).format(controller.booking.value.bookingAt ?? DateTime.now())}', style: Get.textTheme.bodyMedium),
                             ],
                           )),
                     ],

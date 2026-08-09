@@ -10,7 +10,7 @@ class DrawerLinkWidget extends StatelessWidget {
   final String? text;
   final ValueChanged<void> onTap;
   const DrawerLinkWidget({
-    Key key,
+    Key? key,
     this.icon,
     this.text,
     this.onTap,

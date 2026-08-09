@@ -152,7 +152,7 @@ class MockApiClient {
     if (response.statusCode == 200) {
       List<EService> _services = response.data['data'].map<EService>((obj) => EService.fromJson(obj)).toList();
       _services = _services.where((_service) {
-        return _service.eProvider.available;
+        return _service.eProvider?.available;
       }).toList();
       return _services;
     } else {
@@ -227,7 +227,7 @@ class MockApiClient {
     if (response.statusCode == 200) {
       List<EService> _services = response.data['data'].map<EService>((obj) => EService.fromJson(obj)).toList();
       _services = _services.where((_service) {
-        return _service.eProvider.available;
+        return _service.eProvider?.available;
       }).toList();
       return _services;
     } else {

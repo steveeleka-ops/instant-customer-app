@@ -12,7 +12,7 @@ import '../../../routes/app_routes.dart';
 
 class FavoritesListItemWidget extends StatelessWidget {
   const FavoritesListItemWidget({
-    Key key,
+    Key? key,
     required Favorite favorite,
   })  : _favorite = favorite,
         super(key: key);
@@ -53,7 +53,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (_favorite.eService.eProvider.available)
+                if (_favorite.eService.eProvider?.available)
                   Container(
                     width: 80,
                     child: Text("Available".tr,
@@ -70,7 +70,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                   ),
-                if (!_favorite.eService.eProvider.available)
+                if (!_favorite.eService.eProvider?.available)
                   Container(
                     width: 80,
                     child: Text("Offline".tr,
@@ -151,7 +151,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                       SizedBox(width: 5),
                       Flexible(
                         child: Text(
-                          _favorite.eService.eProvider.name,
+                          _favorite.eService.eProvider?.name ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,

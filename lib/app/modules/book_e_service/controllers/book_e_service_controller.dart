@@ -36,7 +36,7 @@ class BookEServiceController extends GetxController {
   void onInit() async {
     super.onInit();
     final _eService = (Get.arguments['eService'] as EService);
-    scheduled.value = !_eService.eProvider.available;
+    scheduled.value = _eService.eProvider?.available == true != true;
     final _options = (Get.arguments['options'] as List<Option>);
     final _quantity = (Get.arguments['quantity'] as int);
     var bookingAt ;
@@ -148,7 +148,7 @@ class BookEServiceController extends GetxController {
   Future<Null> showMyDatePicker(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
-      initialDate: booking.value.bookingAt.add(Duration(days: 1)),
+      initialDate: booking.value.bookingAt?.add(Duration(days: 1)),
       firstDate: DateTime.now().add(Duration(days: 1)),
       lastDate: DateTime(2101),
       locale: Get.locale,
@@ -158,7 +158,7 @@ class BookEServiceController extends GetxController {
     );
     if (picked != null) {
       booking.update((val) {
-        val.bookingAt = DateTime(picked.year, picked.month, picked.day, val.bookingAt.hour, val.bookingAt.minute);
+        val.bookingAt = DateTime(picked.year, picked.month, picked.day, val.bookingAt?.hour ?? 0, val.bookingAt?.minute ?? 0);
         ;
       });
     }
@@ -174,7 +174,7 @@ class BookEServiceController extends GetxController {
     );
     if (picked != null) {
       booking.update((val) {
-        val.bookingAt = DateTime(booking.value.bookingAt.year, booking.value.bookingAt.month, booking.value.bookingAt.day).add(Duration(minutes: picked.minute + picked.hour * 60));
+        val.bookingAt = DateTime(booking.value.bookingAt?.year ?? DateTime.now().year, booking.value.bookingAt?.month ?? DateTime.now().month, booking.value.bookingAt?.day ?? DateTime.now().day).add(Duration(minutes: picked.minute + picked.hour * 60));
       });
     }
   }

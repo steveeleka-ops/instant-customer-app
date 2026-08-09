@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class AvailabilityHourItemWidget extends StatelessWidget {
   const AvailabilityHourItemWidget({
-    Key key,
+    Key? key,
     required MapEntry<String, List<String>> availabilityHour,
     required List<String> data,
   })  : _availabilityHour = availabilityHour,

@@ -1,11 +1,11 @@
-import 'dart:math';
+﻿import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class WalletTransactionsLoadingListWidget extends StatelessWidget {
   const WalletTransactionsLoadingListWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
