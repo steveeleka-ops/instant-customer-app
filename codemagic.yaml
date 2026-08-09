@@ -76,6 +76,7 @@ workflows:
           [ -f "$PLACE_PICKER" ] && sed -i '' 's/Theme\.of(context)\.errorColor/Theme.of(context).colorScheme.error/g' "$PLACE_PICKER" && echo "Patched place_picker.dart"
           GET_EXT="$HOME/.pub-cache/hosted/pub.dev/get-4.6.5/lib/get_navigation/src/extension_navigation.dart"
           [ -f "$GET_EXT" ] && sed -i '' 's/theme\.backgroundColor/theme.colorScheme.surface/g' "$GET_EXT" && echo "Patched get extension_navigation.dart"
+          find $HOME/.pub-cache/hosted/pub.dev/google_api_headers-*/android -name "build.gradle" -exec sed -i '' 's/kotlin-gradle-plugin:[0-9]\.[0-9]\.[0-9]*/kotlin-gradle-plugin:1.9.0/g' {} \; && echo "Patched google_api_headers Kotlin version"
       - name: Build Android App Bundle
         script: |
           flutter build appbundle --release \
