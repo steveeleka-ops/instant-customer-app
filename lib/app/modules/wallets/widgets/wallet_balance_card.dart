@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -12,15 +12,15 @@ class WalletBalanceCard extends StatelessWidget {
     this.onTap,
   }) : super(key: key);
 
-  final Wallet wallet;
-  final ValueChanged<Wallet> onEdit;
-  final ValueChanged<Wallet> onTap;
+  final Wallet? wallet;
+  final ValueChanged<Wallet>? onEdit;
+  final ValueChanged<Wallet>? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onTap(wallet);
+        if (onTap != null && wallet != null) onTap!(wallet!);
       },
       child: Stack(
         children: <Widget>[
@@ -88,7 +88,7 @@ class WalletBalanceCard extends StatelessWidget {
               bottom: 22,
               child: IconButton(
                   onPressed: () {
-                    onEdit(wallet);
+                    if (onEdit != null && wallet != null) onEdit!(wallet!);
                   },
                   icon: Icon(
                     Icons.edit_outlined,
@@ -100,3 +100,4 @@ class WalletBalanceCard extends StatelessWidget {
     );
   }
 }
+

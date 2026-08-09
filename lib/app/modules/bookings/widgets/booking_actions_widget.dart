@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_routes.dart';
@@ -22,7 +22,7 @@ class BookingActionsWidget extends GetView<BookingController> {
       final int done = Get.find<GlobalService>().global.value.done; // 50
       const int pendingApproval = 55;
 
-      // -- Pending Approval: customer must Approve or Deny � check FIRST -------
+      // -- Pending Approval: customer must Approve or Deny ? check FIRST -------
       if (!_booking.value.cancel && statusOrder == pendingApproval) {
           return Container(
             padding: EdgeInsets.only(top: 16, bottom: 16 + bottomPadding, left: 20, right: 20),
@@ -42,7 +42,7 @@ class BookingActionsWidget extends GetView<BookingController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  "Job completed � please review".tr,
+                  "Job completed ? please review".tr,
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyLarge
                       ?.merge(TextStyle(fontWeight: FontWeight.w600)),
@@ -428,7 +428,7 @@ class LateCancelDialog extends StatelessWidget {
 // --- Deny Notes Dialog --------------------------------------------------------
 
 class DenyNotesDialog extends StatefulWidget {
-  final Function(String notes) onSubmit;
+  final Function(String notes)? onSubmit;
 
   const DenyNotesDialog({Key? key, this.onSubmit}) : super(key: key);
 
@@ -503,7 +503,7 @@ class _DenyNotesDialogState extends State<DenyNotesDialog> {
                   child: ElevatedButton(
                     onPressed: () {
                       Get.back();
-                      widget.onSubmit(_controller.text.trim());
+                      widget.onSubmit?.call(_controller.text.trim());
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.red,
@@ -522,3 +522,4 @@ class _DenyNotesDialogState extends State<DenyNotesDialog> {
     );
   }
 }
+

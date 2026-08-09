@@ -98,44 +98,44 @@ class Booking extends Model {
     if (this.status != null) {
       data['booking_status_id'] = this.status?.id;
     }
-    if (this.coupon != null && this.coupon.code != null) {
-      data['coupon'] = this.coupon.toJson();
+    if (this.coupon != null && this.coupon?.code != null) {
+      data['coupon'] = this.coupon?.toJson();
     }
-    if (this.coupon != null && this.coupon.id != null) {
-      data['coupon_id'] = this.coupon.id;
+    if (this.coupon != null && this.coupon?.id != null) {
+      data['coupon_id'] = this.coupon?.id;
     }
     if (this.taxes != null) {
-      data['taxes'] = this.taxes.map((e) => e.toJson()).toList();
+      data['taxes'] = this.taxes?.map((e) => e.toJson()).toList();
     }
-    if (this.options != null && this.options.isNotEmpty) {
-      data['options'] = this.options.map((e) => e.id).toList();
+    if (this.options != null && (this.options?.isNotEmpty ?? false)) {
+      data['options'] = this.options?.map((e) => e.id).toList();
     }
     if (this.user != null) {
-      data['user_id'] = this.user.id;
+      data['user_id'] = this.user?.id;
     }
     if (this.address != null) {
-      data['address'] = this.address.toJson();
+      data['address'] = this.address?.toJson();
     }
     if (this.eService != null) {
-      data['e_service'] = this.eService.id;
+      data['e_service'] = this.eService?.id;
     }
     if (this.eProvider != null) {
-      data['e_provider'] = this.eProvider.toJson();
+      data['e_provider'] = this.eProvider?.toJson();
     }
     if (this.payment != null) {
-      data['payment'] = this.payment.toJson();
+      data['payment'] = this.payment?.toJson();
     }
     if (this.bookingAt != null) {
-      data['booking_at'] = bookingAt.toUtc().toString();
+      data['booking_at'] = bookingAt!.toUtc().toString();
     }
-    if (this.recurrence != null && this.recurrence.isNotEmpty) {
+    if (this.recurrence != null && (this.recurrence?.isNotEmpty ?? false)) {
       data['recurrence'] = this.recurrence;
     }
     if (this.startAt != null) {
-      data['start_at'] = startAt.toUtc().toString();
+      data['start_at'] = startAt!.toUtc().toString();
     }
     if (this.endsAt != null) {
-      data['ends_at'] = endsAt.toUtc().toString();
+      data['ends_at'] = endsAt!.toUtc().toString();
     }
     return data;
   }
@@ -165,10 +165,10 @@ class Booking extends Model {
     if (coupon == null || !(coupon?.hasData ?? false)) {
       return 0;
     } else {
-      if (coupon.discountType == 'percent') {
-        return -(total * coupon.discount / 100);
+      if (coupon?.discountType == 'percent') {
+        return -(total * (coupon?.discount ?? 0) / 100);
       } else {
-        return -coupon.discount;
+        return -(coupon?.discount ?? 0);
       }
     }
   }
@@ -176,24 +176,23 @@ class Booking extends Model {
   double getSubtotal() {
     double total = 0.0;
     try {
-      final int qty = quantity >= 1 ? quantity : 1;
-      final bool hasOptions = options != null && options.isNotEmpty;
-      if (eService.priceUnit == 'fixed') {
+      final int qty = (quantity ?? 1) >= 1 ? (quantity ?? 1) : 1;
+      final bool hasOptions = options != null && (options?.isNotEmpty ?? false);
+      if (eService?.priceUnit == 'fixed') {
         if (hasOptions) {
-          // Option price replaces the base price entirely
-          options.forEach((element) {
-            total += element.price * qty;
+          options?.forEach((element) {
+            total += (element.price ?? 0) * qty;
           });
         } else {
-          total = eService.getPrice * qty;
+          total = (eService?.getPrice ?? 0) * qty;
         }
       } else if (duration != null) {
         if (hasOptions) {
-          options.forEach((element) {
-            total += element.price;
+          options?.forEach((element) {
+            total += element.price ?? 0;
           });
         } else {
-          total = eService.getPrice * duration;
+          total = (eService?.getPrice ?? 0) * (duration ?? 0);
         }
       }
     } catch (e) {

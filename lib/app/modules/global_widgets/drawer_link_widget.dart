@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2020 .
  */
 
@@ -20,7 +20,7 @@ class DrawerLinkWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap('');
+        onTap?.call('');
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -45,3 +45,4 @@ class DrawerLinkWidget extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +81,7 @@ class ImageFieldWidget extends StatelessWidget {
   final String? buttonText;
   final String? tag;
   final String? field;
-  final Media initialImage;
+  final Media? initialImage;
   final ValueChanged<String>? uploadCompleted;
   final ValueChanged<String>? reset;
 
@@ -210,3 +210,4 @@ class ImageFieldWidget extends StatelessWidget {
     );
   }
 }
+

@@ -44,7 +44,7 @@ class FireBaseMessagingService extends GetxService {
     try{
       print("TEST_CHECK -> ");
        await FirebaseMessaging.instance.requestPermission();
-   String token = await FirebaseMessaging.instance.getToken();
+   String? token = await FirebaseMessaging.instance.getToken();
       print("TEST_CHECK -> ${token}");
       Get.find<AuthService>().user.value.deviceToken =
       await FirebaseMessaging.instance.getToken();
@@ -55,24 +55,24 @@ class FireBaseMessagingService extends GetxService {
   }
 
   void _defaultNotification(RemoteMessage message) {
-    RemoteNotification notification = message.notification;
+    RemoteNotification? notification = message.notification;
     var title = "";
-    if (notification.title.toString().contains("{\"en\":")) {
+    if (notification?.title.toString().contains("{\"en\":") == true) {
       title = "New Booking";
-    } else title = notification.title;
+    } else title = notification?.title ?? '';
     NotificationService()
-        .showNotification(title: title, body: notification.body);
+        .showNotification(title: title, body: notification?.body);
   }
 
   void _newMessageNotification(RemoteMessage message) {
-    RemoteNotification notification = message.notification;
+    RemoteNotification? notification = message.notification;
     print(message.data);
     if (Get.find<MessagesController>().initialized) {
       Get.find<MessagesController>().refreshMessages();
     }
     if (Get.currentRoute != Routes.CHAT) {
       NotificationService()
-          .showNotification(title: notification.title, body: notification.body);
+          .showNotification(title: notification?.title, body: notification?.body);
     }
   }
 }

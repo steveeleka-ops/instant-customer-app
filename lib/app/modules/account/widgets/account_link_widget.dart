@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2020 .
  */
 
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AccountLinkWidget extends StatelessWidget {
-  final Icon icon;
+  final Icon? icon;
   final Widget? text;
   final ValueChanged<void> onTap;
 
@@ -21,7 +21,7 @@ class AccountLinkWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap('');
+        onTap?.call('');
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
@@ -48,3 +48,4 @@ class AccountLinkWidget extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -58,7 +58,7 @@ class CategoryController extends GetxController {
     }
   }
 
-  Future loadEServicesOfCategory(String categoryId, {CategoryFilter filter}) async {
+  Future loadEServicesOfCategory(String categoryId, {CategoryFilter? filter}) async {
     try {
       isLoading.value = true;
       isDone.value = false;
@@ -96,3 +96,4 @@ class CategoryController extends GetxController {
     }
   }
 }
+

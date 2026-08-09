@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2020 .
  */
 
@@ -9,7 +9,7 @@ import '../../../../common/ui.dart';
 class EProviderTilWidget extends StatelessWidget {
   final Widget? title;
   final Widget? content;
-  final List<Widget> actions;
+  final List<Widget>? actions;
   final double? horizontalPadding;
 
   const EProviderTilWidget({Key? key, this.title, this.content, this.actions, this.horizontalPadding}) : super(key: key);
@@ -42,3 +42,4 @@ class EProviderTilWidget extends StatelessWidget {
     );
   }
 }
+

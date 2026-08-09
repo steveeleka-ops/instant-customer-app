@@ -5,7 +5,7 @@ import "parents/model.dart";
 import 'user_model.dart';
 
 class Chat extends Model {
-  String id = UniqueKey().toString();
+  String? id = UniqueKey().toString();
 
   // message text
   String? text;
@@ -27,7 +27,7 @@ class Chat extends Model {
       time = jsonMap.get('time') != null ? jsonMap.get('time') : 0;
       userId = jsonMap.get('user') != null ? jsonMap.get('user').toString() : null;
     } catch (e) {
-      id = null;
+      id = null; // ignore: avoid_shadowing_type_parameters
       text = '';
       time = 0;
       user = null;

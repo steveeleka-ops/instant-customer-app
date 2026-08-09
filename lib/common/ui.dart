@@ -9,7 +9,7 @@ class Ui {
     Get.log("[$title] $message");
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
-      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
+      messageText: Text(message ?? '', style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.colorScheme.secondary,
@@ -24,7 +24,7 @@ class Ui {
     Get.log("[$title] $message", isError: true);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor))),
-      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
+      messageText: Text(message ?? '', style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Colors.redAccent,
@@ -39,7 +39,7 @@ class Ui {
     Get.log("[$title] $message", isError: false);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.hintColor))),
-      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.focusColor))),
+      messageText: Text(message ?? '', style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.BOTTOM,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.primaryColor,
@@ -55,7 +55,7 @@ class Ui {
     Get.log("[$title] $message", isError: false);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.hintColor))),
-      messageText: Text(message, style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.focusColor))),
+      messageText: Text(message ?? '', style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.focusColor))),
       snackPosition: SnackPosition.TOP,
       margin: EdgeInsets.all(20),
       backgroundColor: Get.theme.primaryColor,
@@ -67,9 +67,9 @@ class Ui {
     );
   }
 
-  static Color parseColor(String hexCode, {double? opacity}) {
+  static Color parseColor(String? hexCode, {double? opacity}) {
     try {
-      return Color(int.parse(hexCode.replaceAll("#", "0xFF"))).withOpacity(opacity ?? 1);
+      return Color(int.parse((hexCode ?? '#CCCCCC').replaceAll("#", "0xFF"))).withOpacity(opacity ?? 1);
     } catch (e) {
       return Color(0xFFCCCCCC).withOpacity(opacity ?? 1);
     }
@@ -107,12 +107,12 @@ class Ui {
                 text: _setting.setting.value?.defaultCurrency,
                 style: getPriceStyle(style),
                 children: <TextSpan>[
-                  TextSpan(text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits) ?? '', style: style ?? Get.textTheme.titleSmall),
+                  TextSpan(text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits ?? 2), style: style ?? Get.textTheme.titleSmall),
                   if (unit != null) TextSpan(text: " " + unit + " ", style: getPriceStyle(style)),
                 ],
               )
             : TextSpan(
-                text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits) ?? '',
+                text: myPrice.toStringAsFixed(_setting.setting.value?.defaultCurrencyDecimalDigits ?? 2),
                 style: style ?? Get.textTheme.titleSmall,
                 children: <TextSpan>[
                   TextSpan(text: _setting.setting.value?.defaultCurrency, style: getPriceStyle(style)),

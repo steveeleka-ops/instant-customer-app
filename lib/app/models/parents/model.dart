@@ -55,7 +55,7 @@ abstract class Model {
     }
   }
 
-  String transStringFromJson(Map<String, dynamic> json, String attribute, {String defaultValue = '', String defaultLocale}) {
+  String transStringFromJson(Map<String, dynamic> json, String attribute, {String defaultValue = '', String? defaultLocale}) {
     try {
       if (json[attribute] != null) {
         if (json[attribute] is Map<String, dynamic>) {
@@ -83,7 +83,7 @@ abstract class Model {
     }
   }
 
-  DateTime dateFromJson(Map<String, dynamic> json, String attribute, {DateTime defaultValue}) {
+  DateTime? dateFromJson(Map<String, dynamic> json, String attribute, {DateTime? defaultValue}) {
     try {
       // var detailTime = json[attribute].toString().split(".");
       return json != null
@@ -96,7 +96,7 @@ abstract class Model {
     }
   }
 
-  dynamic mapFromJson(Map<String, dynamic> json, String attribute, {Map<dynamic, dynamic> defaultValue}) {
+  dynamic mapFromJson(Map<String, dynamic> json, String attribute, {Map<dynamic, dynamic>? defaultValue}) {
     try {
       return json != null
           ? json[attribute] != null
@@ -183,7 +183,7 @@ abstract class Model {
   }
 
   List<T> listFromJsonArray<T>(Map<String, dynamic> json, List<String> attribute, T Function(Map<String, dynamic>) callback) {
-    String _attribute = attribute.firstWhere((element) => (json[element] != null), orElse: () => null);
+    String _attribute = attribute.firstWhere((element) => (json[element] != null), orElse: () => '');
     return listFromJson(json, _attribute, callback);
   }
 
@@ -203,7 +203,7 @@ abstract class Model {
     }
   }
 
-  T objectFromJson<T>(Map<String, dynamic> json, String attribute, T Function(Map<String, dynamic>) callback, {T defaultValue = null}) {
+  T? objectFromJson<T>(Map<String, dynamic> json, String attribute, T Function(Map<String, dynamic>) callback, {T? defaultValue}) {
     try {
       if (json[attribute] != null && json[attribute] is Map<String, dynamic>) {
         return callback(json[attribute]);

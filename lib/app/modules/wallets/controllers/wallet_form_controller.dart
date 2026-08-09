@@ -27,7 +27,7 @@ class WalletFormController extends GetxController {
     super.onReady();
   }
 
-  void _initWallet({Map<String, dynamic> arguments}) {
+  void _initWallet({Map<String, dynamic>? arguments}) {
     if (arguments != null) {
       wallet.value = (arguments['wallet'] as Wallet) ?? Wallet();
     } else {
@@ -82,3 +82,4 @@ class WalletFormController extends GetxController {
     }
   }
 }
+

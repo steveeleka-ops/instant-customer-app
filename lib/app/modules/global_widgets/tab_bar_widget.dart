@@ -112,7 +112,7 @@ class ChipWidget extends StatelessWidget {
   final String? text;
   final dynamic id;
   final String? tag;
-  final ValueChanged<dynamic> onSelected;
+  final ValueChanged<dynamic>? onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +131,7 @@ class ChipWidget extends StatelessWidget {
         pressElevation: 0,
         onSelected: (bool value) {
           controller.toggleSelected(this.id);
-          onSelected(id);
+          if (onSelected != null) onSelected!(id);
         },
       ).marginSymmetric(horizontal: 5);
     });

@@ -13,12 +13,12 @@ class NotificationService {
         requestBadgePermission: true,
         requestSoundPermission: true,
         onDidReceiveLocalNotification:
-            (int id, String title, String body, String payload) async {});
+            (int id, String? title, String? body, String? payload) async {});
 
     var initializationSettings = InitializationSettings(
         android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
     await notificationsPlugin.initialize(initializationSettings,
-        onSelectNotification:(String notificationResponse) async {});
+        onSelectNotification:(String? notificationResponse) async {});
   }
 
   notificationDetails() {

@@ -379,13 +379,13 @@ class SettingsService extends GetxService {
       case 'ThemeMode.light':
         SystemChrome.setSystemUIOverlayStyle(
           SystemUiOverlayStyle.light
-              ?.copyWith(systemNavigationBarColor: Colors.white),
+              .copyWith(systemNavigationBarColor: Colors.white),
         );
         return ThemeMode.light;
       case 'ThemeMode.dark':
         SystemChrome.setSystemUIOverlayStyle(
           SystemUiOverlayStyle.dark
-              ?.copyWith(systemNavigationBarColor: Colors.black87),
+              .copyWith(systemNavigationBarColor: Colors.black87),
         );
         return ThemeMode.dark;
       case 'ThemeMode.system':
@@ -415,7 +415,7 @@ class SettingsService extends GetxService {
         List<Address> _addresses = await _settingsRepo.getAddresses();
         if (_addresses.isNotEmpty) {
           address.value = _addresses
-              .firstWhere((_address) => _address.isDefault, orElse: () {
+              .firstWhere((_address) => _address.isDefault == true, orElse: () {
             return _addresses.first;
           });
         } else {

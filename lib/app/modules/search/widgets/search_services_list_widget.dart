@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +7,7 @@ import '../../category/widgets/services_list_item_widget.dart';
 import '../../global_widgets/circular_loading_widget.dart';
 
 class SearchServicesListWidget extends StatelessWidget {
-  final List<EService> services;
+  final List<EService>? services;
 
   SearchServicesListWidget({Key? key, List<EService> this.services}) : super(key: key);
 
@@ -31,3 +31,4 @@ class SearchServicesListWidget extends StatelessWidget {
     });
   }
 }
+

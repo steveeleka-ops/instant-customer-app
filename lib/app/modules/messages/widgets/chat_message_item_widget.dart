@@ -9,7 +9,7 @@ import '../../../routes/app_routes.dart';
 import '../../../services/auth_service.dart';
 
 class ChatMessageItem extends StatelessWidget {
-  final Chat chat;
+  final Chat? chat;
 
   ChatMessageItem({this.chat});
 
@@ -337,3 +337,4 @@ class ChatMessageItem extends StatelessWidget {
     );
   }
 }
+

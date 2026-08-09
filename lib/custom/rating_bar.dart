@@ -104,7 +104,7 @@ class RatingBar extends StatefulWidget {
   /// {@template flutterRatingBar.textDirection}
   /// The text flows from right to left if [textDirection] = TextDirection.rtl
   /// {@endtemplate}
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
   /// {@template flutterRatingBar.unratedColor}
   /// Defines color for the unrated portion.

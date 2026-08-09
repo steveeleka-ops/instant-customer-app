@@ -1,4 +1,4 @@
-﻿import 'dart:math';
+import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import '../../../../common/ui.dart';
 import '../../../models/e_provider_model.dart';
 
 class EProviderItemWidget extends StatelessWidget {
-  final EProvider provider;
+  final EProvider? provider;
 
   EProviderItemWidget({Key? key, this.provider}) : super(key: key);
 
@@ -90,3 +90,4 @@ class EProviderItemWidget extends StatelessWidget {
     );
   }
 }
+

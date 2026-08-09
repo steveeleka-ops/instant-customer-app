@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -7,15 +7,15 @@ import '../../../models/notification_model.dart' as model;
 
 class NotificationItemWidget extends StatelessWidget {
   NotificationItemWidget({Key? key, this.notification, this.onDismissed, this.onTap}) : super(key: key);
-  final model.Notification notification;
-  final ValueChanged<model.Notification> onDismissed;
-  final ValueChanged<model.Notification> onTap;
+  final model.Notification? notification;
+  final ValueChanged<model.Notification>? onDismissed;
+  final ValueChanged<model.Notification>? onTap;
 
   @override
   Widget build(BuildContext context) {
     // AuthService _authService = Get.find<AuthService>();
     return Dismissible(
-      key: Key(this.notification.hashCode.toString()),
+      key: Key((this.notification?.hashCode ?? 0).toString()),
       background: Container(
         padding: EdgeInsets.all(12),
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -32,18 +32,18 @@ class NotificationItemWidget extends StatelessWidget {
         ),
       ),
       onDismissed: (direction) {
-        onDismissed(this.notification);
+        if (onDismissed != null && this.notification != null) onDismissed!(this.notification!);
         // Then show a snackbar
         Get.showSnackbar(Ui.SuccessSnackBar(message: "The notification is deleted".tr));
       },
       child: GestureDetector(
         onTap: () {
-            onTap(notification);
+            if (onTap != null && notification != null) onTap!(notification!);
         },
         child: Container(
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          decoration: Ui.getBoxDecoration(color: this.notification.read ? Get.theme.primaryColor : Get.theme.focusColor.withOpacity(0.15)),
+          decoration: Ui.getBoxDecoration(color: (this.notification?.read ?? false) ? Get.theme.primaryColor : Get.theme.focusColor.withOpacity(0.15)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -98,13 +98,13 @@ class NotificationItemWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Text(
-                      this.notification.getMessage(),
+                      this.notification?.getMessage() ?? '',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: Get.textTheme.bodyLarge?.merge(TextStyle(fontWeight: notification.read ? FontWeight.w300 : FontWeight.w600)),
+                      style: Get.textTheme.bodyLarge?.merge(TextStyle(fontWeight: (notification?.read ?? false) ? FontWeight.w300 : FontWeight.w600)),
                     ),
                     Text(
-                      DateFormat('d, MMMM y | HH:mm', Get.locale.toString()).format(this.notification.createdAt),
+                      DateFormat('d, MMMM y | HH:mm', Get.locale.toString()).format(this.notification?.createdAt ?? DateTime.now()),
                       style: Get.textTheme.bodySmall,
                     )
                   ],
@@ -117,3 +117,4 @@ class NotificationItemWidget extends StatelessWidget {
     );
   }
 }
+

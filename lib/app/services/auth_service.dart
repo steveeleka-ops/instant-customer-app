@@ -44,5 +44,5 @@ class AuthService extends GetxService {
 
   bool get isAuth => user.value.auth ?? false;
 
-  String get apiToken => (user.value.auth ?? false) ? user.value.apiToken : '';
+  String get apiToken => (user.value.auth ?? false) ? (user.value.apiToken ?? '') : '';
 }

@@ -40,7 +40,7 @@ class LaravelApiClient extends GetxService with ApiClient {
   dio.Options _optionsCache;
 
   LaravelApiClient() {
-    this.baseUrl = this.globalService.global.value.laravelBaseUrl;
+    this.baseUrl = this.globalService.global.value.laravelBaseUrl ?? '';
     _httpClient = new dio.Dio();
   }
 

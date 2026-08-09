@@ -38,7 +38,7 @@ class FirebaseProvider extends GetxService {
   Future<void> verifyPhone(String smsCode) async {
     try {
       final fba.AuthCredential credential = fba.PhoneAuthProvider.credential(
-          verificationId: Get.find<AuthService>().user.value.verificationId,
+          verificationId: Get.find<AuthService>().user.value.verificationId ?? '',
           smsCode: smsCode);
       await fba.FirebaseAuth.instance.signInWithCredential(credential);
       Get.find<AuthService>().user.value.verifiedPhone = true;
@@ -52,7 +52,7 @@ class FirebaseProvider extends GetxService {
     Get.find<AuthService>().user.value.verificationId = '';
     final fba.PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {};
     final fba.PhoneCodeSent smsCodeSent =
-        (String verId, [int forceCodeResent]) {
+        (String verId, [int? forceCodeResent]) {
       Get.find<AuthService>().user.value.verificationId = verId;
       Get.showSnackbar(Ui.SuccessSnackBar(message: "OTP Sent Successfully"));
     };

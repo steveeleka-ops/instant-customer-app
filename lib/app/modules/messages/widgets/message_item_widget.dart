@@ -1,4 +1,4 @@
-﻿import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -11,8 +11,8 @@ import '../../../services/auth_service.dart';
 
 class MessageItemWidget extends StatelessWidget {
   MessageItemWidget({Key? key, this.message, this.onDismissed}) : super(key: key);
-  final Message message;
-  final ValueChanged<Message> onDismissed;
+  final Message? message;
+  final ValueChanged<Message>? onDismissed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class MessageItemWidget extends StatelessWidget {
         Get.toNamed(Routes.CHAT, arguments: this.message);
       },
       child: Dismissible(
-        key: Key(this.message.hashCode.toString()),
+        key: Key((this.message?.hashCode ?? 0).toString()),
         background: Container(
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -39,14 +39,15 @@ class MessageItemWidget extends StatelessWidget {
           ),
         ),
         onDismissed: (direction) {
-          onDismissed(this.message);
+          if (onDismissed != null && this.message != null) onDismissed!(this.message!);
           // Then show a snackbar.
-          Get.showSnackbar(Ui.SuccessSnackBar(message: "The conversation with %s is dismissed".trArgs([this.message.name])));
+          Get.showSnackbar(Ui.SuccessSnackBar(message: "The conversation with %s is dismissed".trArgs([(this.message?.name ?? "")])));
         },
         child: Container(
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          decoration: Ui.getBoxDecoration(color: this.message.readByUsers.contains(_authService.user.value.id) ? Get.theme.primaryColor : Get.theme.colorScheme.secondary.withOpacity(0.05)),
+          decoration: Ui.getBoxDecoration(
+              color: (this.message?.readByUsers ?? []).contains(_authService.user.value.id) ? Get.theme.primaryColor : Get.theme.colorScheme.secondary.withOpacity(0.05)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -61,7 +62,7 @@ class MessageItemWidget extends StatelessWidget {
                         height: 140,
                         width: double.infinity,
                         fit: BoxFit.cover,
-                        imageUrl: this.message.users.firstWhere((element) => element.id != _authService.user.value.id, orElse: () => User.fromJson({})).avatar.thumb,
+                        imageUrl: this.message?.users?.firstWhere((element) => element.id != _authService.user.value.id, orElse: () => User.fromJson({})).avatar?.thumb ?? '',
                         placeholder: (context, url) => Image.asset(
                           'assets/img/loading.gif',
                           fit: BoxFit.cover,
@@ -79,9 +80,6 @@ class MessageItemWidget extends StatelessWidget {
                     height: 12,
                     child: Container(
                       decoration: BoxDecoration(
-//                        color: widget.message.user.userState == UserState.available
-//                            ? Colors.green
-//                            : widget.message.user.userState == UserState.away ? Colors.orange : Colors.red,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -98,15 +96,15 @@ class MessageItemWidget extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            this.message.name,
+                            (this.message?.name ?? ""),
                             overflow: TextOverflow.fade,
                             softWrap: false,
                             style: Get.textTheme.bodyLarge
-                                ?.merge(TextStyle(fontWeight: this.message.readByUsers.contains(_authService.user.value.id) ? FontWeight.w400 : FontWeight.w800)),
+                                ?.merge(TextStyle(fontWeight: (this.message?.readByUsers ?? []).contains(_authService.user.value.id) ? FontWeight.w400 : FontWeight.w800)),
                           ),
                         ),
                         Text(
-                          DateFormat('HH:mm', Get.locale.toString()).format(DateTime.fromMillisecondsSinceEpoch(this.message.lastMessageTime)),
+                          DateFormat('HH:mm', Get.locale.toString()).format(DateTime.fromMillisecondsSinceEpoch((this.message?.lastMessageTime ?? 0))),
                           overflow: TextOverflow.fade,
                           softWrap: false,
                           style: Get.textTheme.bodySmall,
@@ -118,15 +116,15 @@ class MessageItemWidget extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            this.message.lastMessage,
+                            (this.message?.lastMessage ?? ""),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: Get.textTheme.bodySmall
-                                ?.merge(TextStyle(fontWeight: this.message.readByUsers.contains(_authService.user.value.id) ? FontWeight.w400 : FontWeight.w800)),
+                                ?.merge(TextStyle(fontWeight: (this.message?.readByUsers ?? []).contains(_authService.user.value.id) ? FontWeight.w400 : FontWeight.w800)),
                           ),
                         ),
                         Text(
-                          DateFormat('dd-MM-yyyy', Get.locale.toString()).format(DateTime.fromMillisecondsSinceEpoch(this.message.lastMessageTime)),
+                          DateFormat('dd-MM-yyyy', Get.locale.toString()).format(DateTime.fromMillisecondsSinceEpoch((this.message?.lastMessageTime ?? 0))),
                           overflow: TextOverflow.fade,
                           softWrap: false,
                           style: Get.textTheme.bodySmall,

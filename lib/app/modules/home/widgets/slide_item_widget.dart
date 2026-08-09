@@ -1,4 +1,4 @@
-﻿import 'dart:math' as math;
+import 'dart:math' as math;
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import '../../../models/slide_model.dart';
 import '../../../routes/app_routes.dart';
 
 class SlideItemWidget extends StatelessWidget {
-  final Slide slide;
+  final Slide? slide;
 
   const SlideItemWidget({
     this.slide,
@@ -79,3 +79,4 @@ class SlideItemWidget extends StatelessWidget {
     );
   }
 }
+

@@ -26,8 +26,8 @@ class Address extends Model {
     super.fromJson(json);
     description = stringFromJson(json, 'description');
     address = stringFromJson(json, 'address');
-    latitude = doubleFromJson(json, 'latitude', defaultValue: null);
-    longitude = doubleFromJson(json, 'longitude', defaultValue: null);
+    latitude = doubleFromJson(json, 'latitude');
+    longitude = doubleFromJson(json, 'longitude');
     isDefault = boolFromJson(json, 'default');
     userId = stringFromJson(json, 'user_id');
     zipCode = stringFromJson(json, 'zipcode');
@@ -35,7 +35,7 @@ class Address extends Model {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.id != null && this.id.length != 0) {
+    if (this.id != null && (this.id?.length ?? 0) != 0) {
       data['id'] = this.id;
     }
     data['description'] = this.description;
@@ -43,7 +43,7 @@ class Address extends Model {
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;
     data['default'] = this.isDefault;
-    if (this.userId != null && this.userId.length != 0) {
+    if (this.userId != null && (this.userId?.length ?? 0) != 0) {
       data['user_id'] = this.userId;
     }
     data['zipcode'] = this.zipCode;
@@ -55,12 +55,12 @@ class Address extends Model {
   }
 
   String get getDescription {
-    if (hasDescription()) return description;
-    return address.substring(0, min(address.length, 10));
+    if (hasDescription()) return description!;
+    return address?.substring(0, min(address?.length ?? 0, 10)) ?? '';
   }
 
   bool hasDescription() {
-    if (description != null && description.isNotEmpty) return true;
+    if (description != null && description!.isNotEmpty) return true;
     return false;
   }
 
@@ -68,7 +68,7 @@ class Address extends Model {
     if (this.isUnknown()) {
       return LatLng(40.4, 7);
     } else {
-      return LatLng(this.latitude, this.longitude);
+      return LatLng(this.latitude!, this.longitude!);
     }
   }
 }

@@ -8,7 +8,8 @@ class CustomTrace {
   late int lineNumber;
   late int columnNumber;
 
-  CustomTrace(this._trace, {this.message}) {
+  CustomTrace(this._trace, {String? message}) {
+    if (message != null) this.message = message;
     _parseTrace();
   }
 

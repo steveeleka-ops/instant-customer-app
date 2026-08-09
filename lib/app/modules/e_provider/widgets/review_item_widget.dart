@@ -1,4 +1,4 @@
-﻿import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,7 +6,7 @@ import '../../../../common/ui.dart';
 import '../../../models/review_model.dart';
 
 class ReviewItemWidget extends StatelessWidget {
-  final Review review;
+  final Review? review;
 
   ReviewItemWidget({Key? key, this.review}) : super(key: key);
 
@@ -85,3 +85,4 @@ class ReviewItemWidget extends StatelessWidget {
     );
   }
 }
+

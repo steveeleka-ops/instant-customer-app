@@ -13,7 +13,9 @@ class Option extends Model {
   String? description;
   var checked = false.obs;
 
-  Option({this.id, this.optionGroupId, this.eServiceId, this.name, this.price, this.image, this.description, this.checked});
+  Option({this.id, this.optionGroupId, this.eServiceId, this.name, this.price, this.image, this.description, RxBool? checked}) {
+    if (checked != null) this.checked = checked;
+  }
 
   Option.fromJson(Map<String, dynamic> json) {
     super.fromJson(json);
