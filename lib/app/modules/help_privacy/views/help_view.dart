@@ -20,13 +20,13 @@ class HelpView extends GetView<HelpController> {
               ? TabBarLoadingWidget()
               : TabBarWidget(
                   tag: 'help',
-                  initialSelectedId: controller.faqCategories.elementAt(0).id,
+                  initialSelectedId: controller.faqCategories.elementAt(0).id ?? '',
                   tabs: List.generate(controller.faqCategories.length, (index) {
                     var _category = controller.faqCategories.elementAt(index);
                     return ChipWidget(
                       tag: 'help',
-                      text: _category.name.tr,
-                      id: _category.id,
+                      text: (_category.name ?? '').tr,
+                      id: _category.id ?? '',
                       onSelected: (id) {
                         controller.getFaqs(categoryId: id);
                       },

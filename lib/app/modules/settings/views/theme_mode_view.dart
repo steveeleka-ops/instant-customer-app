@@ -12,7 +12,7 @@ class ThemeModeView extends GetView<ThemeModeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: hideAppBar
+        appBar: (hideAppBar ?? false)
             ? null
             : AppBar(
                 title: Text(

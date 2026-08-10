@@ -56,9 +56,9 @@ class CashController extends GetxController {
   }
 
   void refreshBookings() {
-    Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id;
+    Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id ?? '';
     if (Get.isRegistered<TabBarController>(tag: 'bookings')) {
-      Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id;
+      Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id ?? '';
     }
 /*    Get.toNamed(Routes.CONFIRMATION, arguments: {
       'title': "Payment Confirmation".tr,

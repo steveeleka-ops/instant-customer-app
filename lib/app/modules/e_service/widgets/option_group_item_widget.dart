@@ -41,12 +41,12 @@ class OptionGroupItemWidget extends GetWidget<EServiceController> {
           shrinkWrap: true,
           primary: false,
           padding: EdgeInsets.zero,
-          itemCount: _optionGroup.options.length,
+          itemCount: _optionGroup.options?.length ?? 0,
           separatorBuilder: (context, index) {
             return SizedBox(height: 6);
           },
           itemBuilder: (context, index) {
-            var _option = _optionGroup.options.elementAt(index);
+            var _option = _optionGroup.options!.elementAt(index);
             return OptionItemWidget(option: _option, optionGroup: _optionGroup);
           },
         ),

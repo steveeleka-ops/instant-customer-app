@@ -51,7 +51,7 @@ class FilterBottomSheetWidget extends GetView<app_search.SearchController> {
                             controller.toggleCategory(value, _category);
                           },
                           title: Text(
-                            _category.name,
+                            _category.name ?? '',
                             style: Get.textTheme.bodyLarge,
                             overflow: TextOverflow.fade,
                             softWrap: false,

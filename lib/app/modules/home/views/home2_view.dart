@@ -42,7 +42,7 @@ class Home2View extends GetView<HomeController> {
                 floating: true,
                 iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
                 title: Text(
-                  Get.find<SettingsService>().setting.value.appName,
+                  Get.find<SettingsService>().setting.value.appName ?? '',
                   style: Get.textTheme.titleLarge,
                 ),
                 centerTitle: true,

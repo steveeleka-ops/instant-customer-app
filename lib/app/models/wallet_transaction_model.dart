@@ -43,6 +43,6 @@ class WalletTransaction extends Model {
 
   String getDescription() {
     description = description ?? "";
-    return description.substring(description.length - min(description.length, 20), description.length);
+    return description!.substring(description!.length - min(description!.length, 20), description!.length);
   }
 }

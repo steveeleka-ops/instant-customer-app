@@ -152,9 +152,9 @@ class Booking extends Model {
     double taxValue = 0.0;
     taxes?.forEach((element) {
       if (element.type == 'percent') {
-        taxValue += (total * element.value / 100);
+        taxValue += (total * (element.value ?? 0) / 100);
       } else {
-        taxValue += element.value;
+        taxValue += (element.value ?? 0);
       }
     });
     return taxValue;

@@ -41,7 +41,7 @@ class WalletBalanceCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Ui.getPrice(
-                    wallet.balance,
+                    wallet?.balance,
                     style: Get.textTheme.displayMedium?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 28)),
                   ),
                   SizedBox(height: 20),
@@ -52,7 +52,7 @@ class WalletBalanceCard extends StatelessWidget {
                     maxLines: 2,
                   ),
                   Text(
-                    wallet.getId(),
+                    wallet?.getId() ?? '',
                     style: Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor)),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,

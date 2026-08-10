@@ -36,7 +36,7 @@ class RatingView extends GetView<RatingController> {
               Wrap(children: [
                 Text("Hi,".tr),
                 Text(
-                  Get.find<AuthService>().user.value.name,
+                  Get.find<AuthService>().user.value.name ?? '',
                   style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                 )
               ]),
@@ -63,7 +63,7 @@ class RatingView extends GetView<RatingController> {
                         height: 160,
                         width: double.infinity,
                         fit: BoxFit.cover,
-                        imageUrl: controller.booking.value.eService.firstImageUrl,
+                        imageUrl: controller.booking.value.eService?.firstImageUrl ?? '',
                         placeholder: (context, url) => Image.asset(
                           'assets/img/loading.gif',
                           fit: BoxFit.cover,
@@ -75,7 +75,7 @@ class RatingView extends GetView<RatingController> {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      controller.booking.value.eService.name,
+                      controller.booking.value.eService?.name ?? '',
                       style: Get.textTheme.titleLarge,
                       textAlign: TextAlign.center,
                     ),
@@ -95,7 +95,7 @@ class RatingView extends GetView<RatingController> {
                                 val.rate = (index + 1).toDouble();
                               });
                             },
-                            child: index < controller.review.value.rate
+                            child: index < (controller.review.value.rate ?? 0)
                                 ? Icon(Icons.star, size: 40, color: Color(0xFFFFB24D))
                                 : Icon(Icons.star_border, size: 40, color: Color(0xFFFFB24D)),
                           );

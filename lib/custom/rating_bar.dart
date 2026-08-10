@@ -202,19 +202,19 @@ class _RatingBarState extends State<RatingBar> {
   void initState() {
     super.initState();
     _glow = ValueNotifier(false);
-    _minRating = widget.minRating;
-    _maxRating = widget.maxRating ?? widget.itemCount.toDouble();
-    _rating = widget.initialRating;
+    _minRating = widget.minRating ?? 0;
+    _maxRating = widget.maxRating ?? (widget.itemCount ?? 5).toDouble();
+    _rating = widget.initialRating ?? 0.0;
   }
 
   @override
   void didUpdateWidget(RatingBar oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.initialRating != widget.initialRating) {
-      _rating = widget.initialRating;
+      _rating = widget.initialRating ?? 0.0;
     }
-    _minRating = widget.minRating;
-    _maxRating = widget.maxRating ?? widget.itemCount.toDouble();
+    _minRating = widget.minRating ?? 0;
+    _maxRating = widget.maxRating ?? (widget.itemCount ?? 5).toDouble();
   }
 
   @override
@@ -235,7 +235,7 @@ class _RatingBarState extends State<RatingBar> {
         textDirection: textDirection,
         direction: widget.direction,
         children: List.generate(
-          widget.itemCount,
+          widget.itemCount ?? 5,
               (index) => _buildRating(context, index),
         ),
       ),
@@ -245,7 +245,7 @@ class _RatingBarState extends State<RatingBar> {
   Widget _buildRating(BuildContext context, int index) {
     final ratingWidget = widget._ratingWidget;
     final item = widget._itemBuilder?.call(context, index);
-    final ratingOffset = widget.allowHalfRating ? 0.5 : 1.0;
+    final ratingOffset = (widget.allowHalfRating ?? false) ? 0.5 : 1.0;
 
     Widget _ratingWidget;
 
@@ -256,7 +256,7 @@ class _RatingBarState extends State<RatingBar> {
         unratedColor: widget.unratedColor ?? Theme.of(context).disabledColor,
         child: ratingWidget?.empty ?? item,
       );
-    } else if (index >= _rating - ratingOffset && widget.allowHalfRating) {
+    } else if (index >= _rating - ratingOffset && (widget.allowHalfRating ?? false)) {
       if (ratingWidget?.half == null) {
         _ratingWidget = _HalfRatingWidget(
           size: widget.itemSize,
@@ -275,9 +275,9 @@ class _RatingBarState extends State<RatingBar> {
               transform: Matrix4.identity()..scale(-1.0, 1, 1),
               alignment: Alignment.center,
               transformHitTests: false,
-              child: ratingWidget.half,
+              child: ratingWidget?.half,
             )
-                : ratingWidget.half,
+                : ratingWidget?.half,
           ),
         );
       }
@@ -294,7 +294,7 @@ class _RatingBarState extends State<RatingBar> {
     }
 
     return IgnorePointer(
-      ignoring: widget.ignoreGestures,
+      ignoring: widget.ignoreGestures ?? false,
       child: GestureDetector(
         onTapDown: (details) {
           double value;
@@ -302,12 +302,12 @@ class _RatingBarState extends State<RatingBar> {
             value = 0;
           } else {
             final tappedPosition = details.localPosition.dx;
-            final tappedOnFirstHalf = tappedPosition <= widget.itemSize / 2;
+            final tappedOnFirstHalf = tappedPosition <= (widget.itemSize ?? 10.0) / 2;
             value = index +
-                (tappedOnFirstHalf && widget.allowHalfRating ? 0.5 : 1.0);
+                (tappedOnFirstHalf && (widget.allowHalfRating ?? false) ? 0.5 : 1.0);
           }
 
-          value = math.max(value, widget.minRating);
+          value = math.max(value, widget.minRating ?? 0);
           widget.onRatingUpdate(value);
           _rating = value;
           setState(() {});
@@ -319,11 +319,11 @@ class _RatingBarState extends State<RatingBar> {
         onVerticalDragEnd: _isHorizontal ? null : _onDragEnd,
         onVerticalDragUpdate: _isHorizontal ? null : _onDragUpdate,
         child: Padding(
-          padding: widget.itemPadding,
+          padding: widget.itemPadding ?? EdgeInsets.zero,
           child: ValueListenableBuilder<bool>(
             valueListenable: _glow,
             builder: (context, glow, child) {
-              if (glow && widget.glow) {
+              if (glow && (widget.glow ?? true)) {
                 final glowColor =
                     widget.glowColor ?? Theme.of(context).colorScheme.secondary;
                 return DecoratedBox(
@@ -345,7 +345,7 @@ class _RatingBarState extends State<RatingBar> {
                   child: child,
                 );
               }
-              return child;
+              return child ?? SizedBox.shrink();
             },
             child: _ratingWidget,
           ),
@@ -357,30 +357,30 @@ class _RatingBarState extends State<RatingBar> {
   bool get _isHorizontal => widget.direction == Axis.horizontal;
 
   void _onDragUpdate(DragUpdateDetails dragDetails) {
-    if (!widget.tapOnlyMode) {
+    if (!(widget.tapOnlyMode ?? false)) {
       final box = context.findRenderObject() as RenderBox;
       if (box == null) return;
 
       final _pos = box.globalToLocal(dragDetails.globalPosition);
       double i;
       if (widget.direction == Axis.horizontal) {
-        i = _pos.dx / (widget.itemSize + widget.itemPadding.horizontal);
+        i = _pos.dx / ((widget.itemSize ?? 10.0) + (widget.itemPadding ?? EdgeInsets.zero).horizontal);
       } else {
-        i = _pos.dy / (widget.itemSize + widget.itemPadding.vertical);
+        i = _pos.dy / ((widget.itemSize ?? 10.0) + (widget.itemPadding ?? EdgeInsets.zero).vertical);
       }
-      var currentRating = widget.allowHalfRating ? i : i.round().toDouble();
-      if (currentRating > widget.itemCount) {
-        currentRating = widget.itemCount.toDouble();
+      var currentRating = (widget.allowHalfRating ?? false) ? i : i.round().toDouble();
+      if (currentRating > (widget.itemCount ?? 5)) {
+        currentRating = (widget.itemCount ?? 5).toDouble();
       }
       if (currentRating < 0) {
         currentRating = 0.0;
       }
       if (_isRTL && widget.direction == Axis.horizontal) {
-        currentRating = widget.itemCount - currentRating;
+        currentRating = (widget.itemCount ?? 5) - currentRating;
       }
 
       _rating = currentRating.clamp(_minRating, _maxRating);
-      if (widget.updateOnDrag) widget.onRatingUpdate(iconRating);
+      if (widget.updateOnDrag ?? false) widget.onRatingUpdate(iconRating);
       setState(() {});
     }
   }
@@ -416,7 +416,7 @@ class _HalfRatingWidget extends StatelessWidget {
     return SizedBox(
       height: size,
       width: size,
-      child: enableMask
+      child: (enableMask ?? false)
           ? Stack(
         fit: StackFit.expand,
         children: [
@@ -451,7 +451,7 @@ class _HalfClipper extends CustomClipper<Rect> {
   final bool? rtlMode;
 
   @override
-  Rect getClip(Size size) => rtlMode
+  Rect getClip(Size size) => (rtlMode ?? false)
       ? Rect.fromLTRB(
     size.width / 2,
     0,
@@ -488,10 +488,10 @@ class _NoRatingWidget extends StatelessWidget {
       height: size,
       width: size,
       child: FittedBox(
-        child: enableMask
+        child: (enableMask ?? false)
             ? ColorFiltered(
           colorFilter: ColorFilter.mode(
-            unratedColor,
+            unratedColor ?? Colors.grey,
             BlendMode.srcIn,
           ),
           child: child,
@@ -501,3 +501,5 @@ class _NoRatingWidget extends StatelessWidget {
     );
   }
 }
+
+

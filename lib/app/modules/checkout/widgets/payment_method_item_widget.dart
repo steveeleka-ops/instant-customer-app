@@ -32,21 +32,21 @@ class PaymentMethodItemWidget extends GetWidget<CheckoutController> {
               value: _paymentMethod,
               groupValue: controller.selectedPaymentMethod.value,
               onChanged: (PaymentMethod value) {
-                if (value.wallet == null || value.wallet.balance >= controller.booking.value.getTotal()) {
+                if (value.wallet == null || (value.wallet?.balance ?? 0) >= controller.booking.value.getTotal()) {
                   controller.selectPaymentMethod(value);
                 }
               },
-              title: Text(_paymentMethod.name, style: controller.getTitleTheme(_paymentMethod)).paddingOnly(bottom: 5),
+              title: Text(_paymentMethod.name ?? '', style: controller.getTitleTheme(_paymentMethod)).paddingOnly(bottom: 5),
               subtitle: _paymentMethod.wallet == null
-                  ? Text(_paymentMethod.description, style: controller.getSubTitleTheme(_paymentMethod))
-                  : Ui.getPrice(double.parse(_paymentMethod.description), style: controller.getSubTitleTheme(_paymentMethod)),
+                  ? Text(_paymentMethod.description ?? '', style: controller.getSubTitleTheme(_paymentMethod))
+                  : Ui.getPrice(double.tryParse(_paymentMethod.description ?? '') ?? 0, style: controller.getSubTitleTheme(_paymentMethod)),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 child: CachedNetworkImage(
                   height: 60,
                   width: 60,
                   fit: BoxFit.cover,
-                  imageUrl: _paymentMethod.logo.thumb,
+                  imageUrl: _paymentMethod.logo?.thumb ?? '',
                   placeholder: (context, url) => Image.asset(
                     'assets/img/loading.gif',
                     fit: BoxFit.cover,

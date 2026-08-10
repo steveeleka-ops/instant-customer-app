@@ -152,7 +152,7 @@ class MockApiClient {
     if (response.statusCode == 200) {
       List<EService> _services = response.data['data'].map<EService>((obj) => EService.fromJson(obj)).toList();
       _services = _services.where((_service) {
-        return _service.eProvider?.available;
+        return _service.eProvider?.available ?? false;
       }).toList();
       return _services;
     } else {
@@ -165,7 +165,7 @@ class MockApiClient {
     if (response.statusCode == 200) {
       List<EService> _services = response.data['data'].map<EService>((obj) => EService.fromJson(obj)).toList();
       _services.sort((s1, s2) {
-        return s2.rate.compareTo(s1.rate);
+        return (s2.rate ?? 0).compareTo(s1.rate ?? 0);
       });
       return _services;
     } else {
@@ -214,7 +214,7 @@ class MockApiClient {
     if (response.statusCode == 200) {
       List<EService> _services = response.data['data'].map<EService>((obj) => EService.fromJson(obj)).toList();
       _services.sort((s1, s2) {
-        return s2.rate.compareTo(s1.rate);
+        return (s2.rate ?? 0).compareTo(s1.rate ?? 0);
       });
       return _services;
     } else {
@@ -227,7 +227,7 @@ class MockApiClient {
     if (response.statusCode == 200) {
       List<EService> _services = response.data['data'].map<EService>((obj) => EService.fromJson(obj)).toList();
       _services = _services.where((_service) {
-        return _service.eProvider?.available;
+        return _service.eProvider?.available ?? false;
       }).toList();
       return _services;
     } else {
@@ -308,3 +308,4 @@ class MockApiClient {
     }
   }
 }
+

@@ -33,7 +33,7 @@ class ServicesListItemWidget extends StatelessWidget {
             Column(
               children: [
                 Hero(
-                  tag: 'e_provider_services_list_item' + _service.id,
+                  tag: 'e_provider_services_list_item' + (_service.id ?? ''),
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                     child: CachedNetworkImage(
@@ -123,7 +123,7 @@ class ServicesListItemWidget extends StatelessWidget {
                                     color: Get.theme.colorScheme.secondary,
                                     size: 18,
                                   ),
-                                  Text(_service.rate.toString(), style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                  Text((_service.rate ?? 0).toString(), style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
                                 ],
                               ),
                               backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),
@@ -131,7 +131,7 @@ class ServicesListItemWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "From (%s)".trArgs([_service.totalReviews.toString()]),
+                            "From (%s)".trArgs([(_service.totalReviews ?? 0).toString()]),
                             style: Get.textTheme.bodyLarge,
                           ),
                         ],
@@ -181,10 +181,10 @@ class ServicesListItemWidget extends StatelessWidget {
                   Divider(height: 8, thickness: 1),
                   Wrap(
                     spacing: 5,
-                    children: List.generate(_service.categories.length, (index) {
+                    children: List.generate(_service.categories?.length ?? 0, (index) {
                       return Container(
                         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        child: Text(_service.categories.elementAt(index).name, style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 10))),
+                        child: Text(_service.categories!.elementAt(index).name ?? '', style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 10))),
                         decoration: BoxDecoration(
                             color: Get.theme.primaryColor,
                             border: Border.all(

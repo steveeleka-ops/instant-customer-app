@@ -91,7 +91,7 @@ class BookingView extends GetView<BookingController> {
                           title: Text("Booking Details".tr,
                               style: Get.textTheme.titleSmall),
                           actions: [
-                            Text("#" + controller.booking.value.id,
+                            Text("#" + (controller.booking.value.id ?? ''),
                                 style: Get.textTheme.titleSmall)
                           ],
                           content: Column(
@@ -155,7 +155,7 @@ class BookingView extends GetView<BookingController> {
                                       ],
                                     ),
                                     hasDivider: true),
-                              if (controller.booking.value.recurrence != null && controller.booking.value.recurrence.isNotEmpty)
+                              if (controller.booking.value.recurrence != null && (controller.booking.value.recurrence?.isNotEmpty ?? false))
                                 BookingRowWidget(
                                   description: "Recurrence".tr,
                                   child: Row(
@@ -173,7 +173,7 @@ class BookingView extends GetView<BookingController> {
                                             Icon(Icons.repeat, size: 14, color: Colors.blue),
                                             SizedBox(width: 4),
                                             Text(
-                                              controller.booking.value.recurrence[0].toUpperCase() + controller.booking.value.recurrence.substring(1),
+                                              (controller.booking.value.recurrence ?? '')[0].toUpperCase() + (controller.booking.value.recurrence ?? '').substring(1),
                                               style: TextStyle(color: Colors.blue, fontSize: 12, fontWeight: FontWeight.w600),
                                             ),
                                           ],
@@ -229,7 +229,7 @@ class BookingView extends GetView<BookingController> {
                                             DateFormat('d, MMMM y  HH:mm',
                                                 Get.locale.toString())
                                                 .format(controller
-                                                .booking.value.bookingAt),
+                                                .booking.value.bookingAt ?? DateTime.now()),
                                             style: Get.textTheme.bodySmall,
                                             textAlign: TextAlign.end,
                                           )),
@@ -247,7 +247,7 @@ class BookingView extends GetView<BookingController> {
                                             DateFormat('d, MMMM y  HH:mm',
                                                 Get.locale.toString())
                                                 .format(controller
-                                                .booking.value.startAt),
+                                                .booking.value.startAt ?? DateTime.now()),
                                             style: Get.textTheme.bodySmall,
                                             textAlign: TextAlign.end,
                                           )),
@@ -261,7 +261,7 @@ class BookingView extends GetView<BookingController> {
                                           DateFormat('d, MMMM y  HH:mm',
                                               Get.locale.toString())
                                               .format(controller
-                                              .booking.value.endsAt),
+                                              .booking.value.endsAt ?? DateTime.now()),
                                           style: Get.textTheme.bodySmall,
                                           textAlign: TextAlign.end,
                                         )),
@@ -284,20 +284,20 @@ class BookingView extends GetView<BookingController> {
                                   descriptionFlex: 2,
                                   valueFlex: 1,
                                   description:
-                                  controller.booking.value.eService.name,
+                                  controller.booking.value.eService?.name,
                                   child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Ui.getPrice(
                                         controller
-                                            .booking.value.eService.getPrice,
+                                            .booking.value.eService?.getPrice,
                                         style: Get.textTheme.titleSmall),
                                   ),
                                   hasDivider: true),
                               Column(
                                 children: List.generate(
-                                    controller.booking.value.options.length,
+                                    controller.booking.value.options?.length ?? 0,
                                         (index) {
-                                      var _option = controller.booking.value.options
+                                      var _option = controller.booking.value.options!
                                           .elementAt(index);
                                       return BookingRowWidget(
                                           descriptionFlex: 2,
@@ -308,13 +308,13 @@ class BookingView extends GetView<BookingController> {
                                             child: Ui.getPrice(_option.price,
                                                 style: Get.textTheme.bodyLarge),
                                           ),
-                                          hasDivider: (controller.booking.value
-                                              .options.length -
+                                          hasDivider: ((controller.booking.value
+                                              .options?.length ?? 0) -
                                               1) ==
                                               index);
                                     }),
                               ),
-                              if (controller.booking.value.eService.priceUnit ==
+                              if (controller.booking.value.eService?.priceUnit ==
                                   'fixed')
                                 BookingRowWidget(
                                     description: "Quantity".tr,
@@ -322,18 +322,18 @@ class BookingView extends GetView<BookingController> {
                                       alignment: Alignment.centerRight,
                                       child: Text(
                                         "x" +
-                                            controller.booking.value.quantity.toString() +
+                                            (controller.booking.value.quantity?.toString() ?? '0') +
                                             " " +
-                                            controller.booking.value.eService.quantityUnit.tr,
+                                            (controller.booking.value.eService?.quantityUnit ?? '').tr,
                                         style: Get.textTheme.bodyMedium,
                                       ),
                                     ),
                                     hasDivider: true),
                               Column(
                                 children: List.generate(
-                                    controller.booking.value.taxes.length,
+                                    controller.booking.value.taxes?.length ?? 0,
                                         (index) {
-                                      var _tax = controller.booking.value.taxes
+                                      var _tax = controller.booking.value.taxes!
                                           .elementAt(index);
                                       return BookingRowWidget(
                                           description: _tax.name,
@@ -347,8 +347,8 @@ class BookingView extends GetView<BookingController> {
                                               style: Get.textTheme.bodyLarge,
                                             ),
                                           ),
-                                          hasDivider: (controller
-                                              .booking.value.taxes.length -
+                                          hasDivider: ((controller
+                                              .booking.value.taxes?.length ?? 0) -
                                               1) ==
                                               index);
                                     }),
@@ -391,13 +391,13 @@ class BookingView extends GetView<BookingController> {
                                               style: Get.textTheme.bodyLarge),
                                           Ui.getPrice(
                                               controller.booking.value.coupon
-                                                  .discount,
+                                                  ?.discount,
                                               style: Get.textTheme.bodyLarge,
                                               unit: controller
                                                   .booking
                                                   .value
                                                   .coupon
-                                                  .discountType ==
+                                                  ?.discountType ==
                                                   'percent'
                                                   ? "%"
                                                   : null),
@@ -505,7 +505,7 @@ class BookingView extends GetView<BookingController> {
                         overflow: TextOverflow.fade),
                     Text(
                         DateFormat('dd', Get.locale.toString())
-                            .format(_booking.value.bookingAt ?? ''),
+                            .format(_booking.value.bookingAt ?? DateTime.now()),
                         maxLines: 1,
                         style: Get.textTheme.displaySmall?.merge(
                           TextStyle(
@@ -517,7 +517,7 @@ class BookingView extends GetView<BookingController> {
                         overflow: TextOverflow.fade),
                     Text(
                         DateFormat('MMM', Get.locale.toString())
-                            .format(_booking.value.bookingAt ?? ''),
+                            .format(_booking.value.bookingAt ?? DateTime.now()),
                         maxLines: 1,
                         style: Get.textTheme.bodyMedium?.merge(
                           TextStyle(

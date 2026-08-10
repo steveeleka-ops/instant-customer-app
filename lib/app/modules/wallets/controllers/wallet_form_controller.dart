@@ -44,9 +44,9 @@ class WalletFormController extends GetxController {
 
   void createWalletForm() async {
     Get.focusScope.unfocus();
-    if (walletForm.currentState.validate()) {
+    if (walletForm.currentState?.validate() ?? false) {
       try {
-        walletForm.currentState.save();
+        walletForm.currentState?.save();
         Get.log(wallet.value.toString());
         await _paymentRepository.createWallet(wallet.value);
         await Get.offAndToNamed(Routes.WALLETS);
@@ -60,9 +60,9 @@ class WalletFormController extends GetxController {
 
   void updateWalletForm() async {
     Get.focusScope.unfocus();
-    if (walletForm.currentState.validate()) {
+    if (walletForm.currentState?.validate() ?? false) {
       try {
-        walletForm.currentState.save();
+        walletForm.currentState?.save();
         await _paymentRepository.updateWallet(wallet.value);
         Get.offAndToNamed(Routes.WALLETS);
       } catch (e) {

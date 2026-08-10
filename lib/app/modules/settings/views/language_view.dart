@@ -13,7 +13,7 @@ class LanguageView extends GetView<LanguageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: hideAppBar
+        appBar: (hideAppBar ?? false)
             ? null
             : AppBar(
                 title: Text(
@@ -41,7 +41,7 @@ class LanguageView extends GetView<LanguageController> {
                   var _lang = TranslationService.languages.elementAt(index);
                   return RadioListTile(
                     value: _lang,
-                    groupValue: Get.locale.toString(),
+                    groupValue: Get.locale?.toString() ?? 'en',
                     onChanged: (value) {
                       controller.updateLocale(value);
                     },

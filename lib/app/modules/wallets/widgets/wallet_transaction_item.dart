@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -20,7 +20,7 @@ class WalletTransactionItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          DateFormat('  d, MMMM y - HH:mm', Get.locale.toString()).format(_transaction.dateTime),
+          DateFormat('  d, MMMM y - HH:mm', Get.locale?.toString() ?? 'en').format(_transaction.dateTime ?? DateTime.now()),
           style: Get.textTheme.bodySmall,
         ),
         SizedBox(height: 5),
@@ -37,13 +37,13 @@ class WalletTransactionItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Text(
-                      _transaction.user.name,
+                      _transaction.user?.name ?? '',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
                       style: Get.textTheme.bodyMedium,
                     ),
                     Text(
-                      _transaction.description,
+                      _transaction.description ?? '',
                       style: Get.textTheme.bodySmall,
                     ),
                   ],

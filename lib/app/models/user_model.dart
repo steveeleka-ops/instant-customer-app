@@ -65,16 +65,16 @@ class User extends Model {
       data["device_token"] = deviceToken;
     }
     data["phone_number"] = phoneNumber;
-    if (verifiedPhone != null && verifiedPhone) {
+    if (verifiedPhone != null && (verifiedPhone ?? false)) {
       data["phone_verified_at"] = DateTime.now().toLocal().toString();
     }
     data["address"] = address;
     data["bio"] = bio;
-    if (this.avatar != null && Uuid.isUuid(avatar.id)) {
-      data['avatar'] = this.avatar.id;
+    if (this.avatar != null && Uuid.isUuid(avatar?.id)) {
+      data['avatar'] = this.avatar?.id;
     }
     if (avatar != null) {
-      data["media"] = [avatar.toJson()];
+      data["media"] = [avatar!.toJson()];
     }
     data['auth'] = this.auth;
     return data;
@@ -85,7 +85,7 @@ class User extends Model {
     map["id"] = id;
     map["email"] = email;
     map["name"] = name;
-    map["thumb"] = avatar.thumb;
+    map["thumb"] = avatar?.thumb;
     map["device_token"] = deviceToken;
     return map;
   }

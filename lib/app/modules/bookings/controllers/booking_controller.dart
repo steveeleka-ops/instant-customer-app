@@ -118,7 +118,7 @@ class BookingController extends GetxController {
     }
   }
   void initBookingAddress() {
-    mapController?.moveCamera(
+    mapController.moveCamera(
       CameraUpdate.newCameraPosition(
         CameraPosition(target: booking.value.address.getLatLng(), zoom: 12.4746),
       ),

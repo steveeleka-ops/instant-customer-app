@@ -39,7 +39,7 @@ class FeaturedCarouselWidget extends GetWidget<EProviderController> {
                   child: Column(
                     children: [
                       Hero(
-                        tag: 'featured_carousel' + _service.id,
+                        tag: 'featured_carousel' + (_service.id ?? ''),
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                           child: CachedNetworkImage(
@@ -75,7 +75,7 @@ class FeaturedCarouselWidget extends GetWidget<EProviderController> {
                               style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.hintColor)),
                             ),
                             Wrap(
-                              children: Ui.getStarsList(_service.rate),
+                              children: Ui.getStarsList(_service.rate ?? 0),
                             ),
                             SizedBox(height: 10),
                             Wrap(

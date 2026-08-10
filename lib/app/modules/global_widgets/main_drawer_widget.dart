@@ -105,11 +105,11 @@ class MainDrawerWidget extends StatelessWidget {
                     color: Theme.of(context).hintColor.withOpacity(0.1),
                   ),
                   accountName: Text(
-                    Get.find<AuthService>().user.value.name,
+                    Get.find<AuthService>().user.value.name ?? '',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   accountEmail: Text(
-                    Get.find<AuthService>().user.value.email,
+                    Get.find<AuthService>().user.value.email ?? '',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   currentAccountPicture: Stack(
@@ -124,7 +124,7 @@ class MainDrawerWidget extends StatelessWidget {
                             width: double.infinity,
                             fit: BoxFit.cover,
                             imageUrl:
-                                Get.find<AuthService>().user.value.avatar.thumb,
+                                Get.find<AuthService>().user.value.avatar?.thumb ?? '',
                             placeholder: (context, url) => Image.asset(
                               'assets/img/loading.gif',
                               fit: BoxFit.cover,

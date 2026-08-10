@@ -73,16 +73,19 @@ class CheckoutController extends GetxController {
     }
   }
 
-  TextStyle getTitleTheme(PaymentMethod paymentMethod) {
+  TextStyle? getTitleTheme(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
       return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor));
-    } else if (paymentMethod.wallet != null && paymentMethod.wallet.balance < booking.value.getTotal()) {
-      return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.focusColor));
+    } else {
+      final wallet = paymentMethod.wallet;
+      if (wallet != null && wallet.balance < booking.value.getTotal()) {
+        return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.focusColor));
+      }
     }
     return Get.textTheme.bodyMedium;
   }
 
-  TextStyle getSubTitleTheme(PaymentMethod paymentMethod) {
+  TextStyle? getSubTitleTheme(PaymentMethod paymentMethod) {
     if (paymentMethod == selectedPaymentMethod.value) {
       return Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.primaryColor));
     }

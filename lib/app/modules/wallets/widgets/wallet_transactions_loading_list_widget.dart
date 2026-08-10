@@ -18,7 +18,7 @@ class WalletTransactionsLoadingListWidget extends StatelessWidget {
         itemBuilder: (_, index) {
           return Shimmer.fromColors(
             baseColor: Colors.grey.withOpacity(0.1),
-            highlightColor: Colors.grey[200].withOpacity(0.1),
+            highlightColor: (Colors.grey[200] ?? Colors.grey).withOpacity(0.1),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

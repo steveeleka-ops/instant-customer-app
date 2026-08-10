@@ -32,7 +32,7 @@ class Category extends Model {
     data['id'] = this.id;
     data['name'] = this.name;
     data['description'] = this.description;
-    data['color'] = '#${this.color.value.toRadixString(16)}';
+    data['color'] = '#${this.color?.value.toRadixString(16) ?? '000000'}';
     return data;
   }
 

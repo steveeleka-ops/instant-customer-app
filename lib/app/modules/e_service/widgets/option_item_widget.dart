@@ -44,7 +44,7 @@ class OptionItemWidget extends GetWidget<EServiceController> {
                       height: 54,
                       width: 54,
                       fit: BoxFit.cover,
-                      imageUrl: _option.image.thumb,
+                      imageUrl: _option.image?.thumb ?? '',
                       placeholder: (context, url) => Image.asset(
                         'assets/img/loading.gif',
                         fit: BoxFit.cover,
@@ -78,8 +78,8 @@ class OptionItemWidget extends GetWidget<EServiceController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(_option.name, style: controller.getTitleTheme(_option)).paddingOnly(bottom: 5),
-                          Ui.applyHtml(_option.description, style: controller.getSubTitleTheme(_option)),
+                          Text(_option.name ?? '', style: controller.getTitleTheme(_option)).paddingOnly(bottom: 5),
+                          Ui.applyHtml(_option.description ?? '', style: controller.getSubTitleTheme(_option)),
                         ],
                       ),
                     ),

@@ -24,7 +24,7 @@ class Message extends Model {
   List<User>? users;
 
   Message(this.users, {this.id = null, this.name = ''}) {
-    visibleToUsers = this.users.map((user) => user.id).toList();
+    visibleToUsers = this.users?.map((user) => user.id).toList() ?? [];
     readByUsers = [];
   }
 
@@ -59,8 +59,8 @@ class Message extends Model {
     var map = new Map<String, dynamic>();
     map["id"] = id;
     map["name"] = name;
-    map["users"] = users.map((element) => element.toRestrictMap()).toSet().toList();
-    map["visible_to_users"] = users.map((element) => element.id).toSet().toList();
+    map["users"] = users?.map((element) => element.toRestrictMap()).toSet().toList() ?? [];
+    map["visible_to_users"] = users?.map((element) => element.id).toSet().toList() ?? [];
     map["read_by_users"] = readByUsers;
     map["message"] = lastMessage;
     map["time"] = lastMessageTime;

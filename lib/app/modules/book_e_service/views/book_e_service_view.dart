@@ -115,7 +115,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
             ),
             Obx(() {
               return TextFieldWidget(
-                onChanged: (input) => controller.booking.value.coupon.code = input,
+                onChanged: (input) { if (controller.booking.value.coupon != null) controller.booking.value.coupon!.code = input; },
                 hintText: "COUPON01".tr,
                 labelText: "Coupon Code".tr,
                 errorText: controller.getValidationMessage(),
@@ -145,7 +145,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                     value: false,
                     groupValue: controller.scheduled.value,
                     onChanged: (value) {
-                      if(controller.booking.value.eService.eProvider?.available) controller.toggleScheduled(value);
+                      if(controller.booking.value.eService?.eProvider?.available ?? false) controller.toggleScheduled(value);
                       else Get.showSnackbar(Ui.ErrorSnackBar(title: 'Oh No!',message: "The provider is not available right now. Therefore, you can schedule an order for later"));
                     },
                     title: Text("Book Now".tr, style: controller.getTextTheme(!controller.scheduled.value)).paddingSymmetric(vertical: 20),
@@ -210,7 +210,7 @@ class BookEServiceView extends GetView<BookEServiceController> {
                               DropdownMenuItem(value: 'monthly', child: Text("Monthly".tr)),
                             ],
                             onChanged: (val) {
-                              controller.toggleRecurrence(val);
+                              if (val != null) controller.toggleRecurrence(val);
                             },
                           ),
                         ),

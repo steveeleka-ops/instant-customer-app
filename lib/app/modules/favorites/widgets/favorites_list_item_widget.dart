@@ -23,7 +23,7 @@ class FavoritesListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(Routes.E_SERVICE, arguments: {'eService': _favorite.eService, 'heroTag': 'favorite_list_item_carousel' + _favorite.id});
+        Get.toNamed(Routes.E_SERVICE, arguments: {'eService': _favorite.eService, 'heroTag': 'favorite_list_item_carousel' + (_favorite.id ?? '')});
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -35,14 +35,14 @@ class FavoritesListItemWidget extends StatelessWidget {
             Column(
               children: [
                 Hero(
-                  tag: 'favorite_list_item_carousel' + _favorite.id + _favorite.eService.id,
+                  tag: 'favorite_list_item_carousel' + (_favorite.id ?? '') + (_favorite.eService?.id ?? ''),
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                     child: CachedNetworkImage(
                       height: 80,
                       width: 80,
                       fit: BoxFit.cover,
-                      imageUrl: _favorite.eService.firstImageUrl,
+                      imageUrl: _favorite.eService?.firstImageUrl ?? '',
                       placeholder: (context, url) => Image.asset(
                         'assets/img/loading.gif',
                         fit: BoxFit.cover,
@@ -53,7 +53,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (_favorite.eService.eProvider?.available)
+                if (_favorite.eService?.eProvider?.available ?? false)
                   Container(
                     width: 80,
                     child: Text("Available".tr,
@@ -70,7 +70,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                   ),
-                if (!_favorite.eService.eProvider?.available)
+                if (!(_favorite.eService?.eProvider?.available ?? false))
                   Container(
                     width: 80,
                     child: Text("Offline".tr,
@@ -125,7 +125,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                                     color: Get.theme.colorScheme.secondary,
                                     size: 18,
                                   ),
-                                  Text(_favorite.eService.rate.toString(), style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                  Text((_favorite.eService?.rate ?? 0).toString(), style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
                                 ],
                               ),
                               backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),
@@ -133,12 +133,12 @@ class FavoritesListItemWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "From (%s)".trArgs([_favorite.eService.totalReviews.toString()]),
+                            "From (%s)".trArgs([(_favorite.eService?.totalReviews ?? 0).toString()]),
                             style: Get.textTheme.bodyLarge,
                           ),
                         ],
                       ),
-                      Ui.getPrice(_favorite.eService.price, style: Get.textTheme.titleLarge),
+                      Ui.getPrice(_favorite.eService?.price, style: Get.textTheme.titleLarge),
                     ],
                   ),
                   Row(
@@ -163,10 +163,10 @@ class FavoritesListItemWidget extends StatelessWidget {
                   Divider(height: 8, thickness: 1),
                   Wrap(
                     spacing: 5,
-                    children: List.generate(_favorite.options.length, (index) {
+                    children: List.generate(_favorite.options?.length ?? 0, (index) {
                       return Container(
                         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        child: Text(_favorite.options.elementAt(index).name, style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 10))),
+                        child: Text(_favorite.options?.elementAt(index).name ?? '', style: Get.textTheme.bodySmall?.merge(TextStyle(fontSize: 10))),
                         decoration: BoxDecoration(
                             color: Get.theme.primaryColor,
                             border: Border.all(

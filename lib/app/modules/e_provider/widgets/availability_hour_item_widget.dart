@@ -21,7 +21,7 @@ class AvailabilityHourItemWidget extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-                  Text(_availabilityHour.key.tr.capitalizeFirst).paddingSymmetric(vertical: 5),
+                  Text(_availabilityHour.key.tr.capitalizeFirst ?? '').paddingSymmetric(vertical: 5),
                 ] +
                 List.generate(_data.length, (index) {
                   return Text(

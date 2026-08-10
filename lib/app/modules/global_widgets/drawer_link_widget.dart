@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class DrawerLinkWidget extends StatelessWidget {
   final IconData? icon;
   final String? text;
-  final ValueChanged<void> onTap;
+  final ValueChanged<void>? onTap;
   const DrawerLinkWidget({
     Key? key,
     this.icon,
@@ -37,7 +37,7 @@ class DrawerLinkWidget extends StatelessWidget {
               color: Get.theme.focusColor.withOpacity(0.2),
             ),
             Expanded(
-              child: Text(text.tr, style: Get.textTheme.bodyMedium?.merge(TextStyle(fontSize: 14))),
+              child: Text((text ?? '').tr, style: Get.textTheme.bodyMedium?.merge(TextStyle(fontSize: 14))),
             ),
           ],
         ),

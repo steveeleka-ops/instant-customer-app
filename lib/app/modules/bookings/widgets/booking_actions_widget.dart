@@ -23,7 +23,7 @@ class BookingActionsWidget extends GetView<BookingController> {
       const int pendingApproval = 55;
 
       // -- Pending Approval: customer must Approve or Deny ? check FIRST -------
-      if (!_booking.value.cancel && statusOrder == pendingApproval) {
+      if (!(_booking.value.cancel ?? false) && statusOrder == pendingApproval) {
           return Container(
             padding: EdgeInsets.only(top: 16, bottom: 16 + bottomPadding, left: 20, right: 20),
             decoration: BoxDecoration(
@@ -127,7 +127,7 @@ class BookingActionsWidget extends GetView<BookingController> {
 
       // Show cancel button if: not already cancelled AND not done/beyond
       final bool canCancel =
-          !_booking.value.cancel && statusOrder > 0 && statusOrder < done;
+          !(_booking.value.cancel ?? false) && statusOrder > 0 && statusOrder < done;
 
       // cancel = provider is already on the way or in progress
       final bool isLateCancel = statusOrder >= onTheWay;
@@ -405,7 +405,7 @@ class LateCancelDialog extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       Get.back();
-                      onConfirm();
+                      onConfirm?.call();
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.red,

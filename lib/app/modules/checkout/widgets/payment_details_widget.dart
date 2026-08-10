@@ -34,7 +34,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   height: 80,
                   width: 80,
                   fit: BoxFit.cover,
-                  imageUrl: _booking.eService.firstImageUrl,
+                  imageUrl: _booking.eService?.firstImageUrl ?? '',
                   placeholder: (context, url) => Image.asset(
                     'assets/img/loading.gif',
                     fit: BoxFit.cover,
@@ -56,7 +56,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      _booking.eService.name ?? '',
+                      _booking.eService?.name ?? '',
                       style: Get.textTheme.bodyMedium,
                       maxLines: 3,
                       // textAlign: TextAlign.end,
@@ -90,7 +90,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                           Text(' - ', style: Get.textTheme.bodyLarge),
                           Ui.getPrice(_booking.coupon?.discount ?? 0,
                               style: Get.textTheme.bodyLarge,
-                              unit: _booking.coupon.discountType == 'percent'
+                              unit: _booking.coupon?.discountType == 'percent'
                                   ? "%"
                                   : null),
                         ],

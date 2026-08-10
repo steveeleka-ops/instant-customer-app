@@ -28,7 +28,7 @@ class EProviderItemWidget extends StatelessWidget {
                 height: 65,
                 width: 65,
                 fit: BoxFit.cover,
-                imageUrl: provider.firstImageThumb,
+                imageUrl: provider?.firstImageThumb ?? '',
                 placeholder: (context, url) => Image.asset(
                   'assets/img/loading.gif',
                   fit: BoxFit.cover,
@@ -44,7 +44,7 @@ class EProviderItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    provider.name,
+                    provider?.name ?? '',
                     overflow: TextOverflow.fade,
                     softWrap: false,
                     maxLines: 2,
@@ -65,7 +65,7 @@ class EProviderItemWidget extends StatelessWidget {
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(provider.rate.toString(), style: Theme.of(context).textTheme.bodyLarge?.merge(TextStyle(color: Theme.of(context).primaryColor))),
+                    Text((provider?.rate ?? 0).toString(), style: Theme.of(context).textTheme.bodyLarge?.merge(TextStyle(color: Theme.of(context).primaryColor))),
                     Icon(
                       Icons.star_border,
                       color: Theme.of(context).primaryColor,

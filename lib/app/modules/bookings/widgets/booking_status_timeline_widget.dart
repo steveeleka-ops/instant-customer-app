@@ -46,7 +46,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
   ];
 
   Color get _currentColor {
-    if (booking.cancel) return Colors.red;
+    if (booking.cancel ?? false) return Colors.red;
     final order = booking.status?.order ?? 0;
     if (order >= 50) return Colors.green;
     if (order >= 40) return Colors.orange;
@@ -56,7 +56,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
   }
 
   Color _getStepColor(int stepOrder) {
-    if (booking.cancel) return Colors.grey;
+    if (booking.cancel ?? false) return Colors.grey;
     final currentOrder = booking.status?.order ?? 0;
     if (currentOrder < stepOrder) return Colors.grey.shade300;
     if (currentOrder >= 50) return Colors.green;
@@ -68,14 +68,17 @@ class BookingStatusTimelineWidget extends StatelessWidget {
 
   String? _getTimestamp(int stepOrder) {
     try {
-      if (stepOrder == 1 && booking.created_at != null) {
-        return DateFormat("MMM d 'at' HH:mm").format(booking.created_at);
+      final createdAt = booking.created_at;
+      final startAt = booking.startAt;
+      final endsAt = booking.endsAt;
+      if (stepOrder == 1 && createdAt != null) {
+        return DateFormat("MMM d 'at' HH:mm").format(createdAt);
       }
-      if (stepOrder == 40 && booking.startAt != null) {
-        return DateFormat("MMM d 'at' HH:mm").format(booking.startAt);
+      if (stepOrder == 40 && startAt != null) {
+        return DateFormat("MMM d 'at' HH:mm").format(startAt);
       }
-      if (stepOrder == 50 && booking.endsAt != null) {
-        return DateFormat("MMM d 'at' HH:mm").format(booking.endsAt);
+      if (stepOrder == 50 && endsAt != null) {
+        return DateFormat("MMM d 'at' HH:mm").format(endsAt);
       }
     } catch (_) {}
     return null;
@@ -83,7 +86,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentOrder = booking.cancel ? -1 : (booking.status?.order ?? 0);
+    final currentOrder = (booking.cancel ?? false) ? -1 : (booking.status?.order ?? 0);
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -113,7 +116,7 @@ class BookingStatusTimelineWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
-                  booking.cancel
+                  (booking.cancel ?? false)
                       ? "Cancelled".tr
                       : (booking.status?.status ?? ''),
                   style: TextStyle(
@@ -137,11 +140,11 @@ class BookingStatusTimelineWidget extends StatelessWidget {
     for (int i = 0; i < _steps.length; i++) {
       final step = _steps[i];
       final stepOrder = step['order'] as int;
-      final bool isCompleted = !booking.cancel && currentOrder >= stepOrder;
-      final bool isCurrent = !booking.cancel && currentOrder == stepOrder;
+      final bool isCompleted = !(booking.cancel ?? false) && currentOrder >= stepOrder;
+      final bool isCurrent = !(booking.cancel ?? false) && currentOrder == stepOrder;
       final bool isLast = i == _steps.length - 1;
       final Color stepColor = _getStepColor(stepOrder);
-      final String timestamp = _getTimestamp(stepOrder);
+      final String? timestamp = _getTimestamp(stepOrder);
 
       widgets.add(
         IntrinsicHeight(

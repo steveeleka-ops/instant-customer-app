@@ -9,21 +9,21 @@ import 'favorites_list_item_widget.dart';
 class FavoritesListWidget extends StatelessWidget {
   final List<Favorite>? favorites;
 
-  FavoritesListWidget({Key? key, List<Favorite> this.favorites}) : super(key: key);
+  FavoritesListWidget({Key? key, List<Favorite>? this.favorites}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (this.favorites.isEmpty) {
+      if (favorites?.isEmpty ?? true) {
         return CircularLoadingWidget(height: 300);
       } else {
         return ListView.builder(
           padding: EdgeInsets.only(bottom: 10, top: 10),
           primary: false,
           shrinkWrap: true,
-          itemCount: favorites.length,
+          itemCount: favorites!.length,
           itemBuilder: ((_, index) {
-            var _favorite = favorites.elementAt(index);
+            var _favorite = favorites!.elementAt(index);
             return FavoritesListItemWidget(favorite: _favorite);
           }),
         );

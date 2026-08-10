@@ -34,9 +34,9 @@ class FlutterWaveController extends GetxController {
   void showConfirmationIfSuccess() {
     final _doneUrl = "${Helper.toUrl(Get.find<GlobalService>().baseUrl)}payments/flutterwave";
     if (url == _doneUrl) {
-      Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id;
+      Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id ?? '';
       if (Get.isRegistered<TabBarController>(tag: 'bookings')) {
-        Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id;
+        Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id ?? '';
       }
       Get.toNamed(Routes.CONFIRMATION, arguments: {
         'title': "Payment Successful".tr,

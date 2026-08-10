@@ -33,11 +33,11 @@ class StripeController extends GetxController {
 
   void showConfirmationIfSuccess(String currentUrl) {
     final _doneUrl = "${Helper.toUrl(Get.find<GlobalService>().baseUrl)}payments/stripe";
-    // Must NOT match subpaths like /payments/stripe/checkout — only the bare success redirect.
+    // Must NOT match subpaths like /payments/stripe/checkout ï¿½ only the bare success redirect.
     if (currentUrl.startsWith(_doneUrl) && !currentUrl.startsWith("${_doneUrl}/")) {
-      Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id;
+      Get.find<BookingsController>().currentStatus.value = Get.find<BookingsController>().getStatusByOrder(50).id ?? '';
       if (Get.isRegistered<TabBarController>(tag: 'bookings')) {
-        Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id;
+        Get.find<TabBarController>(tag: 'bookings').selectedId.value = Get.find<BookingsController>().getStatusByOrder(50).id ?? '';
       }
       Get.find<BookingsController>().refreshBookings();
       Get.toNamed(Routes.CONFIRMATION, arguments: {

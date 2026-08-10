@@ -14,7 +14,7 @@ class Notification extends Model {
   Notification.fromJson(Map<String, dynamic> json) {
     super.fromJson(json);
     type = stringFromJson(json, 'type');
-    data = mapFromJson(json, 'data');
+    data = (mapFromJson(json, 'data') as Map<String, dynamic>?) ?? {};
     read = boolFromJson(json, 'read_at');
     createdAt = dateFromJson(json, 'created_at',
         defaultValue: DateTime.now().toLocal());
@@ -23,7 +23,7 @@ class Notification extends Model {
   Map markReadMap() {
     var map = new Map<String, dynamic>();
     map["id"] = id;
-    map["read_at"] = !read;
+    map["read_at"] = !(read ?? false);
     return map;
   }
 
@@ -36,16 +36,16 @@ class Notification extends Model {
     final bookingID = data['booking_id'];
     final bookingStatus = getStatus();
     if (type == 'App\\Notifications\\NewMessage') {
-      return data['from'] + ' ' + type.tr;
+      return data['from'].toString() + ' ' + (type ?? '').tr;
     } else {
       var message;
-      if (bookingStatus != null) message = type.tr + ' to $bookingStatus for #$bookingID';
-      else message = type.tr + ' for #$bookingID';
+      if (bookingStatus != null) message = (type ?? '').tr + ' to $bookingStatus for #$bookingID';
+      else message = (type ?? '').tr + ' for #$bookingID';
       return message;
     }
   }
 
-  String getStatus() {
+  String? getStatus() {
     final statusID = data['status'];
     var status;
     switch (statusID) {

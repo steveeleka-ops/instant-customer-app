@@ -35,7 +35,7 @@ class ChatsView extends GetView<MessagesController> {
               primary: true,
               itemBuilder: (context, index) {
                 Chat _chat = controller.chats.elementAt(index);
-                _chat.user = controller.message.value.users.firstWhere((_user) => _user.id == _chat.userId, orElse: () => new User(name: "-", avatar: new Media()));
+                _chat.user = (controller.message.value.users ?? []).firstWhere((_user) => _user.id == _chat.userId, orElse: () => new User(name: "-", avatar: new Media()));
                 return ChatMessageItem(
                   chat: _chat,
                 );
@@ -71,7 +71,7 @@ class ChatsView extends GetView<MessagesController> {
             }),
         automaticallyImplyLeading: false,
         title: Text(
-          controller.message.value.name,
+          controller.message.value.name ?? '',
           overflow: TextOverflow.fade,
           maxLines: 1,
           style: Get.textTheme.titleLarge?.merge(TextStyle(letterSpacing: 1.3)),

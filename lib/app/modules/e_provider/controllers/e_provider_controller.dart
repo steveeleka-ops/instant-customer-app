@@ -62,7 +62,7 @@ class EProviderController extends GetxController {
     await getGalleries();
     await getReviews();
     if (showMessage) {
-      Get.showSnackbar(Ui.SuccessSnackBar(message: eProvider.value.name + " " + "page refreshed successfully".tr));
+      Get.showSnackbar(Ui.SuccessSnackBar(message: (eProvider.value.name ?? '') + " " + "page refreshed successfully".tr));
     }
   }
 
@@ -119,8 +119,8 @@ class EProviderController extends GetxController {
   }
 
   void startChat() {
-    List<User> _employees = eProvider.value.employees.map((e) {
-      e.avatar = eProvider.value.images[0];
+    List<User> _employees = (eProvider.value.employees ?? []).map((e) {
+      e.avatar = (eProvider.value.images ?? []).isNotEmpty ? eProvider.value.images![0] : null;
       return e;
     }).toList();
     Message _message = new Message(_employees, name: eProvider.value.name);

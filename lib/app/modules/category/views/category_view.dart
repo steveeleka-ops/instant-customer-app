@@ -40,7 +40,7 @@ class CategoryView extends GetView<CategoryController> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                  controller.category.value.name,
+                  controller.category.value.name ?? '',
                   style: Get.textTheme.titleLarge
                       ?.merge(TextStyle(color: Get.theme.primaryColor)),
                   ),
@@ -60,9 +60,9 @@ class CategoryView extends GetView<CategoryController> {
                           decoration: new BoxDecoration(
                             gradient: new LinearGradient(
                                 colors: [
-                                  controller.category.value.color
+                                  (controller.category.value.color ?? Colors.grey)
                                       .withOpacity(1),
-                                  controller.category.value.color
+                                  (controller.category.value.color ?? Colors.grey)
                                       .withOpacity(0.2)
                                 ],
                                 begin: AlignmentDirectional.topStart,
@@ -74,14 +74,14 @@ class CategoryView extends GetView<CategoryController> {
                                 topLeft: Radius.circular(5),
                                 topRight: Radius.circular(5)),
                           ),
-                          child:  controller.category.value.image != null  ?( (controller.category.value.image.url.toLowerCase().endsWith('.svg')
+                          child:  controller.category.value.image != null  ?( ((controller.category.value.image?.url ?? '').toLowerCase().endsWith('.svg')
                               ? SvgPicture.network(
-                                  controller.category.value.image.url,
+                                  controller.category.value.image?.url ?? '',
                                   color: controller.category.value.color,
                                 )
                               : CachedNetworkImage(
                                   fit: BoxFit.cover,
-                                  imageUrl: controller.category.value.image.url,
+                                  imageUrl: controller.category.value.image?.url ?? '',
                                   placeholder: (context, url) => Image.asset(
                                     'assets/img/loading.gif',
                                     fit: BoxFit.fitHeight,
@@ -135,7 +135,7 @@ class CategoryView extends GetView<CategoryController> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 12, vertical: 15),
                                   backgroundColor: Theme.of(context).focusColor.withOpacity(0.1),
-                                  selectedColor: controller.category.value.color,
+                                  selectedColor: controller.category.value.color ?? Colors.grey,
                                   selected: controller.isSelected(_filter),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10)),

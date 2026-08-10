@@ -14,7 +14,7 @@ class WalletFormView extends GetView<WalletFormController> {
         appBar: AppBar(
           title: Obx(() {
             return Text(
-              controller.isCreateForm() ? "Add New Wallet".tr : controller.wallet.value.name,
+              controller.isCreateForm() ? "Add New Wallet".tr : (controller.wallet.value.name ?? ''),
               style: context.textTheme.titleLarge,
             );
           }),
@@ -35,7 +35,7 @@ class WalletFormView extends GetView<WalletFormController> {
                   size: 28,
                 ),
                 onPressed: () {
-                  if (controller.wallet.value.balance > 0) {
+                  if ((controller.wallet.value.balance ?? 0) > 0) {
                     Get.showSnackbar(Ui.ErrorSnackBar(message: "You can't delete non empty wallet".tr));
                   } else {
                     _showDeleteDialog(context);
@@ -94,7 +94,7 @@ class WalletFormView extends GetView<WalletFormController> {
                     print(controller.wallet.value);
                     return controller.wallet.value.name = input;
                   },
-                  validator: (input) => input.length < 1 ? "Field is required".tr : null,
+                  validator: (input) => (input?.length ?? 0) < 1 ? "Field is required".tr : null,
                   initialValue: controller.wallet.value.name,
                   hintText: "My Wallet".tr,
                   labelText: "Wallet Name".tr,

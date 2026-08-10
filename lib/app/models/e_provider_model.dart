@@ -71,7 +71,7 @@ class EProvider extends Model {
     employees = listFromJson(json, 'users', (v) => User.fromJson(v));
     rate = doubleFromJson(json, 'rate');
     reviews = listFromJson(json, 'e_provider_reviews', (v) => Review.fromJson(v));
-    totalReviews = reviews.isEmpty ? intFromJson(json, 'total_reviews') : reviews.length;
+    totalReviews = (reviews?.isEmpty ?? true) ? intFromJson(json, 'total_reviews') : reviews!.length;
     verified = boolFromJson(json, 'verified');
     bookingsInProgress = intFromJson(json, 'bookings_in_progress');
   }
@@ -98,8 +98,8 @@ class EProvider extends Model {
   String get firstImageIcon => this.images?.first?.icon ?? '';
 
   String get firstAddress {
-    if (this.addresses.isNotEmpty) {
-      return this.addresses.first?.address;
+    if (this.addresses?.isNotEmpty ?? false) {
+      return this.addresses?.first?.address ?? '';
     }
     return '';
   }
@@ -111,9 +111,9 @@ class EProvider extends Model {
 
   Map<String, List<String>> groupedAvailabilityHours() {
     Map<String, List<String>> result = {};
-    this.availabilityHours.forEach((element) {
+    this.availabilityHours?.forEach((element) {
       if (result.containsKey(element.day)) {
-        result[element.day].add(element.startAt + ' - ' + element.endAt);
+        result[element.day]?.add(element.startAt + ' - ' + element.endAt);
       } else {
         result[element.day] = [element.startAt + ' - ' + element.endAt];
       }
@@ -123,7 +123,7 @@ class EProvider extends Model {
 
   List<String> getAvailabilityHoursData(String day) {
     List<String> result = [];
-    this.availabilityHours.forEach((element) {
+    this.availabilityHours?.forEach((element) {
       if (element.day == day) {
         result.add(element.data);
       }

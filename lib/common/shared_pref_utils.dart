@@ -11,7 +11,7 @@ class SharedPrefUtil {
     prefs.setString(key, value);
   }
 
-  Future<String> getStringFromPref(String key) async {
+  Future<String?> getStringFromPref(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString(key);
   }
@@ -21,7 +21,7 @@ class SharedPrefUtil {
     prefs.setBool(key, value);
   }
 
-  Future<bool> getBooleanFromPref(String key) async {
+  Future<bool?> getBooleanFromPref(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getBool(key);
   }
@@ -31,7 +31,7 @@ class SharedPrefUtil {
     return prefs.setDouble(key, value);
   }
 
-  Future<double> getDoubleFromPref(String key) async {
+  Future<double?> getDoubleFromPref(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getDouble(key);
   }

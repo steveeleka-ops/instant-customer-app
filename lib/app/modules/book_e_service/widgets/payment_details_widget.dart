@@ -21,39 +21,40 @@ class PaymentDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var serviceQTY;
-    if(_booking.eService.quantityUnit == null || _booking.eService.quantityUnit.isEmpty) {
+    final _quantityUnit = _booking.eService?.quantityUnit;
+    if(_quantityUnit == null || _quantityUnit.isEmpty) {
       serviceQTY = 1;
     } else {
-      final parsed = int.tryParse(_booking.eService.quantityUnit.replaceAll(RegExp(r'[^\d]'), ''));
+      final parsed = int.tryParse(_quantityUnit.replaceAll(RegExp(r'[^\d]'), ''));
       serviceQTY = (parsed != null && parsed > 0) ? parsed : 1;
     }
-    var qty = _booking.quantity * serviceQTY;
+    var qty = (_booking.quantity ?? 1) * serviceQTY;
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         children: [
           BookingRowWidget(
-            description: _booking.eService.name,
+            description: _booking.eService?.name,
             child: Align(
               alignment: Alignment.centerRight,
-              child: Ui.getPrice(_booking.eService.getPrice, style: Get.textTheme.titleSmall),
+              child: Ui.getPrice(_booking.eService?.getPrice, style: Get.textTheme.titleSmall),
             ),
             hasDivider: true,
           ),
           Column(
-            children: List.generate(_booking.options.length, (index) {
-              var _option = _booking.options.elementAt(index);
+            children: List.generate(_booking.options?.length ?? 0, (index) {
+              var _option = _booking.options!.elementAt(index);
               return BookingRowWidget(
                   description: _option.name,
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Ui.getPrice(_option.price, style: Get.textTheme.bodyLarge),
                   ),
-                  hasDivider: (_booking.options.length - 1) == index);
+                  hasDivider: ((_booking.options?.length ?? 0) - 1) == index);
             }),
           ),
-          if (_booking.eService.priceUnit == 'fixed')
+          if (_booking.eService?.priceUnit == 'fixed')
             BookingRowWidget(
                 description: "Quantity".tr,
                 child: Align(
@@ -65,20 +66,20 @@ class PaymentDetailsWidget extends StatelessWidget {
                 ),
                 hasDivider: true),
           Column(
-            children: List.generate(_booking.taxes.length, (index) {
-              var _tax = _booking.taxes.elementAt(index);
+            children: List.generate(_booking.taxes?.length ?? 0, (index) {
+              var _tax = _booking.taxes!.elementAt(index);
               return BookingRowWidget(
                   description: _tax.name,
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: _tax.type == 'percent'
-                        ? Text(_tax.value.toString() + '%', style: Get.textTheme.bodyLarge)
+                        ? Text((_tax.value ?? 0).toString() + '%', style: Get.textTheme.bodyLarge)
                         : Ui.getPrice(
                             _tax.value,
                             style: Get.textTheme.bodyLarge,
                           ),
                   ),
-                  hasDivider: (_booking.taxes.length - 1) == index);
+                  hasDivider: ((_booking.taxes?.length ?? 0) - 1) == index);
             }),
           ),
           BookingRowWidget(
@@ -104,7 +105,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   child: Wrap(
                     children: [
                       Text(' - ', style: Get.textTheme.bodyLarge),
-                      Ui.getPrice(_booking.coupon.discount, style: Get.textTheme.bodyLarge, unit: _booking.coupon.discountType == 'percent' ? "%" : null),
+                      Ui.getPrice(_booking.coupon?.discount, style: Get.textTheme.bodyLarge, unit: _booking.coupon?.discountType == 'percent' ? "%" : null),
                     ],
                   ),
                 ),

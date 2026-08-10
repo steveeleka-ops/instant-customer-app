@@ -38,7 +38,7 @@ class PaymentMethod extends Model {
 
   String getName() {
     name = name ?? "Not Paid".tr;
-    return name;
+    return name!;
   }
 
   @override

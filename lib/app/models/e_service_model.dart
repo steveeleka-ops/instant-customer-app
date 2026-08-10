@@ -75,16 +75,16 @@ class EService extends Model {
     if (featured != null) data['featured'] = this.featured;
     if (isFavorite != null) data['is_favorite'] = this.isFavorite;
     if (this.categories != null) {
-      data['categories'] = this.categories.map((v) => v?.id).toList();
+      data['categories'] = this.categories?.map((v) => v?.id).toList();
     }
     if (this.images != null) {
-      data['image'] = this.images.map((v) => v.toJson()).toList();
+      data['image'] = this.images?.map((v) => v.toJson()).toList();
     }
     if (this.subCategories != null) {
-      data['sub_categories'] = this.subCategories.map((v) => v.toJson()).toList();
+      data['sub_categories'] = this.subCategories?.map((v) => v.toJson()).toList();
     }
-    if (this.eProvider != null && this.eProvider.hasData) {
-      data['e_provider_id'] = this.eProvider.id;
+    if (this.eProvider != null && (this.eProvider?.hasData ?? false)) {
+      data['e_provider_id'] = this.eProvider?.id;
     }
     return data;
   }
@@ -106,13 +106,13 @@ class EService extends Model {
   * otherwise it return the discount price instead
   * */
   double get getPrice {
-    return (discountPrice ?? 0) > 0 ? discountPrice : price;
+    return (discountPrice ?? 0) > 0 ? (discountPrice ?? 0) : (price ?? 0);
   }
 
   String get getUnit {
     if (priceUnit == 'fixed') {
-      if (quantityUnit.isNotEmpty) {
-        return "/" + quantityUnit.tr;
+      if (quantityUnit?.isNotEmpty ?? false) {
+        return "/" + (quantityUnit ?? '').tr;
       } else {
         return "";
       }

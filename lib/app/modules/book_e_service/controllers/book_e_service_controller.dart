@@ -48,7 +48,7 @@ class BookEServiceController extends GetxController {
       address: currentAddress,
       eService: _eService,
       eProvider: _eService.eProvider,
-      taxes: _eService.eProvider.taxes,
+      taxes: _eService.eProvider?.taxes,
       options: _options,
       quantity: _quantity,
       user: Get.find<AuthService>().user.value,
@@ -75,7 +75,7 @@ class BookEServiceController extends GetxController {
     }
   }
 
-  TextStyle getTextTheme(bool selected) {
+  TextStyle? getTextTheme(bool selected) {
     if (selected) {
       return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor));
     }
@@ -137,7 +137,7 @@ class BookEServiceController extends GetxController {
     if (booking.value.coupon?.id == null) {
       return null;
     } else {
-      if (booking.value.coupon.id == '') {
+      if (booking.value.coupon?.id == '') {
         return "Invalid Coupon Code".tr;
       } else {
         return null;
@@ -146,7 +146,7 @@ class BookEServiceController extends GetxController {
   }
 
   Future<Null> showMyDatePicker(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
+    final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: booking.value.bookingAt?.add(Duration(days: 1)),
       firstDate: DateTime.now().add(Duration(days: 1)),
@@ -165,7 +165,7 @@ class BookEServiceController extends GetxController {
   }
 
   Future<Null> showMyTimePicker(BuildContext context) async {
-    final TimeOfDay picked = await showTimePicker(
+    final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.fromDateTime(booking.value.bookingAt),
       builder: (BuildContext context, Widget child) {

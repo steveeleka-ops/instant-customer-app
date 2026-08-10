@@ -33,14 +33,15 @@ class Wallet extends Model {
 
   String getName() {
     name = name ?? "";
-    return name.substring(name.length - min(name.length, 16), name.length);
+    return name!.substring(name!.length - min(name!.length, 16), name!.length);
   }
 
   String getId() {
     if (Uuid.isUuid(id)) {
-      return id.substring(0, 3) + ' . . . ' + id.substring(id.length - 5, id.length);
+      final s = id!;
+      return s.substring(0, 3) + ' . . . ' + s.substring(s.length - 5, s.length);
     } else {
-      return id;
+      return id ?? '';
     }
   }
 }

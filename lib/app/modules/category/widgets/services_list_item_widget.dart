@@ -37,7 +37,7 @@ class ServicesListItemWidget extends StatelessWidget {
             Column(
               children: [
                 Hero(
-                  tag: 'service_list_item' + _service.id,
+                  tag: 'service_list_item' + (_service.id ?? ''),
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
@@ -111,11 +111,11 @@ class ServicesListItemWidget extends StatelessWidget {
                     children: [
                      Expanded(child: Wrap(
                        spacing: 5,
-                       children: List.generate(_service.categories.length, (index) {
+                       children: List.generate(_service.categories?.length ?? 0, (index) {
                          return Container(
                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                            child: Text(
-                               _service.categories.elementAt(index).name,
+                               _service.categories!.elementAt(index).name ?? '',
                                overflow: TextOverflow.ellipsis,
                                style: Get.textTheme.titleLarge?.merge(TextStyle(fontSize: 10, fontWeight: FontWeight.normal))),
                            decoration: BoxDecoration(
@@ -129,7 +129,7 @@ class ServicesListItemWidget extends StatelessWidget {
                        runSpacing: 5,
                      )),
                       RatingBar.builder(
-                        initialRating: _service.rate,
+                        initialRating: _service.rate ?? 0,
                         minRating: 1,
                         direction: Axis.horizontal,
                         allowHalfRating: true,

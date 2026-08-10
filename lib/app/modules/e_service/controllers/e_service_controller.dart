@@ -130,14 +130,14 @@ class EServiceController extends GetxController {
     return [];
   }
 
-  TextStyle getTitleTheme(Option option) {
+  TextStyle? getTitleTheme(Option option) {
     if (option.checked.value) {
       return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary));
     }
     return Get.textTheme.bodyMedium;
   }
 
-  TextStyle getSubTitleTheme(Option option) {
+  TextStyle? getSubTitleTheme(Option option) {
     if (option.checked.value) {
       return Get.textTheme.bodySmall?.merge(TextStyle(color: Get.theme.colorScheme.secondary));
     }

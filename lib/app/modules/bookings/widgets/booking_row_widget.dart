@@ -30,7 +30,7 @@ class BookingRowWidget extends StatelessWidget {
             Expanded(
               flex: descriptionFlex ?? 1,
               child: Text(
-                this.description,
+                this.description ?? '',
                 style: Get.textTheme.bodyLarge,
               ),
             ),
@@ -38,15 +38,15 @@ class BookingRowWidget extends StatelessWidget {
                 flex: valueFlex ?? 1,
                 child: child ??
                     Text(
-                      value,
+                      value ?? '',
                       style: valueStyle ?? Get.textTheme.bodyMedium,
                       maxLines: 3,
                       textAlign: TextAlign.end,
                     )),
           ],
         ),
-        if (hasDivider != null && hasDivider) Divider(thickness: 1, height: 25),
-        if (hasDivider != null && !hasDivider) SizedBox(height: 6),
+        if (hasDivider != null && (hasDivider ?? false)) Divider(thickness: 1, height: 25),
+        if (hasDivider != null && !(hasDivider ?? false)) SizedBox(height: 6),
       ],
     );
   }

@@ -30,8 +30,8 @@ class AuthController extends GetxController {
 
   void login() async {
     Get.focusScope.unfocus();
-    if (loginFormKey.currentState.validate()) {
-      loginFormKey.currentState.save();
+    if (loginFormKey.currentState?.validate() ?? false) {
+      loginFormKey.currentState?.save();
       loading.value = true;
       try {
         await Get.find<FireBaseMessagingService>().setDeviceToken();
@@ -48,9 +48,9 @@ class AuthController extends GetxController {
 
   void register() async {
     Get.focusScope.unfocus();
-    if (registerFormKey.currentState.validate()) {
+    if (registerFormKey.currentState?.validate() ?? false) {
       currentUser.value.address = Get.find<SettingsService>().address.value;
-      registerFormKey.currentState.save();
+      registerFormKey.currentState?.save();
       loading.value = true;
       try {
         await _userRepository.sendCodeToPhone();
@@ -86,8 +86,8 @@ class AuthController extends GetxController {
 
   void sendResetLink() async {
     Get.focusScope.unfocus();
-    if (forgotPasswordFormKey.currentState.validate()) {
-      forgotPasswordFormKey.currentState.save();
+    if (forgotPasswordFormKey.currentState?.validate() ?? false) {
+      forgotPasswordFormKey.currentState?.save();
       loading.value = true;
       try {
         await _userRepository.sendResetLinkEmail(currentUser.value);

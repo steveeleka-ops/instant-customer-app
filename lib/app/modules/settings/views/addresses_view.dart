@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -16,7 +16,7 @@ class AddressesView extends GetView<AddressController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: hideAppBar
+        appBar: (hideAppBar ?? false)
             ? null
             : AppBar(
                 title: Text(
@@ -64,9 +64,9 @@ class AddressesView extends GetView<AddressController> {
                                  Get.find<SettingsService>().address.value = value;
                               }
                             },
-                            title: Text(_address.description,
+                            title: Text(_address.description ?? '',
                                 style: Get.textTheme.bodyMedium),
-                            subtitle: Text(_address.address,
+                            subtitle: Text(_address.address ?? '',
                                 style: Get.textTheme.bodySmall),
                           ).paddingSymmetric(vertical: 10);
                         });

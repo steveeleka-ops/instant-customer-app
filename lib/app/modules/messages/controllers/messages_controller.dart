@@ -22,7 +22,7 @@ class MessagesController extends GetxController {
   var messages = <Message>[].obs;
   var chats = <Chat>[].obs;
   late File imageFile;
-  Rx<DocumentSnapshot> lastDocument = new Rx<DocumentSnapshot>(null);
+  Rx<DocumentSnapshot?> lastDocument = Rx<DocumentSnapshot?>(null);
   final isLoading = true.obs;
   final isDone = false.obs;
   ScrollController scrollController = ScrollController();
@@ -72,7 +72,7 @@ class MessagesController extends GetxController {
 
   Future refreshMessages() async {
     messages.clear();
-    lastDocument = new Rx<DocumentSnapshot>(null);
+    lastDocument = Rx<DocumentSnapshot?>(null);
     await listenForMessages();
   }
 
@@ -83,7 +83,7 @@ class MessagesController extends GetxController {
     if (lastDocument.value == null) {
       _userMessages = _chatRepository.getUserMessages(_authService.user.value.id);
     } else {
-      _userMessages = _chatRepository.getUserMessagesStartAt(_authService.user.value.id, lastDocument.value);
+      _userMessages = _chatRepository.getUserMessagesStartAt(_authService.user.value.id, lastDocument.value!);
     }
     _userMessages.listen((QuerySnapshot query) {
       if (query.docs.isNotEmpty) {
@@ -126,9 +126,10 @@ class MessagesController extends GetxController {
 
   Future getImage(ImageSource source) async {
     ImagePicker imagePicker = ImagePicker();
-    XFile pickedFile;
+    XFile? pickedFile;
 
     pickedFile = await imagePicker.pickImage(source: source);
+    if (pickedFile == null) return null;
     imageFile = File(pickedFile.path);
 
     if (imageFile != null) {

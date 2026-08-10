@@ -101,8 +101,8 @@ class RegisterView extends GetView<AuthController> {
                         labelText: "Full Name".tr,
                         hintText: "John Doe".tr,
                         initialValue: controller.currentUser?.value?.name,
-                        onSaved: (input) => controller.currentUser.value.name = input,
-                        validator: (input) => input.length < 3 ? "Should be more than 3 characters".tr : null,
+                        onSaved: (input) => controller.currentUser.value.name = input ?? '',
+                        validator: (input) => (input?.length ?? 0) < 3 ? "Should be more than 3 characters".tr : null,
                         iconData: Icons.person_outline,
                         isFirst: true,
                         isLast: false,
@@ -111,8 +111,8 @@ class RegisterView extends GetView<AuthController> {
                         labelText: "Email Address".tr,
                         hintText: "johndoe@gmail.com".tr,
                         initialValue: controller.currentUser?.value?.email,
-                        onSaved: (input) => controller.currentUser.value.email = input,
-                        validator: (input) => !input.contains('@') ? "Should be a valid email".tr : null,
+                        onSaved: (input) => controller.currentUser.value.email = input ?? '',
+                        validator: (input) => !(input?.contains('@') ?? false) ? "Should be a valid email".tr : null,
                         iconData: Icons.alternate_email,
                         isFirst: false,
                         isLast: false,
@@ -123,15 +123,16 @@ class RegisterView extends GetView<AuthController> {
                         initialValue: controller.currentUser?.value?.phoneNumber,
                         keyboardType: TextInputType.phone,
                         onSaved: (input) {
-                          if (input.startsWith("00")) {
-                            input = "+" + input.substring(2);
-                          } else if (!input.startsWith("+")) {
-                            input = "+1" + input.replaceAll(RegExp(r'[\s\-\(\)]'), '');
+                          var val = input ?? '';
+                          if (val.startsWith("00")) {
+                            val = "+" + val.substring(2);
+                          } else if (!val.startsWith("+")) {
+                            val = "+1" + val.replaceAll(RegExp(r'[\s\-\(\)]'), '');
                           }
-                          return controller.currentUser.value.phoneNumber = input;
+                          return controller.currentUser.value.phoneNumber = val;
                         },
                         validator: (input) {
-                          final digits = input.replaceAll(RegExp(r'[\s\-\+\(\)]'), '');
+                          final digits = (input ?? '').replaceAll(RegExp(r'[\s\-\+\(\)]'), '');
                           return digits.length < 10 ? "Should be a valid phone number".tr : null;
                         },
                         iconData: Icons.phone_android_outlined,
@@ -141,10 +142,10 @@ class RegisterView extends GetView<AuthController> {
                       Obx(() {
                         return TextFieldWidget(
                           labelText: "Password".tr,
-                          hintText: "••••••••••••".tr,
+                          hintText: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".tr,
                           initialValue: controller.currentUser?.value?.password,
-                          onSaved: (input) => controller.currentUser.value.password = input,
-                          validator: (input) => input.length < 3 ? "Should be more than 3 characters".tr : null,
+                          onSaved: (input) => controller.currentUser.value.password = input ?? '',
+                          validator: (input) => (input?.length ?? 0) < 3 ? "Should be more than 3 characters".tr : null,
                           obscureText: controller.hidePassword.value,
                           iconData: Icons.lock_outline,
                           keyboardType: TextInputType.visiblePassword,

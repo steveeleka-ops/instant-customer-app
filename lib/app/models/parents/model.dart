@@ -59,7 +59,7 @@ abstract class Model {
     try {
       if (json[attribute] != null) {
         if (json[attribute] is Map<String, dynamic>) {
-          var json2 = json[attribute][defaultLocale ?? Get.locale.languageCode];
+          var json2 = json[attribute][defaultLocale ?? Get.locale?.languageCode ?? 'en'];
           if (json2 == null) {
             var languageCode2 = Get.find<TranslationService>().fallbackLocale.languageCode;
             if (json[attribute][languageCode2] != null && json[attribute][languageCode2] != 'null')

@@ -37,7 +37,7 @@ class Option extends Model {
     if (optionGroupId != null) map["option_group_id"] = optionGroupId;
     if (eServiceId != null) map["e_service_id"] = eServiceId;
     if (this.image != null) {
-      map['image'] = this.image.toJson();
+      map['image'] = this.image?.toJson();
     }
     return map;
   }

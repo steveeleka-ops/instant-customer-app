@@ -39,8 +39,8 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                         shape: BoxShape.circle,
                         gradient: new LinearGradient(
                             colors: [
-                              controller.categories.elementAt(index).color.withOpacity(1),
-                              controller.categories.elementAt(index).color.withOpacity(0.1)
+                              (controller.categories.elementAt(index).color ?? Colors.grey).withOpacity(1),
+                              (controller.categories.elementAt(index).color ?? Colors.grey).withOpacity(0.1)
                             ],
                             begin: AlignmentDirectional.topStart,
                             //const FractionalOffset(1, 0),
@@ -53,10 +53,10 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                         alignment: AlignmentDirectional.topStart,
                         children: [
 
-                          (controller.categories.elementAt(index).image.url
+                          (controller.categories.elementAt(index).image?.url ?? ""
                                       .toLowerCase()
                                       .endsWith('.svg')
-                                  ? SvgPicture.network(controller.categories.elementAt(index).image.url,
+                                  ? SvgPicture.network(controller.categories.elementAt(index).image?.url ?? "",
                                       color: controller.categories.elementAt(index).color,
                                       fit: BoxFit.contain)
                                   : CachedNetworkImage(
@@ -70,7 +70,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                                         image: imageProvider, fit: BoxFit.cover),
                                   ),
                                 ),
-                                      imageUrl: controller.categories.elementAt(index).image.url,
+                                      imageUrl: controller.categories.elementAt(index).image?.url ?? "",
                                       placeholder: (context, url) =>
                                           Container(
                                                   width: 100,
@@ -120,7 +120,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                         padding:
                             const EdgeInsetsDirectional.only(start: 10, top: 0),
                         child: Text(
-                          controller.categories.elementAt(index).name,
+                          controller.categories.elementAt(index).name ?? "",
                           maxLines: 2,
                           style: Get.textTheme.bodyMedium
                               ?.merge(TextStyle(color: Colors.black)),

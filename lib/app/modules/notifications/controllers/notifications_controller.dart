@@ -1,4 +1,4 @@
-﻿import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:home_services/app/models/e_provider_model.dart';
 
 import '../../../../common/ui.dart';
@@ -60,7 +60,7 @@ class NotificationsController extends GetxController {
   Future removeNotification(Notification notification) async {
     try {
       _notificationRepository.remove(notification).then((value) {
-        if (!notification.read) {
+        if (!(notification.read ?? false)) {
           --Get.find<RootController>().notificationsCount.value;
         }
         notifications.remove(notification);
@@ -73,7 +73,7 @@ class NotificationsController extends GetxController {
   Future markAsReadNotification(Notification notification) async {
     try {
       _notificationRepository.markAsRead(notification).then((value) {
-        if (!notification.read) {
+        if (!(notification.read ?? false)) {
           notification.read = true;
           --Get.find<RootController>().notificationsCount.value;
         }

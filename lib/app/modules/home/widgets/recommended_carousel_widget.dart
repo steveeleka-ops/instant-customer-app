@@ -41,7 +41,7 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
                     //alignment: AlignmentDirectional.topStart,
                     children: [
                       Hero(
-                        tag: 'recommended_carousel' + controller.eServices.elementAt(index).id,
+                        tag: 'recommended_carousel' + (controller.eServices.elementAt(index).id ?? ''),
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                           child: CachedNetworkImage(
@@ -77,7 +77,7 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
                               style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.hintColor)),
                             ),
                             Wrap(
-                              children: Ui.getStarsList(controller.eServices.elementAt(index).rate),
+                              children: Ui.getStarsList(controller.eServices.elementAt(index).rate ?? 0),
                             ),
                             SizedBox(height: 10),
                             Wrap(

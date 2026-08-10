@@ -166,7 +166,7 @@ class EProviderView extends GetView<EProviderController> {
                       alignment: AlignmentDirectional.topStart,
                       children: [
                         Hero(
-                          tag: 'e_provide_galleries' + _media.id,
+                          tag: 'e_provide_galleries' + (_media.id ?? ''),
                           child: ClipRRect(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             child: CachedNetworkImage(
@@ -208,7 +208,7 @@ class EProviderView extends GetView<EProviderController> {
   EProviderTilWidget buildAvailabilityHours(EProvider _eProvider) {
     return EProviderTilWidget(
       title: Text("Availability".tr, style: Get.textTheme.titleSmall),
-      content: _eProvider.availabilityHours.isEmpty
+      content: (_eProvider.availabilityHours?.isEmpty ?? true)
           ? CircularLoadingWidget(height: 150)
           : ListView.separated(
               padding: EdgeInsets.zero,
@@ -225,7 +225,7 @@ class EProviderView extends GetView<EProviderController> {
               },
             ),
       actions: [
-        if (_eProvider.available)
+        if (_eProvider.available ?? false)
           Container(
             child: Text("Available".tr,
                 maxLines: 1,
@@ -241,7 +241,7 @@ class EProviderView extends GetView<EProviderController> {
             ),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           ),
-        if (!_eProvider.available)
+        if (!(_eProvider.available ?? false))
           Container(
             child: Text("Offline".tr,
                 maxLines: 1,
@@ -434,11 +434,11 @@ class EProviderView extends GetView<EProviderController> {
           controller.currentSlide.value = index;
         },
       ),
-      items: _eProvider.images.map((Media media) {
+      items: (_eProvider.images ?? []).map((Media media) {
         return Builder(
           builder: (BuildContext context) {
             return Hero(
-              tag: controller.heroTag + _eProvider.id,
+              tag: controller.heroTag + (_eProvider.id ?? ''),
               child: CachedNetworkImage(
                 width: double.infinity,
                 height: 360,
@@ -463,7 +463,7 @@ class EProviderView extends GetView<EProviderController> {
       margin: EdgeInsets.symmetric(vertical: 100, horizontal: 20),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: _eProvider.images.map((Media media) {
+        children: (_eProvider.images ?? []).map((Media media) {
           return Container(
             width: 20.0,
             height: 5.0,
@@ -472,7 +472,7 @@ class EProviderView extends GetView<EProviderController> {
                 borderRadius: BorderRadius.all(
                   Radius.circular(10),
                 ),
-                color: controller.currentSlide.value == _eProvider.images.indexOf(media) ? Get.theme.hintColor : Get.theme.primaryColor.withOpacity(0.4)),
+                color: controller.currentSlide.value == (_eProvider.images ?? []).indexOf(media) ? Get.theme.hintColor : Get.theme.primaryColor.withOpacity(0.4)),
           );
         }).toList(),
       ),

@@ -18,7 +18,7 @@ class ThemeModeController extends GetxController {
   }
 
   void initThemeMode() {
-    String _themeMode = _box.read<String>('theme_mode');
+    String? _themeMode = _box.read<String>('theme_mode');
     switch (_themeMode) {
       case 'ThemeMode.light':
         selectedThemeMode.value = ThemeMode.light;

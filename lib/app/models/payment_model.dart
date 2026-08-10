@@ -26,10 +26,10 @@ class Payment extends Model {
     data['description'] = this.description;
     data['amount'] = this.amount;
     if (paymentMethod != null) {
-      data['payment_method_id'] = this.paymentMethod.id;
+      data['payment_method_id'] = this.paymentMethod?.id;
     }
     if (paymentStatus != null) {
-      data['payment_status_id'] = this.paymentStatus.id;
+      data['payment_status_id'] = this.paymentStatus?.id;
     }
     return data;
   }

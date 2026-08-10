@@ -31,10 +31,10 @@ class Review extends Model {
     data['review'] = this.review;
     data['created_at'] = this.createdAt;
     if (this.user != null) {
-      data['user_id'] = this.user.id;
+      data['user_id'] = this.user?.id;
     }
     if (this.eService != null) {
-      data['e_service_id'] = this.eService.id;
+      data['e_service_id'] = this.eService?.id;
     }
     return data;
   }

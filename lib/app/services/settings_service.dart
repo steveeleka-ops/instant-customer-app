@@ -394,13 +394,13 @@ class SettingsService extends GetxService {
         if (setting.value.defaultTheme == "dark") {
           SystemChrome.setSystemUIOverlayStyle(
             SystemUiOverlayStyle.dark
-                ?.copyWith(systemNavigationBarColor: Colors.black87),
+                .copyWith(systemNavigationBarColor: Colors.black87),
           );
           return ThemeMode.dark;
         } else {
           SystemChrome.setSystemUIOverlayStyle(
             SystemUiOverlayStyle.light
-                ?.copyWith(systemNavigationBarColor: Colors.white),
+                .copyWith(systemNavigationBarColor: Colors.white),
           );
           return ThemeMode.light;
         }

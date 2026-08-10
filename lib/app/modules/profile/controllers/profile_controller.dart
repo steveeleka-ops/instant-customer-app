@@ -39,9 +39,9 @@ class ProfileController extends GetxController {
 
   void saveProfileForm() async {
     Get.focusScope.unfocus();
-    if (profileForm.currentState.validate()) {
+    if (profileForm.currentState?.validate() ?? false) {
       try {
-        profileForm.currentState.save();
+        profileForm.currentState?.save();
         user.value.deviceToken = null;
         user.value.password = newPassword.value == confirmPassword.value ? newPassword.value : null;
         user.value.avatar = avatar.value;
@@ -72,7 +72,7 @@ class ProfileController extends GetxController {
 
   void resetProfileForm() {
     avatar.value = new Media(thumb: user.value.avatar.thumb);
-    profileForm.currentState.reset();
+    profileForm.currentState?.reset();
   }
 
   Future getUser() async {

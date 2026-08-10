@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class AccountLinkWidget extends StatelessWidget {
   final Icon? icon;
   final Widget? text;
-  final ValueChanged<void> onTap;
+  final ValueChanged<void>? onTap;
 
   const AccountLinkWidget({
     Key? key,
@@ -27,7 +27,7 @@ class AccountLinkWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(
           children: [
-            icon,
+            if (icon != null) icon!,
             Container(
               margin: EdgeInsets.symmetric(horizontal: 12),
               width: 1,
@@ -35,7 +35,7 @@ class AccountLinkWidget extends StatelessWidget {
               color: Get.theme.focusColor.withOpacity(0.3),
             ),
             Expanded(
-              child: text,
+              child: text ?? SizedBox.shrink(),
             ),
             Icon(
               Icons.arrow_forward_ios,

@@ -25,10 +25,10 @@ class BookingTilWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(child: title),
+              Expanded(child: title ?? SizedBox.shrink()),
               if (actions != null)
                 Wrap(
-                  children: actions,
+                  children: actions!,
                 )
             ],
           ),
@@ -36,7 +36,7 @@ class BookingTilWidget extends StatelessWidget {
             height: 26,
             thickness: 1.2,
           ),
-          content,
+          if (content != null) content!,
         ],
       ),
     );
