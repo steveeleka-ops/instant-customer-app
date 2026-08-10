@@ -22,7 +22,7 @@ class BookingsListItemWidget extends StatelessWidget {
   final Booking _booking;
 
   Color get _statusColor {
-    if (_booking.cancel) return Colors.red;
+    if (_booking.cancel ?? false) return Colors.red;
     final order = _booking.status?.order ?? 0;
     if (order >= 50) return Colors.green;
     if (order >= 40) return Colors.orange;
@@ -32,13 +32,13 @@ class BookingsListItemWidget extends StatelessWidget {
   }
 
   String get _statusLabel {
-    if (_booking.cancel) return 'Cancelled';
+    if (_booking.cancel ?? false) return 'Cancelled';
     return _booking.status?.status ?? '';
   }
 
   @override
   Widget build(BuildContext context) {
-    final int statusOrder = _booking.cancel ? -1 : (_booking.status?.order ?? 0);
+    final int statusOrder = (_booking.cancel ?? false) ? -1 : (_booking.status?.order ?? 0);
 
     return GestureDetector(
       onTap: () {
@@ -67,7 +67,7 @@ class BookingsListItemWidget extends StatelessWidget {
                         height: 75,
                         width: 75,
                         fit: BoxFit.cover,
-                        imageUrl: _booking.eService.firstImageThumb,
+                        imageUrl: _booking.eService?.firstImageThumb ?? '',
                         placeholder: (context, url) => Image.asset(
                           'assets/img/loading.gif',
                           fit: BoxFit.cover,
@@ -137,7 +137,7 @@ class BookingsListItemWidget extends StatelessWidget {
                 // Service info
                 Expanded(
                   child: Opacity(
-                    opacity: _booking.cancel ? 0.5 : 1,
+                    opacity: (_booking.cancel ?? false) ? 0.5 : 1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -171,7 +171,7 @@ class BookingsListItemWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                        if (_booking.recurrence != null && _booking.recurrence.isNotEmpty) ...[
+                        if (_booking.recurrence != null && (_booking.recurrence?.isNotEmpty ?? false)) ...[
                           SizedBox(height: 4),
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
@@ -185,7 +185,7 @@ class BookingsListItemWidget extends StatelessWidget {
                                 Icon(Icons.repeat, size: 11, color: Colors.blue),
                                 SizedBox(width: 3),
                                 Text(
-                                  'Recurring � ' + _booking.recurrence[0].toUpperCase() + _booking.recurrence.substring(1),
+                                  'Recurring 🔁 ' + (_booking.recurrence?[0].toUpperCase() ?? '') + (_booking.recurrence?.substring(1) ?? ''),
                                   style: TextStyle(color: Colors.blue, fontSize: 10, fontWeight: FontWeight.w600),
                                 ),
                               ],
