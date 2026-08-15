@@ -26,10 +26,15 @@ allprojects {
 
 subprojects {
     afterEvaluate { project ->
-        project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-            kotlinOptions {
-                jvmTarget = '1.8'
-            }
+        if (project.hasProperty('android')) {
+            try {
+                def javaTarget = project.android.compileOptions.targetCompatibility
+                if (javaTarget != null) {
+                    project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+                        kotlinOptions { jvmTarget = javaTarget.toString() }
+                    }
+                }
+            } catch (ignored) {}
         }
     }
 }
