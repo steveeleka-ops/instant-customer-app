@@ -35,8 +35,8 @@ dependencies:
 #    git:
 #      url: git://github.com/vrtdev/dio-http-cache.git
 #      ref: feature/nullsafety-dio4
-  firebase_auth: ^4.3.0
-  firebase_core: ^2.8.0
+  firebase_auth: ^4.16.0
+  firebase_core: ^2.24.2
   # FIREBASE
   package_info_plus: ^5.0.1
   firebase_messaging: ^14.3.0
@@ -77,7 +77,7 @@ dependency_overrides:
 
 dev_dependencies:
   change_app_package_name: ^1.0.0
-  firebase_auth: ^4.3.0
+  firebase_auth: ^4.16.0
   flutter_launcher_icons: ^0.9.2
   flutter_test:
     sdk: flutter

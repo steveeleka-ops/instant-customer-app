@@ -65,15 +65,17 @@ workflows:
           echo "flutter.versionName=1.0.6" >> android/local.properties
           echo "flutter.versionCode=46" >> android/local.properties
       - name: Get packages
-        script: flutter pub get
+        script: flutter pub upgrade
       - name: Generate app icons
         script: flutter pub run flutter_launcher_icons:main
       - name: Patch third-party packages for Flutter 3.22
         script: |
-          PICKER_TILE="$HOME/.pub-cache/hosted/pub.dev/google_maps_place_picker_mb-3.0.2/lib/src/components/prediction_tile.dart"
-          [ -f "$PICKER_TILE" ] && sed -i '' 's/\.bodyText2/\.bodyMedium/g' "$PICKER_TILE" && echo "Patched prediction_tile.dart"
-          PLACE_PICKER="$HOME/.pub-cache/hosted/pub.dev/google_maps_place_picker_mb-3.0.2/lib/src/place_picker.dart"
-          [ -f "$PLACE_PICKER" ] && sed -i '' 's/Theme\.of(context)\.errorColor/Theme.of(context).colorScheme.error/g' "$PLACE_PICKER" && echo "Patched place_picker.dart"
+          for f in $HOME/.pub-cache/hosted/pub.dev/google_maps_place_picker_mb-*/lib/src/components/prediction_tile.dart; do
+            [ -f "$f" ] && sed -i '' 's/\.bodyText2/\.bodyMedium/g' "$f" && echo "Patched: $f"
+          done
+          for f in $HOME/.pub-cache/hosted/pub.dev/google_maps_place_picker_mb-*/lib/src/place_picker.dart; do
+            [ -f "$f" ] && sed -i '' 's/Theme\.of(context)\.errorColor/Theme.of(context).colorScheme.error/g' "$f" && echo "Patched: $f"
+          done
           GET_EXT="$HOME/.pub-cache/hosted/pub.dev/get-4.6.5/lib/get_navigation/src/extension_navigation.dart"
           [ -f "$GET_EXT" ] && sed -i '' 's/theme\.backgroundColor/theme.colorScheme.surface/g' "$GET_EXT" && echo "Patched get extension_navigation.dart"
           find $HOME/.pub-cache/hosted/pub.dev/google_api_headers-*/android -name "build.gradle" | while read f; do
