@@ -32,7 +32,7 @@ class HelpController extends GetxController {
   Future getFaqs({String? categoryId}) async {
     try {
       if (categoryId == null) {
-        faqs.assignAll(await _faqRepository.getFaqs(faqCategories.elementAt(0).id));
+        faqs.assignAll(await _faqRepository.getFaqs(faqCategories.elementAt(0).id ?? ''));
       } else {
         faqs.assignAll(await _faqRepository.getFaqs(categoryId));
       }

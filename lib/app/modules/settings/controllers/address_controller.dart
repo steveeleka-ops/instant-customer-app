@@ -45,7 +45,7 @@ class AddressController extends GetxController {
     var lat = address.latitude.toString();
     var lng = address.longitude.toString();
     try {
-      serviceAvailable = await _eServiceRepository.checkCity(lat, lng,zipcode: address.zipCode);
+      serviceAvailable = await _eServiceRepository.checkCity(lat, lng,zipcode: address.zipCode ?? '');
       // pref.saveBooleanToPref(SharedPrefUtils.SERVICE_AVAILABLE, serviceAvailable);
       // pref.saveBooleanToPref(SharedPrefUtils.REGION_VERIFIED, true);
     } catch (e) {

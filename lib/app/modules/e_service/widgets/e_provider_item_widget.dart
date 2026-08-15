@@ -52,7 +52,7 @@ class EProviderItemWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   Ui.removeHtml(
-                    (provider.description ?? '').substring(0, min((provider.description ?? '').length, 50)),
+                    (provider?.description ?? '').substring(0, min((provider?.description ?? '').length, 50)),
                     style: Get.textTheme.bodySmall,
                   ),
                 ],

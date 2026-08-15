@@ -59,9 +59,9 @@ class SearchController extends GetxController {
   Future searchEServices({String? keywords}) async {
     try {
       if (selectedCategories.isEmpty) {
-        eServices.assignAll(await _eServiceRepository.search(keywords, categories.map((element) => element.id).toList()));
+        eServices.assignAll(await _eServiceRepository.search(keywords ?? '', categories.map((element) => element.id ?? '').toList()));
       } else {
-        eServices.assignAll(await _eServiceRepository.search(keywords, selectedCategories.toList()));
+        eServices.assignAll(await _eServiceRepository.search(keywords ?? '', selectedCategories.toList()));
       }
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
@@ -82,17 +82,17 @@ class SearchController extends GetxController {
 
   void toggleCategory(bool value, Category category) {
     if (value) {
-      selectedCategories.add(category.id);
+      selectedCategories.add(category.id ?? '');
     } else {
       selectedCategories.removeWhere((element) => element == category.id);
     }
   }
 
   void selectSuggestedCategory(String categoryName) {
-    Category match;
+    Category? match;
     try {
       match = categories.firstWhere(
-        (c) => c.name.toLowerCase() == categoryName.toLowerCase(),
+        (c) => (c.name ?? '').toLowerCase() == categoryName.toLowerCase(),
       );
     } catch (_) {
       match = null;

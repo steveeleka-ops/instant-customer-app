@@ -24,7 +24,7 @@ class Message extends Model {
   List<User>? users;
 
   Message(this.users, {this.id = null, this.name = ''}) {
-    visibleToUsers = this.users?.map((user) => user.id).toList() ?? [];
+    visibleToUsers = this.users?.map((user) => user.id ?? '').toList() ?? [];
     readByUsers = [];
   }
 

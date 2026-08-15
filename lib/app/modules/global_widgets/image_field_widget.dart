@@ -10,8 +10,8 @@ import '../../models/media_model.dart';
 import '../../repositories/upload_repository.dart';
 
 class ImageFieldController extends GetxController {
-  Rx<File> image = Rx<File>(null);
-  late String uuid;
+  Rx<File?> image = Rx<File?>(null);
+  String? uuid;
   final uploading = false.obs;
   late UploadRepository _uploadRepository;
 
@@ -31,33 +31,33 @@ class ImageFieldController extends GetxController {
 
   Future pickImage(ImageSource source, String field, ValueChanged<String> uploadCompleted) async {
     ImagePicker imagePicker = ImagePicker();
-    XFile pickedFile = await imagePicker.pickImage(source: source, imageQuality: 80);
-    File imageFile = File(pickedFile.path);
-    print(imageFile);
-    if (imageFile != null) {
-      try {
-        uploading.value = true;
-        await deleteUploaded();
-        uuid = await _uploadRepository.image(imageFile, field);
-        image.value = imageFile;
-        uploadCompleted(uuid);
-        uploading.value = false;
-      } catch (e) {
-        uploading.value = false;
-        Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
-      }
-    } else {
+    XFile? pickedFile = await imagePicker.pickImage(source: source, imageQuality: 80);
+    if (pickedFile == null) {
       uploading.value = false;
       Get.showSnackbar(Ui.ErrorSnackBar(message: "Please select an image file".tr));
+      return;
+    }
+    File imageFile = File(pickedFile.path);
+    print(imageFile);
+    try {
+      uploading.value = true;
+      await deleteUploaded();
+      uuid = await _uploadRepository.image(imageFile, field);
+      image.value = imageFile;
+      uploadCompleted(uuid ?? '');
+      uploading.value = false;
+    } catch (e) {
+      uploading.value = false;
+      Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     }
   }
 
   Future<void> deleteUploaded() async {
     if (uuid != null) {
-      final done = await _uploadRepository.delete(uuid);
+      final done = await _uploadRepository.delete(uuid!);
       if (done) {
         uuid = null;
-        image = Rx<File>(null);
+        image = Rx<File?>(null);
       }
     }
   }
@@ -108,7 +108,7 @@ class ImageFieldWidget extends StatelessWidget {
                   height: 60,
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
-                    label,
+                    label ?? '',
                     style: Get.textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -117,7 +117,7 @@ class ImageFieldWidget extends StatelessWidget {
               MaterialButton(
                 onPressed: () async {
                   await controller.deleteUploaded();
-                  reset(controller.uuid);
+                  reset?.call(controller.uuid ?? '');
                 },
                 shape: StadiumBorder(),
                 color: Get.theme.focusColor.withOpacity(0.1),
@@ -152,7 +152,7 @@ class ImageFieldWidget extends StatelessWidget {
         ));
   }
 
-  Widget buildImage(Media initialImage, File image) {
+  Widget buildImage(Media? initialImage, File? image) {
     final controller = Get.put(ImageFieldController(), tag: tag);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10),
@@ -194,7 +194,7 @@ class ImageFieldWidget extends StatelessWidget {
             else
               return GestureDetector(
                 onTap: () async {
-                  await controller.pickImage(ImageSource.gallery, field, uploadCompleted);
+                  await controller.pickImage(ImageSource.gallery, field ?? '', uploadCompleted ?? (_) {});
                 },
                 child: Container(
                   width: 100,

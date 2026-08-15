@@ -111,7 +111,7 @@ class EProviderController extends GetxController {
       final _galleries = await _eProviderRepository.getGalleries(eProvider.value.id ?? '');
       galleries.assignAll(_galleries.map((e) {
         e.image?.name = e.description;
-        return e.image;
+        return e.image!;
       }));
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));

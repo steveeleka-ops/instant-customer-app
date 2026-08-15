@@ -75,7 +75,7 @@ class BookingsController extends GetxController {
       isDone.value = false;
       page.value++;
       List<Booking> _bookings =
-          await _bookingsRepository.all(null, page: page.value);
+          await _bookingsRepository.all('', page: page.value);
       if (_bookings.isNotEmpty) {
         bookings.addAll(_bookings);
       } else {
@@ -89,12 +89,12 @@ class BookingsController extends GetxController {
     }
   }
 
-  /// Cancels a booking. Works for any status — the fee warning dialog is
+  /// Cancels a booking. Works for any status ï¿½ the fee warning dialog is
   /// shown by the UI layer before this is called.
   Future<void> cancelBookingService(Booking booking) async {
     try {
       final _status = getStatusByOrder(
-          Get.find<GlobalService>().global.value.failed);
+          Get.find<GlobalService>().global.value.failed ?? 0);
       final _booking =
           new Booking(id: booking.id, cancel: true, status: _status);
       await _bookingsRepository.update(_booking);

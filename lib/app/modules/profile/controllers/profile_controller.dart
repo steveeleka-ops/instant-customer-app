@@ -26,7 +26,7 @@ class ProfileController extends GetxController {
   @override
   void onInit() {
     user.value = Get.find<AuthService>().user.value;
-    avatar.value = new Media(thumb: user.value.avatar.thumb);
+    avatar.value = new Media(thumb: user.value.avatar?.thumb ?? '');
     super.onInit();
   }
 
@@ -38,7 +38,7 @@ class ProfileController extends GetxController {
   }
 
   void saveProfileForm() async {
-    Get.focusScope.unfocus();
+    Get.focusScope?.unfocus();
     if (profileForm.currentState?.validate() ?? false) {
       try {
         profileForm.currentState?.save();
@@ -71,7 +71,7 @@ class ProfileController extends GetxController {
   }
 
   void resetProfileForm() {
-    avatar.value = new Media(thumb: user.value.avatar.thumb);
+    avatar.value = new Media(thumb: user.value.avatar?.thumb ?? '');
     profileForm.currentState?.reset();
   }
 

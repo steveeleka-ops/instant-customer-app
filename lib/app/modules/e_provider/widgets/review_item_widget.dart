@@ -79,7 +79,7 @@ class ReviewItemWidget extends StatelessWidget {
               ),
             ],
           ),
-          Ui.removeHtml(review?.review, style: Get.textTheme.bodyLarge),
+          Ui.removeHtml(review?.review ?? '', style: Get.textTheme.bodyLarge),
         ],
       ),
     );

@@ -43,7 +43,7 @@ class WalletFormController extends GetxController {
   }
 
   void createWalletForm() async {
-    Get.focusScope.unfocus();
+    Get.focusScope?.unfocus();
     if (walletForm.currentState?.validate() ?? false) {
       try {
         walletForm.currentState?.save();
@@ -59,7 +59,7 @@ class WalletFormController extends GetxController {
   }
 
   void updateWalletForm() async {
-    Get.focusScope.unfocus();
+    Get.focusScope?.unfocus();
     if (walletForm.currentState?.validate() ?? false) {
       try {
         walletForm.currentState?.save();

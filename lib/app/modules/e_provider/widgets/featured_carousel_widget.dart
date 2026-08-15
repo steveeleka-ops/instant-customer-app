@@ -88,7 +88,7 @@ class FeaturedCarouselWidget extends GetWidget<EProviderController> {
                                   style: Get.textTheme.bodySmall,
                                 ),
                                 Ui.getPrice(
-                                  _service.price,
+                                  _service.price ?? 0.0,
                                   style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                                   unit: _service.getUnit,
                                 ),

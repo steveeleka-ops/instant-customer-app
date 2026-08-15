@@ -72,7 +72,7 @@ class CategoryGridItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    category.name ?? '',
+                    category?.name ?? '',
                     style: Theme.of(context).textTheme.bodyMedium,
                     softWrap: false,
                     maxLines: 3,

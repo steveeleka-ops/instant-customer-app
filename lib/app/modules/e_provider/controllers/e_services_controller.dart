@@ -67,22 +67,22 @@ class EServicesController extends GetxController {
       List<EService> _eServices = [];
       switch (filter) {
         case CategoryFilter.ALL:
-          _eServices = await _eProviderRepository.getEServices(eProvider.value.id, page: this.page.value);
+          _eServices = await _eProviderRepository.getEServices(eProvider.value.id ?? '', page: this.page.value);
           break;
         case CategoryFilter.FEATURED:
-          _eServices = await _eProviderRepository.getFeaturedEServices(eProvider.value.id, page: this.page.value);
+          _eServices = await _eProviderRepository.getFeaturedEServices(eProvider.value.id ?? '', page: this.page.value);
           break;
         case CategoryFilter.POPULAR:
-          _eServices = await _eProviderRepository.getPopularEServices(eProvider.value.id, page: this.page.value);
+          _eServices = await _eProviderRepository.getPopularEServices(eProvider.value.id ?? '', page: this.page.value);
           break;
         case CategoryFilter.RATING:
-          _eServices = await _eProviderRepository.getMostRatedEServices(eProvider.value.id, page: this.page.value);
+          _eServices = await _eProviderRepository.getMostRatedEServices(eProvider.value.id ?? '', page: this.page.value);
           break;
         case CategoryFilter.AVAILABILITY:
-          _eServices = await _eProviderRepository.getAvailableEServices(eProvider.value.id, page: this.page.value);
+          _eServices = await _eProviderRepository.getAvailableEServices(eProvider.value.id ?? '', page: this.page.value);
           break;
         default:
-          _eServices = await _eProviderRepository.getEServices(eProvider.value.id, page: this.page.value);
+          _eServices = await _eProviderRepository.getEServices(eProvider.value.id ?? '', page: this.page.value);
       }
       if (_eServices.isNotEmpty) {
         this.eServices.addAll(_eServices);
