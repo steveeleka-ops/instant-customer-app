@@ -60,8 +60,8 @@ class AddressesView extends GetView<AddressController> {
                             groupValue:
                                 Get.find<SettingsService>().address.value,
                             onChanged: (value) async {
-                              if (await controller.validateCity(value)) {
-                                 Get.find<SettingsService>().address.value = value;
+                              if (await controller.validateCity(value as Address)) {
+                                 Get.find<SettingsService>().address.value = value as Address;
                               }
                             },
                             title: Text(_address.description ?? '',

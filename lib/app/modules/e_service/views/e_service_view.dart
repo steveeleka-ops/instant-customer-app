@@ -108,7 +108,7 @@ class EServiceView extends GetView<EServiceController> {
                         buildCategories(_eService),
                         EServiceTilWidget(
                           title: Text("Description".tr, style: Get.textTheme.titleSmall),
-                          content: Ui.applyHtml(_eService.description, style: Get.textTheme.bodyLarge),
+                          content: Ui.applyHtml(_eService.description ?? '', style: Get.textTheme.bodyLarge),
                         ),
                         buildDuration(_eService),
                         buildOptions(),
@@ -295,7 +295,7 @@ class EServiceView extends GetView<EServiceController> {
                 width: double.infinity,
                 height: 350,
                 fit: BoxFit.cover,
-                imageUrl: media.url,
+                imageUrl: media.url ?? '',
                 placeholder: (context, url) => Image.asset(
                   'assets/img/loading.gif',
                   fit: BoxFit.cover,

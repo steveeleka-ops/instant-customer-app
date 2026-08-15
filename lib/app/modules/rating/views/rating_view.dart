@@ -92,7 +92,7 @@ class RatingView extends GetView<RatingController> {
                           return InkWell(
                             onTap: () {
                               controller.review.update((val) {
-                                val.rate = (index + 1).toDouble();
+                                val?.rate = (index + 1).toDouble();
                               });
                             },
                             child: index < (controller.review.value.rate ?? 0)
@@ -112,7 +112,7 @@ class RatingView extends GetView<RatingController> {
             iconData: Icons.description_outlined,
             onChanged: (text) {
               controller.review.update((val) {
-                val.review = text;
+                val?.review = text;
               });
             },
           ),

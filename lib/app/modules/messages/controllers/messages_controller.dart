@@ -54,9 +54,9 @@ class MessagesController extends GetxController {
   }
 
   Future createMessage(Message _message) async {
-    _message.users.insert(0, _authService.user.value);
+    _message.users?.insert(0, _authService.user.value);
     _message.lastMessageTime = DateTime.now().millisecondsSinceEpoch;
-    _message.readByUsers = [_authService.user.value.id];
+    _message.readByUsers = [_authService.user.value.id ?? ''];
 
     message.value = _message;
 
@@ -81,7 +81,7 @@ class MessagesController extends GetxController {
     isDone.value = false;
     late Stream<QuerySnapshot> _userMessages;
     if (lastDocument.value == null) {
-      _userMessages = _chatRepository.getUserMessages(_authService.user.value.id);
+      _userMessages = _chatRepository.getUserMessages(_authService.user.value.id ?? '');
     } else {
       _userMessages = _chatRepository.getUserMessagesStartAt(_authService.user.value.id, lastDocument.value!);
     }

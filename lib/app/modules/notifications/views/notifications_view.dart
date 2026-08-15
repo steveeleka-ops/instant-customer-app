@@ -70,7 +70,7 @@ class NotificationsView extends GetView<NotificationsController> {
                     if(notification.data['message_id'] != null){
                       print(notification.data.toString());
                       Stream<QuerySnapshot> _userMessages;
-                      _userMessages = controller.chatRepository.getUserMessages(controller.authService.user.value.id);
+                      _userMessages = controller.chatRepository.getUserMessages(controller.authService.user.value.id ?? '');
                       _userMessages.listen((QuerySnapshot query) {
                         if (query.docs.isNotEmpty) {
                           print('MESSSSAGGESSSSS ${query.docs.length}');

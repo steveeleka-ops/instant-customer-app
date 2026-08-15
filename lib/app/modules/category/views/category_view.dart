@@ -144,7 +144,7 @@ class CategoryView extends GetView<CategoryController> {
                                   onSelected: (bool value) {
                                     controller.toggleSelected(_filter);
                                     controller.loadEServicesOfCategory(
-                                        controller.category.value.id,
+                                        controller.category.value.id ?? '',
                                         filter: controller.selected.value);
                                   },
                                 ),

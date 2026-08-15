@@ -40,7 +40,7 @@ class _AddressPickerViewState extends State<AddressPickerView> {
           return SizedBox();
         }
         if (selectedPlace != null) {
-          print('Addrresss' + selectedPlace?.formattedAddress ?? '');
+          print('Addrresss' + (selectedPlace?.formattedAddress ?? ''));
         }
         Address _address = Address(address: selectedPlace?.formattedAddress ?? '');
 
@@ -108,15 +108,15 @@ class _AddressPickerViewState extends State<AddressPickerView> {
                           ) : Container(width: double.maxFinite, child: BlockButtonWidget(
                             onPressed: () async {
                               Get.lazyPut(() => AddressController());
-                              if(_address.zipCode != null && _address.zipCode.isNotEmpty){
+                              if(_address.zipCode != null && (_address.zipCode?.isNotEmpty ?? false)){
                                 FocusScope.of(context).unfocus();
                                 setState(() => isLoading.value = true);
                                 if(await Get.find<AddressController>().validateCity(_address)){
                                   Get.find<SettingsService>().address.update((val) async {
                                     val.description = _address.description;
                                     val.address = _address.address;
-                                    val.latitude = selectedPlace.geometry.location.lat;
-                                    val.longitude = selectedPlace.geometry.location.lng;
+                                    val.latitude = selectedPlace!.geometry!.location.lat;
+                                    val.longitude = selectedPlace.geometry!.location.lng;
                                     val.userId = Get.find<AuthService>().user.value.id ?? "";
                                     val.zipCode = _address.zipCode ;
                                   });

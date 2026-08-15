@@ -59,7 +59,7 @@ class RegisterView extends GetView<AuthController> {
                       child: Column(
                         children: [
                           Text(
-                            _settings.appName,
+                            _settings.appName ?? '',
                             style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
                           ),
                           SizedBox(height: 5),
@@ -129,7 +129,7 @@ class RegisterView extends GetView<AuthController> {
                           } else if (!val.startsWith("+")) {
                             val = "+1" + val.replaceAll(RegExp(r'[\s\-\(\)]'), '');
                           }
-                          return controller.currentUser.value.phoneNumber = val;
+                          controller.currentUser.value.phoneNumber = val;
                         },
                         validator: (input) {
                           final digits = (input ?? '').replaceAll(RegExp(r'[\s\-\+\(\)]'), '');
@@ -183,10 +183,10 @@ class RegisterView extends GetView<AuthController> {
                                       child: Row(crossAxisAlignment: CrossAxisAlignment.center,children: [
                                     Icon(Icons.location_on,color: Get.theme.focusColor),
                                     SizedBox(width: 16),
-                                    if(_address.address.isEmpty || _address.address == "Please choose your address".tr)
+                                    if(_address.address?.isEmpty ?? true || _address.address == "Please choose your address".tr)
                                       Text("123 Street, City 136, State, Country".tr,style: Get.textTheme.bodyLarge?.merge(TextStyle(color: Theme.of(context).disabledColor)))
                                     else Expanded(child:
-                                      Text(_address.address, style: Get.textTheme.bodyMedium, maxLines: 1, overflow: TextOverflow.ellipsis)
+                                      Text(_address.address ?? '', style: Get.textTheme.bodyMedium, maxLines: 1, overflow: TextOverflow.ellipsis)
                                       )]).paddingOnly(top: 12))
                                 ]));
                       }),

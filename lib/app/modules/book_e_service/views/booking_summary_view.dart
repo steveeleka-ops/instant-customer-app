@@ -38,7 +38,7 @@ class BookingSummaryView extends GetView<BookEServiceController> {
                 children: [
                   Text("Booking At".tr, style: Get.textTheme.bodyLarge),
                   SizedBox(height: 8),
-                  (!controller.booking.value.isBlank) ?
+                  (!(controller.booking.value.isBlank ?? false)) ?
                   Row(
                     children: [
                       Icon(Icons.calendar_today_outlined, color: Get.theme.focusColor),

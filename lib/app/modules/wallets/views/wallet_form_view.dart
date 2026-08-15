@@ -89,10 +89,10 @@ class WalletFormView extends GetView<WalletFormController> {
                 TextFieldWidget(
                   onSaved: (input) {
                     controller.wallet.update((val) {
-                      val.name = input;
+                      val?.name = input;
                     });
                     print(controller.wallet.value);
-                    return controller.wallet.value.name = input;
+                    controller.wallet.value.name = input;
                   },
                   validator: (input) => (input?.length ?? 0) < 1 ? "Field is required".tr : null,
                   initialValue: controller.wallet.value.name,

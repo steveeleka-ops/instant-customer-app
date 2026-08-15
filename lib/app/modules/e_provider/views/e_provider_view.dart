@@ -95,9 +95,9 @@ class EProviderView extends GetView<EProviderController> {
                           title: Text("Reviews & Ratings".tr, style: Get.textTheme.titleSmall),
                           content: Column(
                             children: [
-                              Text(_eProvider.rate.toString(), style: Get.textTheme.displayLarge),
+                              Text((_eProvider.rate ?? 0.0).toString(), style: Get.textTheme.displayLarge),
                               Wrap(
-                                children: Ui.getStarsList(_eProvider.rate, size: 32),
+                                children: Ui.getStarsList(_eProvider.rate ?? 0.0, size: 32),
                               ),
                               Text(
                                 "Reviews (%s)".trArgs([_eProvider.totalReviews.toString()]),
@@ -173,7 +173,7 @@ class EProviderView extends GetView<EProviderController> {
                               height: 100,
                               width: double.infinity,
                               fit: BoxFit.cover,
-                              imageUrl: _media.thumb,
+                              imageUrl: _media.thumb ?? '',
                               placeholder: (context, url) => Image.asset(
                                 'assets/img/loading.gif',
                                 fit: BoxFit.cover,
@@ -438,7 +438,7 @@ class EProviderView extends GetView<EProviderController> {
         return Builder(
           builder: (BuildContext context) {
             return Hero(
-              tag: controller.heroTag + (_eProvider.id ?? ''),
+              tag: (controller.heroTag ?? '') + (_eProvider.id ?? ''),
               child: CachedNetworkImage(
                 width: double.infinity,
                 height: 360,

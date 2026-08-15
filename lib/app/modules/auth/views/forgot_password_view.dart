@@ -51,7 +51,7 @@ class ForgotPasswordView extends GetView<AuthController> {
                       child: Column(
                         children: [
                           Text(
-                            _settings.appName,
+                            _settings.appName ?? '',
                             style: Get.textTheme.titleLarge?.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
                           ),
                           SizedBox(height: 5),

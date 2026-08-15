@@ -12,7 +12,7 @@ class CustomPagesView extends GetView<CustomPagesController> {
         appBar: AppBar(
           title: Obx(() {
             return Text(
-              controller.customPage.value.title.tr,
+              controller.customPage.value.title?.tr ?? '',
               style: Get.textTheme.titleLarge,
             );
           }),
@@ -36,7 +36,7 @@ class CustomPagesView extends GetView<CustomPagesController> {
             child: Obx(() {
               return Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Ui.applyHtml(controller.customPage.value.content),
+                child: Ui.applyHtml(controller.customPage.value.content ?? ''),
               );
             }),
           ),

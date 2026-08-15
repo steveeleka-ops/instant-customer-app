@@ -113,9 +113,9 @@ class EProvider extends Model {
     Map<String, List<String>> result = {};
     this.availabilityHours?.forEach((element) {
       if (result.containsKey(element.day)) {
-        result[element.day]?.add(element.startAt + ' - ' + element.endAt);
+        result[element.day]?.add((element.startAt ?? '') + ' - ' + (element.endAt ?? ''));
       } else {
-        result[element.day] = [element.startAt + ' - ' + element.endAt];
+        result[element.day] = [(element.startAt ?? '') + ' - ' + (element.endAt ?? '')];
       }
     });
     return result;
@@ -125,7 +125,7 @@ class EProvider extends Model {
     List<String> result = [];
     this.availabilityHours?.forEach((element) {
       if (element.day == day) {
-        result.add(element.data);
+        result.add(element.data ?? '');
       }
     });
     return result;

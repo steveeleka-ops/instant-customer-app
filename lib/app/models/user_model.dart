@@ -70,7 +70,7 @@ class User extends Model {
     }
     data["address"] = address;
     data["bio"] = bio;
-    if (this.avatar != null && Uuid.isUuid(avatar?.id)) {
+    if (this.avatar != null && Uuid.isUuid(avatar!.id ?? '')) {
       data['avatar'] = this.avatar?.id;
     }
     if (avatar != null) {

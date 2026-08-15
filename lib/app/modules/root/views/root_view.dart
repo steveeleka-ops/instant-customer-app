@@ -60,10 +60,10 @@ class RootView extends GetView<RootController> {
                 }
               } else {
                 if (await Get.find<RootController>().isServiceAvailable()) {
-                  final app_search.SearchController = Get.find<app_search.SearchController>();
-                  app_search.SearchController.heroTag.value = UniqueKey().toString();
+                  final searchCtrl = Get.find<app_search.SearchController>();
+                  searchCtrl.heroTag.value = UniqueKey().toString();
                   Get.toNamed(Routes.SEARCH,
-                      arguments: app_search.SearchController.heroTag.value);
+                      arguments: searchCtrl.heroTag.value);
                 } else
                   Get.showSnackbar(Ui.ErrorSnackBar(message: "Unfortunately our service isn't available at your location yet. Therefore, you can not access this functionality."));
               }

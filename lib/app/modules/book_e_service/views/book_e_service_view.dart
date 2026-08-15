@@ -139,7 +139,6 @@ class BookEServiceView extends GetView<BookEServiceController> {
                 decoration: Ui.getBoxDecoration(color: controller.getColor(!controller.scheduled.value)),
                 child: Theme(
                   data: ThemeData(
-                    toggleableActiveColor: Get.theme.primaryColor,
                   ),
                   child: RadioListTile(
                     value: false,
@@ -159,7 +158,6 @@ class BookEServiceView extends GetView<BookEServiceController> {
                 decoration: Ui.getBoxDecoration(color: controller.getColor(controller.scheduled.value && controller.recurrence.value.isEmpty)),
                 child: Theme(
                   data: ThemeData(
-                    toggleableActiveColor: Get.theme.primaryColor,
                   ),
                   child: RadioListTile(
                     value: true,
@@ -179,7 +177,6 @@ class BookEServiceView extends GetView<BookEServiceController> {
                 decoration: Ui.getBoxDecoration(color: controller.getColor(isRecurrent)),
                 child: Theme(
                   data: ThemeData(
-                    toggleableActiveColor: Get.theme.primaryColor,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

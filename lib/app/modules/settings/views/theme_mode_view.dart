@@ -41,7 +41,7 @@ class ThemeModeView extends GetView<ThemeModeController> {
                     value: ThemeMode.light,
                     groupValue: controller.selectedThemeMode.value,
                     onChanged: (value) {
-                      controller.changeThemeMode(value);
+                      controller.changeThemeMode(value as ThemeMode);
                     },
                     title: Text("Light Theme".tr, style: Get.textTheme.bodyMedium),
                   ),
@@ -49,7 +49,7 @@ class ThemeModeView extends GetView<ThemeModeController> {
                     value: ThemeMode.dark,
                     groupValue: controller.selectedThemeMode.value,
                     onChanged: (value) {
-                      controller.changeThemeMode(value);
+                      controller.changeThemeMode(value as ThemeMode);
                     },
                     title: Text("Dark Theme".tr, style: Get.textTheme.bodyMedium),
                   ),
@@ -57,7 +57,7 @@ class ThemeModeView extends GetView<ThemeModeController> {
                     value: ThemeMode.system,
                     groupValue: controller.selectedThemeMode.value,
                     onChanged: (value) {
-                      controller.changeThemeMode(value);
+                      controller.changeThemeMode(value as ThemeMode);
                     },
                     title: Text("System Theme".tr, style: Get.textTheme.bodyMedium),
                   ),

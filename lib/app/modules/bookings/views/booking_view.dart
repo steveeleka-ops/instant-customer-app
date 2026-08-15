@@ -147,7 +147,7 @@ class BookingView extends GetView<BookingController> {
                                           child: Text(
                                             controller.booking.value.payment
                                                 ?.paymentMethod
-                                                ?.getName(),
+                                                ?.getName() ?? '',
                                             style: TextStyle(
                                                 color: Get.theme.hintColor),
                                           ),
@@ -186,7 +186,7 @@ class BookingView extends GetView<BookingController> {
                               BookingRowWidget(
                                 description: "Hint".tr,
                                 child: Ui.removeHtml(
-                                    controller.booking.value.hint,
+                                    controller.booking.value.hint ?? '',
                                     alignment: Alignment.centerRight),
                               ),
                             ],
@@ -284,7 +284,7 @@ class BookingView extends GetView<BookingController> {
                                   descriptionFlex: 2,
                                   valueFlex: 1,
                                   description:
-                                  controller.booking.value.eService?.name,
+                                  controller.booking.value.eService?.name ?? '',
                                   child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Ui.getPrice(
@@ -305,7 +305,7 @@ class BookingView extends GetView<BookingController> {
                                           description: _option.name,
                                           child: Align(
                                             alignment: Alignment.centerRight,
-                                            child: Ui.getPrice(_option.price,
+                                            child: Ui.getPrice(_option.price ?? 0.0,
                                                 style: Get.textTheme.bodyLarge),
                                           ),
                                           hasDivider: ((controller.booking.value
@@ -343,7 +343,7 @@ class BookingView extends GetView<BookingController> {
                                                 ? Text(_tax.value.toString() + '%',
                                                 style: Get.textTheme.bodyLarge)
                                                 : Ui.getPrice(
-                                              _tax.value,
+                                              _tax.value ?? 0.0,
                                               style: Get.textTheme.bodyLarge,
                                             ),
                                           ),
@@ -391,7 +391,7 @@ class BookingView extends GetView<BookingController> {
                                               style: Get.textTheme.bodyLarge),
                                           Ui.getPrice(
                                               controller.booking.value.coupon
-                                                  ?.discount,
+                                                  ?.discount ?? 0.0,
                                               style: Get.textTheme.bodyLarge,
                                               unit: controller
                                                   .booking
