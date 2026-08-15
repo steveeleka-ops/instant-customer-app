@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
@@ -26,7 +26,7 @@ class CheckoutController extends GetxController {
     booking.value = Get.arguments as Booking;
     await loadPaymentMethodsList();
     await loadWalletList();
-    selectedPaymentMethod.value = this.paymentsList.firstWhere((element) => element.isDefault);
+    selectedPaymentMethod.value = this.paymentsList.firstWhere((element) => element.isDefault ?? false);
     super.onInit();
   }
 
@@ -40,7 +40,7 @@ class CheckoutController extends GetxController {
 
   Future loadWalletList() async {
     try {
-      var _walletIndex = paymentsList.indexWhere((element) => element.route.toLowerCase() == Routes.WALLET);
+      var _walletIndex = paymentsList.indexWhere((element) => element.route?.toLowerCase() == Routes.WALLET);
       if (_walletIndex > -1) {
         // wallet payment method enabled
         // remove existing wallet method
@@ -65,7 +65,7 @@ class CheckoutController extends GetxController {
     try {
       _booking.payment = new Payment(paymentMethod: selectedPaymentMethod.value);
       if (selectedPaymentMethod.value.route != null) {
-        Get.toNamed(selectedPaymentMethod.value.route.toLowerCase(),
+        Get.toNamed(selectedPaymentMethod.value.route?.toLowerCase() ?? '',
             arguments: {'booking': Booking(id: _booking.id, payment: _booking.payment), 'wallet': selectedPaymentMethod.value.wallet});
       }
     } catch (e) {
@@ -78,7 +78,7 @@ class CheckoutController extends GetxController {
       return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.primaryColor));
     } else {
       final wallet = paymentMethod.wallet;
-      if (wallet != null && wallet.balance < booking.value.getTotal()) {
+      if (wallet != null && (wallet.balance ?? 0.0) < booking.value.getTotal()) {
         return Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.focusColor));
       }
     }

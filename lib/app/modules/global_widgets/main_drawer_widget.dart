@@ -298,13 +298,13 @@ class MainDrawerWidget extends StatelessWidget {
               return SizedBox(height: 0);
             }
           }),
-          if (Get.find<SettingsService>().setting.value.enableVersion)
+          if (Get.find<SettingsService>().setting.value.enableVersion ?? false)
             ListTile(
               dense: true,
               title: Text(
                 "Version".tr +
                     " " +
-                    Get.find<SettingsService>().setting.value.appVersion,
+                    (Get.find<SettingsService>().setting.value.appVersion ?? ''),
                 style: Get.textTheme.bodySmall,
               ),
               trailing: Icon(

@@ -18,8 +18,8 @@ class BookingActionsWidget extends GetView<BookingController> {
       final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
       final int statusOrder = _booking.value.status?.order ?? 0;
       final int onTheWay =
-          Get.find<GlobalService>().global.value.onTheWay; // 20
-      final int done = Get.find<GlobalService>().global.value.done; // 50
+          Get.find<GlobalService>().global.value.onTheWay ?? 0; // 20
+      final int done = Get.find<GlobalService>().global.value.done ?? 0; // 50
       const int pendingApproval = 55;
 
       // -- Pending Approval: customer must Approve or Deny ? check FIRST -------
@@ -90,7 +90,7 @@ class BookingActionsWidget extends GetView<BookingController> {
                                   child: Text("Cancel".tr)),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      primary: Get.theme.colorScheme.secondary),
+                                      foregroundColor: Get.theme.colorScheme.secondary),
                                   onPressed: () {
                                     Get.back();
                                     controller.approveBooking();
@@ -408,7 +408,7 @@ class LateCancelDialog extends StatelessWidget {
                       onConfirm?.call();
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
+                      foregroundColor: Colors.red,
                       padding: EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
@@ -506,7 +506,7 @@ class _DenyNotesDialogState extends State<DenyNotesDialog> {
                       widget.onSubmit?.call(_controller.text.trim());
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
+                      foregroundColor: Colors.red,
                       padding: EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),

@@ -27,7 +27,7 @@ class CategoryController extends GetxController {
     category.value = Get.arguments as Category;
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent && !isDone.value) {
-        loadEServicesOfCategory(category.value.id, filter: selected.value);
+        loadEServicesOfCategory(category.value.id ?? '', filter: selected.value);
       }
     });
     await refreshEServices();
@@ -40,7 +40,7 @@ class CategoryController extends GetxController {
   }
 
   Future refreshEServices({bool showMessage = false}) async {
-    await loadEServicesOfCategory(category.value.id, filter: selected.value);
+    await loadEServicesOfCategory(category.value.id ?? '', filter: selected.value);
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(message: "List of services refreshed successfully".tr));
     }

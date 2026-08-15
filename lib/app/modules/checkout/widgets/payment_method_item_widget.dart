@@ -26,13 +26,12 @@ class PaymentMethodItemWidget extends GetWidget<CheckoutController> {
         decoration: Ui.getBoxDecoration(color: controller.getColor(_paymentMethod)),
         child: Theme(
           data: ThemeData(
-            toggleableActiveColor: Get.theme.primaryColor,
           ),
           child: RadioListTile(
               value: _paymentMethod,
               groupValue: controller.selectedPaymentMethod.value,
-              onChanged: (PaymentMethod value) {
-                if (value.wallet == null || (value.wallet?.balance ?? 0) >= controller.booking.value.getTotal()) {
+              onChanged: (PaymentMethod? value) {
+                if (value != null && (value.wallet == null || (value.wallet?.balance ?? 0) >= controller.booking.value.getTotal())) {
                   controller.selectPaymentMethod(value);
                 }
               },

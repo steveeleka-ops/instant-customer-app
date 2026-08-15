@@ -80,7 +80,7 @@ class CategoryListItemWidget extends StatelessWidget {
                   // ),
                 ],
               )),
-          children: List.generate(category.subCategories?.length ?? 0, (index) {
+          children: List.generate(category?.subCategories?.length ?? 0, (index) {
             var _category = category!.subCategories!.elementAt(index);
             return GestureDetector(
               onTap: () {

@@ -34,7 +34,7 @@ class CategoryGridItemWidget extends StatelessWidget {
               width: double.infinity,
               decoration: new BoxDecoration(
                 gradient: new LinearGradient(
-                    colors: [category.color.withOpacity(1), category.color.withOpacity(0.1)],
+                    colors: [category?.color?.withOpacity(1) ?? Colors.transparent, category?.color?.withOpacity(0.1) ?? Colors.transparent],
                     begin: AlignmentDirectional.topStart,
                     //const FractionalOffset(1, 0),
                     end: AlignmentDirectional.bottomEnd,
@@ -42,14 +42,14 @@ class CategoryGridItemWidget extends StatelessWidget {
                     tileMode: TileMode.clamp),
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
               ),
-              child: (category.image.url.toLowerCase().endsWith('.svg')
+              child: ((category?.image?.url?.toLowerCase() ?? '').endsWith('.svg')
                   ?
               ClipRRect(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
                   child:
               SvgPicture.network(
-                      category.image.url,
-                      color: category.color,
+                      category?.image?.url ?? '',
+                      color: category?.color,
                 fit:BoxFit.cover,
                       height: 70,
                     ))
@@ -58,7 +58,7 @@ class CategoryGridItemWidget extends StatelessWidget {
                   child:CachedNetworkImage(
                       fit: BoxFit.cover,
                       height: 70,
-                      imageUrl: category.image.url,
+                      imageUrl: category?.image?.url ?? '',
                       placeholder: (context, url) => Image.asset(
                         'assets/img/loading.gif',
                         fit: BoxFit.cover,

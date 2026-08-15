@@ -110,8 +110,8 @@ class BookingController extends GetxController {
           new Booking(id: booking.value.id, cancel: true, status: _status);
       await _bookingRepository.update(_booking);
       booking.update((val) {
-        val.cancel = true;
-        val.status = _status;
+        val?.cancel = true;
+        val?.status = _status;
       });
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
@@ -120,18 +120,18 @@ class BookingController extends GetxController {
   void initBookingAddress() {
     mapController.moveCamera(
       CameraUpdate.newCameraPosition(
-        CameraPosition(target: booking.value.address.getLatLng(), zoom: 12.4746),
+        CameraPosition(target: booking.value.address!.getLatLng(), zoom: 12.4746),
       ),
     );
-    MapsUtil.getMarker(address: booking.value.address, id: booking.value.id, description: booking.value.user?.name ?? '').then((marker) {
+    MapsUtil.getMarker(address: booking.value.address, id: booking.value.id ?? '', description: booking.value.user?.name ?? '').then((marker) {
       allMarkers.add(marker);
     });
   }
   String getTime({String separator = ":"}) {
     String hours = "";
     String minutes = "";
-    int minutesInt = ((booking.value.duration - booking.value.duration.toInt()) * 60).toInt();
-    int hoursInt = booking.value.duration.toInt();
+    int minutesInt = (((booking.value.duration ?? 0.0) - (booking.value.duration?.toInt() ?? 0)) * 60).toInt();
+    int hoursInt = booking.value.duration?.toInt() ?? 0;
     if (hoursInt < 10) {
       hours = "0" + hoursInt.toString();
     } else {
@@ -146,11 +146,11 @@ class BookingController extends GetxController {
   }
 
   Future<void> startChat() async {
-    print(booking.value.eProvider.id);
-    List<User> _employees = await _eProviderRepository.getEmployees(booking.value.eProvider.id);
+    print(booking.value.eProvider?.id ?? '');
+    List<User> _employees = await _eProviderRepository.getEmployees(booking.value.eProvider?.id ?? '');
     _employees = _employees
         .map((e) {
-          e.avatar = booking.value.eProvider.images[0];
+          e.avatar = booking.value.eProvider?.images?[0];
           return e;
         })
         .toSet()
@@ -161,10 +161,10 @@ class BookingController extends GetxController {
 
   Future<void> approveBooking() async {
     try {
-      await _bookingRepository.approve(booking.value.id);
+      await _bookingRepository.approve(booking.value.id ?? '');
       final _doneStatus = Get.find<BookingsController>().getStatusByOrder(50);
       booking.update((val) {
-        val.status = _doneStatus;
+        val?.status = _doneStatus;
       });
       Get.showSnackbar(Ui.SuccessSnackBar(message: "Job approved! Payment has been released.".tr));
     } catch (e) {
@@ -174,10 +174,10 @@ class BookingController extends GetxController {
 
   Future<void> denyBooking(String notes) async {
     try {
-      await _bookingRepository.deny(booking.value.id, notes);
+      await _bookingRepository.deny(booking.value.id ?? '', notes);
       final _inProgressStatus = Get.find<BookingsController>().getStatusByOrder(40);
       booking.update((val) {
-        val.status = _inProgressStatus;
+        val?.status = _inProgressStatus;
       });
       Get.showSnackbar(Ui.SuccessSnackBar(message: "Job reopened. The provider has been notified.".tr));
     } catch (e) {

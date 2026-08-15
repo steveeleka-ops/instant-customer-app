@@ -36,7 +36,7 @@ class CustomPagesController extends GetxController {
 
   Future<void> getCustomPage() async {
     try {
-      customPage.value = await _customPageRepository.get(customPage.value.id);
+      customPage.value = await _customPageRepository.get(customPage.value.id ?? '');
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     }
