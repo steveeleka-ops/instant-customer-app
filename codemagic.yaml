@@ -41,7 +41,7 @@ workflows:
           fi
           flutter build ipa --release \
             --build-name=1.0.6 \
-            --build-number=47 \
+            --build-number=48 \
             --export-options-plist=/Users/builder/export_options.plist
     artifacts:
       - build/ios/ipa/*.ipa
@@ -63,7 +63,7 @@ workflows:
         script: |
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
           echo "flutter.versionName=1.0.6" >> android/local.properties
-          echo "flutter.versionCode=47" >> android/local.properties
+          echo "flutter.versionCode=48" >> android/local.properties
       - name: Get packages
         script: flutter pub upgrade
       - name: Generate app icons
@@ -92,6 +92,6 @@ workflows:
         script: |
           flutter build appbundle --release \
             --build-name=1.0.6 \
-            --build-number=47
+            --build-number=48
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
