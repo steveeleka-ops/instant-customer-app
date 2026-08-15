@@ -70,6 +70,21 @@ workflows:
         script: flutter pub run flutter_launcher_icons:main
       - name: Patch third-party packages for Flutter 3.22
         script: |
+          # AGP 8.x requires namespace in every plugin's build.gradle.
+          # Older plugins only declare it via package= in AndroidManifest.xml.
+          # This patch reads that attribute and injects it into build.gradle.
+          find $HOME/.pub-cache/hosted/pub.dev -path "*/android/build.gradle" | while read f; do
+            if ! grep -q "namespace" "$f"; then
+              MANIFEST="$(dirname "$f")/src/main/AndroidManifest.xml"
+              if [ -f "$MANIFEST" ]; then
+                NS=$(grep -o 'package="[^"]*"' "$MANIFEST" | head -1 | cut -d'"' -f2)
+                if [ -n "$NS" ]; then
+                  sed -i '' "s/android {/android {\n    namespace \"${NS}\"/" "$f"
+                  echo "Patched namespace '${NS}': $f"
+                fi
+              fi
+            fi
+          done
           for f in $HOME/.pub-cache/hosted/pub.dev/google_maps_place_picker_mb-*/lib/src/components/prediction_tile.dart; do
             [ -f "$f" ] && sed -i '' 's/\.bodyText2/\.bodyMedium/g' "$f" && echo "Patched: $f"
           done
