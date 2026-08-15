@@ -53,7 +53,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                         alignment: AlignmentDirectional.topStart,
                         children: [
 
-                          (controller.categories.elementAt(index).image?.url ?? ""
+                          ((controller.categories.elementAt(index).image?.url ?? "")
                                       .toLowerCase()
                                       .endsWith('.svg')
                                   ? SvgPicture.network(controller.categories.elementAt(index).image?.url ?? "",

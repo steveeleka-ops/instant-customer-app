@@ -98,7 +98,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        _favorite.eService.name ?? '',
+                        _favorite.eService?.name ?? '',
                         style: Get.textTheme.bodyMedium,
                         maxLines: 3,
                         // textAlign: TextAlign.end,
@@ -138,7 +138,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Ui.getPrice(_favorite.eService?.price, style: Get.textTheme.titleLarge),
+                      Ui.getPrice(_favorite.eService?.price ?? 0.0, style: Get.textTheme.titleLarge),
                     ],
                   ),
                   Row(
@@ -151,7 +151,7 @@ class FavoritesListItemWidget extends StatelessWidget {
                       SizedBox(width: 5),
                       Flexible(
                         child: Text(
-                          _favorite.eService.eProvider?.name ?? "",
+                          _favorite.eService?.eProvider?.name ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,

@@ -63,7 +63,7 @@ class AccountView extends GetView<AccountController> {
                       child: Column(
                         children: [
                           Text(
-                            ${_currentUser.value.name ?? ""},
+                            _currentUser.value.name ?? "",
                             style: Get.textTheme.titleLarge?.merge(
                                 TextStyle(color: Get.theme.primaryColor)),
                           ),

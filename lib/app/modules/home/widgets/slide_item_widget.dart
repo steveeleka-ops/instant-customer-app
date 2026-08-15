@@ -56,7 +56,7 @@ class SlideItemWidget extends StatelessWidget {
                       onPressed: () {
                         if (slide?.eProvider != null) {
                           Get.toNamed(Routes.E_PROVIDER, arguments: {'eProvider': slide?.eProvider, 'heroTag': 'e_provider_slide_item'});
-                        } else if (slide.eService != null) {
+                        } else if (slide?.eService != null) {
                           Get.toNamed(Routes.E_SERVICE, arguments: {'eService': slide?.eService, 'heroTag': 'slide_item'});
                         }
                       },

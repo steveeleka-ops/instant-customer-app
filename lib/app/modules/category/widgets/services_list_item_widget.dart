@@ -155,7 +155,7 @@ class ServicesListItemWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Ui.getPrice(_service.price, style: Get.textTheme.titleLarge),
+                  Ui.getPrice(_service.price ?? 0.0, style: Get.textTheme.titleLarge),
                   Divider(height: 8, thickness: 1),
                   Row(
                     children: [

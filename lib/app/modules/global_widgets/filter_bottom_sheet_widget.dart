@@ -48,7 +48,7 @@ class FilterBottomSheetWidget extends GetView<app_search.SearchController> {
                               .contains(_category.id),
                           onChanged: (value) {
                             print(value);
-                            controller.toggleCategory(value, _category);
+                            controller.toggleCategory(value ?? false, _category);
                           },
                           title: Text(
                             _category.name ?? '',

@@ -30,7 +30,7 @@ class BookingsView extends GetView<BookingsController> {
               floating: false,
               iconTheme: IconThemeData(color: Get.theme.primaryColor),
               title: Text(
-                Get.find<SettingsService>().setting.value.appName,
+                Get.find<SettingsService>().setting.value.appName ?? '',
                 style: Get.textTheme.titleLarge,
               ),
               centerTitle: true,

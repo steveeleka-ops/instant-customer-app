@@ -19,7 +19,7 @@ import '../services/global_service.dart';
 class MockApiClient {
   final _globalService = Get.find<GlobalService>();
 
-  String get baseUrl => _globalService.global.value.mockBaseUrl;
+  String get baseUrl => _globalService.global.value.mockBaseUrl ?? '';
 
   final Dio httpClient;
   final Options _options = buildCacheOptions(Duration(days: 3), forceRefresh: true);

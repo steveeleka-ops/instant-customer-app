@@ -61,7 +61,7 @@ class Home2View extends GetView<HomeController> {
                           ? AlignmentDirectional.center
                           : Ui.getAlignmentDirectional(controller.slider
                               .elementAt(controller.currentSlide.value)
-                              .textPosition),
+                              .textPosition ?? ''),
                       children: <Widget>[
                         CarouselSlider(
                           options: CarouselOptions(
@@ -95,7 +95,7 @@ class Home2View extends GetView<HomeController> {
                                     color: controller.currentSlide.value ==
                                             controller.slider.indexOf(slide)
                                         ? slide.indicatorColor
-                                        : slide.indicatorColor
+                                        : (slide.indicatorColor ?? Colors.grey)
                                             .withOpacity(0.4)),
                               );
                             }).toList(),

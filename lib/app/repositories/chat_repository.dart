@@ -70,7 +70,7 @@ class ChatRepository {
 
   Future<void> addMessage(Message message, Chat chat) {
     return FirebaseFirestore.instance.collection("messages").doc(message.id).collection("chats").add(chat.toJson()).whenComplete(() {
-      updateMessage(message.id, message.toUpdatedMap());
+      updateMessage(message.id ?? '', message.toUpdatedMap().cast<String, dynamic>());
     }).catchError((e) {
       print(e.toString());
     });

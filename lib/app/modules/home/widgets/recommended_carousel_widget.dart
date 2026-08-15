@@ -90,7 +90,7 @@ class RecommendedCarouselWidget extends GetWidget<HomeController> {
                                   style: Get.textTheme.bodySmall,
                                 ),
                                 Ui.getPrice(
-                                  controller.eServices.elementAt(index).price,
+                                  controller.eServices.elementAt(index).price ?? 0.0,
                                   style: Get.textTheme.bodyMedium?.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
                                   unit: controller.eServices.elementAt(index).getUnit,
                                 ),

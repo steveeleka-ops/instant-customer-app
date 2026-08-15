@@ -333,12 +333,12 @@ class _RatingBarState extends State<RatingBar> {
                       BoxShadow(
                         color: glowColor.withAlpha(30),
                         blurRadius: 10,
-                        spreadRadius: widget.glowRadius,
+                        spreadRadius: widget.glowRadius ?? 0.0,
                       ),
                       BoxShadow(
                         color: glowColor.withAlpha(20),
                         blurRadius: 10,
-                        spreadRadius: widget.glowRadius,
+                        spreadRadius: widget.glowRadius ?? 0.0,
                       ),
                     ],
                   ),
