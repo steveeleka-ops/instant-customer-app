@@ -26,7 +26,7 @@ class SlideItemWidget extends StatelessWidget {
           child: CachedNetworkImage(
             width: double.infinity,
             height: 310,
-            fit: Ui.getBoxFit(slide?.imageFit),
+            fit: Ui.getBoxFit(slide?.imageFit ?? ''),
             imageUrl: slide?.image?.url ?? '',
             placeholder: (context, url) => Image.asset(
               'assets/img/loading.gif',
@@ -37,7 +37,7 @@ class SlideItemWidget extends StatelessWidget {
           ),
         ),
         Container(
-            alignment: Ui.getAlignmentDirectional(slide?.textPosition),
+            alignment: Ui.getAlignmentDirectional(slide?.textPosition ?? ''),
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: 85, horizontal: 20),
             child: SizedBox(
@@ -72,7 +72,7 @@ class SlideItemWidget extends StatelessWidget {
                     ),
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: Ui.getCrossAxisAlignment(slide?.textPosition),
+                crossAxisAlignment: Ui.getCrossAxisAlignment(slide?.textPosition ?? ''),
               ),
             )),
       ],
