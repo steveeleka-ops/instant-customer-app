@@ -96,11 +96,17 @@ workflows:
           find $HOME/.pub-cache/hosted/pub.dev/google_api_headers-*/android -name "build.gradle" | while read f; do
             sed -i '' "s/ext\.kotlin_version = '[0-9][0-9.]*'/ext.kotlin_version = '1.9.0'/g" "$f"
             sed -i '' 's/kotlin-gradle-plugin:[0-9][0-9.]*/kotlin-gradle-plugin:1.9.0/g' "$f"
+            if ! grep -q "jvmTarget" "$f"; then
+              sed -i '' "s/compileOptions {/kotlinOptions {\n        jvmTarget = '1.8'\n    }\n    compileOptions {/" "$f"
+            fi
             echo "Patched google_api_headers: $f"
           done
           find $HOME/.pub-cache/hosted/pub.dev/location-*/android -name "build.gradle" | while read f; do
             sed -i '' "s/ext\.kotlin_version = '[0-9][0-9.]*'/ext.kotlin_version = '1.9.0'/g" "$f"
             sed -i '' 's/kotlin-gradle-plugin:[0-9][0-9.]*/kotlin-gradle-plugin:1.9.0/g' "$f"
+            if ! grep -q "jvmTarget" "$f"; then
+              sed -i '' "s/compileOptions {/kotlinOptions {\n        jvmTarget = '1.8'\n    }\n    compileOptions {/" "$f"
+            fi
             echo "Patched location: $f"
           done
       - name: Build Android App Bundle

@@ -24,20 +24,6 @@ allprojects {
     }
 }
 
-subprojects {
-    afterEvaluate { project ->
-        if (project.hasProperty('android')) {
-            try {
-                def javaTarget = project.android.compileOptions.targetCompatibility
-                if (javaTarget != null) {
-                    project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-                        kotlinOptions { jvmTarget = javaTarget.toString() }
-                    }
-                }
-            } catch (ignored) {}
-        }
-    }
-}
 
 rootProject.buildDir = '../build'
 subprojects {
