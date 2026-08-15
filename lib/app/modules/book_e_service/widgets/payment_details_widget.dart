@@ -38,7 +38,7 @@ class PaymentDetailsWidget extends StatelessWidget {
             description: _booking.eService?.name,
             child: Align(
               alignment: Alignment.centerRight,
-              child: Ui.getPrice(_booking.eService?.getPrice, style: Get.textTheme.titleSmall),
+              child: Ui.getPrice(_booking.eService?.getPrice ?? 0.0, style: Get.textTheme.titleSmall),
             ),
             hasDivider: true,
           ),
@@ -49,7 +49,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   description: _option.name,
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Ui.getPrice(_option.price, style: Get.textTheme.bodyLarge),
+                    child: Ui.getPrice(_option.price ?? 0.0, style: Get.textTheme.bodyLarge),
                   ),
                   hasDivider: ((_booking.options?.length ?? 0) - 1) == index);
             }),
@@ -75,7 +75,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                     child: _tax.type == 'percent'
                         ? Text((_tax.value ?? 0).toString() + '%', style: Get.textTheme.bodyLarge)
                         : Ui.getPrice(
-                            _tax.value,
+                            _tax.value ?? 0.0,
                             style: Get.textTheme.bodyLarge,
                           ),
                   ),
@@ -105,7 +105,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                   child: Wrap(
                     children: [
                       Text(' - ', style: Get.textTheme.bodyLarge),
-                      Ui.getPrice(_booking.coupon?.discount, style: Get.textTheme.bodyLarge, unit: _booking.coupon?.discountType == 'percent' ? "%" : null),
+                      Ui.getPrice(_booking.coupon?.discount ?? 0.0, style: Get.textTheme.bodyLarge, unit: _booking.coupon?.discountType == 'percent' ? "%" : null),
                     ],
                   ),
                 ),

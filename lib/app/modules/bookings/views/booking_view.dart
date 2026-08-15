@@ -289,7 +289,7 @@ class BookingView extends GetView<BookingController> {
                                     alignment: Alignment.centerRight,
                                     child: Ui.getPrice(
                                         controller
-                                            .booking.value.eService?.getPrice,
+                                            .booking.value.eService?.getPrice ?? 0.0,
                                         style: Get.textTheme.titleSmall),
                                   ),
                                   hasDivider: true),

@@ -443,7 +443,7 @@ class EProviderView extends GetView<EProviderController> {
                 width: double.infinity,
                 height: 360,
                 fit: BoxFit.cover,
-                imageUrl: media.url,
+                imageUrl: media.url ?? '',
                 placeholder: (context, url) => Image.asset(
                   'assets/img/loading.gif',
                   fit: BoxFit.cover,

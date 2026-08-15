@@ -52,11 +52,11 @@ class BookingController extends GetxController {
 
   Future<void> getBooking() async {
     try {
-      booking.value = await _bookingRepository.get(booking.value.id);
-      if (booking.value.status == Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.inProgress) && timer == null) {
+      booking.value = await _bookingRepository.get(booking.value.id ?? '');
+      if (booking.value.status == Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.inProgress ?? 0) && timer == null) {
         timer = Timer.periodic(Duration(minutes: 1), (t) {
           booking.update((val) {
-            val.duration += (1 / 60);
+            val!.duration = (val.duration ?? 0.0) + (1 / 60);
           });
         });
       }
@@ -67,16 +67,16 @@ class BookingController extends GetxController {
 
   Future<void> startBookingService() async {
     try {
-      final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.inProgress);
+      final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.inProgress ?? 0);
       final _booking = new Booking(id: booking.value.id, startAt: DateTime.now(), status: _status);
       await _bookingRepository.update(_booking);
       booking.update((val) {
-        val.startAt = _booking.startAt;
+        val!.startAt = _booking.startAt;
         val.status = _status;
       });
       timer = Timer.periodic(Duration(minutes: 1), (t) {
         booking.update((val) {
-          val.duration += (1 / 60);
+          val!.duration = (val.duration ?? 0.0) + (1 / 60);
         });
       });
     } catch (e) {
@@ -86,11 +86,11 @@ class BookingController extends GetxController {
 
   Future<void> finishBookingService() async {
     try {
-      final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.done);
+      final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.done ?? 0);
       var _booking = new Booking(id: booking.value.id, endsAt: DateTime.now(), status: _status);
       final result = await _bookingRepository.update(_booking);
       booking.update((val) {
-        val.endsAt = result.endsAt;
+        val!.endsAt = result.endsAt;
         val.duration = result.duration;
         val.status = _status;
       });
@@ -105,7 +105,7 @@ class BookingController extends GetxController {
   Future<void> cancelBookingService() async {
     try {
       final _status = Get.find<BookingsController>()
-          .getStatusByOrder(Get.find<GlobalService>().global.value.failed);
+          .getStatusByOrder(Get.find<GlobalService>().global.value.failed ?? 0);
       final _booking =
           new Booking(id: booking.value.id, cancel: true, status: _status);
       await _bookingRepository.update(_booking);

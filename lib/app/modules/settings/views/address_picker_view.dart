@@ -113,7 +113,7 @@ class _AddressPickerViewState extends State<AddressPickerView> {
                                 setState(() => isLoading.value = true);
                                 if(await Get.find<AddressController>().validateCity(_address)){
                                   Get.find<SettingsService>().address.update((val) async {
-                                    val.description = _address.description;
+                                    val!.description = _address.description;
                                     val.address = _address.address;
                                     val.latitude = selectedPlace!.geometry!.location.lat;
                                     val.longitude = selectedPlace.geometry!.location.lng;

@@ -29,14 +29,14 @@ class AuthController extends GetxController {
   }
 
   void login() async {
-    Get.focusScope.unfocus();
+    Get.focusScope?.unfocus();
     if (loginFormKey.currentState?.validate() ?? false) {
       loginFormKey.currentState?.save();
       loading.value = true;
       try {
         await Get.find<FireBaseMessagingService>().setDeviceToken();
         currentUser.value = await _userRepository.login(currentUser.value);
-        await _userRepository.signInWithEmailAndPassword(currentUser.value.email, currentUser.value.apiToken);
+        await _userRepository.signInWithEmailAndPassword(currentUser.value.email ?? '', currentUser.value.apiToken ?? '');
         await Get.find<RootController>().changePage(0);
       } catch (e) {
         Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
@@ -47,7 +47,7 @@ class AuthController extends GetxController {
   }
 
   void register() async {
-    Get.focusScope.unfocus();
+    Get.focusScope?.unfocus();
     if (registerFormKey.currentState?.validate() ?? false) {
       currentUser.value.address = Get.find<SettingsService>().address.value;
       registerFormKey.currentState?.save();
@@ -70,7 +70,7 @@ class AuthController extends GetxController {
       await _userRepository.verifyPhone(smsSent.value);
       await Get.find<FireBaseMessagingService>().setDeviceToken();
       currentUser.value = await _userRepository.register(currentUser.value);
-      await _userRepository.signUpWithEmailAndPassword(currentUser.value.email, currentUser.value.apiToken);
+      await _userRepository.signUpWithEmailAndPassword(currentUser.value.email ?? '', currentUser.value.apiToken ?? '');
       await Get.find<RootController>().changePage(0);
     } catch (e) {
       Get.back();
@@ -85,14 +85,14 @@ class AuthController extends GetxController {
   }
 
   void sendResetLink() async {
-    Get.focusScope.unfocus();
+    Get.focusScope?.unfocus();
     if (forgotPasswordFormKey.currentState?.validate() ?? false) {
       forgotPasswordFormKey.currentState?.save();
       loading.value = true;
       try {
         await _userRepository.sendResetLinkEmail(currentUser.value);
         loading.value = false;
-        Get.showSnackbar(Ui.SuccessSnackBar(message: "The Password reset link has been sent to your email: ".tr + currentUser.value.email));
+        Get.showSnackbar(Ui.SuccessSnackBar(message: "The Password reset link has been sent to your email: ".tr + (currentUser.value.email ?? '')));
         Timer(Duration(seconds: 5), () {
           Get.offAndToNamed(Routes.LOGIN);
         });

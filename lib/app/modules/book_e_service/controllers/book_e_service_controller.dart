@@ -36,7 +36,7 @@ class BookEServiceController extends GetxController {
   void onInit() async {
     super.onInit();
     final _eService = (Get.arguments['eService'] as EService);
-    scheduled.value = _eService.eProvider?.available == true != true;
+    scheduled.value = !(_eService.eProvider?.available == true);
     final _options = (Get.arguments['options'] as List<Option>);
     final _quantity = (Get.arguments['quantity'] as int);
     var bookingAt ;
@@ -114,7 +114,7 @@ class BookEServiceController extends GetxController {
           addresses.insert(0, currentAddress);
         }
         if (Get.isRegistered<TabBarController>(tag: 'addresses')) {
-          Get.find<TabBarController>(tag: 'addresses').selectedId.value = addresses.elementAt(0).id;
+          Get.find<TabBarController>(tag: 'addresses').selectedId.value = addresses.elementAt(0).id ?? '';
         }
       }
     } catch (e) {
@@ -126,7 +126,7 @@ class BookEServiceController extends GetxController {
     try {
       Coupon _coupon = await _bookingRepository.coupon(booking.value);
       booking.update((val) {
-        val.coupon = _coupon;
+        val!.coupon = _coupon;
       });
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
@@ -152,13 +152,13 @@ class BookEServiceController extends GetxController {
       firstDate: DateTime.now().add(Duration(days: 1)),
       lastDate: DateTime(2101),
       locale: Get.locale,
-      builder: (BuildContext context, Widget child) {
-        return child.paddingAll(10);
+      builder: (BuildContext context, Widget? child) {
+        return child!.paddingAll(10);
       },
     );
     if (picked != null) {
       booking.update((val) {
-        val.bookingAt = DateTime(picked.year, picked.month, picked.day, val.bookingAt?.hour ?? 0, val.bookingAt?.minute ?? 0);
+        val!.bookingAt = DateTime(picked.year, picked.month, picked.day, val.bookingAt?.hour ?? 0, val.bookingAt?.minute ?? 0);
         ;
       });
     }
@@ -167,14 +167,14 @@ class BookEServiceController extends GetxController {
   Future<Null> showMyTimePicker(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
-      initialTime: TimeOfDay.fromDateTime(booking.value.bookingAt),
-      builder: (BuildContext context, Widget child) {
-        return child.paddingAll(10);
+      initialTime: TimeOfDay.fromDateTime(booking.value.bookingAt ?? DateTime.now()),
+      builder: (BuildContext context, Widget? child) {
+        return child!.paddingAll(10);
       },
     );
     if (picked != null) {
       booking.update((val) {
-        val.bookingAt = DateTime(booking.value.bookingAt?.year ?? DateTime.now().year, booking.value.bookingAt?.month ?? DateTime.now().month, booking.value.bookingAt?.day ?? DateTime.now().day).add(Duration(minutes: picked.minute + picked.hour * 60));
+        val!.bookingAt = DateTime(booking.value.bookingAt?.year ?? DateTime.now().year, booking.value.bookingAt?.month ?? DateTime.now().month, booking.value.bookingAt?.day ?? DateTime.now().day).add(Duration(minutes: picked.minute + picked.hour * 60));
       });
     }
   }

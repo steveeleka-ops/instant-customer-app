@@ -115,7 +115,7 @@ class EProvider extends Model {
       if (result.containsKey(element.day)) {
         result[element.day]?.add((element.startAt ?? '') + ' - ' + (element.endAt ?? ''));
       } else {
-        result[element.day] = [(element.startAt ?? '') + ' - ' + (element.endAt ?? '')];
+        result[element.day ?? ''] = [(element.startAt ?? '') + ' - ' + (element.endAt ?? '')];
       }
     });
     return result;

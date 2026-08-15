@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
+import '../../../models/address_model.dart';
 import '../../../providers/laravel_provider.dart';
 import '../../../services/settings_service.dart';
 import '../../global_widgets/circular_loading_widget.dart';

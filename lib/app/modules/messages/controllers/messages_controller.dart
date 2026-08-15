@@ -83,7 +83,7 @@ class MessagesController extends GetxController {
     if (lastDocument.value == null) {
       _userMessages = _chatRepository.getUserMessages(_authService.user.value.id ?? '');
     } else {
-      _userMessages = _chatRepository.getUserMessagesStartAt(_authService.user.value.id, lastDocument.value!);
+      _userMessages = _chatRepository.getUserMessagesStartAt(_authService.user.value.id ?? '', lastDocument.value!);
     }
     _userMessages.listen((QuerySnapshot query) {
       if (query.docs.isNotEmpty) {
@@ -99,7 +99,7 @@ class MessagesController extends GetxController {
   }
 
   listenForChats() async {
-    message.value.readByUsers.add(_authService.user.value.id);
+    message.value.readByUsers?.add(_authService.user.value.id ?? '');
     _chatRepository.getChats(message.value).listen((event) {
       chats.assignAll(event);
     });
@@ -113,14 +113,14 @@ class MessagesController extends GetxController {
     }
     _message.lastMessage = text;
     _message.lastMessageTime = _chat.time;
-    _message.readByUsers = [_authService.user.value.id];
+    _message.readByUsers = [_authService.user.value.id ?? ''];
     uploading.value = false;
 
     _chatRepository.addMessage(_message, _chat).then((value) {}).then((value) {
       List<User> _users = [];
-      _users.addAll(_message.users);
+      _users.addAll(_message.users ?? []);
       _users.removeWhere((element) => element.id == _authService.user.value.id);
-      _notificationRepository.sendNotification(_users, _authService.user.value, "App\\Notifications\\NewMessage", text,_message.id,_authService.user.value.id);
+      _notificationRepository.sendNotification(_users, _authService.user.value, "App\\Notifications\\NewMessage", text,_message.id ?? '',_authService.user.value.id ?? '');
     });
   }
 
@@ -146,9 +146,9 @@ class MessagesController extends GetxController {
 
   String getOtherUserName(){
     try{
-      var user = message.value.users.lastWhere((element) => element.id != _authService.user.value.id);
+      var user = message.value.users?.lastWhere((element) => element.id != _authService.user.value.id);
       if(user != null){
-        return user.name;
+        return user.name ?? '';
       } else return '';
     }catch(e){
       return '';
