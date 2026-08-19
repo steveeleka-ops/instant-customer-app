@@ -1,4 +1,5 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -95,13 +96,55 @@ class BookEServiceController extends GetxController {
       this.booking.value.recurrence = recurrence.value.isNotEmpty ? recurrence.value : null;
       Get.log(booking.value.toString());
       print(booking.value);
-      // Create booking to get an ID, then send customer to Stripe to authorize payment hold
       final createdBooking = await _bookingRepository.add(booking.value);
       booking.value = createdBooking;
-      // Navigate to Stripe checkout � funds held until job is approved by customer
+      _sendJobRequestEmail(createdBooking);
       Get.toNamed(Routes.STRIPE, arguments: {'booking': createdBooking});
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
+    }
+  }
+
+  void _sendJobRequestEmail(Booking b) async {
+    try {
+      final serviceName = b.eService?.name ?? 'N/A';
+      final providerName = b.eProvider?.name ?? 'N/A';
+      final customerName = b.user?.name ?? 'N/A';
+      final customerPhone = b.user?.phone ?? 'N/A';
+      final address = b.address?.address ?? 'N/A';
+      final bookingDate = b.bookingAt != null
+          ? DateFormat('MMM d, yyyy – h:mm a').format(b.bookingAt!)
+          : 'N/A';
+      final bookingId = b.id ?? 'N/A';
+
+      const resendKey = String.fromEnvironment('RESEND_API_KEY');
+      await Dio().post(
+        'https://api.resend.com/emails',
+        options: Options(headers: {
+          'Authorization': 'Bearer $resendKey',
+          'Content-Type': 'application/json',
+        }),
+        data: {
+          'from': 'Instant Provider <noreply@instantproviderapp.com>',
+          'to': ['info@instantproviderapp.com'],
+          'subject': 'New Job Request — $serviceName',
+          'html': '''
+<h2>New Job Request</h2>
+<table cellpadding="8" style="font-family:sans-serif;font-size:14px">
+  <tr><td><b>Booking ID</b></td><td>$bookingId</td></tr>
+  <tr><td><b>Service</b></td><td>$serviceName</td></tr>
+  <tr><td><b>Provider</b></td><td>$providerName</td></tr>
+  <tr><td><b>Customer</b></td><td>$customerName</td></tr>
+  <tr><td><b>Phone</b></td><td>$customerPhone</td></tr>
+  <tr><td><b>Address</b></td><td>$address</td></tr>
+  <tr><td><b>Scheduled</b></td><td>$bookingDate</td></tr>
+</table>
+''',
+        },
+      );
+    } catch (e) {
+      // Email failure is non-critical — booking already created, don't disrupt the user
+      print('Email notify error: $e');
     }
   }
 
