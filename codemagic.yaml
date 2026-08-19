@@ -59,6 +59,8 @@ workflows:
     environment:
       flutter: 3.22.3
       java: 17
+      groups:
+        - email_credentials
     scripts:
       - name: Set up local.properties
         script: |
