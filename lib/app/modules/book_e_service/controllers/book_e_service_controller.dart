@@ -110,7 +110,7 @@ class BookEServiceController extends GetxController {
       final serviceName = b.eService?.name ?? 'N/A';
       final providerName = b.eProvider?.name ?? 'N/A';
       final customerName = b.user?.name ?? 'N/A';
-      final customerPhone = b.user?.phone ?? 'N/A';
+      final customerPhone = b.user?.phoneNumber ?? 'N/A';
       final address = b.address?.address ?? 'N/A';
       final bookingDate = b.bookingAt != null
           ? DateFormat('MMM d, yyyy – h:mm a').format(b.bookingAt!)
