@@ -800,7 +800,7 @@ class LaravelApiClient extends GetxService with ApiClient {
     const _queryParameters = {
       'parent': 'true',
       'orderBy': 'order',
-      'sortBy': 'asc',
+      'sortedBy': 'asc',
     };
     Uri _uri =
         getApiBaseUri("categories").replace(queryParameters: _queryParameters);
