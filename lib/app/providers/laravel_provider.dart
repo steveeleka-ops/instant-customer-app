@@ -196,11 +196,12 @@ class LaravelApiClient extends GetxService with ApiClient {
 
   Future<List<EService>> getRecommendedEServices() async {
     final _address = Get.find<SettingsService>().address.value;
-    // TODO get Only Recommended
     var _queryParameters = {
       'only':
           'id;name;price;discount_price;price_unit;has_media;media;total_reviews;rate',
       'limit': '6',
+      'available_e_provider': '1',
+      'randomize': '1',
     };
     if (!_address.isUnknown()) {
       _queryParameters['myLat'] = _address.latitude.toString();
