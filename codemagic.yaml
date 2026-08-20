@@ -48,6 +48,7 @@ workflows:
           if [ -f /Users/builder/export_options.plist ]; then
             plutil -replace method -string "app-store-connect" /Users/builder/export_options.plist || true
           fi
+          pod repo update
           flutter build ipa --release \
             --build-name=1.0.7 \
             --build-number=51 \
