@@ -6,7 +6,7 @@ class NotificationService {
 
   Future<void> initNotification() async {
     AndroidInitializationSettings initializationSettingsAndroid =
-    const AndroidInitializationSettings('ic_launcher');
+    const AndroidInitializationSettings('ic_notification');
 
     var initializationSettingsIOS = IOSInitializationSettings(
         requestAlertPermission: true,
