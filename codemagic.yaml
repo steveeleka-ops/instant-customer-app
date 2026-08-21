@@ -131,7 +131,7 @@ workflows:
         script: |
           flutter build appbundle --release \
             --build-name=1.0.7 \
-            --build-number=52 \
+            --build-number=53 \
             --dart-define=RESEND_API_KEY=$RESEND_API_KEY
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
