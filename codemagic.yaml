@@ -52,8 +52,8 @@ workflows:
           fi
           pod repo update
           flutter build ipa --release \
-            --build-name=1.0.7 \
-            --build-number=53 \
+            --build-name=1.0.8 \
+            --build-number=54 \
             --dart-define=RESEND_API_KEY=$RESEND_API_KEY \
             --export-options-plist=/Users/builder/export_options.plist
     artifacts:
@@ -78,8 +78,8 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
-          echo "flutter.versionName=1.0.7" >> android/local.properties
-          echo "flutter.versionCode=52" >> android/local.properties
+          echo "flutter.versionName=1.0.8" >> android/local.properties
+          echo "flutter.versionCode=54" >> android/local.properties
       - name: Get packages
         script: flutter pub upgrade
       - name: Generate app icons
@@ -128,8 +128,8 @@ workflows:
       - name: Build Android App Bundle
         script: |
           flutter build appbundle --release \
-            --build-name=1.0.7 \
-            --build-number=53 \
+            --build-name=1.0.8 \
+            --build-number=54 \
             --dart-define=RESEND_API_KEY=$RESEND_API_KEY
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
