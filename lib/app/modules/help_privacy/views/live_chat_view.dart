@@ -10,19 +10,7 @@ class LiveChatView extends StatefulWidget {
 }
 
 class _LiveChatViewState extends State<LiveChatView> {
-  late final WebViewController _controller;
   bool _loading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setNavigationDelegate(NavigationDelegate(
-        onPageFinished: (_) => setState(() => _loading = false),
-      ))
-      ..loadRequest(Uri.parse('https://tawk.to/chat/6a8aa3f3b56df5344af1cfd6/1k0mp0ruj'));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +32,11 @@ class _LiveChatViewState extends State<LiveChatView> {
       ),
       body: Stack(
         children: [
-          WebViewWidget(controller: _controller),
+          WebView(
+            initialUrl: 'https://tawk.to/chat/6a8aa3f3b56df5344af1cfd6/1k0mp0ruj',
+            javascriptMode: JavascriptMode.unrestricted,
+            onPageFinished: (_) => setState(() => _loading = false),
+          ),
           if (_loading)
             Center(
               child: Column(
