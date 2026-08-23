@@ -92,7 +92,9 @@ class ChatsView extends GetView<MessagesController> {
             else
               return SizedBox();
           }),
-          Container(
+          SafeArea(
+            top: false,
+            child: Container(
             decoration: BoxDecoration(
               color: Get.theme.primaryColor,
               boxShadow: [BoxShadow(color: Theme.of(context).hintColor.withOpacity(0.10), offset: Offset(0, -4), blurRadius: 10)],
@@ -168,6 +170,7 @@ class ChatsView extends GetView<MessagesController> {
                 ),
               ],
             ),
+          ),
           )
         ],
       ),
