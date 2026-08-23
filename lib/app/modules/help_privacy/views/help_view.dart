@@ -5,6 +5,7 @@ import '../../../providers/laravel_provider.dart';
 import '../../global_widgets/tab_bar_widget.dart';
 import '../controllers/help_controller.dart';
 import '../widgets/faq_item_widget.dart';
+import 'live_chat_view.dart';
 
 class HelpView extends GetView<HelpController> {
   @override
@@ -74,6 +75,24 @@ class HelpView extends GetView<HelpController> {
                     return FaqItemWidget(faq: controller.faqs.elementAt(indexFaq));
                   },
                 ),
+                SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () => Get.to(() => LiveChatView()),
+                    icon: Icon(Icons.chat_bubble_outline, color: Get.theme.primaryColor),
+                    label: Text(
+                      'Chat with Support',
+                      style: Get.textTheme.titleSmall?.copyWith(color: Get.theme.primaryColor),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Get.theme.colorScheme.secondary,
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ),

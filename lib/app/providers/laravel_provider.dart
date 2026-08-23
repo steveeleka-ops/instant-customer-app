@@ -1490,6 +1490,16 @@ class LaravelApiClient extends GetxService with ApiClient {
     }
   }
 
+  Future<bool> contactSupport(String message) async {
+    Uri _uri = getApiBaseUri("contact_support");
+    var response = await _httpClient.postUri(_uri, data: {'message': message}, options: _optionsNetwork);
+    if (response.data['success'] == true) {
+      return true;
+    } else {
+      throw new Exception(response.data['message']);
+    }
+  }
+
   Future<List<Faq>> getFaqs(String categoryId) async {
     var _queryParameters = {
       'search': 'faq_category_id:${categoryId}',
