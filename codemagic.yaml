@@ -128,8 +128,8 @@ workflows:
       - name: Build Android App Bundle
         script: |
           flutter build appbundle --release \
-            --build-name=1.0.9 \
-            --build-number=55 \
+            --build-name=1.0.10 \
+            --build-number=56 \
             --dart-define=RESEND_API_KEY=$RESEND_API_KEY
     artifacts:
       - build/app/outputs/bundle/release/app-release.aab
