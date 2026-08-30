@@ -68,22 +68,14 @@
 	<string>Bluetooth is required</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Bluetooth is required</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>This app requires</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to take the photo from camera</string>
 	<key>NSContactsUsageDescription</key>
 	<string>This app requires to contact delivery boy or owner of markets</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Localization is required to find where you are</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app needs access to location when in the background.</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Localization is required to find where you are</string>
+	<string>Instant Provider uses your location to find and show you nearby service providers and to fill in your service address automatically.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Localization is required to find where you are</string>
-	<key>NSMotionUsageDescription</key>
-	<string>This app requires</string>
+	<string>Instant Provider uses your location to find and show you nearby service providers and to fill in your service address automatically.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) photos add description.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
