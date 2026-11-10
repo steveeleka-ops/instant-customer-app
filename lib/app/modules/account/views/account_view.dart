@@ -8,6 +8,7 @@ import '../../../services/auth_service.dart';
 import '../../global_widgets/notifications_button_widget.dart';
 import '../../root/controllers/root_controller.dart';
 import '../controllers/account_controller.dart';
+import '../widgets/account_deletion_request.dart';
 import '../widgets/account_link_widget.dart';
 
 class AccountView extends GetView<AccountController> {
@@ -200,6 +201,13 @@ class AccountView extends GetView<AccountController> {
                     text: Text("Help & FAQ".tr),
                     onTap: (e) {
                       Get.toNamed(Routes.HELP);
+                    },
+                  ),
+                  AccountLinkWidget(
+                    icon: Icon(Icons.delete_outline, color: Get.theme.colorScheme.secondary),
+                    text: Text("Request Account Deletion".tr),
+                    onTap: (e) {
+                      showAccountDeletionRequest();
                     },
                   ),
                   AccountLinkWidget(
